@@ -242,8 +242,8 @@ export default function About() {
                     {/* call-back-area */}
                     <section className="call-back-area">
                         <div className="container">
-                            <div className="row">
-                                <div className="col-lg-6">
+                            <div className="row align-items-center">
+                                <div className="col-lg-7">
                                     <div className="call-back-content">
                                         <div className="section-title white-title mb-10">
                                             <h2 className="title">Request A Call Back</h2>
@@ -254,30 +254,10 @@ export default function About() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-lg-6">
-                                    <div className="call-back-form">
-                                        <form action="#">
-                                            <div className="row">
-                                                <div className="col-md-6">
-                                                    <div className="form-grp">
-                                                        <input type="text" placeholder="Name *" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <div className="form-grp">
-                                                        <input type="email" placeholder="E-mail *" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <div className="form-grp">
-                                                        <input type="tel" placeholder="Phone *" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <button type="submit" className="btn">Send Now</button>
-                                                </div>
-                                            </div>
-                                        </form>
+                                <div className="col-lg-5">
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                                        <Link href="/get-started" className="btn" style={{ textAlign: 'center' }}>Start New Client Intake</Link>
+                                        <Link href="/contact" className="btn border-btn" style={{ textAlign: 'center' }}>Send Us a Message</Link>
                                     </div>
                                 </div>
                             </div>

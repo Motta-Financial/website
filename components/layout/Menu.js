@@ -4,25 +4,8 @@ export default function Menu() {
   return (
     <>
       <ul className="navigation">
-        <li className="active">
+        <li>
           <Link href="/">Home</Link>
-          {/* <ul className="sub-menu">
-            <li className="active">
-              <Link href="/">Business</Link>
-            </li>
-            <li>
-              <Link href="/index-2">Finance</Link>
-            </li>
-            <li>
-              <Link href="/index-3">Consulting</Link>
-            </li>
-            <li>
-              <Link href="/index-4">Insurance</Link>
-            </li>
-            <li>
-              <Link href="/index-5">Digital agency</Link>
-            </li>
-          </ul> */}
         </li>
         <li className="menu-item-has-children">
           <Link href="/about">About Us</Link>
@@ -36,16 +19,16 @@ export default function Menu() {
           </ul>
         </li>
         <li className="menu-item-has-children">
-          <Link href="#">Services</Link>
+          <Link href="/services">Services</Link>
           <ul className="sub-menu">
             <li>
               <Link href="/services/tax-planning">
-                Tax Planning & Preparation
+                Tax Planning &amp; Preparation
               </Link>
             </li>
             <li>
               <Link href="/services/accounting-advisory">
-                Accounting Advisory & Payroll Services
+                Accounting Advisory &amp; Payroll
               </Link>
             </li>
             <li>
@@ -55,7 +38,7 @@ export default function Menu() {
             </li>
             <li>
               <Link href="/services/financial-planning">
-                Financial Planning & Advisory
+                Financial Planning &amp; Advisory
               </Link>
             </li>
             <li>
@@ -65,29 +48,19 @@ export default function Menu() {
             </li>
             <li>
               <Link href="/services/financial-statement-analysis">
-                Financial Statement Preparation & Analysis
+                Financial Statement Analysis
               </Link>
             </li>
           </ul>
         </li>
-        <li className="menu-item-has-children">
-          <Link href="#">Resources</Link>
-          <ul className="sub-menu">
-            <li>
-              <Link href="/">Articles</Link>
-            </li>
-            <li>
-              <Link href="/">Where's My Refund?</Link>
-            </li>
-            <li>
-              <Link href="/">FAQs</Link>
-            </li>
-          </ul>
+        <li>
+          <Link href="/get-started">New Client Intake</Link>
         </li>
         <li>
-          <Link href="/">Contact Us</Link>
+          <Link href="/contact">Contact</Link>
         </li>
       </ul>
     </>
   );
 }
+
