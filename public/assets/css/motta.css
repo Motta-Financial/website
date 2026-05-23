@@ -1164,3 +1164,277 @@
   color: var(--motta-sage-deep, #6b745d);
 }
 
+/* ============================================================
+   GLOBAL CREAM-FIRST THEME (sitewide)
+   ------------------------------------------------------------
+   The About page set the visual baseline: a warm cream canvas
+   (#F4F1EB / #EAE6E1), white "card" surfaces only when needed,
+   and sage-tinted gradient transitions between sections. The
+   rules below extend that look to every page so things blend
+   instead of jumping between flat white and dark.
+   ============================================================ */
+
+:root {
+  --motta-cream-50:  #FBF8F2; /* lightest cream — pages */
+  --motta-cream-100: #F4F1EB; /* default cream */
+  --motta-cream-200: #EAE6E1; /* warm off-white token */
+  --motta-cream-300: #E2DDD5; /* deeper section break */
+  --motta-cream-400: #D8D2C7; /* dividers / quiet borders */
+}
+
+/* Base canvas: shift the page from pure white to warm cream.
+   Templates often hard-code white on <body>; the gradient here
+   wins because it's loaded after main.css. */
+html, body {
+  background: var(--motta-cream-50) !important;
+  color: var(--motta-charcoal);
+}
+
+/* Soften any "white-bg" / utility-white sections used in the
+   template so they blend into the cream canvas instead of
+   creating a hard slab. */
+.white-bg,
+.bg-white,
+section.white-bg,
+.section-bg-white {
+  background: var(--motta-cream-50) !important;
+}
+
+/* Common template section wrappers — pull them toward cream.
+   These selectors come from main.css and the page templates. */
+.about-area,
+.services-area,
+.team-area,
+.testimonial-area,
+.faq-area,
+.brand-area,
+.blog-area,
+.blog-post-area,
+.contact-area,
+.work-area,
+.feature-area,
+.counter-area,
+.choose-area,
+.cta-area,
+.pricing-area,
+.project-area,
+.inner-blog-area,
+.inner-services-area,
+.inner-about-area {
+  background-color: var(--motta-cream-50);
+}
+
+/* Alternating section tint — every other section drops a half
+   step deeper for editorial rhythm without going gray. */
+main > section:nth-of-type(even):not([class*="bg-"]):not([class*="black"]):not([class*="dark"]):not([class*="theme"]) {
+  background-color: var(--motta-cream-100);
+}
+
+/* Soft sage-tinted bleed between two cream sections so they
+   feel continuous rather than stacked panels. */
+main > section + section::before {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: -1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(107, 116, 93, 0.18) 50%,
+    transparent 100%
+  );
+}
+
+/* Cards / inner surfaces stay near-white but warm, so they
+   read as "lifted" against the cream canvas instead of
+   pure-white on white. */
+.services-item,
+.about-item,
+.team-item,
+.blog-item,
+.blog-post-item,
+.pricing-item,
+.testimonial-item,
+.faq-wrap,
+.feature-item,
+.choose-item,
+.work-item,
+.project-item,
+.contact-info-wrap,
+.tab-content,
+.card,
+.shop-item {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(107, 116, 93, 0.10);
+  box-shadow: 0 14px 32px -22px rgba(15, 19, 16, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.services-item:hover,
+.about-item:hover,
+.team-item:hover,
+.blog-item:hover,
+.blog-post-item:hover,
+.pricing-item:hover,
+.testimonial-item:hover,
+.feature-item:hover,
+.choose-item:hover,
+.work-item:hover,
+.project-item:hover {
+  border-color: rgba(107, 116, 93, 0.32);
+  box-shadow: 0 22px 44px -22px rgba(15, 19, 16, 0.28);
+}
+
+/* Any "gray" template fills become the deeper cream so the
+   site never goes blue-gray or yellow-gray. */
+.grey-bg,
+.gray-bg,
+.section-bg,
+.section-bg-2,
+.bg-gray,
+.bg-grey {
+  background: var(--motta-cream-200) !important;
+}
+
+/* Dark sections: keep them dark, but warm the black toward
+   the charcoal-olive used on the About "what we do" band so
+   dark blocks sitewide feel like the same material. */
+.black-bg,
+.bg-black,
+.theme-bg,
+.primary-bg,
+.dark-bg,
+section.dark-bg {
+  background:
+    radial-gradient(900px 500px at 80% 0%, rgba(142, 155, 121, 0.12) 0%, transparent 60%),
+    linear-gradient(180deg, #1f261c 0%, #14180f 100%) !important;
+  color: var(--motta-cream-100);
+}
+.black-bg .title,
+.black-bg h1, .black-bg h2, .black-bg h3, .black-bg h4,
+.dark-bg .title,
+.dark-bg h1, .dark-bg h2, .dark-bg h3, .dark-bg h4 {
+  color: var(--motta-cream-100);
+}
+
+/* Breadcrumb hero (used on every inner page) — overlay it with
+   the same sage/cream wash the About page uses so every page
+   header reads as one family. The page can still pass its own
+   image via the `breadcrumbImage` prop. */
+.breadcrumb-area,
+.inner-banner-area,
+.page-banner {
+  position: relative;
+  background-color: var(--motta-cream-200);
+}
+.breadcrumb-area::after,
+.inner-banner-area::after,
+.page-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(31, 38, 28, 0.55) 0%, rgba(20, 24, 15, 0.7) 100%),
+    radial-gradient(700px 400px at 20% 0%, rgba(142, 155, 121, 0.35) 0%, transparent 60%);
+  mix-blend-mode: normal;
+  z-index: 0;
+}
+.breadcrumb-area > *,
+.inner-banner-area > *,
+.page-banner > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Footer should sit on the same warm cream → charcoal handoff
+   as the About CTA, not on whatever hard color the template
+   ships. */
+footer,
+.footer-area,
+.footer__area {
+  background:
+    linear-gradient(180deg, var(--motta-cream-200) 0%, #1f261c 35%) !important;
+}
+
+/* Form fields — match the cream canvas so they feel built-in
+   rather than dropped on top. */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="password"],
+textarea,
+select {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(107, 116, 93, 0.22);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--motta-sage);
+  box-shadow: 0 0 0 3px rgba(142, 155, 121, 0.18);
+  outline: none;
+}
+
+/* Buttons — match the About page CTA family so primary CTAs
+   look the same on every page. */
+.btn,
+.tg-btn-1,
+.tg-button,
+button.theme-btn {
+  background: var(--motta-sage);
+  border: 1px solid var(--motta-sage);
+  color: var(--motta-cream-100);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.btn:hover,
+.tg-btn-1:hover,
+.tg-button:hover,
+button.theme-btn:hover {
+  background: var(--motta-sage-deep);
+  border-color: var(--motta-sage-deep);
+  color: var(--motta-cream-100);
+}
+.border-btn,
+.btn-outline,
+.tg-btn-outline {
+  background: transparent;
+  border: 1px solid var(--motta-sage);
+  color: var(--motta-sage-deep);
+}
+.border-btn:hover,
+.btn-outline:hover,
+.tg-btn-outline:hover {
+  background: var(--motta-sage);
+  color: var(--motta-cream-100);
+}
+
+/* Section title accent line — use the sage from the About page
+   so headings across the site share the same accent. */
+.section-title__overline,
+.section__title-tag,
+.section-title-tag {
+  color: var(--motta-sage-deep) !important;
+  letter-spacing: 0.18em;
+}
+.section-title__overline::before,
+.section__title-tag::before {
+  background: var(--motta-sage) !important;
+}
+
+/* Links inside copy take the sage-deep color, not generic blue. */
+main a:not(.btn):not(.tg-btn-1):not(.tg-button):not(.border-btn):not(.motta-link):not([class*="motta-"]) {
+  color: var(--motta-sage-deep);
+}
+main a:not(.btn):not(.tg-btn-1):not(.tg-button):not(.border-btn):not(.motta-link):not([class*="motta-"]):hover {
+  color: var(--motta-charcoal);
+}
+
+
