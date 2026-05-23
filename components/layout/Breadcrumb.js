@@ -1,47 +1,39 @@
 import Link from 'next/link';
 
-export default function Breadcrumb({ breadcrumbTitle }) {
+export default function Breadcrumb({ breadcrumbTitle, eyebrow }) {
   return (
-    <>
-      <section
-        className="breadcrumb__area breadcrumb__bg"
-        data-background="/assets/img/bg/breadcrumb_bg.jpg"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6">
-              <div className="breadcrumb__content">
-                <h2 className="title">{breadcrumbTitle}</h2>
-                <nav aria-label="breadcrumb">
-                  <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                      <Link href="/">Home</Link>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current="page">
-                      {breadcrumbTitle}
-                    </li>
-                  </ol>
-                </nav>
-              </div>
+    <section className="breadcrumb__area motta-breadcrumb" aria-label="Page header">
+      <div className="motta-breadcrumb__grid" aria-hidden="true" />
+      <div className="motta-breadcrumb__glow" aria-hidden="true" />
+      <div className="motta-breadcrumb__rule" aria-hidden="true" />
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-9">
+            <div className="breadcrumb__content motta-breadcrumb__content">
+              {eyebrow ? (
+                <span className="motta-breadcrumb__eyebrow">
+                  <span className="motta-breadcrumb__eyebrow-dot" aria-hidden="true" />
+                  {eyebrow}
+                </span>
+              ) : null}
+              <h1 className="title motta-breadcrumb__title">{breadcrumbTitle}</h1>
+              <nav aria-label="breadcrumb">
+                <ol className="breadcrumb motta-breadcrumb__crumbs">
+                  <li className="breadcrumb-item">
+                    <Link href="/">Home</Link>
+                  </li>
+                  <li
+                    className="breadcrumb-item active"
+                    aria-current="page"
+                  >
+                    {breadcrumbTitle}
+                  </li>
+                </ol>
+              </nav>
             </div>
           </div>
         </div>
-        <div className="breadcrumb__shape">
-          <img src="/assets/img/images/breadcrumb_shape01.png" alt="" />
-          <img
-            src="/assets/img/images/breadcrumb_shape02.png"
-            alt=""
-            className="rightToLeft"
-          />
-          <img src="/assets/img/images/breadcrumb_shape03.png" alt="" />
-          <img src="/assets/img/images/breadcrumb_shape04.png" alt="" />
-          <img
-            src="/assets/img/images/breadcrumb_shape05.png"
-            alt=""
-            className="alltuchtopdown"
-          />
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

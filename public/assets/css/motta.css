@@ -433,3 +433,134 @@
   color: var(--motta-sage-deep);
 }
 
+/* ===== Tech-forward breadcrumb / page header =====
+   Replaces the stock-photo + purple doodle banner with a quiet,
+   editorial header: dark charcoal field, subtle grid mesh, a single
+   sage glow, an animated hairline rule, and a typewriter-style
+   eyebrow. Designed to feel like a CPA who builds software, not a
+   marketing template. ===== */
+.motta-breadcrumb {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 110px 0 90px;
+  background:
+    radial-gradient(1200px 400px at 85% 0%, rgba(142, 155, 121, 0.12) 0%, transparent 60%),
+    linear-gradient(180deg, #1A1F18 0%, #14180F 60%, #0F1310 100%);
+  color: var(--motta-warm);
+  border-bottom: 1px solid rgba(142, 155, 121, 0.18);
+}
+@media (max-width: 767px) {
+  .motta-breadcrumb { padding: 80px 0 64px; }
+}
+.motta-breadcrumb__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(234, 230, 225, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(234, 230, 225, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 30% 50%, rgba(0,0,0,0.85) 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 30% 50%, rgba(0,0,0,0.85) 0%, transparent 70%);
+  z-index: -1;
+  opacity: 0.7;
+}
+.motta-breadcrumb__glow {
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(142, 155, 121, 0.22) 0%, transparent 65%);
+  filter: blur(20px);
+  z-index: -1;
+  pointer-events: none;
+}
+.motta-breadcrumb__rule {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(142, 155, 121, 0.55) 30%,
+    rgba(142, 155, 121, 0.85) 50%,
+    rgba(142, 155, 121, 0.55) 70%,
+    transparent 100%);
+  background-size: 200% 100%;
+  animation: motta-rule-pan 9s linear infinite;
+}
+@keyframes motta-rule-pan {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.motta-breadcrumb__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.motta-breadcrumb__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  font-family: var(--tg-heading-font-family, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--motta-alfred-glow);
+  padding: 6px 12px;
+  border: 1px solid rgba(142, 155, 121, 0.35);
+  border-radius: 999px;
+  background: rgba(142, 155, 121, 0.08);
+}
+.motta-breadcrumb__eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--motta-alfred-glow);
+  box-shadow: 0 0 10px var(--motta-alfred-glow);
+  animation: motta-dot-pulse 2.4s ease-in-out infinite;
+}
+@keyframes motta-dot-pulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.8); }
+}
+.motta-breadcrumb__title {
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--motta-warm);
+  margin: 0;
+  text-wrap: balance;
+}
+.motta-breadcrumb__crumbs.breadcrumb {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.motta-breadcrumb__crumbs .breadcrumb-item,
+.motta-breadcrumb__crumbs .breadcrumb-item a {
+  color: rgba(234, 230, 225, 0.65);
+}
+.motta-breadcrumb__crumbs .breadcrumb-item a:hover {
+  color: var(--motta-alfred-glow);
+}
+.motta-breadcrumb__crumbs .breadcrumb-item.active {
+  color: var(--motta-warm);
+}
+.motta-breadcrumb__crumbs .breadcrumb-item + .breadcrumb-item::before {
+  content: "/";
+  color: rgba(142, 155, 121, 0.55);
+  padding: 0 8px;
+}
+
+/* Honor reduced-motion: kill the rule pan + dot pulse. */
+@media (prefers-reduced-motion: reduce) {
+  .motta-breadcrumb__rule { animation: none; }
+  .motta-breadcrumb__eyebrow-dot { animation: none; }
+}
+

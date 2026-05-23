@@ -27,6 +27,7 @@ export default function Layout({
   footerStyle,
   headTitle,
   breadcrumbTitle,
+  breadcrumbEyebrow,
   children,
   transparent,
 }) {
@@ -136,7 +137,7 @@ export default function Layout({
       ) : null}
 
       <main className="fix">
-        {breadcrumbTitle && <Breadcrumb breadcrumbTitle={breadcrumbTitle} />}
+        {breadcrumbTitle && <Breadcrumb breadcrumbTitle={breadcrumbTitle} eyebrow={breadcrumbEyebrow} />}
 
         {children}
       </main>
