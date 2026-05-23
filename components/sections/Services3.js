@@ -5,28 +5,24 @@ const SERVICES = [
     icon: 'flaticon-profit',
     title: 'Tax Planning & Preparation',
     href: '/services/tax-planning',
-    share: '37%',
-    desc: 'Federal and multi-state filing, quarterly estimates, and year-round planning for individuals, businesses, and trusts. ALFRED + ProConnect cuts routine returns from hours to minutes.',
+    desc: 'Federal and multi-state filing, quarterly estimates, and year-round planning for individuals, businesses, and trusts. ALFRED + ProConnect drafts routine returns in minutes, not hours.',
   },
   {
     icon: 'flaticon-target',
     title: 'Tax Advisory',
     href: '/services/tax-planning',
-    share: '3%',
     desc: 'Entity structuring, equity compensation strategy (RSUs, ISOs, NSOs, ESPPs), real estate planning, multi-entity / multi-state work, and international reporting.',
   },
   {
     icon: 'flaticon-financial-profit',
     title: 'Accounting & Bookkeeping',
     href: '/services/accounting-advisory',
-    share: '45%',
     desc: 'Outsourced controllership, monthly close, financial reporting, payroll migration, ERP and QuickBooks support, and fractional CFO engagements.',
   },
   {
     icon: 'flaticon-piggy-bank',
     title: 'Financial Planning',
     href: '/services/financial-planning',
-    share: '4%',
     desc: 'Holistic personal financial planning, retirement strategy, risk management, and investment advisory through Motta Wealth Management — led by a CFP®.',
   },
 ];
@@ -58,19 +54,6 @@ export default function Services3() {
                       <h2 className="title">
                         <Link href={s.href}>{s.title}</Link>
                       </h2>
-                      <span
-                        style={{
-                          display: 'inline-block',
-                          marginTop: 6,
-                          fontSize: 12,
-                          fontWeight: 600,
-                          letterSpacing: '0.06em',
-                          textTransform: 'uppercase',
-                          color: 'var(--motta-sage)',
-                        }}
-                      >
-                        {s.share} of FY26 revenue
-                      </span>
                     </div>
                   </div>
                   <div className="services__content-three">

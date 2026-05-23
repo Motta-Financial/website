@@ -19,7 +19,7 @@ export default function AlfredCompanion() {
     const tips = [
       'Powered by ALFRED Ai',
       'ALFRED reads ProConnect data live',
-      'Tax prep in under 10 minutes',
+      'Tax prep drafted in minutes, not hours',
       'ALFRED is here. Need a hand?',
     ];
 

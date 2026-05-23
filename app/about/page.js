@@ -1,4 +1,3 @@
-import CounterUp from "@/components/elements/CounterUp"
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 
@@ -166,63 +165,10 @@ export default function About() {
                     </section>
                     {/* choose-area-end */}
 
-                    {/* counter-area — By the Numbers */}
-                    <section className="counter-area">
-                        <div className="container">
-                            <div className="row justify-content-center">
-                                <div className="col-xl-3 col-lg-4 col-sm-6">
-                                    <div className="counter-item">
-                                        <div className="icon">
-                                            <i className="flaticon-trophy" />
-                                        </div>
-                                        <div className="content">
-                                            <h2 className="count"><CounterUp count={525} />+</h2>
-                                            <p>Returns Filed <br /> TY2025</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-3 col-lg-4 col-sm-6">
-                                    <div className="counter-item">
-                                        <div className="icon">
-                                            <i className="flaticon-happy" />
-                                        </div>
-                                        <div className="content">
-                                            <h2 className="count"><CounterUp count={606} />+</h2>
-                                            <p>Returns In Progress <br /> TY2026</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-3 col-lg-4 col-sm-6">
-                                    <div className="counter-item">
-                                        <div className="icon">
-                                            <i className="flaticon-china" />
-                                        </div>
-                                        <div className="content">
-                                            <h2 className="count"><CounterUp count={13} /></h2>
-                                            <p>Team Members <br /> US &amp; Chennai</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-3 col-lg-4 col-sm-6">
-                                    <div className="counter-item">
-                                        <div className="icon">
-                                            <i className="flaticon-time" />
-                                        </div>
-                                        <div className="content">
-                                            <h2 className="count">$<CounterUp count={0} /></h2>
-                                            <p>Capital Raised <br /> Bootstrapped Growth</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="counter-shape-wrap">
-                            <img src="/assets/img/images/counter_shape01.png" alt="" data-aos="fade-right" data-aos-delay={400} />
-                            <img src="/assets/img/images/counter_shape02.png" alt="" data-parallax="{&quot;x&quot; : 100 , &quot;y&quot; : -100 }" />
-                            <img src="/assets/img/images/counter_shape03.png" alt="" data-aos="fade-left" data-aos-delay={400} />
-                        </div>
-                    </section>
-                    {/* counter-area-end */}
+                    {/* counter-area removed: investor-deck metrics
+                        (return counts, team headcount, capital raised)
+                        intentionally kept off the public marketing site. */}
+
 
                     {/* niches-area — Where We Go Deep */}
                     <section className="choose__area-four" style={{ background: "#f7f7f7" }}>

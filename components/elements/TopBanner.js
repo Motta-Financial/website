@@ -6,7 +6,7 @@ import AlfredLogo from './AlfredLogo';
 const MESSAGES = [
   {
     pill: 'ALFRED Ai',
-    text: 'Tax prep that used to take 3–4 hours now runs in under 10 minutes — powered by ALFRED, our proprietary AI.',
+    text: 'Routine tax prep, drafted in minutes — so our CPAs can spend their time on planning, not data entry. Powered by ALFRED, our proprietary AI.',
     cta: 'See how it works →',
     href: '/about',
   },
