@@ -376,3 +376,60 @@
   background: linear-gradient(90deg, transparent 0%, var(--motta-alfred-glow) 50%, transparent 100%);
   opacity: 0.5;
 }
+
+/* ===== Contact page: re-skin the template's gray-3 (cool blue) blocks
+   with the Motta warm cream / soft sage palette so /contact stays
+   on-brand instead of reading as a stock corporate blue. ===== */
+.contact__info .list-wrap li .icon {
+  background: var(--motta-warm);
+  color: var(--motta-sage);
+  box-shadow: inset 0 0 0 1px rgba(107, 116, 93, 0.15);
+}
+.contact__form-wrap {
+  background: linear-gradient(180deg, #F4F1EB 0%, #EAE6E1 100%);
+  border: 1px solid rgba(107, 116, 93, 0.18);
+}
+.contact__form-wrap .form-grp input,
+.contact__form-wrap .form-grp textarea,
+.contact__form-wrap input[type="text"],
+.contact__form-wrap input[type="email"],
+.contact__form-wrap input[type="tel"],
+.contact__form-wrap textarea {
+  background: var(--motta-white);
+  border: 1px solid rgba(107, 116, 93, 0.22);
+  color: var(--motta-charcoal);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.contact__form-wrap .form-grp input:focus,
+.contact__form-wrap .form-grp textarea:focus,
+.contact__form-wrap input:focus,
+.contact__form-wrap textarea:focus {
+  outline: none;
+  border-color: var(--motta-sage);
+  box-shadow: 0 0 0 3px rgba(142, 155, 121, 0.22);
+}
+.contact__form-wrap .form-grp input::placeholder,
+.contact__form-wrap .form-grp textarea::placeholder,
+.contact__form-wrap input::placeholder,
+.contact__form-wrap textarea::placeholder {
+  color: rgba(51, 51, 51, 0.55);
+}
+.contact__form-wrap .btn {
+  background: var(--motta-sage);
+  border-color: var(--motta-sage);
+  color: var(--motta-warm);
+}
+.contact__form-wrap .btn:hover {
+  background: var(--motta-sage-deep);
+  border-color: var(--motta-sage-deep);
+}
+.hub-form__success {
+  background: linear-gradient(180deg, #F4F1EB 0%, #EAE6E1 100%);
+  border: 1px solid rgba(107, 116, 93, 0.18);
+  border-radius: 8px;
+  padding: 32px;
+}
+.hub-form__success .title {
+  color: var(--motta-sage-deep);
+}
+
