@@ -1,4 +1,6 @@
 import Link from "next/link"
+import InstagramFeed from "@/components/elements/InstagramFeed"
+import { SOCIALS } from "@/lib/socials"
 
 export default function Footer4() {
     return (
@@ -43,11 +45,8 @@ export default function Footer4() {
                                         </div>
                                         <div className="footer__social-three">
                                             <ul className="list-wrap">
-                                                <li><Link href="/javascript:void(0)"><i className="fab fa-facebook-f" /></Link></li>
-                                                <li><Link href="/javascript:void(0)"><i className="fab fa-twitter" /></Link></li>
-                                                <li><Link href="/javascript:void(0)"><i className="fab fa-instagram" /></Link></li>
-                                                <li><Link href="/javascript:void(0)"><i className="fab fa-pinterest-p" /></Link></li>
-                                                <li><Link href="/javascript:void(0)"><i className="fab fa-youtube" /></Link></li>
+                                                <li><a href={SOCIALS.instagram.url} target="_blank" rel="noopener noreferrer" aria-label="Motta Financial on Instagram"><i className="fab fa-instagram" /></a></li>
+                                                <li><a href={SOCIALS.linkedin.url} target="_blank" rel="noopener noreferrer" aria-label="Motta Financial on LinkedIn"><i className="fab fa-linkedin-in" /></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -84,16 +83,7 @@ export default function Footer4() {
                                 <div className="col-xl-3 col-lg-4 col-md-6">
                                     <div className="footer-widget">
                                         <h4 className="fw-title">Instagram Posts</h4>
-                                        <div className="footer-instagram">
-                                            <ul className="list-wrap">
-                                                <li><Link href="/javascript:void(0)"><img src="/assets/img/images/footer_insta01.jpg" alt="" /></Link></li>
-                                                <li><Link href="/javascript:void(0)"><img src="/assets/img/images/footer_insta02.jpg" alt="" /></Link></li>
-                                                <li><Link href="/javascript:void(0)"><img src="/assets/img/images/footer_insta03.jpg" alt="" /></Link></li>
-                                                <li><Link href="/javascript:void(0)"><img src="/assets/img/images/footer_insta04.jpg" alt="" /></Link></li>
-                                                <li><Link href="/javascript:void(0)"><img src="/assets/img/images/footer_insta05.jpg" alt="" /></Link></li>
-                                                <li><Link href="/javascript:void(0)"><img src="/assets/img/images/footer_insta06.jpg" alt="" /></Link></li>
-                                            </ul>
-                                        </div>
+                                        <InstagramFeed limit={6} />
                                     </div>
                                 </div>
                             </div>
