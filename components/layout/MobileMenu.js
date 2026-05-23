@@ -31,13 +31,10 @@ export default function MobileMenu() {
                         <li><Link href="index-5">Digital agency</Link></li>
                     </ul>
                     <div className={isActive.key == 1 ? "dropdown-btn open" : "dropdown-btn"} onClick={() => handleToggle(1)}><span className="plus-line" /></div></li>
-                <li className="menu-item-has-children"><Link href="#">About Us</Link>
+                <li className="menu-item-has-children"><Link href="/about">About Us</Link>
                     <ul className="sub-menu" style={{ display: `${isActive.key == 2 ? "block" : "none"}` }}>
-                        <li><Link href="about">Business About</Link></li>
-                        <li><Link href="about-2">Finance About</Link></li>
-                        <li><Link href="about-5">Consulting About</Link></li>
-                        <li><Link href="about-3">Insurance About</Link></li>
-                        <li><Link href="about-4">Digital agency About</Link></li>
+                        <li><Link href="/about">About Motta</Link></li>
+                        <li><Link href="/about/team">Meet Our Professionals</Link></li>
                     </ul>
                     <div className={isActive.key == 2 ? "dropdown-btn open" : "dropdown-btn"} onClick={() => handleToggle(2)}><span className="plus-line" /></div></li>
                 <li className="menu-item-has-children"><Link href="#">Services</Link>

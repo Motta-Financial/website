@@ -24,25 +24,16 @@ export default function Menu() {
             </li>
           </ul> */}
         </li>
-        <li className="">
-          <Link href="#about">About Us</Link>
-          {/* <ul className="sub-menu">
+        <li className="menu-item-has-children">
+          <Link href="/about">About Us</Link>
+          <ul className="sub-menu">
             <li>
-              <Link href="/about">Business About</Link>
+              <Link href="/about">About Motta</Link>
             </li>
             <li>
-              <Link href="/about-2">Finance About</Link>
+              <Link href="/about/team">Meet Our Professionals</Link>
             </li>
-            <li>
-              <Link href="/about-5">Consulting About</Link>
-            </li>
-            <li>
-              <Link href="/about-3">Insurance About</Link>
-            </li>
-            <li>
-              <Link href="/about-4">Digital agency About</Link>
-            </li>
-          </ul> */}
+          </ul>
         </li>
         <li className="menu-item-has-children">
           <Link href="#">Services</Link>
