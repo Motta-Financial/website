@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import IntakeButton from '@/components/intake/IntakeButton';
 
 export default function Menu() {
   return (
@@ -58,9 +57,6 @@ export default function Menu() {
               </Link>
             </li>
           </ul>
-        </li>
-        <li>
-          <IntakeButton className="motta-intake-link" source="nav">Become a Client</IntakeButton>
         </li>
         <li>
           <Link href="/contact">Contact</Link>

@@ -14,14 +14,14 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, transp
                         <div className="row">
                             <div className="col-lg-6">
                                 <ul className="tg-header__top-info left-side list-wrap">
-                                    <li><i className="flaticon-phone-call" /><Link href="/tel:0123456789">+123 9898 500</Link></li>
-                                    <li><i className="flaticon-pin" />256 Avenue, Mark Street, NewYork City</li>
+                                    <li><i className="flaticon-pin" />Boston, MA &nbsp;&middot;&nbsp; Las Vegas, NV</li>
+                                    <li><i className="flaticon-time" />Mon&ndash;Fri: 9:00am &ndash; 5:00pm</li>
                                 </ul>
                             </div>
                             <div className="col-lg-6">
                                 <ul className="tg-header__top-right list-wrap">
-                                    <li><i className="flaticon-envelope" /><Link href="/mailto:info@apexa.com">info@apexa.com</Link></li>
-                                    <li><i className="flaticon-time" />Mon-Fri: 10:00am - 09:00pm</li>
+                                    <li><i className="flaticon-envelope" /><Link href="mailto:Info@MottaFinancial.com">Info@MottaFinancial.com</Link></li>
+                                    <li><i className="flaticon-phone-call" /><Link href="tel:+18573332787">(857) 333-2787</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, transp
                                                         </svg>
                                                     </a>
                                                 </li>
-                                                <li className="header-btn"><IntakeButton className="btn" source="header">Let&apos;s ship it</IntakeButton></li>
+                                                <li className="header-btn"><IntakeButton className="btn" source="header">Become a Client</IntakeButton></li>
                                             </ul>
                                         </div>
                                         <div className="mobile-nav-toggler" onClick={handleMobileMenu}>
@@ -100,8 +100,8 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, transp
                                         <div className="tgmobile__menu-bottom">
                                             <div className="contact-info">
                                                 <ul className="list-wrap">
-                                                    <li><Link href="/mailto:info@apexa.com">info@apexa.com</Link></li>
-                                                    <li><Link href="/tel:0123456789">+123 888 9999</Link></li>
+                                                    <li><Link href="mailto:Info@MottaFinancial.com">Info@MottaFinancial.com</Link></li>
+                                                    <li><Link href="tel:+18573332787">(857) 333-2787</Link></li>
                                                 </ul>
                                             </div>
                                             <div className="social-links">
