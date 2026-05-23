@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import InstagramFeed from '@/components/elements/InstagramFeed';
+import IntakeButton from '@/components/intake/IntakeButton';
 import { SOCIALS } from '@/lib/socials';
 
 export default function Footer1() {
@@ -111,7 +112,7 @@ export default function Footer1() {
                           <Link href="/services">All Services</Link>
                         </li>
                         <li>
-                          <Link href="/get-started">New Client Intake</Link>
+                          <IntakeButton className="motta-intake-link" source="footer">Become a Client</IntakeButton>
                         </li>
                         <li>
                           <Link href="/contact">Contact</Link>

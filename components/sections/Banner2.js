@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import IntakeButton from '@/components/intake/IntakeButton';
 
 export default function Banner2() {
   return (
@@ -19,14 +20,14 @@ export default function Banner2() {
                   Help You, Your Family, Clients, Or Business Achieve Your
                   Financial Goals.
                 </p>
-                <Link
-                  href="/get-started"
+                <IntakeButton
                   className="btn border-btn"
                   data-aos="fade-up"
                   data-aos-delay={600}
+                  source="banner"
                 >
-                  Get Started
-                </Link>
+                  Hire a smarter accountant
+                </IntakeButton>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import IntakeButton from '@/components/intake/IntakeButton'
 
 export default function Banner4() {
     return (
@@ -10,7 +10,7 @@ export default function Banner4() {
                             <div className="banner__content-four">
                                 <h2 className="title" data-aos="fade-up" data-aos-delay={100}>Agency's Vision for the <span>Next Generation</span> of Advertising</h2>
                                 <p data-aos="fade-up" data-aos-delay={300}>Agilos helps you to convert your data into a strategic asset and get business insights Agilos helps you to convert.</p>
-                                <Link href="/get-started" className="btn" data-aos="fade-up" data-aos-delay={600}>Get Started</Link>
+                                <IntakeButton className="btn" data-aos="fade-up" data-aos-delay={600} source="banner">Boot up an engagement</IntakeButton>
                                 <div className="shape">
                                     <img src="/assets/img/banner/h5_banner_shape01.png" alt="" className="rotateme" />
                                 </div>

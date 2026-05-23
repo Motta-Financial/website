@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
+import IntakeButton from '@/components/intake/IntakeButton';
 
 export const metadata = {
   title: 'All Services | Motta Financial',
@@ -99,9 +100,9 @@ export default function Services() {
                 Ready to talk to our team about what the right engagement looks
                 like?
               </p>
-              <Link href="/get-started" className="btn mr-10">
-                Start New Client Intake
-              </Link>
+              <IntakeButton className="btn mr-10" source="services">
+                Boot up an engagement
+              </IntakeButton>
               <Link href="/contact" className="btn border-btn">
                 Send Us a Message
               </Link>

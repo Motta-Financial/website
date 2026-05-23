@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import IntakeButton from '@/components/intake/IntakeButton';
 
 export default function Callback1() {
   return (
@@ -29,13 +30,13 @@ export default function Callback1() {
                 alignItems: 'flex-start',
               }}
             >
-              <Link
-                href="/get-started"
+              <IntakeButton
                 className="btn"
                 style={{ width: '100%', textAlign: 'center' }}
+                source="callback"
               >
-                Start New Client Intake
-              </Link>
+                Boot up an engagement
+              </IntakeButton>
               <Link
                 href="/contact"
                 className="btn border-btn"

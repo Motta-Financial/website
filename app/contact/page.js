@@ -1,6 +1,6 @@
 import Layout from '@/components/layout/Layout';
 import HubContactForm from '@/components/forms/HubContactForm';
-import Link from 'next/link';
+import IntakeButton from '@/components/intake/IntakeButton';
 
 export const metadata = {
   title: 'Contact Motta Financial',
@@ -20,10 +20,11 @@ export default function Contact() {
                   <h2 className="title">How can we help?</h2>
                   <p>
                     Tell us a little about what you&apos;re looking for and a member
-                    of the Motta team will follow up shortly. For new client
-                    onboarding, our{' '}
-                    <Link href="/get-started">new client intake</Link> form
-                    captures the details we need to get started faster.
+                    of the Motta team will follow up shortly. New here?{' '}
+                    <IntakeButton className="motta-intake-link" style={{ textDecoration: 'underline' }} source="contact">
+                      Boot up an engagement
+                    </IntakeButton>{' '}
+                    and we&apos;ll scope you faster.
                   </p>
                 </div>
                 <div className="contact__info">

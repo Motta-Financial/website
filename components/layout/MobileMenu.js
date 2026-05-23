@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
+import IntakeButton from '@/components/intake/IntakeButton';
 
 export default function MobileMenu() {
   const [isActive, setIsActive] = useState({ status: false, key: '' });
@@ -91,7 +92,7 @@ export default function MobileMenu() {
         </li>
 
         <li>
-          <Link href="/get-started">New Client Intake</Link>
+          <IntakeButton className="motta-intake-link" source="mobile-nav">Become a Client</IntakeButton>
         </li>
         <li>
           <Link href="/contact">Contact</Link>

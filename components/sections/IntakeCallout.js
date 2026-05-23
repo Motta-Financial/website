@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import IntakeButton from '@/components/intake/IntakeButton';
 
 /**
  * IntakeCallout — replaces the old mock "Request A Call Back" form blocks
- * across blog/details/template pages. Routes new clients into the real
- * /get-started intake form, and keeps "Send Us a Message" pointed at /contact.
+ * across blog/details/template pages. Opens the global intake modal for
+ * new clients, and keeps "Send Us a Message" pointed at /contact.
  */
 export default function IntakeCallout() {
   return (
@@ -38,13 +39,13 @@ export default function IntakeCallout() {
                 gap: 14,
               }}
             >
-              <Link
-                href="/get-started"
+              <IntakeButton
                 className="btn"
                 style={{ textAlign: 'center' }}
+                source="callout"
               >
-                Start New Client Intake
-              </Link>
+                Boot up an engagement
+              </IntakeButton>
               <Link
                 href="/contact"
                 className="btn border-btn"

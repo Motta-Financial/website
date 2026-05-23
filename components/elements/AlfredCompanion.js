@@ -1,23 +1,21 @@
 'use client';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 /**
  * Animated ALFRED companion that reacts to scroll.
- * - Hidden at the top of the page
- * - Slides in once the user starts scrolling
- * - Pulses periodically and "bounces" when crossing major sections
+ * Clicking opens the global new-client intake modal so the floating
+ * personality and the conversion CTA share the same surface.
  */
 export default function AlfredCompanion() {
   const [visible, setVisible] = useState(false);
   const [excited, setExcited] = useState(false);
-  const [tip, setTip] = useState('Powered by ALFRED Ai');
+  const [tip, setTip] = useState('Tap to chat with ALFRED');
 
   useEffect(() => {
     let lastY = 0;
     let crossings = 0;
     const tips = [
-      'Powered by ALFRED Ai',
+      'Tap to chat with ALFRED',
       'ALFRED reads ProConnect data live',
       'Tax prep drafted in minutes, not hours',
       'ALFRED is here. Need a hand?',
@@ -27,7 +25,6 @@ export default function AlfredCompanion() {
       const y = window.scrollY;
       setVisible(y > 280);
 
-      // Trigger an "excited" bounce every ~600px of scrolling
       const bucket = Math.floor(y / 600);
       const lastBucket = Math.floor(lastY / 600);
       if (bucket !== lastBucket) {
@@ -44,9 +41,18 @@ export default function AlfredCompanion() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  function open() {
+    window.dispatchEvent(
+      new CustomEvent('motta:open-intake', {
+        detail: { source: 'ALFRED' },
+      })
+    );
+  }
+
   return (
-    <Link
-      href="/get-started"
+    <button
+      type="button"
+      onClick={open}
       className="alfred-companion"
       data-visible={visible}
       data-state={excited ? 'excited' : 'idle'}
@@ -58,6 +64,6 @@ export default function AlfredCompanion() {
         <img src="/assets/img/brand/alfred-ai.png" alt="" aria-hidden="true" />
       </span>
       <span className="alfred-companion__tooltip">{tip}</span>
-    </Link>
+    </button>
   );
 }

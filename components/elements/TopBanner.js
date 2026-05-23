@@ -19,8 +19,10 @@ const MESSAGES = [
   {
     pill: 'Now booking',
     text: 'Now booking TY2026 planning conversations from our Boston and Las Vegas offices.',
-    cta: 'Start your intake →',
-    href: '/get-started',
+    cta: 'Boot up your engagement →',
+    href: '#intake',
+    intake: true,
+    source: 'top banner',
   },
 ];
 
@@ -60,9 +62,26 @@ export default function TopBanner() {
               __html: `${msg.text}`,
             }}
           />
-          <Link href={msg.href} className="motta-topbanner__cta">
-            {msg.cta}
-          </Link>
+          {msg.intake ? (
+            <a
+              href="#intake"
+              className="motta-topbanner__cta"
+              onClick={(e) => {
+                e.preventDefault();
+                window.dispatchEvent(
+                  new CustomEvent('motta:open-intake', {
+                    detail: { source: msg.source || 'top banner' },
+                  })
+                );
+              }}
+            >
+              {msg.cta}
+            </a>
+          ) : (
+            <Link href={msg.href} className="motta-topbanner__cta">
+              {msg.cta}
+            </Link>
+          )}
         </div>
         <div className="motta-topbanner__dots" role="tablist" aria-label="Announcement selector">
           {MESSAGES.map((_, i) => (

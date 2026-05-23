@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
+import IntakeButton from "@/components/intake/IntakeButton"
 
 export default function About() {
     return (
@@ -256,7 +257,7 @@ export default function About() {
                                 </div>
                                 <div className="col-lg-5">
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                                        <Link href="/get-started" className="btn" style={{ textAlign: 'center' }}>Start New Client Intake</Link>
+                                        <IntakeButton className="btn" style={{ textAlign: 'center' }} source="about">Boot up an engagement</IntakeButton>
                                         <Link href="/contact" className="btn border-btn" style={{ textAlign: 'center' }}>Send Us a Message</Link>
                                     </div>
                                 </div>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import IntakeButton from '@/components/intake/IntakeButton';
 
 const OTHER_SERVICES = [
   { href: '/services/tax-planning', label: 'Tax Planning & Preparation' },
@@ -103,9 +104,9 @@ export default function ServiceDetailLayout({
                     Tell us about your situation and we&apos;ll scope the right
                     engagement — usually within one business day.
                   </p>
-                  <Link href="/get-started" className="btn mr-10">
-                    Start New Client Intake
-                  </Link>
+                  <IntakeButton className="btn mr-10" source={`service: ${title}`}>
+                    Boot up an engagement
+                  </IntakeButton>
                   <Link href="/contact" className="btn border-btn">
                     Send Us a Message
                   </Link>
