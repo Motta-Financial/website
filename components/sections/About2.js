@@ -26,37 +26,38 @@ export default function About2() {
                 <div className="section-title mb-20 tg-heading-subheading animation-style3">
                   <span className="sub-title">About Motta Financial</span>
                   <h2 className="title tg-element-title">
-                    Our role is to be your trusted partner for all of your tax,
-                    accounting, and finance needs.
+                    Tech-forward CPAs powered by ALFRED Ai — for clients who
+                    want a firm that thinks ahead.
                   </h2>
                 </div>
                 <p>
-                  Motta Financial is a full-service CPA firm committed to
-                  providing exceptional tax, accounting, and advisory services
-                  to individuals, businesses, and non-profit organizations. With
-                  a team of experienced professionals, we combine deep expertise
-                  with personalized attention to help our clients achieve their
-                  financial goals and navigate complex financial landscapes with
-                  confidence.
+                  Motta Financial is a modern CPA firm built around proactive
+                  tax strategy, integrated advisory, and the full Office of the
+                  CFO. Founded in 2023 by Big Four alumni and operating from
+                  Boston and Las Vegas, we serve business owners, executives,
+                  and channel partners nationally — pairing senior-level
+                  relationships with our proprietary AI platform to deliver
+                  sophisticated work product at speeds traditional firms
+                  can&apos;t match.
                 </p>
                 <div className="about__content-inner">
                   <div className="about__list-box">
                     <ul className="list-wrap">
                       <li>
                         <i className="flaticon-arrow-button" />
-                        Solutions to empower your success
+                        Proactive tax strategy &amp; planning
                       </li>
                       <li>
                         <i className="flaticon-arrow-button" />
-                        Leveraging technology for operational efficiencies
+                        Office of the CFO under one roof
                       </li>
                       <li>
                         <i className="flaticon-arrow-button" />
-                        Industry-focused insights
+                        ALFRED Ai automation &amp; faster turnaround
                       </li>
                       <li>
                         <i className="flaticon-arrow-button" />
-                        Strategic financial partnerships
+                        Partner-led, senior-level engagements
                       </li>
                     </ul>
                   </div>

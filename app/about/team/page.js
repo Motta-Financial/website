@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Meet Our Professionals | Motta Financial',
   description:
-    'Meet the Motta Financial team — partners, advisors, and associates leading our tax, accounting, advisory, and client experience practices across Boston and Las Vegas.',
+    'Meet the Motta Financial team — the partners, advisors, and associates leading our tax, accounting, advisory, and client experience practices.',
 };
 
 const teamMembers = [
@@ -17,7 +17,6 @@ const teamMembers = [
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Portrait%20%28Headshot%29%20-%20Dat%20Le%20%5BWM%5D-kVzKTBVlGdBFKtNQtGCsPYvs3UAxYw.jpg',
     blurb:
       "Dat is the founder and Managing Partner of Motta Financial, leading the firm's strategic direction across tax, accounting, and advisory services from offices in Boston and Las Vegas. A two-time Suffolk University graduate, Dat built his foundation as a top-rated Audit Senior at Deloitte & Touche before deepening his technical skills through senior consulting and controller roles supporting IPOs, SPAC transactions, and complex revenue recognition.",
-    detailHref: '/team/dat-le',
   },
   {
     slug: 'terry-song',
@@ -27,7 +26,7 @@ const teamMembers = [
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Terry%20Song.png-IEMyP44Vgb8Idx1fPdxCC2qbVjiPpW.jpeg',
     blurb:
-      "Terry leads Motta's tax advisory practice as the senior point of contact for complex engagements — high-net-worth individuals, family offices, and closely-held businesses. He is known for translating intricate tax positions into clear client guidance and for a research-first standard that ensures every position is supported by authoritative tax law.",
+      "Terry leads Motta's tax advisory practice as the senior point of contact for complex engagements — high-net-worth individuals, family offices, and closely-held businesses. He is known for translating intricate positions into clear client guidance and for a research-first standard that ensures every position is supported by authoritative tax law.",
   },
   {
     slug: 'amy-sparaco',
@@ -47,7 +46,7 @@ const teamMembers = [
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Caleb%20Long-gj3veS3Ddc1lHawERIs0UQHSFk3wDX.jpg',
     blurb:
-      "Caleb leads Motta's corporate development and M&A practice, advising business owners and platform investors on acquisitions, capital decisions, and post-close integration. He brings 7+ years of in-house strategic finance and corporate development experience — sourcing, modeling, and executing transactions across the lower-middle market.",
+      "Caleb leads Motta's corporate development and M&A practice, advising business owners and platform investors on acquisitions, capital decisions, and post-close integration. He brings 7+ years of in-house strategic finance and corporate development experience — sourcing, modeling, and executing transactions across the lower-middle market through institutional-backed platforms.",
   },
   {
     slug: 'micaela-palacios',
@@ -57,7 +56,7 @@ const teamMembers = [
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Micaela%20Palacios-66rSwUgEL32LdNFmli6cwtTfzysmOs.jpg',
     blurb:
-      "Micaela focuses on individual tax preparation, year-round planning, and equity compensation strategy for employees navigating RSUs, ISOs, and ESPPs. A Suffolk Sawyer Honors graduate (3.95 GPA, Beta Alpha Psi), she serves Motta's multilingual client community in English and Spanish.",
+      "Micaela focuses on individual tax preparation, year-round planning, and equity-compensation strategy for employees navigating RSUs, ISOs, and ESPPs. A Suffolk Sawyer Honors graduate (3.95 GPA, Beta Alpha Psi), she brings real client experience from Suffolk's EEDC clinic and serves Motta's multilingual client community in English and Spanish.",
   },
   {
     slug: 'julian-jacobson',
@@ -71,7 +70,7 @@ const teamMembers = [
   },
 ];
 
-export default function Team() {
+export default function AboutTeamPage() {
   return (
     <>
       <Layout
@@ -97,10 +96,12 @@ export default function Team() {
                 </div>
               </div>
             </div>
-
             <div className="row justify-content-center gutter-24">
-              {teamMembers.map((member) => {
-                const cardInner = (
+              {teamMembers.map((member) => (
+                <div
+                  key={member.slug}
+                  className="col-lg-4 col-md-6 col-sm-8 mb-30"
+                >
                   <div className="team__item-two shine-animate-item h-100">
                     <div className="team__thumb-two shine-animate">
                       <img
@@ -132,26 +133,8 @@ export default function Team() {
                       </p>
                     </div>
                   </div>
-                );
-
-                return (
-                  <div
-                    key={member.slug}
-                    className="col-lg-4 col-md-6 col-sm-8 mb-30"
-                  >
-                    {member.detailHref ? (
-                      <Link
-                        href={member.detailHref}
-                        style={{ textDecoration: 'none', display: 'block', height: '100%' }}
-                      >
-                        {cardInner}
-                      </Link>
-                    ) : (
-                      cardInner
-                    )}
-                  </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
 
             <div className="row justify-content-center mt-30">

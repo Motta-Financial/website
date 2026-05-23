@@ -9,6 +9,7 @@ import '/public/assets/css/swiper-bundle.css';
 import '/public/assets/css/aos.css';
 import '/public/assets/css/default.css';
 import '/public/assets/css/main.css';
+import '/public/assets/css/motta.css';
 
 const inter = Inter({
   weight: ['300', '400', '500', '600', '700'],

@@ -1,207 +1,87 @@
 import Link from 'next/link';
 
+const SERVICES = [
+  {
+    icon: 'flaticon-profit',
+    title: 'Tax Planning & Preparation',
+    href: '/services/tax-planning',
+    share: '37%',
+    desc: 'Federal and multi-state filing, quarterly estimates, and year-round planning for individuals, businesses, and trusts. ALFRED + ProConnect cuts routine returns from hours to minutes.',
+  },
+  {
+    icon: 'flaticon-target',
+    title: 'Tax Advisory',
+    href: '/services/tax-planning',
+    share: '3%',
+    desc: 'Entity structuring, equity compensation strategy (RSUs, ISOs, NSOs, ESPPs), real estate planning, multi-entity / multi-state work, and international reporting.',
+  },
+  {
+    icon: 'flaticon-financial-profit',
+    title: 'Accounting & Bookkeeping',
+    href: '/services/accounting-advisory',
+    share: '45%',
+    desc: 'Outsourced controllership, monthly close, financial reporting, payroll migration, ERP and QuickBooks support, and fractional CFO engagements.',
+  },
+  {
+    icon: 'flaticon-piggy-bank',
+    title: 'Financial Planning',
+    href: '/services/financial-planning',
+    share: '4%',
+    desc: 'Holistic personal financial planning, retirement strategy, risk management, and investment advisory through Motta Wealth Management — led by a CFP®.',
+  },
+];
+
 export default function Services3() {
   return (
     <>
       <section className="services__area-three services__bg-three">
         <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-7 text-center">
+              <div className="section-title mb-50">
+                <span className="sub-title">What we deliver</span>
+                <h2 className="title">
+                  Four practice areas, one integrated team.
+                </h2>
+              </div>
+            </div>
+          </div>
           <div className="row justify-content-center cards-container">
-            <div className="col card-wrapper">
-              <div className="services__item-three">
-                <div className="services__item-top">
-                  <div className="services__icon-three">
-                    <i className="flaticon-profit" />
+            {SERVICES.map((s) => (
+              <div className="col card-wrapper" key={s.title}>
+                <div className="services__item-three">
+                  <div className="services__item-top">
+                    <div className="services__icon-three">
+                      <i className={s.icon} />
+                    </div>
+                    <div className="services__item-top-title">
+                      <h2 className="title">
+                        <Link href={s.href}>{s.title}</Link>
+                      </h2>
+                      <span
+                        style={{
+                          display: 'inline-block',
+                          marginTop: 6,
+                          fontSize: 12,
+                          fontWeight: 600,
+                          letterSpacing: '0.06em',
+                          textTransform: 'uppercase',
+                          color: 'var(--motta-sage)',
+                        }}
+                      >
+                        {s.share} of FY26 revenue
+                      </span>
+                    </div>
                   </div>
-                  <div className="services__item-top-title">
-                    <h2 className="title">
-                      <Link href="/services/tax-planning">
-                        Tax Planning & Preparation
-                      </Link>
-                    </h2>
+                  <div className="services__content-three">
+                    <p>{s.desc}</p>
+                    <Link href={s.href} className="btn btn-two">
+                      Read More
+                    </Link>
                   </div>
-                </div>
-                <div className="services__content-three">
-                  <p>
-                    We offer expert tax planning and preparation services to
-                    help you navigate complex tax regulations and maximize your
-                    financial benefits. Our experienced team provides
-                    personalized strategies to minimize your tax liability and
-                    ensure compliance with the latest laws. Whether for
-                    individuals or businesses, we take the stress out of tax
-                    season and help you plan for a more secure financial future.
-                  </p>
-                  <Link href="/services/tax-planning" className="btn btn-two">
-                    Read More
-                  </Link>
                 </div>
               </div>
-            </div>
-            <div className="col card-wrapper">
-              <div className="services__item-three">
-                <div className="services__item-top">
-                  <div className="services__icon-three">
-                    <i className="flaticon-target" />
-                  </div>
-                  <div className="services__item-top-title">
-                    <h2 className="title">
-                      <Link href="/services/accounting-advisory">
-                        Accounting Advisory & Payroll Services
-                      </Link>
-                    </h2>
-                  </div>
-                </div>
-                <div className="services__content-three">
-                  <p>
-                    Our expert team provides reliable accounting and bookkeeping
-                    services, strategic financial advisory, and efficient
-                    payroll management to help streamline your operations and
-                    enhance your financial health. With a commitment to
-                    accuracy, transparency, and personalized service, we ensure
-                    that your business stays compliant and financially sound.
-                  </p>
-                  <Link
-                    href="/services/accounting-advisory"
-                    className="btn btn-two"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col card-wrapper">
-              <div className="services__item-three">
-                <div className="services__item-top">
-                  <div className="services__icon-three">
-                    <i className="flaticon-financial-profit" />
-                  </div>
-                  <div className="services__item-top-title">
-                    <h2 className="title">
-                      <Link href="/services/business-entity-structuring">
-                        Business Entity Structuring
-                      </Link>
-                    </h2>
-                  </div>
-                </div>
-                <div className="services__content-three">
-                  <p>
-                    LLCs, corporations, and partnerships can be essential tools
-                    for maximizing tax savings. We evaluate various options for
-                    structuring your business, considering the best type of
-                    entity for your operations and the most strategic locations
-                    for registration. Our comprehensive suite of services
-                    ensures your legal entity structure is both effective and
-                    efficient, tailored to support your business needs.
-                  </p>
-                  <Link
-                    href="/services/business-entity-structuring"
-                    className="btn btn-two"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col card-wrapper">
-              <div className="services__item-three">
-                <div className="services__item-top">
-                  <div className="services__icon-three">
-                    <i className="flaticon-piggy-bank" />
-                  </div>
-                  <div className="services__item-top-title">
-                    <h2 className="title">
-                      <Link href="/services/financial-planning">
-                        Financial Planning & Advisory
-                      </Link>
-                    </h2>
-                  </div>
-                </div>
-                <div className="services__content-three">
-                  <p>
-                    We provide comprehensive financial planning and advisory
-                    services tailored to your unique goals and needs. Whether
-                    you're planning for retirement, managing investments, or
-                    navigating complex financial decisions, our team of
-                    experienced advisors is here to guide you every step of the
-                    way. We offer personalized strategies to help you achieve
-                    financial security and peace of mind for the future.
-                  </p>
-                  <Link
-                    href="/services/financial-planning"
-                    className="btn btn-two"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col card-wrapper">
-              <div className="services__item-three">
-                <div className="services__item-top">
-                  <div className="services__icon-three">
-                    <i className="flaticon-investment-1" />
-                  </div>
-                  <div className="services__item-top-title">
-                    <h2 className="title">
-                      <Link href="/services/management-consulting">
-                        Management Consulting
-                      </Link>
-                    </h2>
-                  </div>
-                </div>
-                <div className="services__content-three">
-                  <p>
-                    We provide expert management consulting services designed to
-                    optimize your business operations, enhance performance, and
-                    drive growth. Our team of experienced consultants works
-                    closely with you to develop customized strategies that
-                    address your unique challenges and capitalize on
-                    opportunities. From organizational restructuring to process
-                    improvement, we help you navigate change and achieve
-                    sustainable success.
-                  </p>
-                  <Link
-                    href="/services/management-consulting"
-                    className="btn btn-two"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col card-wrapper">
-              <div className="services__item-three">
-                <div className="services__item-top">
-                  <div className="services__icon-three">
-                    <i className="flaticon-startup" />
-                  </div>
-                  <div className="services__item-top-title">
-                    <h2 className="title">
-                      <Link href="/services/financial-statement-analysis">
-                        Financial Statement Preparation & Analysis
-                      </Link>
-                    </h2>
-                  </div>
-                </div>
-                <div className="services__content-three">
-                  <p>
-                    We offer comprehensive financial statement preparation,
-                    compilation, and analysis services to help you gain a clear
-                    understanding of your financial health. Our team ensures
-                    accurate and timely preparation of financial statements,
-                    tailored to meet regulatory standards and your specific
-                    needs. We provide insightful analysis to guide informed
-                    decision-making, enhance transparency, and support your
-                    business growth.
-                  </p>
-                  <Link
-                    href="/services/financial-statement-analysis"
-                    className="btn btn-two"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
