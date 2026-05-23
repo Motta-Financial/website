@@ -15,6 +15,8 @@ import Header2 from './header/Header2';
 import Header3 from './header/Header3';
 import Header4 from './header/Header4';
 import Header5 from './header/Header5';
+import TopBanner from '../elements/TopBanner';
+import AlfredCompanion from '../elements/AlfredCompanion';
 
 export const metadata = {
   title: 'Motta Financial',
@@ -62,6 +64,7 @@ export default function Layout({
     <>
       <PageHead headTitle={headTitle} />
       <DataBg />
+      <TopBanner />
 
       {!headerStyle && (
         <Header1
@@ -146,6 +149,7 @@ export default function Layout({
       {footerStyle == 5 ? <Footer5 /> : null}
 
       <BackToTop />
+      <AlfredCompanion />
     </>
   );
 }
