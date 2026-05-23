@@ -109,12 +109,9 @@ export default function Header5({
                       </Link>
                     </div>
                     <div className="tgmobile__search">
-                      <form action="#">
-                        <input type="text" placeholder="Search here..." />
-                        <button>
-                          <i className="fas fa-search" />
-                        </button>
-                      </form>
+                      <p style={{ margin: 0, fontSize: 14, color: 'rgba(255,255,255,0.65)' }}>
+                        Tech-forward CPAs · Boston &amp; Las Vegas
+                      </p>
                     </div>
                     <div className="tgmobile__menu-outer">
                       <MobileMenu />
@@ -123,41 +120,36 @@ export default function Header5({
                       <div className="contact-info">
                         <ul className="list-wrap">
                           <li>
-                            <Link href="/mailto:info@apexa.com">
-                              info@apexa.com
-                            </Link>
+                            <a href="mailto:Info@MottaFinancial.com">
+                              Info@MottaFinancial.com
+                            </a>
                           </li>
                           <li>
-                            <Link href="/tel:0123456789">+123 888 9999</Link>
+                            <a href="tel:+17025146055">(702) 514&#8209;6055</a>
                           </li>
                         </ul>
                       </div>
                       <div className="social-links">
                         <ul className="list-wrap">
                           <li>
-                            <Link href="/javascript:void(0)">
-                              <i className="fab fa-facebook-f" />
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href="/javascript:void(0)">
-                              <i className="fab fa-twitter" />
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href="/javascript:void(0)">
+                            <a
+                              href="https://www.instagram.com/mottafinancial/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Motta Financial on Instagram"
+                            >
                               <i className="fab fa-instagram" />
-                            </Link>
+                            </a>
                           </li>
                           <li>
-                            <Link href="/javascript:void(0)">
+                            <a
+                              href="https://www.linkedin.com/company/motta-financial/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Motta Financial on LinkedIn"
+                            >
                               <i className="fab fa-linkedin-in" />
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href="/javascript:void(0)">
-                              <i className="fab fa-youtube" />
-                            </Link>
+                            </a>
                           </li>
                         </ul>
                       </div>

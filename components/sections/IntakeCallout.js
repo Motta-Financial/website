@@ -1,24 +1,34 @@
 import Link from 'next/link';
 import IntakeButton from '@/components/intake/IntakeButton';
 
-export default function Callback1() {
+/**
+ * IntakeCallout — replaces the old mock "Request A Call Back" form blocks
+ * across blog/details/template pages. Opens the global intake modal for
+ * new clients, and keeps "Send Us a Message" pointed at /contact.
+ */
+export default function IntakeCallout() {
   return (
     <section className="call-back-area">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-7">
             <div className="call-back-content">
-              <div className="section-title white-title mb-10 tg-heading-subheading animation-style3">
-                <h2 className="title tg-element-title">
-                  Ready to talk to a tech-forward CPA?
-                </h2>
+              <div className="section-title white-title mb-10">
+                <h2 className="title">Ready to talk to a tech-forward CPA?</h2>
               </div>
               <p>
                 Tell us about your situation and a member of the Motta team
                 will follow up within one business day. New clients can move
-                straight into our intake to get scoped faster — existing
-                clients can reach us through the client portal.
+                straight into our intake to get scoped faster.
               </p>
+              <div className="shape">
+                <img
+                  src="/assets/img/images/call_back_shape.png"
+                  alt=""
+                  data-aos="fade-right"
+                  data-aos-delay={400}
+                />
+              </div>
             </div>
           </div>
           <div className="col-lg-5">
@@ -27,36 +37,22 @@ export default function Callback1() {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 14,
-                alignItems: 'flex-start',
               }}
             >
               <IntakeButton
                 className="btn"
-                style={{ width: '100%', textAlign: 'center' }}
-                source="callback"
+                style={{ textAlign: 'center' }}
+                source="callout"
               >
                 Boot up an engagement
               </IntakeButton>
               <Link
                 href="/contact"
                 className="btn border-btn"
-                style={{ width: '100%', textAlign: 'center' }}
+                style={{ textAlign: 'center' }}
               >
                 Send Us a Message
               </Link>
-              <a
-                href="https://hub.motta.cpa/login"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  alignSelf: 'center',
-                  fontSize: 14,
-                  color: 'rgba(255,255,255,0.85)',
-                  textDecoration: 'underline',
-                }}
-              >
-                Existing client? Open the portal →
-              </a>
             </div>
           </div>
         </div>

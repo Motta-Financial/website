@@ -1,11 +1,11 @@
 import Layout from '@/components/layout/Layout';
 import HubContactForm from '@/components/forms/HubContactForm';
-import Link from 'next/link';
+import IntakeButton from '@/components/intake/IntakeButton';
 
 export const metadata = {
   title: 'Contact Motta Financial',
   description:
-    'Send us a message — Motta Financial is a tech-forward CPA firm based in Tampa, Florida.',
+    'Send us a message — Motta Financial is a tech-forward CPA firm with offices in Boston, MA and Las Vegas, NV.',
 };
 
 export default function Contact() {
@@ -20,10 +20,11 @@ export default function Contact() {
                   <h2 className="title">How can we help?</h2>
                   <p>
                     Tell us a little about what you&apos;re looking for and a member
-                    of the Motta team will follow up shortly. For new client
-                    onboarding, our{' '}
-                    <Link href="/get-started">new client intake</Link> form
-                    captures the details we need to get started faster.
+                    of the Motta team will follow up shortly. New here?{' '}
+                    <IntakeButton className="motta-intake-link" style={{ textDecoration: 'underline' }} source="contact">
+                      Boot up an engagement
+                    </IntakeButton>{' '}
+                    and we&apos;ll scope you faster.
                   </p>
                 </div>
                 <div className="contact__info">
@@ -33,8 +34,17 @@ export default function Contact() {
                         <i className="flaticon-pin" />
                       </div>
                       <div className="content">
-                        <h4 className="title">Office</h4>
-                        <p>Tampa, Florida</p>
+                        <h4 className="title">Boston</h4>
+                        <p>101 Federal St., Suite 1900<br />Boston, MA 02110</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="icon">
+                        <i className="flaticon-pin" />
+                      </div>
+                      <div className="content">
+                        <h4 className="title">Las Vegas</h4>
+                        <p>9205 W. Russell Rd., Bldg. 3, Suite 240<br />Las Vegas, NV 89148</p>
                       </div>
                     </li>
                     <li>
@@ -43,7 +53,16 @@ export default function Contact() {
                       </div>
                       <div className="content">
                         <h4 className="title">Email</h4>
-                        <a href="mailto:hello@motta.cpa">hello@motta.cpa</a>
+                        <a href="mailto:Info@MottaFinancial.com">Info@MottaFinancial.com</a>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="icon">
+                        <i className="flaticon-phone-call" />
+                      </div>
+                      <div className="content">
+                        <h4 className="title">Phone</h4>
+                        <a href="tel:+17025146055">(702) 514&#8209;6055</a>
                       </div>
                     </li>
                     <li>

@@ -77,6 +77,7 @@ export default function AboutTeamPage() {
         headerStyle={5}
         footerStyle={1}
         breadcrumbTitle="Meet Our Professionals"
+        breadcrumbEyebrow="The Team / Tech-forward CPAs"
       >
         <section className="team__area-two pt-120 pb-90">
           <div className="container">

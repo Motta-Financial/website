@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Autoplay, Navigation, Pagination, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import AlfredLogo from '@/components/elements/AlfredLogo';
+import IntakeButton from '@/components/intake/IntakeButton';
 
 const swiperOptions = {
   modules: [Autoplay, Pagination, Navigation, EffectFade],
@@ -43,9 +44,9 @@ export default function HeroSlider() {
                     tax strategy with our proprietary AI platform — so senior
                     advisors spend their hours on you, not on busywork.
                   </p>
-                  <Link href="/contact" className="btn mr-10">
-                    Request a Call Back
-                  </Link>
+                  <IntakeButton className="btn mr-10" source="hero">
+                    Boot up an engagement
+                  </IntakeButton>
                   <Link href="/services" className="btn border-btn">
                     Explore Services
                   </Link>

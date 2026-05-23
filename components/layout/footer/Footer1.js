@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import InstagramFeed from '@/components/elements/InstagramFeed';
+import IntakeButton from '@/components/intake/IntakeButton';
 import { SOCIALS } from '@/lib/socials';
 
 export default function Footer1() {
@@ -60,7 +61,7 @@ export default function Footer1() {
                             <i className="flaticon-phone-call" />
                           </div>
                           <div className="content">
-                            <Link href="/tel:0123456789">(702) 514 - 6055</Link>
+                            <a href="tel:+17025146055">(702) 514&#8209;6055</a>
                           </div>
                         </li>
                         <li>
@@ -68,9 +69,9 @@ export default function Footer1() {
                             <i className="flaticon-envelope" />
                           </div>
                           <div className="content">
-                            <Link href="/mailto:Info@MottaFinancial.com">
+                            <a href="mailto:Info@MottaFinancial.com">
                               Info@MottaFinancial.com
-                            </Link>
+                            </a>
                           </div>
                         </li>
                         <li>
@@ -102,19 +103,19 @@ export default function Footer1() {
                     <div className="footer-link-list">
                       <ul className="list-wrap">
                         <li>
-                          <Link href="/about">About Us</Link>
+                          <Link href="/about">About Motta</Link>
                         </li>
                         <li>
-                          <Link href="/contact">Partners</Link>
+                          <Link href="/about/team">Meet Our Professionals</Link>
                         </li>
                         <li>
-                          <Link href="/contact">Testimonials</Link>
+                          <Link href="/services">All Services</Link>
                         </li>
                         <li>
-                          <Link href="/contact">Case Studies</Link>
+                          <IntakeButton className="motta-intake-link" source="footer">Become a Client</IntakeButton>
                         </li>
                         <li>
-                          <Link href="/contact">Pricing</Link>
+                          <Link href="/contact">Contact</Link>
                         </li>
                       </ul>
                     </div>
@@ -132,27 +133,40 @@ export default function Footer1() {
           <div className="footer-bottom">
             <div className="container">
               <div className="row align-items-center">
-                <div className="col-lg-7 order-0 order-lg-2">
-                  <div className="footer-newsletter">
-                    <h4 className="title">Newsletter SignUp!</h4>
-                    <form action="#">
-                      <input type="text" placeholder="e-mail Type . . ." />
-                      <button className="btn btn-two" type="submit">
-                        Subscribe
-                      </button>
-                    </form>
-                  </div>
-                </div>
-                <div className="col-lg-5">
+                <div className="col-lg-6">
                   <div className="copyright-text">
                     <p>
-                      Copyright © <Link href="/">Motta Financial</Link> | All
-                      Right Reserved
+                      Copyright © {new Date().getFullYear()}{' '}
+                      <Link href="/">Motta Financial</Link> · All Rights Reserved.
                     </p>
-                    <Link href="/contact">
-                      Support Terms Conditions Privacy Policy.
-                    </Link>
                   </div>
+                </div>
+                <div className="col-lg-6 text-lg-end">
+                  <ul
+                    className="list-wrap"
+                    style={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: '0 24px',
+                      justifyContent: 'flex-end',
+                      margin: 0,
+                      padding: 0,
+                      listStyle: 'none',
+                    }}
+                  >
+                    <li>
+                      <Link href="/contact">Contact</Link>
+                    </li>
+                    <li>
+                      <a
+                        href="https://hub.motta.cpa/login"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Client Portal
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>

@@ -376,3 +376,409 @@
   background: linear-gradient(90deg, transparent 0%, var(--motta-alfred-glow) 50%, transparent 100%);
   opacity: 0.5;
 }
+
+/* ===== Contact page: re-skin the template's gray-3 (cool blue) blocks
+   with the Motta warm cream / soft sage palette so /contact stays
+   on-brand instead of reading as a stock corporate blue. ===== */
+.contact__info .list-wrap li .icon {
+  background: var(--motta-warm);
+  color: var(--motta-sage);
+  box-shadow: inset 0 0 0 1px rgba(107, 116, 93, 0.15);
+}
+.contact__form-wrap {
+  background: linear-gradient(180deg, #F4F1EB 0%, #EAE6E1 100%);
+  border: 1px solid rgba(107, 116, 93, 0.18);
+}
+.contact__form-wrap .form-grp input,
+.contact__form-wrap .form-grp textarea,
+.contact__form-wrap input[type="text"],
+.contact__form-wrap input[type="email"],
+.contact__form-wrap input[type="tel"],
+.contact__form-wrap textarea {
+  background: var(--motta-white);
+  border: 1px solid rgba(107, 116, 93, 0.22);
+  color: var(--motta-charcoal);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.contact__form-wrap .form-grp input:focus,
+.contact__form-wrap .form-grp textarea:focus,
+.contact__form-wrap input:focus,
+.contact__form-wrap textarea:focus {
+  outline: none;
+  border-color: var(--motta-sage);
+  box-shadow: 0 0 0 3px rgba(142, 155, 121, 0.22);
+}
+.contact__form-wrap .form-grp input::placeholder,
+.contact__form-wrap .form-grp textarea::placeholder,
+.contact__form-wrap input::placeholder,
+.contact__form-wrap textarea::placeholder {
+  color: rgba(51, 51, 51, 0.55);
+}
+.contact__form-wrap .btn {
+  background: var(--motta-sage);
+  border-color: var(--motta-sage);
+  color: var(--motta-warm);
+}
+.contact__form-wrap .btn:hover {
+  background: var(--motta-sage-deep);
+  border-color: var(--motta-sage-deep);
+}
+.hub-form__success {
+  background: linear-gradient(180deg, #F4F1EB 0%, #EAE6E1 100%);
+  border: 1px solid rgba(107, 116, 93, 0.18);
+  border-radius: 8px;
+  padding: 32px;
+}
+.hub-form__success .title {
+  color: var(--motta-sage-deep);
+}
+
+/* ===== Tech-forward breadcrumb / page header =====
+   Replaces the stock-photo + purple doodle banner with a quiet,
+   editorial header: dark charcoal field, subtle grid mesh, a single
+   sage glow, an animated hairline rule, and a typewriter-style
+   eyebrow. Designed to feel like a CPA who builds software, not a
+   marketing template. ===== */
+.motta-breadcrumb {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 110px 0 90px;
+  background:
+    radial-gradient(1200px 400px at 85% 0%, rgba(142, 155, 121, 0.12) 0%, transparent 60%),
+    linear-gradient(180deg, #1A1F18 0%, #14180F 60%, #0F1310 100%);
+  color: var(--motta-warm);
+  border-bottom: 1px solid rgba(142, 155, 121, 0.18);
+}
+@media (max-width: 767px) {
+  .motta-breadcrumb { padding: 80px 0 64px; }
+}
+.motta-breadcrumb__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(234, 230, 225, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(234, 230, 225, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 30% 50%, rgba(0,0,0,0.85) 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 30% 50%, rgba(0,0,0,0.85) 0%, transparent 70%);
+  z-index: -1;
+  opacity: 0.7;
+}
+.motta-breadcrumb__glow {
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(142, 155, 121, 0.22) 0%, transparent 65%);
+  filter: blur(20px);
+  z-index: -1;
+  pointer-events: none;
+}
+.motta-breadcrumb__rule {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(142, 155, 121, 0.55) 30%,
+    rgba(142, 155, 121, 0.85) 50%,
+    rgba(142, 155, 121, 0.55) 70%,
+    transparent 100%);
+  background-size: 200% 100%;
+  animation: motta-rule-pan 9s linear infinite;
+}
+@keyframes motta-rule-pan {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.motta-breadcrumb__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.motta-breadcrumb__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  font-family: var(--tg-heading-font-family, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--motta-alfred-glow);
+  padding: 6px 12px;
+  border: 1px solid rgba(142, 155, 121, 0.35);
+  border-radius: 999px;
+  background: rgba(142, 155, 121, 0.08);
+}
+.motta-breadcrumb__eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--motta-alfred-glow);
+  box-shadow: 0 0 10px var(--motta-alfred-glow);
+  animation: motta-dot-pulse 2.4s ease-in-out infinite;
+}
+@keyframes motta-dot-pulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.8); }
+}
+.motta-breadcrumb__title {
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--motta-warm);
+  margin: 0;
+  text-wrap: balance;
+}
+.motta-breadcrumb__crumbs.breadcrumb {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.motta-breadcrumb__crumbs .breadcrumb-item,
+.motta-breadcrumb__crumbs .breadcrumb-item a {
+  color: rgba(234, 230, 225, 0.65);
+}
+.motta-breadcrumb__crumbs .breadcrumb-item a:hover {
+  color: var(--motta-alfred-glow);
+}
+.motta-breadcrumb__crumbs .breadcrumb-item.active {
+  color: var(--motta-warm);
+}
+.motta-breadcrumb__crumbs .breadcrumb-item + .breadcrumb-item::before {
+  content: "/";
+  color: rgba(142, 155, 121, 0.55);
+  padding: 0 8px;
+}
+
+/* Honor reduced-motion: kill the rule pan + dot pulse. */
+@media (prefers-reduced-motion: reduce) {
+  .motta-breadcrumb__rule { animation: none; }
+  .motta-breadcrumb__eyebrow-dot { animation: none; }
+}
+
+/* ===== Global Intake Modal =====
+   Floating new-client-intake dialog that replaces the dedicated
+   /get-started page. Triggered from any IntakeButton or the
+   bottom-left FAB by dispatching `motta:open-intake`. ===== */
+.motta-intake-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(15, 19, 16, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 6vh 16px;
+  overflow-y: auto;
+  animation: motta-intake-fade 0.22s ease;
+}
+@keyframes motta-intake-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.motta-intake-modal__shell {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  background:
+    radial-gradient(900px 240px at 100% 0%, rgba(142, 155, 121, 0.18) 0%, transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, #F4F1EB 100%);
+  border: 1px solid rgba(107, 116, 93, 0.22);
+  border-radius: 14px;
+  box-shadow: 0 30px 80px rgba(15, 19, 16, 0.45);
+  outline: none;
+  animation: motta-intake-pop 0.28s cubic-bezier(0.2, 0.8, 0.2, 1.0);
+}
+@keyframes motta-intake-pop {
+  from { opacity: 0; transform: translateY(14px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+.motta-intake-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 28px 32px 8px;
+}
+.motta-intake-modal__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--motta-sage-deep);
+  background: rgba(142, 155, 121, 0.14);
+  border: 1px solid rgba(142, 155, 121, 0.35);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.motta-intake-modal__eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--motta-sage);
+  box-shadow: 0 0 8px var(--motta-sage-light);
+  animation: motta-pulse 2.4s ease-in-out infinite;
+}
+.motta-intake-modal__source {
+  color: rgba(51, 51, 51, 0.55);
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.motta-intake-modal__title {
+  margin: 12px 0 4px;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--motta-charcoal);
+}
+.motta-intake-modal__sub {
+  margin: 0;
+  color: rgba(51, 51, 51, 0.72);
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 56ch;
+}
+.motta-intake-modal__close {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(107, 116, 93, 0.25);
+  background: var(--motta-white);
+  color: var(--motta-charcoal);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+.motta-intake-modal__close:hover {
+  background: var(--motta-warm);
+  border-color: var(--motta-sage);
+  transform: rotate(90deg);
+}
+.motta-intake-modal__body {
+  padding: 16px 32px 32px;
+}
+@media (max-width: 640px) {
+  .motta-intake-modal { padding: 0; }
+  .motta-intake-modal__shell { border-radius: 0; min-height: 100vh; }
+  .motta-intake-modal__header { padding: 22px 20px 4px; }
+  .motta-intake-modal__body { padding: 12px 20px 28px; }
+}
+
+/* ===== Floating intake CTA (bottom-left, opposite ALFRED) ===== */
+.motta-intake-fab {
+  position: fixed;
+  left: 20px;
+  bottom: 110px;
+  z-index: 998;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px 12px 14px;
+  border: 1px solid rgba(107, 116, 93, 0.45);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, var(--motta-charcoal) 0%, #1f261c 100%);
+  color: var(--motta-warm);
+  font-family: var(--tg-body-font-family);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(15, 19, 16, 0.35);
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.25s ease;
+}
+.motta-intake-fab[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.motta-intake-fab:hover {
+  box-shadow: 0 16px 36px rgba(15, 19, 16, 0.45),
+              0 0 0 4px rgba(142, 155, 121, 0.18);
+  border-color: var(--motta-sage-light);
+}
+.motta-intake-fab__glyph {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--motta-sage);
+  color: var(--motta-warm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  box-shadow: inset 0 0 0 1px rgba(234, 230, 225, 0.15),
+              0 0 14px rgba(142, 155, 121, 0.45);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.motta-intake-fab:hover .motta-intake-fab__glyph {
+  transform: translateX(2px);
+  background: var(--motta-sage-light);
+}
+.motta-intake-fab__label {
+  line-height: 1.1;
+}
+.motta-intake-fab__hint {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--motta-alfred-glow);
+  padding-left: 10px;
+  border-left: 1px solid rgba(234, 230, 225, 0.18);
+  margin-left: 4px;
+}
+@media (max-width: 575px) {
+  .motta-intake-fab {
+    left: 14px;
+    bottom: 92px;
+    padding: 10px 14px 10px 10px;
+    font-size: 12px;
+  }
+  .motta-intake-fab__hint { display: none; }
+}
+
+/* Honor reduced motion for the FAB + modal */
+@media (prefers-reduced-motion: reduce) {
+  .motta-intake-modal,
+  .motta-intake-modal__shell,
+  .motta-intake-fab {
+    animation: none !important;
+    transition: opacity 0.2s ease;
+  }
+  .motta-intake-modal__close { transition: none; }
+}
+
+/* Inline link version of IntakeButton inside footer/nav lists —
+   keep it visually identical to a normal nav link instead of a button. */
+.motta-intake-link {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.motta-intake-link:hover {
+  color: var(--motta-sage);
+}
+

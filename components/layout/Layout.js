@@ -17,6 +17,8 @@ import Header4 from './header/Header4';
 import Header5 from './header/Header5';
 import TopBanner from '../elements/TopBanner';
 import AlfredCompanion from '../elements/AlfredCompanion';
+import IntakeProvider from '../intake/IntakeProvider';
+import IntakeFloatingButton from '../intake/IntakeFloatingButton';
 
 export const metadata = {
   title: 'Motta Financial',
@@ -27,6 +29,7 @@ export default function Layout({
   footerStyle,
   headTitle,
   breadcrumbTitle,
+  breadcrumbEyebrow,
   children,
   transparent,
 }) {
@@ -61,7 +64,7 @@ export default function Layout({
     });
   }, []);
   return (
-    <>
+    <IntakeProvider>
       <PageHead headTitle={headTitle} />
       <DataBg />
       <TopBanner />
@@ -136,7 +139,7 @@ export default function Layout({
       ) : null}
 
       <main className="fix">
-        {breadcrumbTitle && <Breadcrumb breadcrumbTitle={breadcrumbTitle} />}
+        {breadcrumbTitle && <Breadcrumb breadcrumbTitle={breadcrumbTitle} eyebrow={breadcrumbEyebrow} />}
 
         {children}
       </main>
@@ -150,6 +153,7 @@ export default function Layout({
 
       <BackToTop />
       <AlfredCompanion />
-    </>
+      <IntakeFloatingButton />
+    </IntakeProvider>
   );
 }

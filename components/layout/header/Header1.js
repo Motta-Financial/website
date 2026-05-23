@@ -3,6 +3,7 @@ import Menu from "../Menu"
 import MobileMenu from "../MobileMenu"
 import OffcanvusMenu from "../OffcanvusMenu"
 import SearchPopup from "../SearchPopup"
+import IntakeButton from "@/components/intake/IntakeButton"
 
 export default function Header1({ scroll, isMobileMenu, handleMobileMenu, transparent, isSearch, isOffcanvus, handleOffcanvus, handleSearch }) {
     return (
@@ -62,7 +63,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, transp
                                                         </svg>
                                                     </a>
                                                 </li>
-                                                <li className="header-btn"><Link href="/contact" className="btn">let’s Talk</Link></li>
+                                                <li className="header-btn"><IntakeButton className="btn" source="header">Let&apos;s ship it</IntakeButton></li>
                                             </ul>
                                         </div>
                                         <div className="mobile-nav-toggler" onClick={handleMobileMenu}>
