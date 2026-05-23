@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { Autoplay, Navigation, Pagination, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import AlfredLogo from '@/components/elements/AlfredLogo';
 
 const swiperOptions = {
   modules: [Autoplay, Pagination, Navigation, EffectFade],
@@ -27,7 +28,10 @@ export default function HeroSlider() {
             <div className="row">
               <div className="col-lg-7">
                 <div className="slider__content">
-                  <span className="alfred-mark">Powered by ALFRED Ai</span>
+                  <span className="alfred-mark alfred-mark--with-logo">
+                    <AlfredLogo size={26} className="alfred-logo--invert" />
+                    Powered by ALFRED Ai
+                  </span>
                   <span className="sub-title">Tax · Accounting · Advisory</span>
                   <h2 className="title">
                     Tech-forward CPAs for clients who want a firm that thinks

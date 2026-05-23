@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import AlfredLogo from '@/components/elements/AlfredLogo';
 
 const CAPABILITIES = [
   {
@@ -34,7 +35,7 @@ export default function AlfredFeature() {
       className="alfred-feature-area"
       style={{
         background:
-          'linear-gradient(180deg, #1a2330 0%, #14202d 60%, #0f1923 100%)',
+          'linear-gradient(180deg, #2b2f24 0%, #232619 55%, #1c1f15 100%)',
         padding: '120px 0',
         position: 'relative',
         overflow: 'hidden',
@@ -46,13 +47,28 @@ export default function AlfredFeature() {
           position: 'absolute',
           inset: 0,
           background:
-            'radial-gradient(circle at 80% 20%, rgba(79,179,217,0.12), transparent 50%), radial-gradient(circle at 15% 85%, rgba(107,116,93,0.18), transparent 55%)',
+            'radial-gradient(circle at 80% 20%, rgba(142,155,121,0.18), transparent 50%), radial-gradient(circle at 15% 85%, rgba(107,116,93,0.22), transparent 55%)',
           pointerEvents: 'none',
         }}
       />
       <div className="container" style={{ position: 'relative' }}>
         <div className="row justify-content-center">
           <div className="col-lg-8 text-center">
+            <div
+              style={{
+                display: 'inline-flex',
+                justifyContent: 'center',
+                marginBottom: 24,
+                filter: 'drop-shadow(0 12px 28px rgba(142,155,121,0.35))',
+              }}
+            >
+              <AlfredLogo
+                size={120}
+                glow
+                className="alfred-logo--orb-pulse alfred-logo--invert"
+                priority
+              />
+            </div>
             <span className="alfred-mark" style={{ marginBottom: 24 }}>
               The AI platform powering Motta
             </span>
@@ -93,7 +109,7 @@ export default function AlfredFeature() {
                   height: '100%',
                   padding: '32px 28px',
                   background: 'rgba(234, 230, 225, 0.04)',
-                  border: '1px solid rgba(79, 179, 217, 0.18)',
+                  border: '1px solid rgba(142, 155, 121, 0.22)',
                   borderRadius: 14,
                   backdropFilter: 'blur(6px)',
                   transition: 'transform 0.25s ease, border-color 0.25s ease',
@@ -146,8 +162,8 @@ export default function AlfredFeature() {
                 height: '100%',
                 padding: '32px 28px',
                 background:
-                  'linear-gradient(135deg, rgba(46,106,142,0.35), rgba(79,179,217,0.18))',
-                border: '1px solid rgba(79, 179, 217, 0.45)',
+                  'linear-gradient(135deg, rgba(107,116,93,0.45), rgba(142,155,121,0.22))',
+                border: '1px solid rgba(142, 155, 121, 0.5)',
                 borderRadius: 14,
                 display: 'flex',
                 flexDirection: 'column',

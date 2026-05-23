@@ -120,7 +120,7 @@ export default function Team() {
                       <p
                         style={{
                           fontSize: '13px',
-                          color: '#7a8295',
+                          color: 'var(--motta-sage, #6B745D)',
                           marginTop: '6px',
                           marginBottom: '12px',
                         }}

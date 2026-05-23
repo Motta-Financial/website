@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import AlfredLogo from './AlfredLogo';
 
 const MESSAGES = [
   {
@@ -47,7 +48,12 @@ export default function TopBanner() {
     >
       <div className="motta-topbanner__inner">
         <div key={index} className="motta-topbanner__track motta-topbanner__fade">
-          <span className="motta-topbanner__pill">{msg.pill}</span>
+          <span className="motta-topbanner__pill">
+            {msg.pill === 'ALFRED Ai' ? (
+              <AlfredLogo size={16} className="alfred-logo--invert motta-topbanner__pill-logo" />
+            ) : null}
+            {msg.pill}
+          </span>
           <span
             className="motta-topbanner__msg"
             dangerouslySetInnerHTML={{
