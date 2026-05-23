@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import AlfredLogo from '@/components/elements/AlfredLogo';
 
 const CAPABILITIES = [
   {
@@ -53,6 +54,21 @@ export default function AlfredFeature() {
       <div className="container" style={{ position: 'relative' }}>
         <div className="row justify-content-center">
           <div className="col-lg-8 text-center">
+            <div
+              style={{
+                display: 'inline-flex',
+                justifyContent: 'center',
+                marginBottom: 24,
+                filter: 'drop-shadow(0 12px 28px rgba(142,155,121,0.35))',
+              }}
+            >
+              <AlfredLogo
+                size={120}
+                glow
+                className="alfred-logo--orb-pulse alfred-logo--invert"
+                priority
+              />
+            </div>
             <span className="alfred-mark" style={{ marginBottom: 24 }}>
               The AI platform powering Motta
             </span>

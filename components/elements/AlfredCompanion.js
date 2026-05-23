@@ -54,7 +54,9 @@ export default function AlfredCompanion() {
     >
       <span className="alfred-companion__pulse" aria-hidden="true" />
       <span className="alfred-companion__ring" aria-hidden="true" />
-      <span className="alfred-companion__core">Ai</span>
+      <span className="alfred-companion__core">
+        <img src="/assets/img/brand/alfred-ai.png" alt="" aria-hidden="true" />
+      </span>
       <span className="alfred-companion__tooltip">{tip}</span>
     </Link>
   );
