@@ -192,7 +192,7 @@ export default function AlfredFeature() {
                     marginBottom: 10,
                   }}
                 >
-                  Exclusive ProConnect Open API
+                  Tax returns, drafted in minutes
                 </h4>
                 <p
                   style={{
@@ -201,10 +201,10 @@ export default function AlfredFeature() {
                     lineHeight: 1.6,
                   }}
                 >
-                  Partner-grade access to Intuit&apos;s tax-return API lets
-                  ALFRED read and write return data programmatically. Phase 1
-                  (Individual 1040) is live; Phase 2 expands across corporate,
-                  partnership, fiduciary, and exempt returns.
+                  Motta has partner-grade access to Intuit ProConnect&apos;s
+                  API, which lets ALFRED Ai prepare your return in minutes.
+                  That means a faster turnaround for you and more time for
+                  your CPA to spend looking for ways to save you money.
                 </p>
               </div>
               <Link

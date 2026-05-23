@@ -29,17 +29,22 @@ export default function Menu() {
             </li>
             <li>
               <Link href="/services/accounting-advisory">
-                Accounting Advisory &amp; Payroll
+                Accounting &amp; Payroll
               </Link>
             </li>
             <li>
               <Link href="/services/business-entity-structuring">
-                Business Entity Structuring
+                Business Entity Setup
               </Link>
             </li>
             <li>
               <Link href="/services/financial-planning">
-                Financial Planning &amp; Advisory
+                Financial Planning
+              </Link>
+            </li>
+            <li>
+              <Link href="/services/business-ai-transformation">
+                Business AI Transformation
               </Link>
             </li>
             <li>

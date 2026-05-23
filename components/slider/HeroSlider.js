@@ -35,14 +35,13 @@ export default function HeroSlider() {
                   </span>
                   <span className="sub-title">Tax · Accounting · Advisory</span>
                   <h2 className="title">
-                    Tech-forward CPAs for clients who want a firm that thinks
-                    ahead.
+                    A modern CPA firm that actually thinks ahead for you.
                   </h2>
                   <p>
-                    Founded in 2023 by Big Four alumni and operating from
-                    Boston and Las Vegas, Motta Financial combines proactive
-                    tax strategy with our proprietary AI platform — so senior
-                    advisors spend their hours on you, not on busywork.
+                    Founded in 2023 by Big Four alumni in Boston and Las
+                    Vegas, Motta Financial pairs hands-on tax and accounting
+                    advice with our own AI platform — so your CPA spends time
+                    on you and your goals, not on paperwork.
                   </p>
                   <IntakeButton className="btn mr-10" source="hero">
                     Boot up an engagement
@@ -68,16 +67,16 @@ export default function HeroSlider() {
             <div className="row">
               <div className="col-lg-7">
                 <div className="slider__content">
-                  <span className="alfred-mark">ProConnect Open API</span>
-                  <span className="sub-title">Intuit Ecosystem Partner</span>
+                  <span className="alfred-mark">Intuit Ecosystem Partner</span>
+                  <span className="sub-title">Tax prep, reimagined</span>
                   <h2 className="title">
-                    Routine tax prep, drafted in minutes — not hours.
+                    Your tax return, drafted in minutes — not hours.
                   </h2>
                   <p>
-                    Partner-grade access to Intuit&apos;s ProConnect Open API
-                    lets ALFRED read and write return data programmatically —
-                    eliminating the manual data entry that holds traditional
-                    firms back, and freeing our CPAs to focus on planning.
+                    Motta has partner-grade access to Intuit ProConnect&apos;s
+                    API, which lets ALFRED Ai prepare your return in minutes.
+                    That means a faster turnaround for you and more time for
+                    your CPA to focus on saving you money.
                   </p>
                   <Link href="/about" className="btn mr-10">
                     How ALFRED Works
@@ -110,10 +109,10 @@ export default function HeroSlider() {
                     overlooked.
                   </h2>
                   <p>
-                    Our name comes from the Japanese principle of Mottainai —
-                    the deep regret of waste in any form. It&apos;s how we run
-                    the practice and how we serve every individual, business
-                    owner, and non-profit we work with.
+                    Our name comes from the Japanese idea of Mottainai —
+                    the regret of letting anything good go to waste. It&apos;s
+                    how we run our firm and how we look after every
+                    individual, business owner, and non-profit we work with.
                   </p>
                   <Link href="/about" className="btn mr-10">
                     About Motta

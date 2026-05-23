@@ -4,7 +4,7 @@ import ServiceDetailLayout from '@/components/sections/ServiceDetailLayout';
 export const metadata = {
   title: 'Management Consulting | Motta Financial',
   description:
-    'Operating-model design, AI workflow integration, KPI dashboards, and fractional CFO support for owner-led businesses ready to scale.',
+    'Operating-model design, simple KPI dashboards, and fractional CFO support for owner-led businesses ready for the next stage of growth.',
 };
 
 export default function ManagementConsulting() {
@@ -13,42 +13,43 @@ export default function ManagementConsulting() {
       headerStyle={5}
       footerStyle={1}
       breadcrumbTitle="Management Consulting"
+      breadcrumbEyebrow="Business Advisory"
     >
       <ServiceDetailLayout
         currentHref="/services/management-consulting"
         heroImage="/assets/img/services/services_details01.jpg"
         title="Management Consulting"
-        lede="Owner-led businesses hit the same ceiling for the same reasons — unclear roles, missing financial visibility, and processes that live in someone&apos;s head. Motta&apos;s consulting practice rewires the operating model: clean data, written workflows, AI where it actually pays, and a leadership cadence that makes the next stage of growth executable."
+        lede="Owner-led businesses tend to hit the same wall for the same reasons — unclear roles, no real visibility into the numbers, and key processes that only live in one person&apos;s head. Motta&apos;s consulting team helps you fix the operating model: clean numbers, written processes, the right tools, and a leadership rhythm that makes the next stage of growth doable."
         bullets={[
           {
             icon: 'flaticon-target',
-            title: 'Operating-Model Design',
-            desc: 'Org charts, RACI, and SOPs grounded in how your business actually makes money.',
+            title: 'Clear Roles & Processes',
+            desc: 'Org chart, who-does-what, and step-by-step playbooks built around how your business actually makes money.',
           },
           {
             icon: 'flaticon-pie-chart',
-            title: 'KPI & Dashboards',
-            desc: 'A finance-grade KPI stack tied to your books — not spreadsheets that go stale by Wednesday.',
+            title: 'Simple KPI Dashboards',
+            desc: 'A short list of numbers tied directly to your books — not a spreadsheet that goes stale by Wednesday.',
           },
           {
             icon: 'flaticon-investment',
-            title: 'AI Workflow Integration',
-            desc: 'Practical automation across intake, document handling, reporting, and client communication using ALFRED Ai.',
+            title: 'AI Where It Pays Off',
+            desc: 'Practical automation across intake, documents, reporting, and client communication using ALFRED Ai.',
           },
           {
             icon: 'flaticon-financial-profit',
             title: 'Fractional CFO',
-            desc: 'Senior CFO leadership on a fractional basis — forecasting, capital strategy, and lender / investor management.',
+            desc: 'A senior CFO on a part-time basis — for cash forecasting, planning, and conversations with banks or investors.',
           },
         ]}
         sections={[
           {
-            heading: 'Where we engage',
-            body: 'Most engagements start with a 30-day diagnostic: we map your operating model, financial close, and reporting cadence; identify the two or three changes that move the needle most; and propose a roadmap with owners and dates. From there we either execute alongside your team or hand the playbook back.',
+            heading: 'How an engagement starts',
+            body: 'Most engagements begin with a 30-day diagnostic: we look at how your business is run, your monthly numbers, and your reporting rhythm; we point at the two or three changes that would move the needle most; and we hand you a plan with owners and dates. From there we either run alongside your team or hand the playbook back.',
           },
           {
-            heading: 'Who we serve',
-            body: 'Service businesses, professional firms, real-estate operators, and founder-led companies in the $2M–$50M revenue band that have outgrown bookkeeper-and-spreadsheet finance and need a real operating system to scale.',
+            heading: 'Who we work with',
+            body: 'Service businesses, professional firms, real-estate operators, and founder-led companies that have outgrown bookkeeper-and-spreadsheet finance and need a real operating system to scale to the next stage.',
           },
         ]}
       />

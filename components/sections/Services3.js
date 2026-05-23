@@ -5,25 +5,31 @@ const SERVICES = [
     icon: 'flaticon-profit',
     title: 'Tax Planning & Preparation',
     href: '/services/tax-planning',
-    desc: 'Federal and multi-state filing, quarterly estimates, and year-round planning for individuals, businesses, and trusts. ALFRED + ProConnect drafts routine returns in minutes, not hours.',
+    desc: 'Year-round tax strategy and stress-free filing for individuals, families, and business owners. ALFRED Ai drafts your return in minutes so your CPA can focus on saving you money.',
   },
   {
     icon: 'flaticon-target',
     title: 'Tax Advisory',
     href: '/services/tax-planning',
-    desc: 'Entity structuring, equity compensation strategy (RSUs, ISOs, NSOs, ESPPs), real estate planning, multi-entity / multi-state work, and international reporting.',
+    desc: 'Practical advice for the moments that matter: starting a business, picking the right entity, navigating stock options (RSUs, ISOs, ESPPs), buying real estate, or operating across state lines.',
   },
   {
     icon: 'flaticon-financial-profit',
     title: 'Accounting & Bookkeeping',
+    desc: 'Clean books, on-time payroll, monthly reporting, and a fractional CFO when you need one — so you always know where your business stands.',
     href: '/services/accounting-advisory',
-    desc: 'Outsourced controllership, monthly close, financial reporting, payroll migration, ERP and QuickBooks support, and fractional CFO engagements.',
+  },
+  {
+    icon: 'flaticon-light-bulb',
+    title: 'Business AI Transformation',
+    href: '/services/business-ai-transformation',
+    desc: 'Our AI-certified team rebuilds the way your business runs — replacing manual work with smart automation so your people focus on the things that actually grow the company.',
   },
   {
     icon: 'flaticon-piggy-bank',
     title: 'Financial Planning',
     href: '/services/financial-planning',
-    desc: 'Holistic personal financial planning, retirement strategy, risk management, and investment advisory through Motta Wealth Management — led by a CFP®.',
+    desc: 'A single plan that ties together your taxes, investments, retirement, and estate — led by a CFP through Motta Wealth Management.',
   },
 ];
 
@@ -37,7 +43,7 @@ export default function Services3() {
               <div className="section-title mb-50">
                 <span className="sub-title">What we deliver</span>
                 <h2 className="title">
-                  Four practice areas, one integrated team.
+                  Five practice areas, one team that talks to each other.
                 </h2>
               </div>
             </div>

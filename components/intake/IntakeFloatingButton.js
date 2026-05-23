@@ -32,15 +32,15 @@ export default function IntakeFloatingButton() {
       className="motta-intake-fab"
       data-visible={visible}
       onClick={open}
-      aria-label="Open new client intake"
+      aria-label="Become a client — open intake form"
     >
-      <span className="motta-intake-fab__glyph" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="9 6 15 12 9 18" />
+      <span className="motta-intake-fab__label">Become a client</span>
+      <span className="motta-intake-fab__arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="13 6 19 12 13 18" />
         </svg>
       </span>
-      <span className="motta-intake-fab__label">Become a client</span>
-      <span className="motta-intake-fab__hint">Skip the small talk</span>
     </button>
   );
 }

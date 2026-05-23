@@ -5,15 +5,19 @@ const OTHER_SERVICES = [
   { href: '/services/tax-planning', label: 'Tax Planning & Preparation' },
   {
     href: '/services/accounting-advisory',
-    label: 'Accounting Advisory & Payroll',
+    label: 'Accounting & Payroll',
   },
   {
     href: '/services/business-entity-structuring',
-    label: 'Business Entity Structuring',
+    label: 'Business Entity Setup',
   },
   {
     href: '/services/financial-planning',
-    label: 'Financial Planning & Advisory',
+    label: 'Financial Planning',
+  },
+  {
+    href: '/services/business-ai-transformation',
+    label: 'Business AI Transformation',
   },
   { href: '/services/management-consulting', label: 'Management Consulting' },
   {
@@ -98,14 +102,14 @@ export default function ServiceDetailLayout({
                   }}
                 >
                   <h4 className="title" style={{ marginBottom: 8 }}>
-                    Ready to engage Motta on this?
+                    Ready to talk this through with a CPA?
                   </h4>
                   <p style={{ marginBottom: 18 }}>
-                    Tell us about your situation and we&apos;ll scope the right
-                    engagement — usually within one business day.
+                    Tell us a little about your situation and we&apos;ll get
+                    back to you — usually within one business day.
                   </p>
                   <IntakeButton className="btn mr-10" source={`service: ${title}`}>
-                    Boot up an engagement
+                    Become a Client
                   </IntakeButton>
                   <Link href="/contact" className="btn border-btn">
                     Send Us a Message

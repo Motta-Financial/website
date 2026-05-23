@@ -4,7 +4,7 @@ import ServiceDetailLayout from '@/components/sections/ServiceDetailLayout';
 export const metadata = {
   title: 'Tax Planning & Preparation | Motta Financial',
   description:
-    'Federal and multi-state tax planning, preparation, and year-round strategy for individuals, businesses, trusts, and pre-IPO employees — powered by ALFRED Ai and the ProConnect Open API.',
+    'Year-round tax planning and stress-free filing for individuals, families, and business owners — with ALFRED Ai drafting your return in minutes so your CPA can focus on saving you money.',
 };
 
 export default function TaxPlanning() {
@@ -13,42 +13,43 @@ export default function TaxPlanning() {
       headerStyle={5}
       footerStyle={1}
       breadcrumbTitle="Tax Planning & Preparation"
+      breadcrumbEyebrow="Tax Services"
     >
       <ServiceDetailLayout
         currentHref="/services/tax-planning"
         heroImage="/assets/img/services/services_details01.jpg"
         title="Tax Planning & Preparation"
-        lede="Motta delivers proactive, year-round tax strategy — not a once-a-year filing exercise. Our advisors model decisions before they happen, optimize across federal, state, and entity layers, and use ALFRED Ai to keep cost and turnaround in line with the value you receive."
+        lede="Most people only think about taxes once a year — and pay extra for it. Motta works with you year-round, looking at every big decision before it happens so the bill in April is the smallest one possible. ALFRED Ai handles the heavy lifting on your return so your CPA can focus on the strategy that actually saves you money."
         bullets={[
           {
             icon: 'flaticon-target',
-            title: 'Year-Round Strategy',
-            desc: 'Quarterly planning, estimate management, and event-driven advisory — not just April returns.',
+            title: 'Year-Round Planning',
+            desc: 'Quarterly check-ins and proactive advice when life events happen — not a once-a-year filing rush.',
           },
           {
             icon: 'flaticon-investment',
-            title: 'Multi-State & Multi-Entity',
-            desc: 'Apportionment, nexus, and entity coordination across complex personal and business structures.',
+            title: 'Multi-State & Multi-Business',
+            desc: 'Living in one state, working in another, or running businesses across state lines? We handle the moving pieces for you.',
           },
           {
             icon: 'flaticon-financial-profit',
-            title: 'Equity Compensation',
-            desc: 'RSUs, ISOs, NSOs, ESPPs, AMT exposure, tender offers, and QSBS (§1202) planning.',
+            title: 'Stock Options & Equity',
+            desc: 'RSUs, ISOs, ESPPs, and pre-IPO planning — explained in plain English and modeled before you make the move.',
           },
           {
             icon: 'flaticon-pie-chart',
-            title: 'ALFRED + ProConnect',
-            desc: 'Programmatic access to Intuit ProConnect drafts routine returns in minutes — freeing senior advisors for strategy.',
+            title: 'Returns in Minutes',
+            desc: 'Our partner-grade access to Intuit ProConnect lets ALFRED Ai prepare your return in minutes — so you get a faster turnaround and a more attentive CPA.',
           },
         ]}
         sections={[
           {
-            heading: 'Who we serve',
-            body: 'Business owners and executives, high-net-worth individuals, real-estate investors, pre-IPO employees, trusts and estates, and channel partners who white-label Motta as their back office. We work nationally from offices in Boston and Las Vegas.',
+            heading: 'Who we work with',
+            body: 'Individuals, families, business owners, real-estate investors, employees with stock options, retirees, trusts and estates, and non-profits. We work nationally from offices in Boston and Las Vegas.',
           },
           {
-            heading: 'How we work',
-            body: 'Every engagement starts with a discovery call and a structured intake. We map your tax picture, surface optimization opportunities, and put a dedicated advisor + associate on your account. ALFRED Ai handles data ingestion, draft preparation, and document chasing — your CPA spends their hours on planning and review.',
+            heading: 'How an engagement starts',
+            body: 'It begins with a quick discovery call and a short intake form. We map out your tax picture, surface the savings hiding in plain sight, and pair you with a dedicated CPA. ALFRED Ai handles document collection and prep so your advisor can spend their time on the things only a human can do — explaining, planning, and looking around the corner for you.',
           },
         ]}
       />
