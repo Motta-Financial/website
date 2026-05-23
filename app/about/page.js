@@ -32,8 +32,8 @@ export default function About() {
             <div className="col-lg-6">
               <div className="motta-about-story__media">
                 <img
-                  src="/assets/img/about/about_story.jpg"
-                  alt="A Motta Financial CPA reviewing a client's return"
+                  src="/assets/img/about/vegas_skyline.jpg"
+                  alt="Las Vegas skyline at dusk with a sage-green editorial wash"
                 />
                 <div className="motta-about-story__chip" aria-hidden="true">
                   <span className="motta-about-story__chip-num">2023</span>

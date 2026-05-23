@@ -1098,7 +1098,7 @@
   padding: 90px 0;
   background:
     linear-gradient(180deg, rgba(31, 38, 28, 0.92) 0%, rgba(20, 24, 15, 0.92) 100%),
-    url('/assets/img/about/about_hero.jpg') center/cover no-repeat;
+    url('/assets/img/about/tech_office.jpg') center/cover no-repeat;
   background-blend-mode: normal;
   color: var(--motta-warm, #f4f1eb);
 }
