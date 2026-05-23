@@ -46,7 +46,7 @@ export default function AlfredCompanion() {
 
   return (
     <Link
-      href="/contact"
+      href="/get-started"
       className="alfred-companion"
       data-visible={visible}
       data-state={excited ? 'excited' : 'idle'}

@@ -43,8 +43,8 @@ export default function HeroSlider() {
                     tax strategy with our proprietary AI platform — so senior
                     advisors spend their hours on you, not on busywork.
                   </p>
-                  <Link href="/contact" className="btn mr-10">
-                    Request a Call Back
+                  <Link href="/get-started" className="btn mr-10">
+                    Start New Client Intake
                   </Link>
                   <Link href="/services" className="btn border-btn">
                     Explore Services

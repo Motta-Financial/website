@@ -19,8 +19,8 @@ const MESSAGES = [
   {
     pill: 'Now booking',
     text: 'Now booking TY2026 planning conversations from our Boston and Las Vegas offices.',
-    cta: 'Request a call back →',
-    href: '/contact',
+    cta: 'Start your intake →',
+    href: '/get-started',
   },
 ];
 

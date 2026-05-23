@@ -20,7 +20,7 @@ export default function Banner2() {
                   Financial Goals.
                 </p>
                 <Link
-                  href="/contact"
+                  href="/get-started"
                   className="btn border-btn"
                   data-aos="fade-up"
                   data-aos-delay={600}

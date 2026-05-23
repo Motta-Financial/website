@@ -246,7 +246,7 @@ export default function About() {
                                 <div className="col-lg-7">
                                     <div className="call-back-content">
                                         <div className="section-title white-title mb-10">
-                                            <h2 className="title">Request A Call Back</h2>
+                                            <h2 className="title">Ready to talk to a tech-forward CPA?</h2>
                                         </div>
                                         <p>Whether you&apos;re looking to upgrade your tax practice, build out the Office of the CFO, white-label a back office, or partner on an M&amp;A transaction — the Motta team would welcome a conversation.</p>
                                         <div className="shape">
