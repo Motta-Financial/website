@@ -4,7 +4,7 @@ import ServiceDetailLayout from '@/components/sections/ServiceDetailLayout';
 export const metadata = {
   title: 'Financial Statement Analysis | Motta Financial',
   description:
-    'Board-ready financial reporting, performance analytics, diligence packages, and M&A advisory grounded in clean GAAP financials.',
+    'Board-ready reporting, performance analytics, and the diligence packages lenders, investors, and buyers actually want to see.',
 };
 
 export default function FinancialStatementAnalysis() {
@@ -13,42 +13,43 @@ export default function FinancialStatementAnalysis() {
       headerStyle={5}
       footerStyle={1}
       breadcrumbTitle="Financial Statement Analysis"
+      breadcrumbEyebrow="Reporting & Analytics"
     >
       <ServiceDetailLayout
         currentHref="/services/financial-statement-analysis"
         heroImage="/assets/img/services/services_details05.jpg"
         title="Financial Statement Analysis"
-        lede="Bookkeeping tells you what happened. Analysis tells you what to do next. Motta turns your monthly close into board-ready reporting and decision support — clean GAAP financials, KPI commentary, variance analysis, and the deal-grade packages lenders and acquirers actually want to see."
+        lede="Bookkeeping tells you what already happened. Analysis tells you what to do next. Motta turns your monthly numbers into reports your board, your bank, or a buyer would actually want to see — with plain-English commentary on what changed and what to watch."
         bullets={[
           {
             icon: 'flaticon-pie-chart',
-            title: 'Board-Ready Reporting',
-            desc: 'Monthly and quarterly packages with P&amp;L, balance sheet, cash flow, KPIs, and written commentary.',
+            title: 'Monthly Reporting Package',
+            desc: 'Profit & loss, balance sheet, cash flow, and the few KPIs that matter — with a short written summary you can hand to anyone.',
           },
           {
             icon: 'flaticon-target',
             title: 'Performance Analytics',
-            desc: 'Margin, unit-economics, and cohort analysis tied directly to your operating model.',
+            desc: 'Margins, unit economics, and customer trends tied directly to how your business actually makes money.',
           },
           {
             icon: 'flaticon-investment',
-            title: 'Diligence & QofE Support',
-            desc: 'Sell-side prep, buy-side review, and quality-of-earnings packages for transactions and capital raises.',
+            title: 'Selling or Buying a Business',
+            desc: 'Sell-side prep, buy-side review, and quality-of-earnings packages so you walk into the deal table prepared.',
           },
           {
             icon: 'flaticon-financial-profit',
             title: 'Lender & Investor Reporting',
-            desc: 'Covenant calculations, projections, and reporting packages that get banks and investors to yes.',
+            desc: 'Bank covenant calculations, projections, and the package your lender or investor expects on time, every time.',
           },
         ]}
         sections={[
           {
             heading: 'Why this matters',
-            body: 'A clean set of statements is the cheapest leverage in your business. It changes how lenders price you, how investors value you, and how confidently you can make capital-allocation decisions. We make sure the numbers are right, the story is honest, and the package is the one your audience expects.',
+            body: 'A clean, well-explained set of numbers is the cheapest leverage in your business. It changes how a bank prices a loan, how an investor values a deal, and how confidently you can decide where to put the next dollar. We make sure the numbers are right, the story is honest, and the package is the one your audience expects.',
           },
           {
             heading: 'How we work',
-            body: 'We start by tightening the close — chart of accounts, accruals, and reconciliations — then layer reporting and analytics on top. ALFRED Ai handles the data plumbing and recurring deliverables so your senior advisor stays focused on interpretation and strategy.',
+            body: 'We tighten up the close first — the chart of accounts, the recurring entries, the reconciliations — then layer reporting on top. ALFRED Ai handles the data plumbing so your CPA stays focused on what the numbers mean and what to do about them.',
           },
         ]}
       />

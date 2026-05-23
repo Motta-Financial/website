@@ -433,48 +433,47 @@
   color: var(--motta-sage-deep);
 }
 
-/* ===== Tech-forward breadcrumb / page header =====
-   Replaces the stock-photo + purple doodle banner with a quiet,
-   editorial header: dark charcoal field, subtle grid mesh, a single
-   sage glow, an animated hairline rule, and a typewriter-style
-   eyebrow. Designed to feel like a CPA who builds software, not a
-   marketing template. ===== */
+/* ===== Page header banner =====
+   Matches the homepage hero treatment: a photograph behind a sage
+   wash, with an optional eyebrow tag, the page title, breadcrumb
+   crumbs, and a soft animated underline. Used on every interior page
+   so the brand reads consistently. ===== */
 .motta-breadcrumb {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  padding: 110px 0 90px;
-  background:
-    radial-gradient(1200px 400px at 85% 0%, rgba(142, 155, 121, 0.12) 0%, transparent 60%),
-    linear-gradient(180deg, #1A1F18 0%, #14180F 60%, #0F1310 100%);
+  padding: 130px 0 100px;
   color: var(--motta-warm);
-  border-bottom: 1px solid rgba(142, 155, 121, 0.18);
+  border-bottom: 1px solid rgba(142, 155, 121, 0.25);
 }
 @media (max-width: 767px) {
-  .motta-breadcrumb { padding: 80px 0 64px; }
+  .motta-breadcrumb { padding: 90px 0 70px; }
 }
-.motta-breadcrumb__grid {
+.motta-breadcrumb__photo {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(234, 230, 225, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(234, 230, 225, 0.05) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at 30% 50%, rgba(0,0,0,0.85) 0%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at 30% 50%, rgba(0,0,0,0.85) 0%, transparent 70%);
-  z-index: -1;
-  opacity: 0.7;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  filter: saturate(0.92);
 }
-.motta-breadcrumb__glow {
+.motta-breadcrumb__wash {
   position: absolute;
-  top: -40%;
-  right: -10%;
-  width: 560px;
-  height: 560px;
-  background: radial-gradient(circle, rgba(142, 155, 121, 0.22) 0%, transparent 65%);
-  filter: blur(20px);
+  inset: 0;
   z-index: -1;
-  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(31, 38, 28, 0.88) 0%,
+      rgba(43, 47, 36, 0.78) 35%,
+      rgba(107, 116, 93, 0.62) 70%,
+      rgba(142, 155, 121, 0.45) 100%
+    ),
+    radial-gradient(
+      900px 500px at 15% 50%,
+      rgba(15, 19, 16, 0.55) 0%,
+      transparent 65%
+    );
 }
 .motta-breadcrumb__rule {
   position: absolute;
@@ -484,9 +483,9 @@
   width: 100%;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(142, 155, 121, 0.55) 30%,
-    rgba(142, 155, 121, 0.85) 50%,
-    rgba(142, 155, 121, 0.55) 70%,
+    rgba(234, 230, 225, 0.45) 30%,
+    rgba(234, 230, 225, 0.85) 50%,
+    rgba(234, 230, 225, 0.45) 70%,
     transparent 100%);
   background-size: 200% 100%;
   animation: motta-rule-pan 9s linear infinite;
@@ -510,18 +509,20 @@
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--motta-alfred-glow);
-  padding: 6px 12px;
-  border: 1px solid rgba(142, 155, 121, 0.35);
+  color: var(--motta-warm);
+  padding: 6px 14px;
+  border: 1px solid rgba(234, 230, 225, 0.4);
   border-radius: 999px;
-  background: rgba(142, 155, 121, 0.08);
+  background: rgba(15, 19, 16, 0.28);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .motta-breadcrumb__eyebrow-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--motta-alfred-glow);
-  box-shadow: 0 0 10px var(--motta-alfred-glow);
+  background: var(--motta-warm);
+  box-shadow: 0 0 10px rgba(234, 230, 225, 0.85);
   animation: motta-dot-pulse 2.4s ease-in-out infinite;
 }
 @keyframes motta-dot-pulse {
@@ -535,6 +536,15 @@
   color: var(--motta-warm);
   margin: 0;
   text-wrap: balance;
+  text-shadow: 0 2px 24px rgba(15, 19, 16, 0.35);
+}
+.motta-breadcrumb__tagline {
+  margin: 0;
+  max-width: 60ch;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(244, 241, 235, 0.92);
+  text-shadow: 0 1px 14px rgba(15, 19, 16, 0.35);
 }
 .motta-breadcrumb__crumbs.breadcrumb {
   margin: 0;
@@ -544,17 +554,17 @@
 }
 .motta-breadcrumb__crumbs .breadcrumb-item,
 .motta-breadcrumb__crumbs .breadcrumb-item a {
-  color: rgba(234, 230, 225, 0.65);
+  color: rgba(244, 241, 235, 0.78);
 }
 .motta-breadcrumb__crumbs .breadcrumb-item a:hover {
-  color: var(--motta-alfred-glow);
+  color: var(--motta-warm);
 }
 .motta-breadcrumb__crumbs .breadcrumb-item.active {
   color: var(--motta-warm);
 }
 .motta-breadcrumb__crumbs .breadcrumb-item + .breadcrumb-item::before {
   content: "/";
-  color: rgba(142, 155, 121, 0.55);
+  color: rgba(234, 230, 225, 0.55);
   padding: 0 8px;
 }
 
@@ -682,79 +692,78 @@
   .motta-intake-modal__body { padding: 12px 20px 28px; }
 }
 
-/* ===== Floating intake CTA (bottom-left, opposite ALFRED) ===== */
+/* ===== Floating intake CTA (bottom-left, opposite ALFRED) =====
+   Clean single-pill button in Motta sage. No awkward dividers — the
+   label sits on its own with a small arrow glyph that nudges right on
+   hover. Subtle ambient glow ties it to the brand without screaming
+   for attention. ===== */
 .motta-intake-fab {
   position: fixed;
-  left: 20px;
+  left: 24px;
   bottom: 110px;
   z-index: 998;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 18px 12px 14px;
-  border: 1px solid rgba(107, 116, 93, 0.45);
+  padding: 13px 22px;
+  border: 1px solid var(--motta-sage-deep, #6b745d);
   border-radius: 999px;
-  background:
-    linear-gradient(180deg, var(--motta-charcoal) 0%, #1f261c 100%);
-  color: var(--motta-warm);
-  font-family: var(--tg-body-font-family);
-  font-size: 13px;
+  background: var(--motta-sage, #8e9b79);
+  color: var(--motta-warm, #f4f1eb);
+  font-family: var(--tg-body-font-family, system-ui);
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   cursor: pointer;
-  box-shadow: 0 12px 30px rgba(15, 19, 16, 0.35);
+  box-shadow:
+    0 10px 24px rgba(15, 19, 16, 0.22),
+    0 2px 6px rgba(15, 19, 16, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
   opacity: 0;
-  transform: translateY(20px) scale(0.9);
-  transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.25s ease;
+  transform: translateY(16px) scale(0.96);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
 }
 .motta-intake-fab[data-visible="true"] {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
-.motta-intake-fab:hover {
-  box-shadow: 0 16px 36px rgba(15, 19, 16, 0.45),
-              0 0 0 4px rgba(142, 155, 121, 0.18);
-  border-color: var(--motta-sage-light);
-}
-.motta-intake-fab__glyph {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: var(--motta-sage);
-  color: var(--motta-warm);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
-  box-shadow: inset 0 0 0 1px rgba(234, 230, 225, 0.15),
-              0 0 14px rgba(142, 155, 121, 0.45);
-  transition: transform 0.25s ease, background 0.25s ease;
-}
-.motta-intake-fab:hover .motta-intake-fab__glyph {
-  transform: translateX(2px);
-  background: var(--motta-sage-light);
+.motta-intake-fab:hover,
+.motta-intake-fab:focus-visible {
+  outline: none;
+  background: var(--motta-sage-deep, #6b745d);
+  border-color: var(--motta-charcoal, #2b2f24);
+  box-shadow:
+    0 14px 32px rgba(15, 19, 16, 0.32),
+    0 0 0 4px rgba(142, 155, 121, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 .motta-intake-fab__label {
   line-height: 1.1;
+  white-space: nowrap;
 }
-.motta-intake-fab__hint {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--motta-alfred-glow);
-  padding-left: 10px;
-  border-left: 1px solid rgba(234, 230, 225, 0.18);
-  margin-left: 4px;
+.motta-intake-fab__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
+}
+.motta-intake-fab:hover .motta-intake-fab__arrow {
+  transform: translateX(3px);
 }
 @media (max-width: 575px) {
   .motta-intake-fab {
     left: 14px;
     bottom: 92px;
-    padding: 10px 14px 10px 10px;
-    font-size: 12px;
+    padding: 11px 18px;
+    font-size: 13px;
   }
-  .motta-intake-fab__hint { display: none; }
 }
 
 /* Honor reduced motion for the FAB + modal */
@@ -781,4 +790,479 @@
 .motta-intake-link:hover {
   color: var(--motta-sage);
 }
+
+/* ============================================================
+   /about page
+   Editorial layout for the About Motta Financial page. The page
+   alternates between warm cream sections and a charcoal "what we
+   do" band so the eye gets a rhythm scrolling down. Reuses the
+   sage / cream / charcoal palette already defined above.
+   ============================================================ */
+
+/* Shared atoms used across the page. */
+.motta-eyebrow {
+  display: inline-block;
+  font-family: var(--tg-heading-font-family, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--motta-sage-deep, #6b745d);
+  margin-bottom: 14px;
+}
+.motta-eyebrow--light { color: var(--motta-warm, #f4f1eb); opacity: 0.85; }
+.motta-section-title {
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--motta-charcoal, #2b2f24);
+  margin: 0 0 16px;
+  text-wrap: balance;
+}
+.motta-section-title--light { color: var(--motta-warm, #f4f1eb); }
+.motta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--motta-sage-deep, #6b745d);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+.motta-link:hover { gap: 12px; color: var(--motta-charcoal, #2b2f24); }
+
+/* --- Story --- */
+.motta-about-story { padding: 100px 0 80px; background: var(--motta-warm, #f4f1eb); }
+@media (max-width: 767px) { .motta-about-story { padding: 70px 0 50px; } }
+.motta-about-story__row { gap: 40px 0; }
+.motta-about-story__media {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -25px rgba(15, 19, 16, 0.35);
+}
+.motta-about-story__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+.motta-about-story__chip {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(15, 19, 16, 0.78);
+  color: var(--motta-warm, #f4f1eb);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.motta-about-story__chip-num {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.motta-about-story__chip-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.motta-about-story__title {
+  font-size: clamp(30px, 3.6vw, 46px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--motta-charcoal, #2b2f24);
+  margin: 0 0 18px;
+  text-wrap: balance;
+}
+.motta-about-story__content p {
+  color: rgba(43, 47, 36, 0.82);
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 14px;
+  max-width: 60ch;
+}
+.motta-about-story__cta {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+/* --- Mottainai band --- */
+.motta-about-philosophy {
+  padding: 70px 0;
+  background: linear-gradient(180deg, #eae6e1 0%, #e2ddd5 100%);
+  text-align: center;
+  border-top: 1px solid rgba(107, 116, 93, 0.18);
+  border-bottom: 1px solid rgba(107, 116, 93, 0.18);
+}
+.motta-about-philosophy__eyebrow {
+  display: inline-block;
+  font-family: var(--tg-heading-font-family, serif);
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--motta-sage-deep, #6b745d);
+  margin-bottom: 14px;
+}
+.motta-about-philosophy__title {
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--motta-charcoal, #2b2f24);
+  margin: 0 0 18px;
+}
+.motta-about-philosophy__body {
+  max-width: 68ch;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(43, 47, 36, 0.82);
+}
+
+/* --- Principles --- */
+.motta-about-principles { padding: 90px 0; background: var(--motta-warm, #f4f1eb); }
+.motta-about-principles__head { max-width: 60ch; margin-bottom: 50px; }
+.motta-about-principles__grid { gap: 24px 0; }
+.motta-principle {
+  height: 100%;
+  padding: 28px 26px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(107, 116, 93, 0.16);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.motta-principle:hover {
+  transform: translateY(-4px);
+  border-color: rgba(107, 116, 93, 0.4);
+  box-shadow: 0 18px 40px -20px rgba(15, 19, 16, 0.25);
+}
+.motta-principle__num {
+  display: inline-block;
+  font-family: var(--tg-heading-font-family, ui-monospace, monospace);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--motta-sage-deep, #6b745d);
+  margin-bottom: 14px;
+}
+.motta-principle__title {
+  font-size: 19px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--motta-charcoal, #2b2f24);
+  margin: 0 0 10px;
+}
+.motta-principle p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(43, 47, 36, 0.78);
+}
+
+/* --- Services band (charcoal) --- */
+.motta-about-services {
+  padding: 100px 0;
+  background:
+    radial-gradient(900px 500px at 80% 0%, rgba(142, 155, 121, 0.15) 0%, transparent 60%),
+    linear-gradient(180deg, #1f261c 0%, #14180f 100%);
+  color: var(--motta-warm, #f4f1eb);
+}
+.motta-about-services__head {
+  max-width: 64ch;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+.motta-about-services__sub {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(244, 241, 235, 0.78);
+  margin: 0;
+}
+.motta-about-services__grid { gap: 18px 0; }
+.motta-service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  padding: 28px 24px;
+  border-radius: 14px;
+  background: rgba(244, 241, 235, 0.04);
+  border: 1px solid rgba(244, 241, 235, 0.1);
+  text-decoration: none;
+  color: var(--motta-warm, #f4f1eb);
+  position: relative;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.motta-service-card:hover {
+  transform: translateY(-4px);
+  background: rgba(244, 241, 235, 0.08);
+  border-color: rgba(142, 155, 121, 0.55);
+  color: var(--motta-warm, #f4f1eb);
+}
+.motta-service-card__icon {
+  font-size: 32px;
+  color: var(--motta-sage-light, #8e9b79);
+  margin-bottom: 6px;
+}
+.motta-service-card__title {
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--motta-warm, #f4f1eb);
+  margin: 0;
+}
+.motta-service-card p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(244, 241, 235, 0.72);
+}
+.motta-service-card__arrow {
+  position: absolute;
+  right: 22px;
+  top: 26px;
+  font-size: 18px;
+  color: var(--motta-sage-light, #8e9b79);
+  transition: transform 0.2s ease;
+}
+.motta-service-card:hover .motta-service-card__arrow { transform: translateX(4px); }
+
+/* --- Audiences --- */
+.motta-about-who { padding: 100px 0; background: var(--motta-warm, #f4f1eb); }
+.motta-about-who__head { text-align: center; max-width: 60ch; margin: 0 auto 50px; }
+.motta-about-who__grid { gap: 24px 0; }
+.motta-audience {
+  height: 100%;
+  padding: 32px 28px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(107, 116, 93, 0.16);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.motta-audience:hover {
+  transform: translateY(-4px);
+  border-color: rgba(107, 116, 93, 0.5);
+  box-shadow: 0 18px 40px -20px rgba(15, 19, 16, 0.25);
+}
+.motta-audience__title {
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--motta-charcoal, #2b2f24);
+  margin: 0 0 10px;
+}
+.motta-audience > p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(43, 47, 36, 0.78);
+  margin: 0 0 18px;
+}
+.motta-audience__list {
+  list-style: none;
+  padding: 0;
+  margin: auto 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgba(107, 116, 93, 0.18);
+  padding-top: 16px;
+}
+.motta-audience__list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14px;
+  color: rgba(43, 47, 36, 0.82);
+}
+.motta-audience__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 12px;
+  height: 2px;
+  background: var(--motta-sage, #8e9b79);
+  border-radius: 2px;
+}
+
+/* --- Team teaser --- */
+.motta-about-team-teaser {
+  padding: 90px 0;
+  background:
+    linear-gradient(180deg, rgba(31, 38, 28, 0.92) 0%, rgba(20, 24, 15, 0.92) 100%),
+    url('/assets/img/about/tech_office.jpg') center/cover no-repeat;
+  background-blend-mode: normal;
+  color: var(--motta-warm, #f4f1eb);
+}
+.motta-about-team-teaser__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.motta-about-team-teaser__inner > div { max-width: 60ch; }
+.motta-about-team-teaser p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(244, 241, 235, 0.82);
+}
+
+/* --- Final CTA --- */
+.motta-about-cta {
+  padding: 90px 0;
+  background:
+    linear-gradient(135deg, var(--motta-sage-deep, #6b745d) 0%, #4f5742 100%);
+  color: var(--motta-warm, #f4f1eb);
+}
+.motta-about-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.motta-about-cta__inner > div { max-width: 60ch; }
+.motta-about-cta p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(244, 241, 235, 0.9);
+}
+.motta-about-cta__buttons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.motta-about-cta .btn {
+  background: var(--motta-warm, #f4f1eb);
+  color: var(--motta-charcoal, #2b2f24);
+  border-color: var(--motta-warm, #f4f1eb);
+}
+.motta-about-cta .btn:hover {
+  background: var(--motta-charcoal, #2b2f24);
+  color: var(--motta-warm, #f4f1eb);
+  border-color: var(--motta-charcoal, #2b2f24);
+}
+.motta-about-cta .border-btn {
+  background: transparent;
+  border: 1px solid rgba(244, 241, 235, 0.6);
+  color: var(--motta-warm, #f4f1eb);
+}
+.motta-about-cta .border-btn:hover {
+  background: var(--motta-warm, #f4f1eb);
+  color: var(--motta-sage-deep, #6b745d);
+}
+
+/* ============================================================
+   GLOBAL CREAM-FIRST THEME (sitewide) — light touch
+   ------------------------------------------------------------
+   The About page set the visual baseline: a warm cream canvas
+   with white "card" surfaces. We extend ONLY that — we do not
+   force gradients onto the footer, breadcrumb, or sections that
+   already have intentional backgrounds (announcement bar,
+   header, dark CTAs, etc.).
+   ============================================================ */
+
+:root {
+  --motta-cream-50:  #FBF8F2;
+  --motta-cream-100: #F4F1EB;
+  --motta-cream-200: #EAE6E1;
+}
+
+/* Warm cream canvas under the entire site. */
+html,
+body {
+  background-color: var(--motta-cream-50);
+}
+
+/* Template "white" utility sections become warm cream so they
+   blend with the canvas. Scoped narrowly — does NOT touch
+   footers, headers, or dark sections. */
+main .white-bg,
+main .bg-white,
+main section.white-bg,
+main .section-bg-white {
+  background-color: var(--motta-cream-50);
+}
+
+/* Template "gray" fills shift to the slightly deeper cream. */
+main .grey-bg,
+main .gray-bg,
+main .section-bg,
+main .section-bg-2,
+main .bg-gray,
+main .bg-grey {
+  background-color: var(--motta-cream-200);
+}
+
+/* Card surfaces stay white but get a soft warm border + shadow
+   so they read as "lifted" against the cream canvas instead of
+   floating with no edge. */
+.services-item,
+.about-item,
+.team-item,
+.blog-item,
+.blog-post-item,
+.pricing-item,
+.testimonial-item,
+.feature-item,
+.choose-item,
+.work-item,
+.project-item {
+  border: 1px solid rgba(107, 116, 93, 0.10);
+  box-shadow: 0 14px 32px -22px rgba(15, 19, 16, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.services-item:hover,
+.about-item:hover,
+.team-item:hover,
+.blog-item:hover,
+.blog-post-item:hover,
+.pricing-item:hover,
+.testimonial-item:hover,
+.feature-item:hover,
+.choose-item:hover,
+.work-item:hover,
+.project-item:hover {
+  border-color: rgba(107, 116, 93, 0.32);
+  box-shadow: 0 22px 44px -22px rgba(15, 19, 16, 0.28);
+}
+
+/* Form fields — warm border + sage focus ring. */
+main input[type="text"],
+main input[type="email"],
+main input[type="tel"],
+main input[type="number"],
+main input[type="search"],
+main input[type="password"],
+main textarea,
+main select {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(107, 116, 93, 0.22);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+main input[type="text"]:focus,
+main input[type="email"]:focus,
+main input[type="tel"]:focus,
+main input[type="number"]:focus,
+main input[type="search"]:focus,
+main input[type="password"]:focus,
+main textarea:focus,
+main select:focus {
+  border-color: var(--motta-sage, #8e9b79);
+  box-shadow: 0 0 0 3px rgba(142, 155, 121, 0.18);
+  outline: none;
+}
+
 

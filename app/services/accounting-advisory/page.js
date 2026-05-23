@@ -2,9 +2,9 @@ import Layout from '@/components/layout/Layout';
 import ServiceDetailLayout from '@/components/sections/ServiceDetailLayout';
 
 export const metadata = {
-  title: 'Accounting Advisory & Payroll | Motta Financial',
+  title: 'Accounting & Payroll | Motta Financial',
   description:
-    'Outsourced controllership, monthly close, GAAP-compliant reporting, payroll, and fractional CFO services — delivered by senior accountants and ALFRED Ai.',
+    'Clean books, on-time payroll, monthly reporting, and a fractional CFO when you need one — handled by senior accountants with ALFRED Ai doing the heavy lifting in the background.',
 };
 
 export default function AccountingAdvisory() {
@@ -12,43 +12,44 @@ export default function AccountingAdvisory() {
     <Layout
       headerStyle={5}
       footerStyle={1}
-      breadcrumbTitle="Accounting Advisory & Payroll"
+      breadcrumbTitle="Accounting & Payroll"
+      breadcrumbEyebrow="Accounting Services"
     >
       <ServiceDetailLayout
         currentHref="/services/accounting-advisory"
         heroImage="/assets/img/services/services_details02.jpg"
-        title="Accounting Advisory & Payroll"
-        lede="Closing the books is the easy part. Motta delivers GAAP-compliant accounting and payroll with the analytical layer most firms skip — variance commentary, KPI dashboards, and decision-ready reporting your operators actually use."
+        title="Accounting & Payroll"
+        lede="If you can&apos;t trust the numbers, you can&apos;t make a good decision. Motta keeps your books clean and your payroll on time, then layers on the simple reporting most firms skip — so every month you actually understand what your business is doing and where it&apos;s headed."
         bullets={[
           {
             icon: 'flaticon-financial-profit',
-            title: 'Outsourced Controllership',
-            desc: 'Monthly close, accruals, reconciliations, and GAAP-compliant financials owned end-to-end.',
+            title: 'Monthly Bookkeeping',
+            desc: 'Categorized transactions, reconciled accounts, and financials you can hand to a banker or board without rework.',
           },
           {
             icon: 'flaticon-report',
-            title: 'Management Reporting',
-            desc: 'Board-ready P&L, KPI dashboards, and variance commentary tailored to your operating model.',
+            title: 'Reports You Actually Read',
+            desc: 'Plain-English monthly summaries with the few numbers that matter most for your business — not a 40-page download.',
           },
           {
             icon: 'flaticon-investment',
             title: 'Payroll & Compliance',
-            desc: 'Multi-state payroll, contractor management, and migration off legacy providers.',
+            desc: 'Multi-state payroll, contractors, 1099s, and a smooth move off whatever payroll system has been frustrating you.',
           },
           {
             icon: 'flaticon-target',
             title: 'Fractional CFO',
-            desc: 'Forecasting, cash planning, fundraise support, and FP&A on demand for owner-led businesses.',
+            desc: 'When you need a senior finance leader for cash planning, forecasting, or a fundraise — without hiring full-time.',
           },
         ]}
         sections={[
           {
-            heading: 'ERP, QuickBooks & systems',
-            body: 'We work natively in QuickBooks Online, Xero, NetSuite, and most mid-market ERPs. ALFRED Ai connects directly to your ledger, expense, and payroll systems — keeping records clean without endless email chains.',
+            heading: 'Works with the tools you already use',
+            body: 'QuickBooks Online, Xero, NetSuite, Gusto, Rippling, Bill.com — we plug in to whatever you&apos;re already running. ALFRED Ai connects to your bank, payroll, and expense systems so the books stay current without anyone chasing receipts.',
           },
           {
             heading: 'When it makes sense',
-            body: 'You have between $1M and $50M in revenue, your team is wearing too many hats, your closes are slipping, or you need a finance function that scales without hiring a full department. Motta drops in as the senior accounting team you don\u2019t have to recruit.',
+            body: 'You&apos;re a small business or growing company that needs more than a part-time bookkeeper but isn&apos;t ready to hire a controller. Motta drops in as the senior accounting team you don&apos;t have to recruit — and you only pay for what you actually need.',
           },
         ]}
       />
