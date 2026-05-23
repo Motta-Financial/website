@@ -70,8 +70,7 @@ export default function HeroSlider() {
                   <span className="alfred-mark">ProConnect Open API</span>
                   <span className="sub-title">Intuit Ecosystem Partner</span>
                   <h2 className="title">
-                    Tax prep that used to take 3–4 hours now runs in under 10
-                    minutes.
+                    Routine tax prep, drafted in minutes — not hours.
                   </h2>
                   <p>
                     Partner-grade access to Intuit&apos;s ProConnect Open API
