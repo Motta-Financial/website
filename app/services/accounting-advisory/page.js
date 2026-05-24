@@ -19,7 +19,7 @@ export default function AccountingAdvisory() {
         currentHref="/services/accounting-advisory"
         heroImage="/assets/img/services/services_details02.jpg"
         title="Accounting & Payroll"
-        lede="If you can&apos;t trust the numbers, you can&apos;t make a good decision. Motta keeps your books clean and your payroll on time, then layers on the simple reporting most firms skip — so every month you actually understand what your business is doing and where it&apos;s headed."
+        lede="If you can't trust the numbers, you can't make a good decision. Motta keeps your books clean and your payroll on time, then layers on the simple reporting most firms skip — so every month you actually understand what your business is doing and where it's headed."
         bullets={[
           {
             icon: 'flaticon-financial-profit',
@@ -45,11 +45,11 @@ export default function AccountingAdvisory() {
         sections={[
           {
             heading: 'Works with the tools you already use',
-            body: 'QuickBooks Online, Xero, NetSuite, Gusto, Rippling, Bill.com — we plug in to whatever you&apos;re already running. ALFRED Ai connects to your bank, payroll, and expense systems so the books stay current without anyone chasing receipts.',
+            body: "QuickBooks Online, Xero, NetSuite, Gusto, Rippling, Bill.com — we plug in to whatever you're already running. ALFRED Ai connects to your bank, payroll, and expense systems so the books stay current without anyone chasing receipts.",
           },
           {
             heading: 'When it makes sense',
-            body: 'You&apos;re a small business or growing company that needs more than a part-time bookkeeper but isn&apos;t ready to hire a controller. Motta drops in as the senior accounting team you don&apos;t have to recruit — and you only pay for what you actually need.',
+            body: "You're a small business or growing company that needs more than a part-time bookkeeper but isn't ready to hire a controller. Motta drops in as the senior accounting team you don't have to recruit — and you only pay for what you actually need.",
           },
         ]}
       />
