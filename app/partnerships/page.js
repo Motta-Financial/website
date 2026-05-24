@@ -20,22 +20,271 @@ export default function Partnerships() {
             <div className="col-lg-8 text-center">
               <span className="motta-eyebrow">Our Partnerships</span>
               <h1 className="motta-section-title">
-                Investing in Education &amp; Entrepreneurship
+                Better Together
               </h1>
               <p style={{ fontSize: '17px', lineHeight: 1.7, color: 'rgba(43,47,36,0.82)', maxWidth: '65ch', margin: '0 auto' }}>
-                Motta Financial believes that the future of professional services depends on 
-                nurturing the next generation of talent. We partner with academic institutions 
-                and entrepreneurship programs to provide real-world experience, mentorship, 
-                and resources to students and small business owners alike.
+                Motta Financial believes the best client outcomes come from collaboration —
+                whether that means partnering with financial advisors to deliver holistic
+                planning, or investing in the next generation of professionals through
+                education and entrepreneurship programs.
               </p>
+            </div>
+          </div>
+
+          {/* Quick nav */}
+          <div className="row justify-content-center" style={{ marginTop: 50 }}>
+            <div className="col-lg-10">
+              <div className="motta-partnerships-nav">
+                <a href="#financial-advisors" className="motta-partnerships-nav__card">
+                  <span className="motta-partnerships-nav__eyebrow">Professional Partners</span>
+                  <span className="motta-partnerships-nav__title">Financial Advisors</span>
+                  <span className="motta-partnerships-nav__desc">
+                    Tax planning &amp; financial planning, one conversation.
+                  </span>
+                  <span className="motta-partnerships-nav__arrow">
+                    <i className="flaticon-right-arrow" />
+                  </span>
+                </a>
+                <a href="#suffolk-seed" className="motta-partnerships-nav__card">
+                  <span className="motta-partnerships-nav__eyebrow">Academic Partners</span>
+                  <span className="motta-partnerships-nav__title">Suffolk SEED</span>
+                  <span className="motta-partnerships-nav__desc">
+                    Building the next generation of professionals.
+                  </span>
+                  <span className="motta-partnerships-nav__arrow">
+                    <i className="flaticon-right-arrow" />
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Financial Advisors Feature */}
+      <section id="financial-advisors" className="motta-fa-feature">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6 order-lg-2">
+              <div className="motta-fa-feature__media">
+                <img
+                  src="/assets/img/partnerships/financial-advisors.jpg"
+                  alt="A CPA and a financial advisor reviewing a client's holistic financial plan together"
+                />
+                <div className="motta-fa-feature__badge">
+                  <span className="motta-fa-feature__badge-text">The Dynamic Duo</span>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6 order-lg-1">
+              <div className="motta-fa-feature__content">
+                <span className="motta-eyebrow">Featured Partnership</span>
+                <h2 className="motta-section-title" style={{ marginBottom: 20 }}>
+                  Financial Advisors &amp; CPAs
+                </h2>
+                <p className="motta-fa-feature__lead">
+                  Tax planning and financial planning are the same conversation. We partner with
+                  financial advisors who share one common goal: deliver the best possible product
+                  for the end user — the client.
+                </p>
+                <p>
+                  When a client&apos;s CPA and financial advisor work together seamlessly,
+                  investment strategies, tax positions, retirement timing, and estate decisions
+                  stop being separate spreadsheets and start being a single coordinated plan.
+                  That&apos;s where the real value shows up.
+                </p>
+                <p>
+                  We bring tax expertise, compliance discipline, and a forward-looking advisory
+                  lens. Our partner advisors bring deep capital markets experience, behavioral
+                  coaching, and long-term wealth strategy. Together, we cover every angle of a
+                  client&apos;s financial life.
+                </p>
+                <a
+                  href="#fa-benefits"
+                  className="motta-link"
+                  style={{ marginTop: 16 }}
+                >
+                  See how the partnership works <i className="flaticon-right-arrow" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Difference */}
+      <section className="motta-fa-difference">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-8 text-center" style={{ marginBottom: 50 }}>
+              <span className="motta-eyebrow">The Difference</span>
+              <h2 className="motta-section-title">Two Disciplines, One Plan</h2>
+              <p style={{ fontSize: '16px', lineHeight: 1.7, color: 'rgba(43,47,36,0.78)', maxWidth: '60ch', margin: '0 auto' }}>
+                Each professional brings distinct expertise. Coordinated, those strengths compound.
+              </p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-6">
+              <div className="motta-fa-role-card motta-fa-role-card--fa">
+                <div className="motta-fa-role-card__icon">
+                  <i className="flaticon-investment" />
+                </div>
+                <h4 className="motta-fa-role-card__title">Financial Advisor</h4>
+                <p className="motta-fa-role-card__sub">Focused on overall financial health</p>
+                <ul className="motta-fa-role-card__list">
+                  <li>Investment strategy &amp; portfolio construction</li>
+                  <li>Retirement planning &amp; income modeling</li>
+                  <li>Long-term goal alignment</li>
+                  <li>Risk tolerance &amp; behavioral coaching</li>
+                  <li>Estate &amp; wealth transfer strategy</li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="motta-fa-role-card motta-fa-role-card--cpa">
+                <div className="motta-fa-role-card__icon">
+                  <i className="flaticon-financial-profit" />
+                </div>
+                <h4 className="motta-fa-role-card__title">Certified Public Accountant</h4>
+                <p className="motta-fa-role-card__sub">Focused on tax &amp; financial precision</p>
+                <ul className="motta-fa-role-card__list">
+                  <li>Tax compliance &amp; preparation</li>
+                  <li>Proactive tax planning &amp; optimization</li>
+                  <li>Financial reporting &amp; analysis</li>
+                  <li>Entity structuring &amp; business advisory</li>
+                  <li>Audit, IRS, and regulatory support</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section id="fa-benefits" className="motta-fa-benefits">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-8 text-center" style={{ marginBottom: 50 }}>
+              <span className="motta-eyebrow motta-eyebrow--light">Benefits to the Client</span>
+              <h2 className="motta-section-title motta-section-title--light">
+                What Coordination Actually Delivers
+              </h2>
+            </div>
+          </div>
+          <div className="row">
+            {[
+              {
+                icon: 'flaticon-target',
+                title: 'Holistic Planning',
+                body:
+                  'Tax strategies and financial goals stop living on separate sheets. One coordinated plan covers investments, retirement, business, and estate.',
+              },
+              {
+                icon: 'flaticon-pie-chart',
+                title: 'Tax Efficiency',
+                body:
+                  'Investments, distributions, and entity structures are designed together to legally minimize lifetime tax — not just this year&apos;s return.',
+              },
+              {
+                icon: 'flaticon-report',
+                title: 'Risk Management',
+                body:
+                  'Two pairs of eyes flag financial and tax risks earlier — from concentrated positions to filing exposure — and protect assets in concert.',
+              },
+              {
+                icon: 'flaticon-handshake',
+                title: 'Business &amp; Estate Planning',
+                body:
+                  'Coordinated advice across legal, tax, and financial dimensions means succession plans, trusts, and entity moves all line up.',
+              },
+            ].map((item, i) => (
+              <div className="col-lg-6 col-md-6" key={i}>
+                <div className="motta-fa-benefit">
+                  <div className="motta-fa-benefit__icon">
+                    <i className={item.icon} />
+                  </div>
+                  <div className="motta-fa-benefit__content">
+                    <h4 className="motta-fa-benefit__title">{item.title}</h4>
+                    <p dangerouslySetInnerHTML={{ __html: item.body }} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Maximize the Partnership */}
+      <section className="motta-fa-maximize">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-8 text-center" style={{ marginBottom: 50 }}>
+              <span className="motta-eyebrow">Maximizing the Partnership</span>
+              <h2 className="motta-section-title">How We Work Together</h2>
+            </div>
+          </div>
+          <div className="row">
+            {[
+              {
+                num: '01',
+                title: 'Seamless Coordination',
+                body:
+                  'CPA and advisor share context so financial strategies stay aligned and clients never get conflicting advice from their own team.',
+              },
+              {
+                num: '02',
+                title: 'Comprehensive Support',
+                body:
+                  'From quarterly tax estimates to portfolio rebalancing and entity decisions, every financial base is covered without the client running point.',
+              },
+              {
+                num: '03',
+                title: 'Enhanced Decision-Making',
+                body:
+                  'Diverse perspectives sharpen every recommendation. Major decisions — sale of a business, Roth conversion, retirement timing — get reviewed from both sides before they happen.',
+              },
+            ].map((item) => (
+              <div className="col-lg-4 col-md-6" key={item.num}>
+                <div className="motta-fa-step">
+                  <div className="motta-fa-step__num">{item.num}</div>
+                  <h4 className="motta-fa-step__title">{item.title}</h4>
+                  <p>{item.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="row justify-content-center" style={{ marginTop: 40 }}>
+            <div className="col-lg-10 text-center">
+              <p className="motta-fa-maximize__close">
+                A strong collaboration between your financial advisor and your CPA gives you a
+                well-rounded strategy to achieve your financial goals while protecting your
+                wealth. By leveraging combined expertise, you can confidently navigate your
+                financial journey.
+              </p>
+              <Link href="/contact" className="btn" style={{ marginTop: 24 }}>
+                Refer a Client &amp; Partner With Us
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* Suffolk SEED Feature */}
-      <section className="motta-seed-feature">
+      <section id="suffolk-seed" className="motta-seed-feature">
         <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-8 text-center" style={{ marginBottom: 60 }}>
+              <span className="motta-eyebrow">Academic Partnership</span>
+              <h2 className="motta-section-title">Investing in the Next Generation</h2>
+              <p style={{ fontSize: '16px', lineHeight: 1.7, color: 'rgba(43,47,36,0.78)', maxWidth: '60ch', margin: '0 auto' }}>
+                The future of professional services depends on nurturing the next generation
+                of talent. We back academic and entrepreneurship programs that give students
+                real-world experience and small businesses access to the expertise they need
+                to grow.
+              </p>
+            </div>
+          </div>
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="motta-seed-feature__media">
@@ -55,19 +304,19 @@ export default function Partnerships() {
                   Suffolk University SEED Program
                 </h2>
                 <p className="motta-seed-feature__lead">
-                  <strong>SEED</strong> — the Suffolk Entrepreneurship and Educational Development 
-                  Collaborative — is a multidisciplinary consulting clinic that connects small 
+                  <strong>SEED</strong> — the Suffolk Entrepreneurship and Educational Development
+                  Collaborative — is a multidisciplinary consulting clinic that connects small
                   businesses with the strategic capabilities they need to thrive.
                 </p>
                 <p>
-                  Launched in Spring 2025, SEED brings together Suffolk faculty, alumni professionals, 
-                  and students from finance, marketing, advertising, legal, and accounting disciplines 
+                  Launched in Spring 2025, SEED brings together Suffolk faculty, alumni professionals,
+                  and students from finance, marketing, advertising, legal, and accounting disciplines
                   to deliver bespoke business services to entrepreneurs across Massachusetts.
                 </p>
                 <p>
-                  The program operates like a professional consulting firm — students work on 
-                  semester-long, hands-on projects with real clients under the guidance of faculty 
-                  mentors, gaining invaluable experiential learning while helping small businesses 
+                  The program operates like a professional consulting firm — students work on
+                  semester-long, hands-on projects with real clients under the guidance of faculty
+                  mentors, gaining invaluable experiential learning while helping small businesses
                   access expertise that would otherwise be out of reach.
                 </p>
                 <a
@@ -178,12 +427,12 @@ export default function Partnerships() {
           <div className="motta-partnerships-cta__inner">
             <div>
               <h2 className="motta-section-title motta-section-title--light">
-                Interested in Partnering?
+                Partner With Motta
               </h2>
               <p>
-                We{"'"}re always looking for opportunities to support education and entrepreneurship 
-                in our community. If you represent an academic institution or nonprofit program, 
-                let{"'"}s talk.
+                Whether you&apos;re a financial advisor looking for a CPA partner who actually
+                picks up the phone, or an academic program building the next generation of
+                professionals — let&apos;s talk.
               </p>
             </div>
             <div className="motta-partnerships-cta__buttons">
@@ -208,9 +457,295 @@ export default function Partnerships() {
           padding: 90px 0 70px;
           background: var(--motta-warm, #f4f1eb);
         }
-        .motta-seed-feature {
+
+        /* Quick nav cards */
+        .motta-partnerships-nav {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+        @media (max-width: 767px) {
+          .motta-partnerships-nav {
+            grid-template-columns: 1fr;
+          }
+        }
+        .motta-partnerships-nav__card {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          padding: 26px 28px;
+          border-radius: 14px;
+          background: #fff;
+          border: 1px solid rgba(107, 116, 93, 0.18);
+          color: var(--motta-charcoal, #2b2f24);
+          text-decoration: none;
+          transition: transform 0.25s ease, box-shadow 0.25s ease,
+            border-color 0.25s ease, background 0.25s ease;
+        }
+        .motta-partnerships-nav__card:hover {
+          transform: translateY(-3px);
+          border-color: var(--motta-sage, #8e9b79);
+          box-shadow: 0 18px 40px -22px rgba(15, 19, 16, 0.3);
+          color: var(--motta-charcoal, #2b2f24);
+        }
+        .motta-partnerships-nav__eyebrow {
+          font-size: 11px;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--motta-sage-deep, #6b745d);
+          font-weight: 700;
+        }
+        .motta-partnerships-nav__title {
+          font-size: 22px;
+          font-weight: 700;
+          line-height: 1.2;
+        }
+        .motta-partnerships-nav__desc {
+          font-size: 14px;
+          line-height: 1.5;
+          color: rgba(43, 47, 36, 0.72);
+        }
+        .motta-partnerships-nav__arrow {
+          position: absolute;
+          top: 22px;
+          right: 22px;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: var(--motta-warm, #f4f1eb);
+          color: var(--motta-sage-deep, #6b745d);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          transition: background 0.25s ease, color 0.25s ease;
+        }
+        .motta-partnerships-nav__card:hover .motta-partnerships-nav__arrow {
+          background: var(--motta-sage-deep, #6b745d);
+          color: var(--motta-warm, #f4f1eb);
+        }
+
+        /* FA feature */
+        .motta-fa-feature {
           padding: 90px 0;
           background: var(--motta-cream-50, #fbf8f2);
+        }
+        .motta-fa-feature__media {
+          position: relative;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 30px 60px -25px rgba(15, 19, 16, 0.35);
+        }
+        .motta-fa-feature__media img {
+          width: 100%;
+          height: auto;
+          display: block;
+          aspect-ratio: 4 / 3;
+          object-fit: cover;
+        }
+        .motta-fa-feature__badge {
+          position: absolute;
+          top: 18px;
+          left: 18px;
+          padding: 8px 14px;
+          border-radius: 8px;
+          background: var(--motta-charcoal, #2b2f24);
+          color: var(--motta-warm, #f4f1eb);
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+        .motta-fa-feature__content {
+          padding-right: 40px;
+        }
+        @media (max-width: 991px) {
+          .motta-fa-feature__content {
+            padding-right: 0;
+            margin-bottom: 40px;
+          }
+        }
+        .motta-fa-feature__lead {
+          font-size: 17px;
+          line-height: 1.65;
+          color: var(--motta-charcoal, #2b2f24);
+        }
+        .motta-fa-feature__content p {
+          font-size: 15px;
+          line-height: 1.65;
+          color: rgba(43, 47, 36, 0.82);
+          margin-bottom: 14px;
+        }
+
+        /* FA roles */
+        .motta-fa-difference {
+          padding: 90px 0;
+          background: var(--motta-warm, #f4f1eb);
+        }
+        .motta-fa-role-card {
+          height: 100%;
+          padding: 36px 32px;
+          border-radius: 16px;
+          background: #fff;
+          border: 1px solid rgba(107, 116, 93, 0.16);
+          margin-bottom: 24px;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .motta-fa-role-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 22px 50px -25px rgba(15, 19, 16, 0.28);
+        }
+        .motta-fa-role-card__icon {
+          width: 56px;
+          height: 56px;
+          border-radius: 14px;
+          background: var(--motta-sage, #8e9b79);
+          color: var(--motta-warm, #f4f1eb);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          margin-bottom: 18px;
+        }
+        .motta-fa-role-card--cpa .motta-fa-role-card__icon {
+          background: var(--motta-charcoal, #2b2f24);
+        }
+        .motta-fa-role-card__title {
+          font-size: 22px;
+          color: var(--motta-charcoal, #2b2f24);
+          margin: 0 0 4px;
+        }
+        .motta-fa-role-card__sub {
+          font-size: 13px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--motta-sage-deep, #6b745d);
+          font-weight: 600;
+          margin-bottom: 18px;
+        }
+        .motta-fa-role-card__list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        .motta-fa-role-card__list li {
+          position: relative;
+          padding: 8px 0 8px 22px;
+          font-size: 14px;
+          line-height: 1.55;
+          color: rgba(43, 47, 36, 0.82);
+          border-bottom: 1px dashed rgba(107, 116, 93, 0.18);
+        }
+        .motta-fa-role-card__list li:last-child {
+          border-bottom: 0;
+        }
+        .motta-fa-role-card__list li::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 14px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: var(--motta-sage, #8e9b79);
+        }
+
+        /* Benefits */
+        .motta-fa-benefits {
+          padding: 90px 0;
+          background:
+            radial-gradient(900px 500px at 80% 0%, rgba(142, 155, 121, 0.18) 0%, transparent 60%),
+            linear-gradient(180deg, #1f261c 0%, #14180f 100%);
+          color: var(--motta-warm, #f4f1eb);
+        }
+        .motta-fa-benefit {
+          display: flex;
+          gap: 18px;
+          padding: 24px;
+          margin-bottom: 24px;
+          border-radius: 14px;
+          background: rgba(244, 241, 235, 0.05);
+          border: 1px solid rgba(244, 241, 235, 0.1);
+          transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        }
+        .motta-fa-benefit:hover {
+          transform: translateY(-3px);
+          background: rgba(244, 241, 235, 0.08);
+          border-color: rgba(142, 155, 121, 0.45);
+        }
+        .motta-fa-benefit__icon {
+          flex-shrink: 0;
+          width: 48px;
+          height: 48px;
+          border-radius: 12px;
+          background: var(--motta-sage, #8e9b79);
+          color: var(--motta-warm, #f4f1eb);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 22px;
+        }
+        .motta-fa-benefit__title {
+          color: var(--motta-warm, #f4f1eb);
+          font-size: 18px;
+          margin: 0 0 8px;
+        }
+        .motta-fa-benefit__content p {
+          color: rgba(244, 241, 235, 0.82);
+          font-size: 14px;
+          line-height: 1.6;
+          margin: 0;
+        }
+
+        /* Maximize / how we work */
+        .motta-fa-maximize {
+          padding: 90px 0;
+          background: var(--motta-cream-50, #fbf8f2);
+        }
+        .motta-fa-step {
+          height: 100%;
+          padding: 30px 26px;
+          margin-bottom: 24px;
+          border-radius: 14px;
+          background: #fff;
+          border: 1px solid rgba(107, 116, 93, 0.14);
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .motta-fa-step:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 22px 50px -25px rgba(15, 19, 16, 0.25);
+        }
+        .motta-fa-step__num {
+          font-size: 30px;
+          font-weight: 700;
+          color: var(--motta-sage, #8e9b79);
+          line-height: 1;
+          margin-bottom: 14px;
+          font-family: var(--font-serif, serif);
+        }
+        .motta-fa-step__title {
+          font-size: 19px;
+          color: var(--motta-charcoal, #2b2f24);
+          margin: 0 0 10px;
+        }
+        .motta-fa-step p {
+          font-size: 14px;
+          line-height: 1.6;
+          color: rgba(43, 47, 36, 0.78);
+          margin: 0;
+        }
+        .motta-fa-maximize__close {
+          font-size: 17px;
+          line-height: 1.7;
+          color: var(--motta-charcoal, #2b2f24);
+          font-style: italic;
+        }
+
+        /* SEED feature */
+        .motta-seed-feature {
+          padding: 90px 0;
+          background: var(--motta-warm, #f4f1eb);
         }
         .motta-seed-feature__media {
           position: relative;
