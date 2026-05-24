@@ -22,22 +22,39 @@ const APPEARANCES = [
     platforms: [],
   },
   {
-    id: 'placeholder-1',
-    show: 'Podcast Show Name',
-    artwork: null,
-    artworkAlt: 'Podcast cover art',
+    id: 'madison-advisory-ai-buys-time',
+    show: 'Madison Advisory AI Podcast',
+    artwork: '/assets/img/news/madison-advisory-ai-podcast.jpg',
+    artworkAlt:
+      'Madison Advisory AI Podcast cover art \u2014 \u201CAI Buys Time. Judgment Makes the Decision.\u201D',
     accent: '#6b745d',
-    episode: 'Episode title goes here',
-    host: 'Host Name',
-    guest: 'Dat Le',
-    date: 'TBD',
-    duration: null,
+    episode: '\u201CAI Buys Time. Judgment Makes the Decision.\u201D',
+    host: 'Amanda Verner Thompson, Founder & CEO, Madison Advisory AI',
+    guest: 'Dat Le, CPA \u2014 Founder & Managing Partner, Motta Financial',
+    date: 'November 2025',
+    duration: 'Podcast episode',
     summary:
-      'Short blurb about the conversation \u2014 what Dat covered, why it matters to clients, and any standout moments. Replace this copy with the real episode description.',
-    listenUrl: 'https://www.linkedin.com/feed/update/urn:li:ugcPost:7434231097208549376',
-    listenLabel: 'View on LinkedIn',
-    platforms: [],
-    isPlaceholder: true,
+      'Amanda Verner Thompson sits down with Dat Le to talk about responsible AI implementation inside a real operating CPA firm \u2014 not the hype, the execution. Dat walks through how Motta built ALFRED, our internal AI agent, to remove administrative friction and free the team for higher-value client work without sacrificing human judgment. They cover servant leadership in high-performance advisory environments, why generic AI advice can cause real-world harm without context, building a culture that rewards \u201Cfield-goal attempts,\u201D and the line Motta will not cross: never breaking trust with data accuracy. The throughline \u2014 AI can accelerate the analysis, but the decision must remain human.',
+    listenUrl: 'https://www.youtube.com/watch?v=dguig3A7XlM',
+    listenLabel: 'Watch on YouTube',
+    platforms: [
+      {
+        label: 'Spotify',
+        url: 'https://open.spotify.com/episode/1fdVcjzmWAGgV28rUtvSYT',
+      },
+      {
+        label: 'Apple Podcasts',
+        url: 'https://podcasts.apple.com/us/podcast/ai-buys-time-judgment-makes-the-decision/id1868377710?i=1000752539779',
+      },
+      {
+        label: 'LinkedIn',
+        url: 'https://www.linkedin.com/feed/update/urn:li:activity:7434231759296417792/',
+      },
+      {
+        label: 'Madison Advisory AI',
+        url: 'https://www.madisonadvisory.ai/',
+      },
+    ],
   },
 ];
 
