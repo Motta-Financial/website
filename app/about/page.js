@@ -32,7 +32,7 @@ export default function About() {
               <div className="motta-about-story__media">
                 <img
                   src="/assets/img/about/vegas-resorts-world.jpg"
-                  alt="Resorts World Las Vegas at dusk, where Motta Financial's Las Vegas office is located"
+                  alt="Las Vegas skyline at night with The Strat, Circa, Encore, Venetian, and Conrad lit up — home to Motta Financial's Las Vegas office"
                 />
                 <div className="motta-about-story__tint" aria-hidden="true" />
                 <div className="motta-about-story__chip" aria-hidden="true">
