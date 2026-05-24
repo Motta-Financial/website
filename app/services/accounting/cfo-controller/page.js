@@ -19,7 +19,7 @@ export default function CFOController() {
         currentHref="/services/accounting/cfo-controller"
         heroImage="/assets/img/services/services_details02.jpg"
         title="CFO & Controller Services"
-        lede="You need senior financial leadership but aren&apos;t ready for a full-time hire. Motta provides fractional CFOs and Controllers who integrate with your team, bring institutional knowledge from working with dozens of companies, and scale up or down as your business evolves."
+        lede="You need senior financial leadership but aren't ready for a full-time hire. Motta provides fractional CFOs and Controllers who integrate with your team, bring institutional knowledge from working with dozens of companies, and scale up or down as your business evolves."
         bullets={[
           {
             icon: 'flaticon-target',
@@ -39,13 +39,13 @@ export default function CFOController() {
           {
             icon: 'flaticon-pie-chart',
             title: 'Board & Stakeholder Reporting',
-            desc: 'Clear, professional financial presentations that tell your company&apos;s story to investors, boards, and lenders.',
+            desc: "Clear, professional financial presentations that tell your company's story to investors, boards, and lenders.",
           },
         ]}
         sections={[
           {
             heading: 'When it makes sense',
-            body: 'You&apos;re past the startup phase and need real financial leadership — but a $300K+ CFO hire doesn&apos;t fit the budget or workload. Our fractional leaders plug in for 10-40 hours a month, scaling with your needs.',
+            body: "You're past the startup phase and need real financial leadership — but a $300K+ CFO hire doesn't fit the budget or workload. Our fractional leaders plug in for 10-40 hours a month, scaling with your needs.",
           },
           {
             heading: 'How we work',
