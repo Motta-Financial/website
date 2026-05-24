@@ -7,13 +7,12 @@ import IntakeButton from '@/components/intake/IntakeButton';
  *
  * Structure:
  *  1) Photo + sage-wash banner (handled by Layout via Breadcrumb)
- *  2) "Our story" — two-column with image + narrative
+ *  2) "Our story" — two-column with Resorts World Las Vegas image + narrative
  *  3) Mottainai callout — one-line philosophy on a sage band
- *  4) Principles — four short tiles (how we actually work)
- *  5) What we do — six service tiles in plain language
- *  6) Who we help — three audience cards (individuals / SMBs / partners)
- *  7) Team teaser — link to /about/team
- *  8) CTA band
+ *  4) The Motta Difference — combined principles + services + tech stats
+ *  5) Who we help — three audience cards (individuals / SMBs / partners)
+ *  6) Team teaser — link to /about/team
+ *  7) CTA band
  */
 export default function About() {
   return (
@@ -32,9 +31,10 @@ export default function About() {
             <div className="col-lg-6">
               <div className="motta-about-story__media">
                 <img
-                  src="/assets/img/about/vegas_skyline.jpg"
-                  alt="Las Vegas skyline at dusk with a sage-green editorial wash"
+                  src="/assets/img/about/vegas-resorts-world.jpg"
+                  alt="Las Vegas skyline at night with The Strat, Circa, Encore, Venetian, and Conrad lit up — home to Motta Financial's Las Vegas office"
                 />
+                <div className="motta-about-story__tint" aria-hidden="true" />
                 <div className="motta-about-story__chip" aria-hidden="true">
                   <span className="motta-about-story__chip-num">2023</span>
                   <span className="motta-about-story__chip-label">
@@ -98,57 +98,89 @@ export default function About() {
         </div>
       </section>
 
-      {/* === Principles === */}
-      <section className="motta-about-principles">
+      {/* === The Motta Difference === */}
+      <section className="motta-about-difference">
         <div className="container">
-          <div className="motta-about-principles__head">
-            <span className="motta-eyebrow">How we work</span>
+          <div className="motta-about-difference__head">
+            <span className="motta-eyebrow">The Motta Difference</span>
             <h2 className="motta-section-title">
-              Four things you&apos;ll notice working with Motta.
+              A tech-forward CPA firm built to give your time back.
             </h2>
-          </div>
-          <div className="row motta-about-principles__grid">
-            {PRINCIPLES.map((p) => (
-              <div className="col-lg-3 col-md-6" key={p.title}>
-                <div className="motta-principle">
-                  <span className="motta-principle__num">{p.num}</span>
-                  <h3 className="motta-principle__title">{p.title}</h3>
-                  <p>{p.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* === What we do === */}
-      <section className="motta-about-services">
-        <div className="container">
-          <div className="motta-about-services__head">
-            <span className="motta-eyebrow">What we do</span>
-            <h2 className="motta-section-title motta-section-title--light">
-              Seven services. One team. One conversation.
-            </h2>
-            <p className="motta-about-services__sub">
-              Most people end up with a separate bookkeeper, tax preparer,
-              and financial planner — none of whom talk to each other. At
-              Motta, all of it sits under one roof, with one CPA who knows
-              your situation.
+            <p className="motta-about-difference__sub">
+              Most firms are stuck doing the same data entry they did 20
+              years ago. We built Motta to be different from day one — a
+              CPA team paired with our own AI agent, ALFRED, on top of a
+              ProConnect Tax + QuickBooks Online stack that automates the
+              busywork. The result is a firm that scales without losing
+              the high-touch relationship clients are paying for.
             </p>
           </div>
-          <div className="row motta-about-services__grid">
-            {SERVICES.map((s) => (
-              <div className="col-lg-4 col-md-6" key={s.title}>
-                <Link href={s.href} className="motta-service-card">
-                  <i className={`${s.icon} motta-service-card__icon`} />
-                  <h4 className="motta-service-card__title">{s.title}</h4>
-                  <p>{s.desc}</p>
-                  <span className="motta-service-card__arrow" aria-hidden="true">
-                    →
-                  </span>
-                </Link>
+
+          {/* Tech stats band — sourced from the ProConnect case study */}
+          <div className="motta-about-difference__stats">
+            {STATS.map((stat) => (
+              <div className="motta-about-difference__stat" key={stat.label}>
+                <span className="motta-about-difference__stat-num">
+                  {stat.num}
+                </span>
+                <span className="motta-about-difference__stat-label">
+                  {stat.label}
+                </span>
               </div>
             ))}
+          </div>
+
+          {/* Principles — how we work */}
+          <div className="motta-about-difference__principles">
+            <h3 className="motta-about-difference__sub-title">
+              How we work
+            </h3>
+            <div className="row motta-about-principles__grid">
+              {PRINCIPLES.map((p) => (
+                <div className="col-lg-3 col-md-6" key={p.title}>
+                  <div className="motta-principle">
+                    <span className="motta-principle__num">{p.num}</span>
+                    <h3 className="motta-principle__title">{p.title}</h3>
+                    <p>{p.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Services — what we do */}
+          <div className="motta-about-difference__services">
+            <h3 className="motta-about-difference__sub-title">
+              What we do
+            </h3>
+            <p className="motta-about-difference__services-sub">
+              Six services. One team. One conversation. Most clients come to
+              us with a separate bookkeeper, tax preparer, and financial
+              planner — none of whom talk to each other. At Motta, all of it
+              sits under one roof, with one CPA who knows your situation.
+            </p>
+            <div className="row motta-about-services__grid">
+              {SERVICES.map((s) => (
+                <div className="col-lg-4 col-md-6" key={s.title}>
+                  <Link href={s.href} className="motta-service-card">
+                    <i className={`${s.icon} motta-service-card__icon`} />
+                    <h4 className="motta-service-card__title">{s.title}</h4>
+                    <p>{s.desc}</p>
+                    <span
+                      className="motta-service-card__arrow"
+                      aria-hidden="true"
+                    >
+                      →
+                    </span>
+                  </Link>
+                </div>
+              ))}
+            </div>
+            <div className="motta-about-difference__services-cta">
+              <Link href="/services" className="btn">
+                See All Services
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -234,6 +266,28 @@ export default function About() {
     </Layout>
   );
 }
+
+const STATS = [
+  {
+    num: '~80%',
+    label:
+      'less time on data entry per return — ALFRED + ProConnect Books-to-Tax',
+  },
+  {
+    num: '30 min',
+    label: 'average return prep time, down from 3–4 hours industry standard',
+  },
+  {
+    num: '1 hub',
+    label:
+      'every client message, document, and signature centralized in one secure portal — no email chains, no lost attachments',
+  },
+  {
+    num: '24/7',
+    label:
+      'overnight workflow with our Chennai team and AI agents — no waiting weeks for a draft',
+  },
+];
 
 const PRINCIPLES = [
   {

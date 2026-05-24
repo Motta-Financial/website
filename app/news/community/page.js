@@ -11,6 +11,7 @@ const COMMUNITY_ITEMS = [
     desc:
       'Motta Financial is a Connection Sponsor of JA Southern Massachusetts, supporting the inaugural 2026 Youth Summit at UMass Dartmouth and JA\u2019s year-round programs in financial literacy, entrepreneurship, and career readiness.',
     image: '/assets/img/news/ja-youth-summit-2026.jpg',
+    imagePosition: 'center 22%',
   },
   {
     href: '/news/community/suffolk-seed',
@@ -52,7 +53,10 @@ export default function CommunityOverview() {
             ) : (
               <div
                 className="motta-community__card-img motta-community__card-img--photo"
-                style={{ backgroundImage: `url(${item.image})` }}
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                  backgroundPosition: item.imagePosition || 'center',
+                }}
                 aria-hidden="true"
               />
             )}
@@ -144,7 +148,13 @@ export default function CommunityOverview() {
           padding: 0;
           background-size: cover;
           background-position: center;
-          min-height: 170px;
+          background-repeat: no-repeat;
+          min-height: 220px;
+        }
+        @media (min-width: 768px) {
+          .motta-community__card-img--photo {
+            min-height: 200px;
+          }
         }
         .motta-community__card-img img {
           max-width: 100%;

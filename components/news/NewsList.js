@@ -17,7 +17,11 @@ export default function NewsList({ eyebrow, title, lead, items }) {
             {item.image ? (
               <div
                 className="motta-news-list__card-img"
-                style={{ backgroundImage: `url(${item.image})`, background: item.imageBg || undefined }}
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                  background: item.imageBg || undefined,
+                  backgroundPosition: item.imagePosition || 'center',
+                }}
                 aria-hidden="true"
               />
             ) : null}
@@ -75,8 +79,14 @@ export default function NewsList({ eyebrow, title, lead, items }) {
         .motta-news-list__card-img {
           background-size: cover;
           background-position: center;
+          background-repeat: no-repeat;
           border-radius: 10px;
-          min-height: 150px;
+          min-height: 220px;
+        }
+        @media (min-width: 768px) {
+          .motta-news-list__card-img {
+            min-height: 180px;
+          }
         }
         .motta-news-list__card-eyebrow {
           font-size: 11px;

@@ -29,6 +29,61 @@ export default function FounderPage() {
                   alt="Dat Le, Founder of Motta Financial"
                 />
               </div>
+              <div className="motta-founder-connect">
+                <span className="motta-founder-connect__label">
+                  Connect with Dat
+                </span>
+                <ul className="motta-founder-connect__list">
+                  <li>
+                    <a href="mailto:dat.le@mottafinancial.com">
+                      dat.le@mottafinancial.com
+                    </a>
+                  </li>
+                  <li>
+                    <a href="tel:+17025146055,3">
+                      (702) 514-6055 ext. 3
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://calendly.com/dat-le-motta"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Book a meeting on Calendly
+                    </a>
+                  </li>
+                </ul>
+                <div className="motta-founder-connect__social">
+                  <a
+                    href="https://www.linkedin.com/in/dat-le-cpa-589b451b/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Dat Le on LinkedIn"
+                  >
+                    <i className="fab fa-linkedin-in" aria-hidden="true" />
+                    <span>LinkedIn</span>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/dat_m_le/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Dat Le on Instagram"
+                  >
+                    <i className="fab fa-instagram" aria-hidden="true" />
+                    <span>Instagram</span>
+                  </a>
+                  <a
+                    href="https://github.com/datleMotta"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Dat Le on GitHub"
+                  >
+                    <i className="fab fa-github" aria-hidden="true" />
+                    <span>GitHub</span>
+                  </a>
+                </div>
+              </div>
             </div>
             <div className="col-lg-7">
               <div className="motta-founder-story__content">
@@ -266,6 +321,71 @@ export default function FounderPage() {
           line-height: 1.7;
           color: rgba(43, 47, 36, 0.82);
           margin: 0 0 16px;
+        }
+
+        .motta-founder-connect {
+          margin-top: 24px;
+          padding: 24px 26px;
+          background: #fff;
+          border: 1px solid rgba(142, 155, 121, 0.25);
+          border-radius: 14px;
+          box-shadow: 0 12px 32px -22px rgba(15, 19, 16, 0.35);
+        }
+        .motta-founder-connect__label {
+          display: block;
+          font-family: var(--tg-heading-font-family, ui-monospace, monospace);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--motta-sage-deep, #6b745d);
+          margin-bottom: 14px;
+        }
+        .motta-founder-connect__list {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 18px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .motta-founder-connect__list a {
+          color: var(--motta-charcoal, #2b2f24);
+          font-size: 15px;
+          line-height: 1.5;
+          text-decoration: none;
+          border-bottom: 1px dashed rgba(107, 116, 93, 0.45);
+          padding-bottom: 2px;
+        }
+        .motta-founder-connect__list a:hover {
+          color: var(--motta-sage-deep, #6b745d);
+          border-bottom-style: solid;
+        }
+        .motta-founder-connect__social {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          padding-top: 16px;
+          border-top: 1px solid rgba(142, 155, 121, 0.20);
+        }
+        .motta-founder-connect__social a {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 14px;
+          border-radius: 999px;
+          background: rgba(142, 155, 121, 0.12);
+          color: var(--motta-charcoal, #2b2f24);
+          font-size: 13px;
+          font-weight: 500;
+          text-decoration: none;
+          transition: background 0.2s ease, color 0.2s ease;
+        }
+        .motta-founder-connect__social a:hover {
+          background: var(--motta-sage-deep, #6b745d);
+          color: var(--motta-warm, #f4f1eb);
+        }
+        .motta-founder-connect__social i {
+          font-size: 14px;
         }
 
         .motta-founder-tagline {
