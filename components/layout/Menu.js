@@ -19,6 +19,9 @@ export default function Menu() {
             <li>
               <Link href="/about/team">Meet Our Professionals</Link>
             </li>
+            <li>
+              <Link href="/partnerships">Partnerships</Link>
+            </li>
           </ul>
         </li>
         <li className="menu-item-has-children">
