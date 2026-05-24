@@ -78,6 +78,20 @@ export default function Menu() {
         <li>
           <Link href="/alfred">ALFRED Ai</Link>
         </li>
+        <li className="menu-item-has-children">
+          <Link href="/news">News</Link>
+          <ul className="sub-menu">
+            <li>
+              <Link href="/news">All News</Link>
+            </li>
+            <li>
+              <Link href="/news/community">In the Community</Link>
+            </li>
+            <li>
+              <Link href="/blog">Blog</Link>
+            </li>
+          </ul>
+        </li>
         <li>
           <Link href="/contact">Contact</Link>
         </li>
