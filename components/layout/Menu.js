@@ -20,6 +20,9 @@ export default function Menu() {
               <Link href="/about/team">Meet Our Professionals</Link>
             </li>
             <li>
+              <Link href="/alfred">ALFRED Ai</Link>
+            </li>
+            <li>
               <Link href="/partnerships">Partnerships</Link>
             </li>
           </ul>
@@ -74,9 +77,6 @@ export default function Menu() {
               <Link href="/services/wealth-management">Wealth Management</Link>
             </li>
           </ul>
-        </li>
-        <li>
-          <Link href="/alfred">ALFRED Ai</Link>
         </li>
         <li className="menu-item-has-children">
           <Link href="/news">News</Link>

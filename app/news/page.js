@@ -165,8 +165,8 @@ export default function NewsOverview() {
         }
         .motta-news-overview__featured-img {
           background-size: cover;
-          background-position: center;
-          min-height: 220px;
+          background-position: center top;
+          min-height: 320px;
         }
         .motta-news-overview__featured-body {
           padding: 30px 32px;
