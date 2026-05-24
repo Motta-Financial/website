@@ -93,6 +93,9 @@ export default function Menu() {
             <li>
               <Link href="/news/community">In the Community</Link>
             </li>
+            <li>
+              <Link href="/news/media">Media</Link>
+            </li>
           </ul>
         </li>
         <li>

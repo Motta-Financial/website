@@ -29,6 +29,12 @@ const NAV_ITEMS = [
     title: 'Community',
     desc: 'Sponsorships, volunteering, and local impact.',
   },
+  {
+    href: '/news/media',
+    eyebrow: 'Podcasts & Media',
+    title: 'Media',
+    desc: 'Podcast appearances, interviews, and guest features.',
+  },
 ];
 
 export default function NewsLayout({ children }) {
