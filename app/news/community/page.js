@@ -4,6 +4,15 @@ import Link from 'next/link';
 
 const COMMUNITY_ITEMS = [
   {
+    href: '/news/community/ja-southern-massachusetts',
+    org: 'Junior Achievement of Southern Massachusetts',
+    role: 'Connection Sponsor \u00b7 2026 Youth Summit',
+    date: 'May 2026',
+    desc:
+      'Motta Financial is a Connection Sponsor of JA Southern Massachusetts, supporting the inaugural 2026 Youth Summit at UMass Dartmouth and JA\u2019s year-round programs in financial literacy, entrepreneurship, and career readiness.',
+    image: '/assets/img/news/ja-youth-summit-2026.jpg',
+  },
+  {
     href: '/news/community/suffolk-seed',
     org: 'Suffolk University SEED',
     role: 'Founding Sponsor',
@@ -33,12 +42,20 @@ export default function CommunityOverview() {
       <div className="motta-community__list">
         {COMMUNITY_ITEMS.map((item) => (
           <Link key={item.href} href={item.href} className="motta-community__card">
-            <div
-              className="motta-community__card-img"
-              style={{ background: item.imageBg }}
-            >
-              <img src={item.image} alt={`${item.org} logo`} />
-            </div>
+            {item.imageBg ? (
+              <div
+                className="motta-community__card-img"
+                style={{ background: item.imageBg }}
+              >
+                <img src={item.image} alt={`${item.org} logo`} />
+              </div>
+            ) : (
+              <div
+                className="motta-community__card-img motta-community__card-img--photo"
+                style={{ backgroundImage: `url(${item.image})` }}
+                aria-hidden="true"
+              />
+            )}
             <div className="motta-community__card-body">
               <span className="motta-community__card-eyebrow">
                 {item.role} &middot; {item.date}
@@ -122,6 +139,12 @@ export default function CommunityOverview() {
           padding: 22px;
           border-radius: 10px;
           min-height: 130px;
+        }
+        .motta-community__card-img--photo {
+          padding: 0;
+          background-size: cover;
+          background-position: center;
+          min-height: 170px;
         }
         .motta-community__card-img img {
           max-width: 100%;

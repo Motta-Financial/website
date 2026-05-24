@@ -12,6 +12,18 @@ const NAV_ITEMS = [
     exact: true,
   },
   {
+    href: '/news/press',
+    eyebrow: 'Press Releases',
+    title: 'Press',
+    desc: 'Official firm announcements and media releases.',
+  },
+  {
+    href: '/news/blog',
+    eyebrow: 'From the Blog',
+    title: 'Blog',
+    desc: 'Notes from our team on the work and the world around it.',
+  },
+  {
     href: '/news/community',
     eyebrow: 'In the Community',
     title: 'Community',

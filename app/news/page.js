@@ -3,30 +3,57 @@
 import Link from 'next/link';
 
 const FEATURED = {
-  href: '/news/community/suffolk-seed',
-  eyebrow: 'In the Community',
-  date: 'November 2025',
-  title: 'Motta Financial Joins Suffolk University SEED as Founding Sponsor',
+  href: '/news/press/ja-youth-summit-2026',
+  eyebrow: 'Press Release',
+  date: 'May 24, 2026',
+  title:
+    'Motta Financial Sponsors Inaugural JA Southern Massachusetts Youth Summit',
   desc:
-    'We are proud to support the Suffolk Entrepreneurship and Educational Development Collaborative \u2014 a cross-functional consulting clinic helping Boston small businesses grow.',
+    'Motta joined Milestone Mortgage Solutions, UMass Dartmouth, and dozens of community partners as a Connection Sponsor of Junior Achievement\u2019s first regional Youth Summit on AI, opportunity, and leadership.',
+  image: '/assets/img/news/ja-youth-summit-2026.jpg',
 };
 
-const ITEMS = [
+const RECENT = [
+  {
+    type: 'Blog',
+    href: '/news/blog/ja-youth-summit-why-we-showed-up',
+    date: 'May 24, 2026',
+    title: 'Why We Showed Up at the JA Youth Summit',
+    desc:
+      'Notes from a day spent with the people who will run everything in ten years \u2014 and why a growing firm should still write the check.',
+  },
   {
     type: 'Community',
-    href: '/news/community',
-    date: 'Ongoing',
-    title: 'In the Community',
+    href: '/news/community/suffolk-seed',
+    date: 'November 2025',
+    title:
+      'Motta Financial Joins Suffolk University SEED as Founding Sponsor',
     desc:
-      'Sponsorships, volunteering, and the local programs Motta Financial supports across Greater Boston.',
+      'We are proud to support the Suffolk Entrepreneurship and Educational Development Collaborative \u2014 a cross-functional consulting clinic helping Boston small businesses grow.',
+  },
+];
+
+const SECTIONS = [
+  {
+    type: 'Press',
+    href: '/news/press',
+    title: 'Press Releases',
+    desc:
+      'Official firm announcements, sponsorships, and media releases from Motta Financial.',
   },
   {
     type: 'Blog',
-    href: '/blog',
-    date: 'Updated regularly',
+    href: '/news/blog',
     title: 'From the Motta Blog',
     desc:
       'Practical tax, accounting, and business advisory insights from our team \u2014 written for founders, advisors, and operators.',
+  },
+  {
+    type: 'Community',
+    href: '/news/community',
+    title: 'In the Community',
+    desc:
+      'Sponsorships, volunteering, and the local programs Motta Financial supports across Greater Boston and Southern Massachusetts.',
   },
 ];
 
@@ -44,23 +71,44 @@ export default function NewsOverview() {
       </p>
 
       <Link href={FEATURED.href} className="motta-news-overview__featured">
-        <span className="motta-news-overview__featured-eyebrow">
-          {FEATURED.eyebrow} &middot; {FEATURED.date}
-        </span>
-        <h2 className="motta-news-overview__featured-title">{FEATURED.title}</h2>
-        <p className="motta-news-overview__featured-desc">{FEATURED.desc}</p>
-        <span className="motta-news-overview__featured-cta">
-          Read the announcement <i className="flaticon-right-arrow" />
-        </span>
+        <div
+          className="motta-news-overview__featured-img"
+          style={{ backgroundImage: `url(${FEATURED.image})` }}
+          aria-hidden="true"
+        />
+        <div className="motta-news-overview__featured-body">
+          <span className="motta-news-overview__featured-eyebrow">
+            {FEATURED.eyebrow} &middot; {FEATURED.date}
+          </span>
+          <h2 className="motta-news-overview__featured-title">{FEATURED.title}</h2>
+          <p className="motta-news-overview__featured-desc">{FEATURED.desc}</p>
+          <span className="motta-news-overview__featured-cta">
+            Read the announcement <i className="flaticon-right-arrow" />
+          </span>
+        </div>
       </Link>
 
-      <h3 className="motta-news-overview__subhead">More from Motta</h3>
+      <h3 className="motta-news-overview__subhead">Recent</h3>
       <div className="motta-news-overview__list">
-        {ITEMS.map((item) => (
+        {RECENT.map((item) => (
           <Link key={item.href} href={item.href} className="motta-news-overview__card">
             <span className="motta-news-overview__card-eyebrow">
               {item.type} &middot; {item.date}
             </span>
+            <h4 className="motta-news-overview__card-title">{item.title}</h4>
+            <p className="motta-news-overview__card-desc">{item.desc}</p>
+            <span className="motta-news-overview__card-cta">
+              Read more <i className="flaticon-right-arrow" />
+            </span>
+          </Link>
+        ))}
+      </div>
+
+      <h3 className="motta-news-overview__subhead">Browse by Section</h3>
+      <div className="motta-news-overview__list motta-news-overview__list--three">
+        {SECTIONS.map((item) => (
+          <Link key={item.href} href={item.href} className="motta-news-overview__card">
+            <span className="motta-news-overview__card-eyebrow">{item.type}</span>
             <h4 className="motta-news-overview__card-title">{item.title}</h4>
             <p className="motta-news-overview__card-desc">{item.desc}</p>
             <span className="motta-news-overview__card-cta">
@@ -94,19 +142,34 @@ export default function NewsOverview() {
           margin: 0 0 32px;
         }
         .motta-news-overview__featured {
-          display: block;
-          padding: 30px 32px;
+          display: grid;
+          grid-template-columns: 280px 1fr;
+          gap: 0;
           border-radius: 16px;
+          overflow: hidden;
           background: var(--motta-charcoal, #2b2f24);
           color: var(--motta-warm, #f4f1eb);
           text-decoration: none;
           margin-bottom: 36px;
           transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
+        @media (max-width: 767px) {
+          .motta-news-overview__featured {
+            grid-template-columns: 1fr;
+          }
+        }
         .motta-news-overview__featured:hover {
           transform: translateY(-3px);
           box-shadow: 0 18px 44px -22px rgba(15, 19, 16, 0.5);
           color: var(--motta-warm, #f4f1eb);
+        }
+        .motta-news-overview__featured-img {
+          background-size: cover;
+          background-position: center;
+          min-height: 220px;
+        }
+        .motta-news-overview__featured-body {
+          padding: 30px 32px;
         }
         .motta-news-overview__featured-eyebrow {
           display: block;
@@ -118,7 +181,7 @@ export default function NewsOverview() {
           margin-bottom: 10px;
         }
         .motta-news-overview__featured-title {
-          font-size: 26px;
+          font-size: 24px;
           line-height: 1.25;
           margin: 0 0 10px;
           color: inherit;
@@ -152,8 +215,12 @@ export default function NewsOverview() {
           gap: 18px;
           margin-bottom: 40px;
         }
-        @media (max-width: 767px) {
-          .motta-news-overview__list {
+        .motta-news-overview__list--three {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        @media (max-width: 991px) {
+          .motta-news-overview__list,
+          .motta-news-overview__list--three {
             grid-template-columns: 1fr;
           }
         }
