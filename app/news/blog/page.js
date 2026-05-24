@@ -12,6 +12,16 @@ const ITEMS = [
       'Notes from a day spent with the people who will run everything in ten years \u2014 and why a growing firm should still write the check for the next generation.',
     image: '/assets/img/news/ja-youth-summit-2026.jpg',
   },
+  {
+    href: '/news/blog/paying-it-forward-suffolk-scholarship',
+    tag: 'Community',
+    date: 'January 30, 2025',
+    title:
+      'Paying It Forward: A Scholarship in Honor of the Professors Who Started It All',
+    desc:
+      'Dat Le joins fellow Suffolk alumni in a $225,000 surprise gift to honor Associate Dean Tracey Riley \u2014 establishing the Accounting Winternships Fund and the Tracey Riley Legacy Fund.',
+    image: '/assets/img/news/suffolk-scholarship/hug.jpg',
+  },
 ];
 
 export default function BlogIndex() {
