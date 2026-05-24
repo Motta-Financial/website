@@ -106,7 +106,7 @@ export default function Footer1() {
                           <Link href="/about">About Motta</Link>
                         </li>
                         <li>
-                          <Link href="/about/team">Meet Our Professionals</Link>
+                          <Link href="/about/team">Meet Our Team</Link>
                         </li>
                         <li>
                           <Link href="/services">All Services</Link>
