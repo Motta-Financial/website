@@ -5,29 +5,52 @@ import SeedSlideshow from '@/components/partnerships/SeedSlideshow';
 
 const SLIDES = [
   {
-    src: '/assets/img/partnerships/seed/seed-headshot.jpg',
-    alt: 'Dat Le, Motta Financial founder and SEED faculty member',
-    caption: 'Dat Le, CPA \u2014 SEED faculty member and Motta Financial founder.',
+    src: '/assets/img/partnerships/seed/seed-presenting-deadlines.jpg',
+    alt: 'Dat Le presenting tax deadlines to small business owners at a Suffolk SEED session',
+    caption:
+      'Dat Le walking small business owners through year-end tax deadlines at a Suffolk SEED session.',
   },
   {
-    src: '/assets/img/partnerships/seed/seed-seminar-1.jpg',
-    alt: 'Motta Financial seminar with Suffolk SEED students and faculty',
-    caption: 'Motta-led seminar with SEED students at Suffolk University.',
+    src: '/assets/img/partnerships/seed/seed-faculty-group.jpg',
+    alt: 'Motta team with Suffolk SEED faculty and program leadership at the Sawyer Business School',
+    caption:
+      'With Suffolk SEED faculty and program leadership at the Sawyer Business School.',
   },
   {
-    src: '/assets/img/partnerships/seed/seed-seminar-2.jpg',
-    alt: 'SEED students presenting consulting work to a small business client',
-    caption: 'SEED student teams presenting consulting work to a small business client.',
+    src: '/assets/img/partnerships/seed/seed-attendee-moment.jpg',
+    alt: 'Motta team member embracing a small business owner during a SEED session',
+    caption:
+      'The reason we show up \u2014 small business owners getting access to expertise that used to be out of reach.',
   },
   {
-    src: '/assets/img/partnerships/seed/seed-class-1.jpg',
-    alt: 'SEED class session with faculty and student consultants',
-    caption: 'A SEED class session \u2014 cross-disciplinary student teams at work.',
+    src: '/assets/img/partnerships/seed/seed-presenting-solo.jpg',
+    alt: 'Dat Le speaking in front of a SEED tax-deadlines slide with the Boston skyline behind him',
+    caption:
+      'Inside a SEED working session at Suffolk University in downtown Boston.',
   },
   {
-    src: '/assets/img/partnerships/seed/seed-class-2.jpg',
-    alt: 'SEED student team collaborating on a client engagement',
-    caption: 'Behind the scenes on a SEED client engagement.',
+    src: '/assets/img/partnerships/seed/seed-audience.jpg',
+    alt: 'Small business owners attending a Suffolk SEED Motta Financial session',
+    caption:
+      'Massachusetts entrepreneurs in the room, asking questions and getting answers.',
+  },
+  {
+    src: '/assets/img/partnerships/seed/seed-agenda-slide.jpg',
+    alt: 'Motta Financial agenda slide for a SEED session covering accounting fundamentals',
+    caption:
+      'A typical SEED session agenda \u2014 accounting fundamentals, year-end deadlines, and a live QuickBooks working session.',
+  },
+  {
+    src: '/assets/img/partnerships/seed/seed-why-accounting.jpg',
+    alt: 'Why Is Accounting Important slide using a Jenga tower analogy',
+    caption:
+      '"Why Is Accounting Important?" \u2014 because every business is a Jenga tower if the books aren\u2019t right.',
+  },
+  {
+    src: '/assets/img/partnerships/seed/seed-team-portrait.jpg',
+    alt: 'Dat Le and a colleague with a SEED program participant at Suffolk University',
+    caption:
+      'After the session: Motta team with one of the small business owners we worked with.',
   },
 ];
 
