@@ -2,7 +2,7 @@ import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Meet Our Professionals | Motta Financial',
+  title: 'Meet Our Team | Motta Financial',
   description:
     'Meet the Motta Financial team — the partners, advisors, and associates leading our tax, accounting, advisory, and client experience practices.',
 };
@@ -76,7 +76,7 @@ export default function AboutTeamPage() {
       <Layout
         headerStyle={5}
         footerStyle={1}
-        breadcrumbTitle="Meet Our Professionals"
+        breadcrumbTitle="Meet Our Team"
         breadcrumbEyebrow="The Team / Tech-forward CPAs"
       >
         <section className="team__area-two pt-120 pb-90">
@@ -86,7 +86,7 @@ export default function AboutTeamPage() {
                 <div className="section-title text-center mb-50 tg-heading-subheading animation-style3">
                   <span className="sub-title">OUR TEAM</span>
                   <h2 className="title tg-element-title">
-                    Meet Our Professionals
+                    Meet Our Team
                   </h2>
                   <p className="mt-3">
                     The partners, advisors, and associates leading Motta

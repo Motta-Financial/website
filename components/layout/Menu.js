@@ -17,7 +17,7 @@ export default function Menu() {
               <Link href="/about/founder">Meet Our Founder</Link>
             </li>
             <li>
-              <Link href="/about/team">Meet Our Professionals</Link>
+              <Link href="/about/team">Meet Our Team</Link>
             </li>
             <li>
               <Link href="/alfred">ALFRED Ai</Link>
