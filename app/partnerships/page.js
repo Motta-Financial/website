@@ -24,22 +24,32 @@ export default function Partnerships() {
               </h1>
               <p style={{ fontSize: '17px', lineHeight: 1.7, color: 'rgba(43,47,36,0.82)', maxWidth: '65ch', margin: '0 auto' }}>
                 Motta Financial believes the best client outcomes come from collaboration —
-                whether that means partnering with financial advisors to deliver holistic
-                planning, or investing in the next generation of professionals through
-                education and entrepreneurship programs.
+                whether we&apos;re partnering with financial advisors to deliver holistic
+                planning, sitting behind another firm&apos;s brand to expand what they can offer,
+                or investing in the next generation of professionals through education programs.
               </p>
             </div>
           </div>
 
           {/* Quick nav */}
           <div className="row justify-content-center" style={{ marginTop: 50 }}>
-            <div className="col-lg-10">
+            <div className="col-lg-11">
               <div className="motta-partnerships-nav">
                 <a href="#financial-advisors" className="motta-partnerships-nav__card">
                   <span className="motta-partnerships-nav__eyebrow">Professional Partners</span>
                   <span className="motta-partnerships-nav__title">Financial Advisors</span>
                   <span className="motta-partnerships-nav__desc">
                     Tax planning &amp; financial planning, one conversation.
+                  </span>
+                  <span className="motta-partnerships-nav__arrow">
+                    <i className="flaticon-right-arrow" />
+                  </span>
+                </a>
+                <a href="#white-label" className="motta-partnerships-nav__card">
+                  <span className="motta-partnerships-nav__eyebrow">Behind-the-Scenes</span>
+                  <span className="motta-partnerships-nav__title">White Label Services</span>
+                  <span className="motta-partnerships-nav__desc">
+                    Motta-quality tax &amp; accounting under your brand.
                   </span>
                   <span className="motta-partnerships-nav__arrow">
                     <i className="flaticon-right-arrow" />
@@ -270,6 +280,180 @@ export default function Partnerships() {
         </div>
       </section>
 
+      {/* White Label Services */}
+      <section id="white-label" className="motta-wl-feature">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6">
+              <div className="motta-wl-feature__media">
+                <img
+                  src="/assets/img/partnerships/white-label.jpg"
+                  alt="A behind-the-scenes professional services partnership where Motta delivers tax and accounting work under a partner's brand"
+                />
+                <div className="motta-wl-feature__badge">
+                  <span className="motta-wl-feature__badge-text">Behind the Scenes</span>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="motta-wl-feature__content">
+                <span className="motta-eyebrow">Professional Partnership</span>
+                <h2 className="motta-section-title" style={{ marginBottom: 20 }}>
+                  White Label Tax &amp; Accounting
+                </h2>
+                <p className="motta-wl-feature__lead">
+                  Motta-level quality, delivered under your umbrella. We white label our tax and
+                  accounting services for other professional service firms who want to expand
+                  what they can offer their clients without expanding their bench.
+                </p>
+                <p>
+                  Financial advisors who want to add tax planning. RIAs who need accounting for
+                  their business-owner book. Law firms supporting M&amp;A and estate work. Family
+                  offices coordinating across multiple advisors. We sit behind your brand,
+                  produce institutional-grade work, and let you keep the client relationship
+                  exactly where it belongs — with you.
+                </p>
+                <a
+                  href="#wl-services"
+                  className="motta-link"
+                  style={{ marginTop: 16 }}
+                >
+                  See what we deliver <i className="flaticon-right-arrow" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What we deliver */}
+      <section id="wl-services" className="motta-wl-services">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-8 text-center" style={{ marginBottom: 50 }}>
+              <span className="motta-eyebrow">Service Lines</span>
+              <h2 className="motta-section-title">What We Deliver Under Your Brand</h2>
+              <p style={{ fontSize: '16px', lineHeight: 1.7, color: 'rgba(43,47,36,0.78)', maxWidth: '60ch', margin: '0 auto' }}>
+                Pick the modules that round out your offering. We&apos;ll plug in as a private
+                back office or a co-branded specialist team — your call.
+              </p>
+            </div>
+          </div>
+          <div className="row">
+            {[
+              {
+                icon: 'flaticon-financial-profit',
+                title: 'Tax Planning &amp; Compliance',
+                body:
+                  'Quarterly planning, return preparation, and proactive strategy for individuals, business owners, and high-net-worth households.',
+              },
+              {
+                icon: 'flaticon-pie-chart',
+                title: 'Accounting for Business Owners',
+                body:
+                  'Bookkeeping, financial reporting, payroll, and CFO/Controller-level oversight for your advisor clients who own businesses.',
+              },
+              {
+                icon: 'flaticon-investment',
+                title: 'Equity Compensation Planning',
+                body:
+                  'ISO/NSO/RSU strategy, AMT modeling, 83(b) and 10b5-1 coordination, and multi-year exercise planning for tech and executive clients.',
+              },
+              {
+                icon: 'flaticon-handshake',
+                title: 'M&amp;A Advisory — Buy &amp; Sell Side',
+                body:
+                  'Quality of earnings, working capital analysis, deal structuring, tax modeling, and post-close integration for transactions on either side of the table.',
+              },
+              {
+                icon: 'flaticon-report',
+                title: 'Attestation Services',
+                body:
+                  'Reviews, compilations, and agreed-upon procedures issued under partner-firm letterhead by licensed CPAs.',
+              },
+              {
+                icon: 'flaticon-target',
+                title: 'Due Diligence Support',
+                body:
+                  'Financial, tax, and operational diligence for transactions, lender requirements, investor reporting, and internal audit functions.',
+              },
+            ].map((item, i) => (
+              <div className="col-lg-4 col-md-6" key={i}>
+                <div className="motta-wl-service">
+                  <div className="motta-wl-service__icon">
+                    <i className={item.icon} />
+                  </div>
+                  <h4
+                    className="motta-wl-service__title"
+                    dangerouslySetInnerHTML={{ __html: item.title }}
+                  />
+                  <p dangerouslySetInnerHTML={{ __html: item.body }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why white label with Motta */}
+      <section className="motta-wl-why">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-8 text-center" style={{ marginBottom: 50 }}>
+              <span className="motta-eyebrow motta-eyebrow--light">Why Motta</span>
+              <h2 className="motta-section-title motta-section-title--light">
+                Built to Sit Behind Your Brand
+              </h2>
+            </div>
+          </div>
+          <div className="row">
+            {[
+              {
+                num: '01',
+                title: 'Your Brand, Front and Center',
+                body:
+                  'Deliverables, communications, and meetings represent your firm. We stay invisible to the client unless you want it otherwise.',
+              },
+              {
+                num: '02',
+                title: 'Specialist Bench on Demand',
+                body:
+                  'Tap CPAs, tax planners, and M&A specialists without hiring them. Scale up for diligence season, scale down when you don\u2019t need the capacity.',
+              },
+              {
+                num: '03',
+                title: 'No Channel Conflict',
+                body:
+                  'We do not market to or solicit your clients. Ever. Our growth is yours \u2014 referral economics work in one direction.',
+              },
+              {
+                num: '04',
+                title: 'ALFRED-Powered Delivery',
+                body:
+                  'The same AI platform that runs Motta\u2019s practice runs yours. Faster turnaround, tighter audit trails, consistent quality across every engagement.',
+              },
+            ].map((item) => (
+              <div className="col-lg-6 col-md-6" key={item.num}>
+                <div className="motta-wl-why-card">
+                  <div className="motta-wl-why-card__num">{item.num}</div>
+                  <div>
+                    <h4 className="motta-wl-why-card__title">{item.title}</h4>
+                    <p>{item.body}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="row justify-content-center" style={{ marginTop: 30 }}>
+            <div className="col-lg-10 text-center">
+              <Link href="/contact" className="btn">
+                Start a White Label Conversation
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Suffolk SEED Feature */}
       <section id="suffolk-seed" className="motta-seed-feature">
         <div className="container">
@@ -431,8 +615,9 @@ export default function Partnerships() {
               </h2>
               <p>
                 Whether you&apos;re a financial advisor looking for a CPA partner who actually
-                picks up the phone, or an academic program building the next generation of
-                professionals — let&apos;s talk.
+                picks up the phone, a firm that needs Motta-quality work behind your own brand,
+                or an academic program building the next generation of professionals — let&apos;s
+                talk.
               </p>
             </div>
             <div className="motta-partnerships-cta__buttons">
@@ -740,6 +925,153 @@ export default function Partnerships() {
           line-height: 1.7;
           color: var(--motta-charcoal, #2b2f24);
           font-style: italic;
+        }
+
+        /* Quick nav: switch to 3 columns when 3 cards present */
+        @media (min-width: 992px) {
+          .motta-partnerships-nav {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        /* White Label feature */
+        .motta-wl-feature {
+          padding: 90px 0;
+          background: var(--motta-warm, #f4f1eb);
+        }
+        .motta-wl-feature__media {
+          position: relative;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 30px 60px -25px rgba(15, 19, 16, 0.35);
+        }
+        .motta-wl-feature__media img {
+          width: 100%;
+          height: auto;
+          display: block;
+          aspect-ratio: 4 / 3;
+          object-fit: cover;
+        }
+        .motta-wl-feature__badge {
+          position: absolute;
+          top: 18px;
+          left: 18px;
+          padding: 8px 14px;
+          border-radius: 8px;
+          background: var(--motta-charcoal, #2b2f24);
+          color: var(--motta-warm, #f4f1eb);
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+        .motta-wl-feature__content {
+          padding-left: 40px;
+        }
+        @media (max-width: 991px) {
+          .motta-wl-feature__content {
+            padding-left: 0;
+            margin-top: 40px;
+          }
+        }
+        .motta-wl-feature__lead {
+          font-size: 17px;
+          line-height: 1.65;
+          color: var(--motta-charcoal, #2b2f24);
+        }
+        .motta-wl-feature__content p {
+          font-size: 15px;
+          line-height: 1.65;
+          color: rgba(43, 47, 36, 0.82);
+          margin-bottom: 14px;
+        }
+
+        /* WL services grid */
+        .motta-wl-services {
+          padding: 90px 0;
+          background: var(--motta-cream-50, #fbf8f2);
+        }
+        .motta-wl-service {
+          height: 100%;
+          padding: 30px 26px;
+          margin-bottom: 24px;
+          border-radius: 14px;
+          background: #fff;
+          border: 1px solid rgba(107, 116, 93, 0.16);
+          transition: transform 0.25s ease, box-shadow 0.25s ease,
+            border-color 0.25s ease;
+        }
+        .motta-wl-service:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 22px 50px -25px rgba(15, 19, 16, 0.25);
+          border-color: var(--motta-sage, #8e9b79);
+        }
+        .motta-wl-service__icon {
+          width: 52px;
+          height: 52px;
+          border-radius: 12px;
+          background: var(--motta-sage, #8e9b79);
+          color: var(--motta-warm, #f4f1eb);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 22px;
+          margin-bottom: 18px;
+        }
+        .motta-wl-service__title {
+          font-size: 19px;
+          color: var(--motta-charcoal, #2b2f24);
+          margin: 0 0 10px;
+        }
+        .motta-wl-service p {
+          font-size: 14px;
+          line-height: 1.6;
+          color: rgba(43, 47, 36, 0.78);
+          margin: 0;
+        }
+
+        /* WL why */
+        .motta-wl-why {
+          padding: 90px 0;
+          background:
+            radial-gradient(900px 500px at 20% 0%, rgba(142, 155, 121, 0.18) 0%, transparent 60%),
+            linear-gradient(180deg, #1f261c 0%, #14180f 100%);
+          color: var(--motta-warm, #f4f1eb);
+        }
+        .motta-wl-why-card {
+          display: flex;
+          gap: 18px;
+          padding: 24px;
+          margin-bottom: 24px;
+          border-radius: 14px;
+          background: rgba(244, 241, 235, 0.05);
+          border: 1px solid rgba(244, 241, 235, 0.1);
+          transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        }
+        .motta-wl-why-card:hover {
+          transform: translateY(-3px);
+          background: rgba(244, 241, 235, 0.08);
+          border-color: rgba(142, 155, 121, 0.45);
+        }
+        .motta-wl-why-card__num {
+          flex-shrink: 0;
+          font-family: var(--font-serif, serif);
+          font-size: 30px;
+          font-weight: 700;
+          line-height: 1;
+          color: var(--motta-sage, #8e9b79);
+          width: 52px;
+        }
+        .motta-wl-why-card__title {
+          color: var(--motta-warm, #f4f1eb);
+          font-size: 18px;
+          margin: 0 0 8px;
+        }
+        .motta-wl-why-card p {
+          color: rgba(244, 241, 235, 0.82);
+          font-size: 14px;
+          line-height: 1.6;
+          margin: 0;
         }
 
         /* SEED feature */
