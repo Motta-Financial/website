@@ -849,6 +849,19 @@
   aspect-ratio: 4 / 5;
   object-fit: cover;
 }
+.motta-about-story__tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(142, 155, 121, 0.32) 0%,
+      rgba(244, 241, 235, 0.18) 55%,
+      rgba(107, 116, 93, 0.30) 100%
+    );
+  mix-blend-mode: multiply;
+}
 .motta-about-story__chip {
   position: absolute;
   left: 18px;
@@ -966,6 +979,113 @@
   font-size: 14.5px;
   line-height: 1.6;
   color: rgba(43, 47, 36, 0.78);
+}
+
+/* --- The Motta Difference (consolidated principles + services + stats) --- */
+.motta-about-difference {
+  padding: 100px 0;
+  background:
+    radial-gradient(900px 500px at 80% 0%, rgba(142, 155, 121, 0.15) 0%, transparent 60%),
+    linear-gradient(180deg, #1f261c 0%, #14180f 100%);
+  color: var(--motta-warm, #f4f1eb);
+}
+.motta-about-difference__head {
+  max-width: 70ch;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.motta-about-difference__head .motta-eyebrow {
+  color: rgba(244, 241, 235, 0.7);
+}
+.motta-about-difference__head .motta-section-title {
+  color: var(--motta-warm, #f4f1eb);
+}
+.motta-about-difference__sub {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: rgba(244, 241, 235, 0.78);
+  margin: 16px 0 0;
+}
+
+/* Stats band */
+.motta-about-difference__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0 0 80px;
+  padding: 28px;
+  border-radius: 16px;
+  background: rgba(244, 241, 235, 0.04);
+  border: 1px solid rgba(142, 155, 121, 0.25);
+}
+@media (max-width: 991px) {
+  .motta-about-difference__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 575px) {
+  .motta-about-difference__stats { grid-template-columns: 1fr; }
+}
+.motta-about-difference__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 6px;
+  text-align: center;
+}
+.motta-about-difference__stat-num {
+  font-family: var(--motta-font-display, inherit);
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--motta-warm, #f4f1eb);
+  letter-spacing: -0.01em;
+}
+.motta-about-difference__stat-label {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(244, 241, 235, 0.72);
+}
+
+/* Sub-section title used for "How we work" + "What we do" inside the band */
+.motta-about-difference__sub-title {
+  font-family: var(--motta-font-display, inherit);
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--motta-warm, #f4f1eb);
+  margin: 0 0 28px;
+  text-align: center;
+}
+.motta-about-difference__principles { margin-bottom: 80px; }
+.motta-about-difference__services-sub {
+  max-width: 60ch;
+  margin: -10px auto 32px;
+  text-align: center;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: rgba(244, 241, 235, 0.72);
+}
+.motta-about-difference__services-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+/* Principles tiles override when nested inside the dark difference band */
+.motta-about-difference .motta-principle {
+  background: rgba(244, 241, 235, 0.04);
+  border: 1px solid rgba(244, 241, 235, 0.10);
+  border-radius: 14px;
+  padding: 28px 24px;
+  height: 100%;
+}
+.motta-about-difference .motta-principle__num {
+  color: rgba(142, 155, 121, 0.9);
+}
+.motta-about-difference .motta-principle__title {
+  color: var(--motta-warm, #f4f1eb);
+}
+.motta-about-difference .motta-principle p {
+  color: rgba(244, 241, 235, 0.75);
 }
 
 /* --- Services band (charcoal) --- */
