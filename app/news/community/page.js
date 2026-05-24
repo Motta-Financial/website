@@ -23,6 +23,16 @@ const COMMUNITY_ITEMS = [
     image: '/assets/img/partnerships/seed/badges/seed-partner-badge-blue.png',
     imageBg: '#14213d',
   },
+  {
+    href: '/news/blog/paying-it-forward-suffolk-scholarship',
+    org: 'Suffolk University Accounting Scholarship Funds',
+    role: 'Donor \u00b7 Accounting Winternships & Tracey Riley Legacy Funds',
+    date: 'January 2025',
+    desc:
+      'Founder Dat Le joined fellow Suffolk alumni in a $225,000 surprise gift to honor Associate Dean Tracey Riley \u2014 establishing the Accounting Winternships Fund and the Tracey Riley Legacy Fund to support the next generation of accountants.',
+    image: '/assets/img/news/suffolk-scholarship/group-four.jpg',
+    imagePosition: 'center 28%',
+  },
 ];
 
 export default function CommunityOverview() {
