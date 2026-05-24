@@ -1,11 +1,11 @@
-import LoginRouter from '@/components/auth/LoginRouter';
+import LoginChooser from '@/components/auth/LoginChooser';
 
 export const metadata = {
   title: 'Log In · Motta Financial',
   description:
-    'Log in to the Motta team hub or the Motta client portal.',
+    'Access the Motta client portal, partner portal, or team hub.',
 };
 
 export default function LoginPage() {
-  return <LoginRouter />;
+  return <LoginChooser />;
 }
