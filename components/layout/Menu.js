@@ -59,6 +59,9 @@ export default function Menu() {
           </ul>
         </li>
         <li>
+          <Link href="/alfred">ALFRED Ai</Link>
+        </li>
+        <li>
           <Link href="/contact">Contact</Link>
         </li>
       </ul>
