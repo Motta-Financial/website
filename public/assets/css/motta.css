@@ -1424,3 +1424,61 @@ main select:focus {
 }
 
 
+
+/* ===== Motta preloader (ALFRED Ai mark + pulsing sage halo) ===== */
+.motta-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 40%,
+      rgba(234, 230, 225, 0.98) 0%,
+      rgba(234, 230, 225, 1) 55%,
+      rgba(220, 218, 210, 1) 100%);
+}
+.motta-preloader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+.motta-preloader__label {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--motta-sage, #6b745d);
+  font-weight: 600;
+  animation: motta-preloader-fade 1.6s ease-in-out infinite;
+}
+@keyframes motta-preloader-fade {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+/* Hide the legacy theme preloader if any markup still references it */
+#preloader > #loader,
+#preloader > .loader { display: none !important; }
+
+/* ===== ALFRED companion override: bare logo, no tile/ring ===== */
+.alfred-companion {
+  background: transparent !important;
+  border: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.alfred-companion .alfred-companion__mark {
+  width: 100% !important;
+  height: 100% !important;
+  filter: drop-shadow(0 8px 18px rgba(79, 87, 63, 0.35));
+  transition: transform 0.3s ease;
+}
+.alfred-companion:hover .alfred-companion__mark {
+  transform: scale(1.06);
+}
+.alfred-companion[data-state="excited"] .alfred-companion__mark {
+  animation: alfred-bounce 0.6s ease;
+}

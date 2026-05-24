@@ -9,24 +9,6 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, transp
     return (
         <>
             <header className={`${transparent ? "transparent-header" : ""}`}>
-                <div className="tg-header__top">
-                    <div className="container custom-container">
-                        <div className="row">
-                            <div className="col-lg-6">
-                                <ul className="tg-header__top-info left-side list-wrap">
-                                    <li><i className="flaticon-pin" />Boston, MA &nbsp;&middot;&nbsp; Las Vegas, NV</li>
-                                    <li><i className="flaticon-time" />Mon&ndash;Fri: 9:00am &ndash; 5:00pm</li>
-                                </ul>
-                            </div>
-                            <div className="col-lg-6">
-                                <ul className="tg-header__top-right list-wrap">
-                                    <li><i className="flaticon-envelope" /><Link href="mailto:Info@MottaFinancial.com">Info@MottaFinancial.com</Link></li>
-                                    <li><i className="flaticon-phone-call" /><Link href="tel:+18573332787">(857) 333-2787</Link></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div id="sticky-header" className={`tg-header__area ${scroll ? "sticky-menu" : ""}`}>
                     <div className="container custom-container">
                         <div className="row">

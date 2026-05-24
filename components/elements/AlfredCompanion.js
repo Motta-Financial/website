@@ -1,10 +1,14 @@
 'use client';
 import { useEffect, useState } from 'react';
+import AlfredLogo from './AlfredLogo';
 
 /**
  * Animated ALFRED companion that reacts to scroll.
  * Clicking opens the global new-client intake modal so the floating
  * personality and the conversion CTA share the same surface.
+ *
+ * Visual: bare ALFRED Ai mark (transparent PNG) with the same pulsing
+ * sage halo used in the page preloader — no surrounding tile/box.
  */
 export default function AlfredCompanion() {
   const [visible, setVisible] = useState(false);
@@ -56,13 +60,9 @@ export default function AlfredCompanion() {
       className="alfred-companion"
       data-visible={visible}
       data-state={excited ? 'excited' : 'idle'}
-      aria-label="Chat with ALFRED — Motta&apos;s AI assistant"
+      aria-label="Chat with ALFRED — Motta's AI assistant"
     >
-      <span className="alfred-companion__pulse" aria-hidden="true" />
-      <span className="alfred-companion__ring" aria-hidden="true" />
-      <span className="alfred-companion__core">
-        <img src="/assets/img/brand/alfred-ai.png" alt="" aria-hidden="true" />
-      </span>
+      <AlfredLogo size={64} glow className="alfred-companion__mark" />
       <span className="alfred-companion__tooltip">{tip}</span>
     </button>
   );
