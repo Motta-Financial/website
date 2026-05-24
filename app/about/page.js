@@ -278,9 +278,9 @@ const STATS = [
     label: 'average return prep time, down from 3–4 hours industry standard',
   },
   {
-    num: '600+',
+    num: '1 hub',
     label:
-      'tax returns prepared in TY25 with a 9-person team — projected 1,250 in TY26',
+      'every client message, document, and signature centralized in one secure portal — no email chains, no lost attachments',
   },
   {
     num: '24/7',
