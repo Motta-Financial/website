@@ -5,51 +5,45 @@ import IntakeButton from '@/components/intake/IntakeButton';
 export const metadata = {
   title: 'All Services | Motta Financial',
   description:
-    'Tax planning, accounting, business entity setup, financial planning, business AI transformation, management consulting, and financial statement analysis from Motta Financial — a modern CPA firm powered by ALFRED Ai.',
+    'Tax, accounting, business advisory, and wealth management from Motta Financial — a modern CPA firm powered by ALFRED Ai.',
 };
 
-const SERVICES = [
+const SERVICE_CATEGORIES = [
   {
+    title: 'Tax',
+    href: '/services/tax',
     icon: 'flaticon-profit',
-    title: 'Tax Planning & Preparation',
-    href: '/services/tax-planning',
-    desc: 'Year-round tax strategy and stress-free filing for individuals, families, and business owners — including stock options, real estate, and multi-state situations.',
+    desc: 'Year-round tax planning and preparation for individuals, families, and businesses — with ALFRED Ai handling the heavy lifting so your CPA can focus on strategy.',
+    services: [
+      { title: 'Tax Planning & Preparation', href: '/services/tax-planning' },
+    ],
   },
   {
+    title: 'Accounting',
+    href: '/services/accounting',
     icon: 'flaticon-financial-profit',
-    title: 'Accounting & Payroll',
-    href: '/services/accounting-advisory',
-    desc: 'Clean books, on-time payroll, monthly reporting, and ERP / QuickBooks help — handled by senior accountants with ALFRED Ai doing the heavy lifting in the background.',
+    desc: 'Full-service accounting for growing businesses — from daily bookkeeping to fractional CFO leadership.',
+    services: [
+      { title: 'CFO & Controller Services', href: '/services/accounting/cfo-controller' },
+      { title: 'Business Infrastructure', href: '/services/accounting/business-infrastructure' },
+      { title: 'Bookkeeping', href: '/services/accounting/bookkeeping' },
+      { title: 'Financial Reporting', href: '/services/accounting/financial-reporting' },
+      { title: 'Payroll Services', href: '/services/accounting/payroll' },
+    ],
   },
   {
-    icon: 'flaticon-investment',
-    title: 'Business Entity Setup',
-    href: '/services/business-entity-structuring',
-    desc: 'Pick the right entity from day one — LLC, S-Corp, C-Corp, or partnership — and structure things so taxes, liability, and future growth all line up.',
-  },
-  {
-    icon: 'flaticon-piggy-bank',
-    title: 'Financial Planning',
-    href: '/services/financial-planning',
-    desc: 'A single plan that connects your taxes, investments, retirement, and estate — led by a CFP through Motta Wealth Management.',
-  },
-  {
-    icon: 'flaticon-light-bulb',
-    title: 'Business AI Transformation',
-    href: '/services/business-ai-transformation',
-    desc: 'Our AI-certified team rebuilds the way your business runs — replacing manual work with smart automation so your team focuses on the things that grow the company.',
-  },
-  {
+    title: 'Business Advisory',
+    href: '/services/business-advisory',
     icon: 'flaticon-target',
-    title: 'Management Consulting',
-    href: '/services/management-consulting',
-    desc: 'Operating-model design, simple KPI dashboards, and fractional CFO support for owner-led businesses ready for the next stage of growth.',
+    desc: 'Strategic advice for business owners — entity structuring, growth planning, M&A support, and the guidance you need to make confident decisions.',
+    services: [],
   },
   {
-    icon: 'flaticon-pie-chart',
-    title: 'Financial Statement Analysis',
-    href: '/services/financial-statement-analysis',
-    desc: 'Board-ready reporting, performance analytics, and the diligence packages lenders, investors, and buyers actually want to see.',
+    title: 'Wealth Management',
+    href: '/services/wealth-management',
+    icon: 'flaticon-piggy-bank',
+    desc: 'Comprehensive financial planning and investment management — retirement, estate planning, and tax-smart strategies to build and protect wealth.',
+    services: [],
   },
 ];
 
@@ -68,11 +62,11 @@ export default function Services() {
               <div className="section-title mb-50">
                 <span className="sub-title">What We Deliver</span>
                 <h2 className="title">
-                  Seven services. One team that already talks to each other.
+                  Four practices. One team that already talks to each other.
                 </h2>
                 <p className="mt-3">
                   Most firms make you bounce between a bookkeeper, a tax
-                  preparer, a financial advisor, and an IT consultant. At
+                  preparer, a financial advisor, and a business consultant. At
                   Motta, all of them sit on the same team — looking at the
                   same numbers and pulling toward the same goals — with
                   ALFRED Ai handling the busywork in the background.
@@ -81,22 +75,36 @@ export default function Services() {
             </div>
           </div>
           <div className="row justify-content-center cards-container">
-            {SERVICES.map((s) => (
-              <div className="col-lg-4 col-md-6 mb-30" key={s.title}>
+            {SERVICE_CATEGORIES.map((cat) => (
+              <div className="col-lg-6 col-md-6 mb-30" key={cat.title}>
                 <div className="services__item-three h-100">
                   <div className="services__item-top">
                     <div className="services__icon-three">
-                      <i className={s.icon} />
+                      <i className={cat.icon} />
                     </div>
                     <div className="services__item-top-title">
                       <h2 className="title">
-                        <Link href={s.href}>{s.title}</Link>
+                        <Link href={cat.href}>{cat.title}</Link>
                       </h2>
                     </div>
                   </div>
                   <div className="services__content-three">
-                    <p>{s.desc}</p>
-                    <Link href={s.href} className="btn btn-two">
+                    <p>{cat.desc}</p>
+                    {cat.services.length > 0 && (
+                      <ul style={{ margin: '16px 0', paddingLeft: 20 }}>
+                        {cat.services.map((svc) => (
+                          <li key={svc.href} style={{ marginBottom: 6 }}>
+                            <Link
+                              href={svc.href}
+                              style={{ color: 'var(--motta-sage-deep, #6b745d)' }}
+                            >
+                              {svc.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    <Link href={cat.href} className="btn btn-two">
                       Learn More
                     </Link>
                   </div>

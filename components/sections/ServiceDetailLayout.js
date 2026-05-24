@@ -2,28 +2,20 @@ import Link from 'next/link';
 import IntakeButton from '@/components/intake/IntakeButton';
 
 const OTHER_SERVICES = [
+  // Tax
+  { href: '/services/tax', label: 'Tax Services' },
   { href: '/services/tax-planning', label: 'Tax Planning & Preparation' },
-  {
-    href: '/services/accounting-advisory',
-    label: 'Accounting & Payroll',
-  },
-  {
-    href: '/services/business-entity-structuring',
-    label: 'Business Entity Setup',
-  },
-  {
-    href: '/services/financial-planning',
-    label: 'Financial Planning',
-  },
-  {
-    href: '/services/business-ai-transformation',
-    label: 'Business AI Transformation',
-  },
-  { href: '/services/management-consulting', label: 'Management Consulting' },
-  {
-    href: '/services/financial-statement-analysis',
-    label: 'Financial Statement Analysis',
-  },
+  // Accounting
+  { href: '/services/accounting', label: 'Accounting Services' },
+  { href: '/services/accounting/cfo-controller', label: 'CFO & Controller Services' },
+  { href: '/services/accounting/business-infrastructure', label: 'Business Infrastructure' },
+  { href: '/services/accounting/bookkeeping', label: 'Bookkeeping' },
+  { href: '/services/accounting/financial-reporting', label: 'Financial Reporting' },
+  { href: '/services/accounting/payroll', label: 'Payroll Services' },
+  // Business Advisory
+  { href: '/services/business-advisory', label: 'Business Advisory' },
+  // Wealth Management
+  { href: '/services/wealth-management', label: 'Wealth Management' },
 ];
 
 /**

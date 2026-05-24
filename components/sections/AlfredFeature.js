@@ -5,17 +5,17 @@ const CAPABILITIES = [
   {
     icon: 'flaticon-target',
     title: 'Client Intelligence',
-    desc: 'Every conversation, document, and engagement detail unified into one view — pulling from Karbon, scheduling tools, and our financial systems.',
+    desc: 'Every conversation, document, and engagement detail unified into one view — pulling from your practice management, scheduling, and financial systems.',
   },
   {
     icon: 'flaticon-investment',
     title: 'Lead Intake & Research',
-    desc: 'ALFRED researches prospects, drafts partner-ready answers to tax questions, and routes leads with full context — cold to warm in minutes.',
+    desc: 'ALFRED researches prospects, drafts partner-ready answers to complex questions, and routes leads with full context — cold to warm in minutes.',
   },
   {
     icon: 'flaticon-financial-profit',
     title: 'Engagement Workflow',
-    desc: 'Proposals, payments (Stripe), scheduling (Calendly/Zoom), and onboarding coordinated end-to-end. Clients sign once, pay once, get to work.',
+    desc: 'Proposals, payments, scheduling, and onboarding coordinated end-to-end across your existing tools. Clients sign once, pay once, get to work.',
   },
   {
     icon: 'flaticon-pie-chart',
@@ -208,7 +208,7 @@ export default function AlfredFeature() {
                 </p>
               </div>
               <Link
-                href="/about"
+                href="/alfred"
                 className="btn"
                 style={{ marginTop: 18, alignSelf: 'flex-start' }}
               >
