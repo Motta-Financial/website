@@ -14,6 +14,9 @@ export default function Menu() {
               <Link href="/about">About Motta</Link>
             </li>
             <li>
+              <Link href="/about/founder">Meet Our Founder</Link>
+            </li>
+            <li>
               <Link href="/about/team">Meet Our Professionals</Link>
             </li>
           </ul>
