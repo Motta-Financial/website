@@ -84,6 +84,15 @@ const ITEMS = [
       'Liability protection, pass-through tax treatment, easier estate planning, and more \u2014 five reasons to hold rental property through an LLC.',
   },
   {
+    href: '/news/blog/real-tea-podcast-with-nicole-hartick',
+    tag: 'In the Press',
+    date: 'March 13, 2024',
+    title:
+      'Dat Le on the Real Tea Podcast: A Two-Part Conversation on Real Estate Taxes',
+    desc:
+      'Founder Dat Le joined Nicole Hartick of Gibson Sotheby\u2019s International Realty for a two-part deep dive on what realtors, entrepreneurs, investors, and high-income earners should be asking their CPA.',
+  },
+  {
     href: '/news/blog/motta-preparing-for-your-cpas-retirement',
     tag: 'Client Advisory',
     date: 'March 5, 2024',
