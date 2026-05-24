@@ -24,6 +24,81 @@ const ITEMS = [
     image: '/assets/img/news/suffolk-scholarship/hug.jpg',
     imagePosition: 'center 28%',
   },
+  {
+    href: '/news/blog/business-value',
+    tag: 'Business Insights',
+    date: 'November 5, 2024',
+    title: 'Business Owners: There\u2019s No Better Time Than Now',
+    desc:
+      'With 70% of small business owners\u2019 wealth tied up in their companies, knowing your business\u2019s value is critical \u2014 here are eight reasons to get a valuation today.',
+  },
+  {
+    href: '/news/blog/tax-policy-crossroads',
+    tag: 'Tax Planning',
+    date: 'October 4, 2024',
+    title:
+      'Tax Policy Crossroads: What the 2024 Election and Expiring TCJA Provisions Could Mean for You',
+    desc:
+      'A breakdown of the most significant TCJA provisions set to expire in 2025 and how their expiration could affect both individuals and small businesses.',
+  },
+  {
+    href: '/news/blog/tax-impact-of-federal-student-aid',
+    tag: 'Tax Planning',
+    date: 'September 4, 2024',
+    title: 'Understanding the Tax Impact of Federal Student Aid',
+    desc:
+      'Loans, Pell Grants, and work-study \u2014 a plain-language guide to what\u2019s taxable and what isn\u2019t for students, parents, and grandparents.',
+  },
+  {
+    href: '/news/blog/types-of-rental-properties',
+    tag: 'Real Estate',
+    date: 'August 7, 2024',
+    title:
+      'Exploring Different Types of Rental Properties: Long-Term, Short-Term, and Vacation Rentals',
+    desc:
+      'Benefits, challenges, and tax implications for each rental type \u2014 plus a quick FAQ on losses, active vs. passive income, and choosing the right model.',
+  },
+  {
+    href: '/news/blog/team-up-for-your-success',
+    tag: 'Client Advisory',
+    date: 'July 7, 2024',
+    title:
+      'Are Your Accountant, Attorney, and Financial Advisor Teaming Up for Your Success?',
+    desc:
+      'Why the trifecta of accountants, attorneys, and financial advisors deliver more than the sum of their parts \u2014 and how to get the most out of the trio.',
+  },
+  {
+    href: '/news/blog/motta-scorp-designation-5-strategic-reasons',
+    tag: 'Tax Planning',
+    date: 'May 13, 2024',
+    title: 'Why Should Your LLC Consider an S-Corp Designation? 5 Strategic Reasons',
+    desc:
+      'Self-employment tax savings, simpler filings, credibility, and more \u2014 a concise look at when electing S Corp status makes sense for an LLC.',
+  },
+  {
+    href: '/news/blog/why-your-rental-property-belongs-in-an-llc',
+    tag: 'Real Estate',
+    date: 'April 2, 2024',
+    title: 'Why Your Rental Property Belongs in an LLC',
+    desc:
+      'Liability protection, pass-through tax treatment, easier estate planning, and more \u2014 five reasons to hold rental property through an LLC.',
+  },
+  {
+    href: '/news/blog/motta-preparing-for-your-cpas-retirement',
+    tag: 'Client Advisory',
+    date: 'March 5, 2024',
+    title: 'Preparing For Your CPA\u2019s Retirement',
+    desc:
+      'Five steps to navigate the transition when your CPA hangs up the calculator \u2014 plus why a tech-savvy successor matters.',
+  },
+  {
+    href: '/news/blog/taxes-for-real-estate-professionals',
+    tag: 'Real Estate',
+    date: 'March 1, 2024',
+    title: 'Taxes For Real Estate Professionals',
+    desc:
+      'IRS classification, key deductions, expense tracking systems, and the common mistakes that cost realtors money at year-end.',
+  },
 ];
 
 export default function BlogIndex() {

@@ -13,7 +13,13 @@ export default function NewsList({ eyebrow, title, lead, items }) {
 
       <div className="motta-news-list__items">
         {items.map((item) => (
-          <Link key={item.href} href={item.href} className="motta-news-list__card">
+          <Link
+            key={item.href}
+            href={item.href}
+            className={`motta-news-list__card${
+              item.image ? '' : ' motta-news-list__card--text'
+            }`}
+          >
             {item.image ? (
               <div
                 className="motta-news-list__card-img"
@@ -69,6 +75,9 @@ export default function NewsList({ eyebrow, title, lead, items }) {
           .motta-news-list__card {
             grid-template-columns: 1fr;
           }
+        }
+        .motta-news-list__card--text {
+          grid-template-columns: 1fr;
         }
         .motta-news-list__card:hover {
           transform: translateY(-3px);
