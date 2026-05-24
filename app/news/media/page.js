@@ -45,12 +45,14 @@ export default function MediaPage() {
   return (
     <article className="motta-media">
       <header className="motta-media__head">
-        <span className="motta-eyebrow">Podcasts &amp; Media</span>
-        <h1 className="motta-media__title">In the Media</h1>
+        <span className="motta-eyebrow">Podcasts, Press &amp; Features</span>
+        <h1 className="motta-media__title">Motta in the Media</h1>
         <p className="motta-media__lead">
-          Dat Le and the Motta Financial team show up on podcasts, panels, and
-          interviews to talk about tax strategy, building a modern firm, and the
-          businesses we serve. Catch up on recent appearances below.
+          From founder features to podcast guest spots, panel discussions, and
+          press mentions &mdash; the Motta Financial team shows up to talk
+          about tax strategy, building a modern CPA firm, the technology behind
+          our workflow, and the clients and communities we serve. Catch up on
+          recent appearances below.
         </p>
       </header>
 
@@ -138,7 +140,7 @@ export default function MediaPage() {
       </ul>
 
       <div className="motta-media__cta">
-        <p>Want Dat on your show or panel?</p>
+        <p>Want a Motta team member on your show, panel, or feature?</p>
         <Link href="/contact" className="motta-button motta-button--ghost">
           Get in touch
         </Link>
