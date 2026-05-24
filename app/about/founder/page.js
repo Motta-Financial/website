@@ -107,7 +107,7 @@ export default function FounderPage() {
         </div>
       </section>
 
-      <style jsx>{`
+      <style>{`
         .motta-founder-story {
           padding: 100px 0 80px;
           background: var(--motta-warm, #f4f1eb);
