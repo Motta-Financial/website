@@ -36,16 +36,11 @@ export default function Header5({
                     </div>
                     <div className="tgmenu__action tgmenu__action-five d-none d-md-block">
                       <ul className="list-wrap">
-                        <li className="header-btn">
-                          <a
-                            href="https://hub.motta.cpa/login"
-                            className="btn"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Log In
-                          </a>
-                        </li>
+                                        <li className="header-btn">
+                                          <Link href="/login" className="btn">
+                                            Log In
+                                          </Link>
+                                        </li>
                       </ul>
                     </div>
                     <div

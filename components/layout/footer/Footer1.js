@@ -158,13 +158,7 @@ export default function Footer1() {
                       <Link href="/contact">Contact</Link>
                     </li>
                     <li>
-                      <a
-                        href="https://hub.motta.cpa/login"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Client Portal
-                      </a>
+                      <Link href="/login">Client Portal</Link>
                     </li>
                   </ul>
                 </div>
