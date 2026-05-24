@@ -79,19 +79,111 @@ export default function FounderPage() {
         </div>
       </section>
 
-      {/* === Placeholder for more bio === */}
+      {/* === Background === */}
       <section className="motta-founder-bio">
         <div className="container">
           <div className="row">
             <div className="col-lg-8 offset-lg-2">
               <div className="motta-founder-bio__content">
-                <span className="motta-eyebrow">More About Dat</span>
-                <h3 className="motta-section-title">Full Bio Coming Soon</h3>
+                <span className="motta-eyebrow">Background</span>
+                <h3 className="motta-section-title">From Woburn to Boston, Las Vegas, and beyond</h3>
                 <p>
-                  We&apos;re working on a more comprehensive biography. In the 
-                  meantime, feel free to reach out — Dat loves talking shop, 
-                  whether it&apos;s about tax strategy, building a firm, or 
-                  debating the greatest hip-hop albums of all time.
+                  Dat is a two-time Suffolk University graduate
+                  (BSBA &rsquo;12, MSA &rsquo;13) and a CPA who grew up in Woburn,
+                  Massachusetts. His parents immigrated from Vietnam in 1987
+                  as teenage newlyweds, and the work ethic they modeled is
+                  the foundation everything at Motta is built on.
+                </p>
+                <p>
+                  Before founding Motta, Dat trained as a senior auditor at
+                  Deloitte, served as a consulting manager at WilliamsMarston
+                  LLC, was a senior manager at Outseer, and ran global
+                  corporate controllership for ANA, Inc. in Las Vegas. He was
+                  named to Suffolk&rsquo;s &ldquo;10 Under 10&rdquo; alumni list in 2017
+                  and co-hosted the 2023 ceremony alongside Suffolk President
+                  Marisa Kelly.
+                </p>
+                <p>
+                  In fall 2023, Dat launched Motta Financial with a team of
+                  fellow Big Four alumni, including longtime friend and
+                  Suffolk classmate Nick Raccuia. The firm now operates from
+                  Boston and Las Vegas, with most of the team working
+                  remotely. Three years in, Motta has grown to nine
+                  professionals serving 600+ tax returns a year across real
+                  estate investors, self-employed professionals, equity-comp
+                  heavy tech employees, and businesses that need a fractional
+                  CFO &mdash; all without sacrificing the high-touch advisory
+                  experience the firm was built around.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* === Mottainai === */}
+      <section className="motta-founder-philosophy">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 offset-lg-2">
+              <span className="motta-eyebrow">Why &ldquo;Motta&rdquo;</span>
+              <h3 className="motta-section-title">Mottainai &mdash; nothing wasted</h3>
+              <p>
+                The firm name comes from the Japanese principle{' '}
+                <em>mottainai</em>, which roughly translates to{' '}
+                &ldquo;what a waste.&rdquo; It shapes how Dat prices, staffs,
+                and builds workflows: every minute a Motta professional
+                spends on data entry is a minute not spent on planning,
+                advisory, or client conversations. Eliminating that waste is
+                the whole point.
+              </p>
+              <blockquote className="motta-founder-pull">
+                <p>
+                  &ldquo;Even if I&rsquo;m the best CPA in the world, I can&rsquo;t
+                  generate revenue for a client. They play offense and score
+                  points &mdash; our job is to play defense and prevent money
+                  from going out. Mottainai is essentially being efficient
+                  with your resources. Our name is rooted in helping people
+                  and businesses do that.&rdquo;
+                </p>
+                <cite>&mdash; Dat Le, ProConnect Tax case study</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* === Teaching & Community === */}
+      <section className="motta-founder-bio motta-founder-bio--alt">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 offset-lg-2">
+              <div className="motta-founder-bio__content">
+                <span className="motta-eyebrow">Teaching &amp; Community</span>
+                <h3 className="motta-section-title">From mentee to mentor</h3>
+                <p>
+                  Dat moonlights as an adjunct at his alma mater, teaching
+                  Suffolk&rsquo;s Career Launch course inside the Sawyer
+                  Business School&rsquo;s &ldquo;Winternship&rdquo; program
+                  alongside longtime mentor Professor Tracey Riley. Every
+                  year he donates his teaching salary back to Suffolk&rsquo;s
+                  Accounting Department to support students. Motta is also
+                  a founding sponsor of the Suffolk SEED program and a
+                  Connection Sponsor of Junior Achievement of Southern
+                  Massachusetts.
+                </p>
+                <p>
+                  Suffolk profiled Dat&rsquo;s journey from accounting student to
+                  firm founder in their 2023 feature{' '}
+                  <a
+                    href="https://www.suffolk.edu/news-features/news/2023/10/18/15/29/going-places"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    &ldquo;Going Places.&rdquo;
+                  </a>{' '}
+                  Read more in our{' '}
+                  <Link href="/news/media">Media</Link> section.
                 </p>
                 <div className="motta-founder-bio__cta">
                   <IntakeButton className="btn" source="founder-page">
@@ -215,21 +307,59 @@ export default function FounderPage() {
           padding: 90px 0;
           background: var(--motta-warm, #f4f1eb);
         }
+        .motta-founder-bio--alt {
+          background: var(--motta-cream-50, #fbf8f2);
+        }
         .motta-founder-bio__content {
-          text-align: center;
+          text-align: left;
         }
         .motta-founder-bio__content p {
           font-size: 17px;
-          line-height: 1.7;
-          color: rgba(43, 47, 36, 0.82);
-          max-width: 55ch;
-          margin: 0 auto 28px;
+          line-height: 1.75;
+          color: rgba(43, 47, 36, 0.85);
+          margin: 0 0 18px;
+        }
+        .motta-founder-bio__content a {
+          color: var(--motta-sage-deep, #6b745d);
+          text-decoration: underline;
+          text-underline-offset: 3px;
         }
         .motta-founder-bio__cta {
           display: flex;
-          justify-content: center;
           gap: 16px;
           flex-wrap: wrap;
+          margin-top: 28px;
+        }
+
+        .motta-founder-philosophy {
+          padding: 80px 0;
+          background: var(--motta-cream-50, #fbf8f2);
+        }
+        .motta-founder-philosophy p {
+          font-size: 17px;
+          line-height: 1.75;
+          color: rgba(43, 47, 36, 0.85);
+          margin: 0 0 24px;
+        }
+        .motta-founder-pull {
+          margin: 0;
+          padding: 24px 28px;
+          background: rgba(142, 155, 121, 0.10);
+          border-left: 4px solid var(--motta-sage, #8e9b79);
+          border-radius: 0 12px 12px 0;
+        }
+        .motta-founder-pull p {
+          font-size: 19px;
+          font-style: italic;
+          line-height: 1.5;
+          color: var(--motta-charcoal, #2b2f24);
+          margin: 0 0 12px;
+        }
+        .motta-founder-pull cite {
+          font-size: 13px;
+          font-style: normal;
+          color: var(--motta-sage-deep, #6b745d);
+          letter-spacing: 0.02em;
         }
       `}</style>
     </Layout>

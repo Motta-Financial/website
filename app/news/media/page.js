@@ -4,11 +4,29 @@ import Link from 'next/link';
 
 const APPEARANCES = [
   {
+    id: 'suffolk-going-places-2023',
+    show: 'Suffolk University News',
+    artwork: '/assets/img/news/dat-suffolk-seed.jpg',
+    artworkAlt: 'Dat Le presenting at Suffolk University SEED Sessions',
+    accent: '#14213d',
+    episode: '\u201CGoing Places\u201D \u2014 the origin story of Motta Financial',
+    host: 'Suffolk University Office of Public Affairs',
+    guest: 'Dat Le, BSBA \u201912 / MSA \u201913',
+    date: 'October 2023',
+    duration: 'Feature article',
+    summary:
+      'Suffolk University profiled Dat just weeks after Motta Financial launched \u2014 covering his upbringing in Woburn, his path through Deloitte and global controllership roles, the mentorship of Professor Tracey Riley, and the founding mission behind Motta. The feature traces the origin story of the firm and why teaching the next generation of accountants at Suffolk is still part of the work.',
+    listenUrl:
+      'https://www.suffolk.edu/news-features/news/2023/10/18/15/29/going-places',
+    listenLabel: 'Read the article',
+    platforms: [],
+  },
+  {
     id: 'placeholder-1',
     show: 'Podcast Show Name',
     artwork: null,
     artworkAlt: 'Podcast cover art',
-    accent: '#14213d',
+    accent: '#6b745d',
     episode: 'Episode title goes here',
     host: 'Host Name',
     guest: 'Dat Le',
