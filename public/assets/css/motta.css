@@ -1900,3 +1900,56 @@ main select:focus {
   color: rgba(244, 241, 235, 0.75);
   line-height: 1.5;
 }
+
+/* ===== Inline Calendly embed (intake success state) ========== */
+.motta-calendly-embed {
+  margin-top: 18px;
+  border: 1px solid rgba(107, 116, 93, 0.22);
+  border-radius: 14px;
+  background: #FFFFFF;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(43, 47, 36, 0.08);
+}
+.motta-calendly-embed__caption {
+  margin: 0 0 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--motta-sage-deep, #4F573F);
+}
+.motta-calendly-embed__caption strong {
+  color: var(--motta-charcoal, #1F1F1F);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 14px;
+  display: inline-block;
+  margin-left: 4px;
+}
+.motta-calendly-embed__frame {
+  position: relative;
+  min-height: 720px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--motta-warm, #F4F1EB);
+}
+.motta-calendly-embed__frame iframe {
+  width: 100% !important;
+  border: 0 !important;
+}
+.motta-calendly-embed__fallback {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: rgba(31, 31, 31, 0.7);
+  text-align: center;
+}
+.motta-calendly-embed__fallback a {
+  color: var(--motta-sage-deep, #4F573F);
+  font-weight: 600;
+}
+@media (max-width: 640px) {
+  .motta-calendly-embed { padding: 12px; }
+  .motta-calendly-embed__frame { min-height: 660px; }
+}

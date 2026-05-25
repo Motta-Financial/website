@@ -9,7 +9,7 @@
 // the Karbon push / ALFRED enrichment downstream picks up the same
 // values regardless of which surface a prospect filled out.
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { postToHub, hubErrorMessage } from '@/lib/hub';
 
 const honeypotStyle = {
@@ -96,8 +96,83 @@ function buildCalendlyUrl(baseUrl, { name, email }) {
   const params = new URLSearchParams();
   if (name) params.set('name', name);
   if (email) params.set('email', email);
+  // Hide the Calendly nav chrome inside the embed so it feels native.
+  params.set('hide_gdpr_banner', '1');
+  params.set('hide_landing_page_details', '1');
+  params.set('primary_color', '6B745D');
   const qs = params.toString();
   return qs ? `${baseUrl}?${qs}` : baseUrl;
+}
+
+// Inline Calendly embed. Lazily loads Calendly's widget.js once per
+// page lifecycle, then renders their official `.calendly-inline-widget`
+// div with our prefilled data-url. The user never leaves the site.
+function CalendlyInline({ url, name }) {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (!url || typeof window === 'undefined') return undefined;
+    const SRC = 'https://assets.calendly.com/assets/external/widget.js';
+
+    function ensureScript() {
+      if (window.Calendly) return Promise.resolve();
+      const existing = document.querySelector(`script[src="${SRC}"]`);
+      if (existing) {
+        return new Promise((resolve) => {
+          existing.addEventListener('load', () => resolve(), { once: true });
+        });
+      }
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = SRC;
+        script.async = true;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error('Calendly widget failed to load'));
+        document.body.appendChild(script);
+      });
+    }
+
+    let cancelled = false;
+    ensureScript()
+      .then(() => {
+        if (cancelled || !containerRef.current || !window.Calendly) return;
+        // Clear any prior render then mount a fresh widget.
+        containerRef.current.innerHTML = '';
+        window.Calendly.initInlineWidget({
+          url,
+          parentElement: containerRef.current,
+        });
+      })
+      .catch(() => { /* swallow — manual link is shown as fallback */ });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [url]);
+
+  if (!url) return null;
+
+  return (
+    <div className="motta-calendly-embed">
+      {name ? (
+        <p className="motta-calendly-embed__caption">
+          Pick a time with <strong>{name}</strong>
+        </p>
+      ) : null}
+      <div
+        ref={containerRef}
+        className="motta-calendly-embed__frame"
+        aria-label={name ? `Schedule a call with ${name}` : 'Schedule a call'}
+      />
+      <p className="motta-calendly-embed__fallback">
+        Trouble seeing the calendar?{' '}
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          Open it in a new tab
+        </a>
+        .
+      </p>
+    </div>
+  );
 }
 
 function Pill({ checked, onChange, children }) {
@@ -229,14 +304,6 @@ export default function HubIntakeForm() {
       setRedirectName(target?.name || '');
       setRedirectUrl(url);
       setStatus('ok');
-
-      if (url && typeof window !== 'undefined') {
-        // Small delay so the success message paints before the
-        // browser navigates — feels intentional rather than abrupt.
-        window.setTimeout(() => {
-          window.location.assign(url);
-        }, 1200);
-      }
     } catch (err) {
       setError(hubErrorMessage(err));
       setStatus('error');
@@ -255,15 +322,20 @@ export default function HubIntakeForm() {
         <h3 className="motta-intake-success__title">Welcome to Motta.</h3>
         <p className="motta-intake-success__lede">
           Your intake has been received and ALFRED is already preparing a
-          research brief. {redirectUrl
-            ? <>Hold tight — we&apos;re sending you to schedule a 30‑minute discovery call{bookingWith}.</>
-            : <>We&apos;ll be in touch within one business day to schedule a 30‑minute discovery call.</>}
+          research brief.{redirectUrl
+            ? <> Pick a 30‑minute discovery call{bookingWith} below — your name and email are already filled in.</>
+            : <> We&apos;ll be in touch within one business day to schedule a 30‑minute discovery call.</>}
         </p>
-        <ol className="motta-intake-success__list">
+
+        {redirectUrl ? (
+          <CalendlyInline url={redirectUrl} name={redirectName} />
+        ) : null}
+
+        <ol className="motta-intake-success__list" style={{ marginTop: 24 }}>
           <li>
             <strong>Right now.</strong>{' '}
             {redirectUrl
-              ? <>You&apos;ll be redirected to Calendly to pick a time{bookingWith}.</>
+              ? <>Choose a time on the calendar above — confirmation lands in your inbox.</>
               : <>ALFRED routes your intake to the right teammate.</>}
           </li>
           <li>
@@ -275,12 +347,6 @@ export default function HubIntakeForm() {
             a fixed‑fee proposal — usually within 48 hours of the call.
           </li>
         </ol>
-        {redirectUrl ? (
-          <p className="motta-intake-success__lede" style={{ marginTop: 16 }}>
-            Not redirected automatically?{' '}
-            <a href={redirectUrl} rel="noopener">Open the booking page</a>.
-          </p>
-        ) : null}
       </div>
     );
   }
@@ -579,7 +645,7 @@ export default function HubIntakeForm() {
         <p className="motta-intake-footer__meta">
           <span aria-hidden="true">⏱</span> Takes ~3 minutes ·{' '}
           <span aria-hidden="true">🔒</span> Encrypted in transit ·{' '}
-          You&apos;ll be sent to Calendly to pick a time
+          Pick a time on the next screen — no leaving this page
         </p>
         <button
           type="submit"
