@@ -9,7 +9,7 @@
 // the Karbon push / ALFRED enrichment downstream picks up the same
 // values regardless of which surface a prospect filled out.
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { postToHub, hubErrorMessage } from '@/lib/hub';
 
 const honeypotStyle = {
@@ -91,13 +91,122 @@ const TEAM_MEMBERS = [
 
 const NO_PREFERENCE = 'No preference — match me with a teammate';
 
-function buildCalendlyUrl(baseUrl, { name, email }) {
+function buildCalendlyUrl(baseUrl, { name, email, trackingId } = {}) {
   if (!baseUrl) return null;
   const params = new URLSearchParams();
   if (name) params.set('name', name);
   if (email) params.set('email', email);
+  // Hide the Calendly nav chrome inside the embed so it feels native.
+  params.set('hide_gdpr_banner', '1');
+  params.set('hide_landing_page_details', '1');
+  params.set('primary_color', '6B745D');
+  // Tracking — the Hub's Calendly webhook handler reads
+  // `payload.tracking.utm_*` from the invitee.created event to
+  // deterministically join a booking back to the originating
+  // prospect_submissions row. utm_content carries the row id;
+  // utm_source/medium/campaign tag the surface so Hub analytics can
+  // split website intake bookings out from other Calendly traffic.
+  params.set('utm_source', 'motta-website');
+  params.set('utm_medium', 'intake-form');
+  params.set('utm_campaign', 'website-intake');
+  if (trackingId) params.set('utm_content', trackingId);
   const qs = params.toString();
   return qs ? `${baseUrl}?${qs}` : baseUrl;
+}
+
+// Inline Calendly embed. Lazily loads Calendly's widget.js once per
+// page lifecycle, then renders their official `.calendly-inline-widget`
+// div with our prefilled data-url. The user never leaves the site.
+// `onScheduled` fires when Calendly emits its `event_scheduled`
+// postMessage, which is how we know the booking actually completed.
+function CalendlyInline({ url, name, onScheduled }) {
+  const containerRef = useRef(null);
+
+  // Listen for Calendly postMessage events. We only care about
+  // `calendly.event_scheduled` — that's the booking-confirmed signal.
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+    function isCalendlyEvent(e) {
+      return (
+        e?.origin === 'https://calendly.com' &&
+        e?.data?.event &&
+        typeof e.data.event === 'string' &&
+        e.data.event.indexOf('calendly.') === 0
+      );
+    }
+    function onMessage(e) {
+      if (!isCalendlyEvent(e)) return;
+      if (e.data.event === 'calendly.event_scheduled') {
+        onScheduled?.(e.data?.payload || null);
+      }
+    }
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, [onScheduled]);
+
+  useEffect(() => {
+    if (!url || typeof window === 'undefined') return undefined;
+    const SRC = 'https://assets.calendly.com/assets/external/widget.js';
+
+    function ensureScript() {
+      if (window.Calendly) return Promise.resolve();
+      const existing = document.querySelector(`script[src="${SRC}"]`);
+      if (existing) {
+        return new Promise((resolve) => {
+          existing.addEventListener('load', () => resolve(), { once: true });
+        });
+      }
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = SRC;
+        script.async = true;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error('Calendly widget failed to load'));
+        document.body.appendChild(script);
+      });
+    }
+
+    let cancelled = false;
+    ensureScript()
+      .then(() => {
+        if (cancelled || !containerRef.current || !window.Calendly) return;
+        // Clear any prior render then mount a fresh widget.
+        containerRef.current.innerHTML = '';
+        window.Calendly.initInlineWidget({
+          url,
+          parentElement: containerRef.current,
+        });
+      })
+      .catch(() => { /* swallow — manual link is shown as fallback */ });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [url]);
+
+  if (!url) return null;
+
+  return (
+    <div className="motta-calendly-embed">
+      {name ? (
+        <p className="motta-calendly-embed__caption">
+          Pick a time with <strong>{name}</strong>
+        </p>
+      ) : null}
+      <div
+        ref={containerRef}
+        className="motta-calendly-embed__frame"
+        aria-label={name ? `Schedule a call with ${name}` : 'Schedule a call'}
+      />
+      <p className="motta-calendly-embed__fallback">
+        Trouble seeing the calendar?{' '}
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          Open it in a new tab
+        </a>
+        .
+      </p>
+    </div>
+  );
 }
 
 function Pill({ checked, onChange, children }) {
@@ -153,6 +262,12 @@ export default function HubIntakeForm() {
   // time so we don't lose it if the form re-renders.
   const [redirectUrl, setRedirectUrl] = useState(null);
   const [redirectName, setRedirectName] = useState('');
+  const [submittedEmail, setSubmittedEmail] = useState('');
+  const [submittedFirstName, setSubmittedFirstName] = useState('');
+  // Set once Calendly fires `calendly.event_scheduled`. When this
+  // flips to true we swap the booking screen for a confirmation
+  // panel from ALFRED Ai.
+  const [bookingConfirmed, setBookingConfirmed] = useState(false);
 
   const wantsBusiness =
     serviceFocus === 'Business Only' ||
@@ -210,7 +325,19 @@ export default function HubIntakeForm() {
     };
 
     try {
-      await postToHub('/api/public/intake', payload);
+      // The Hub returns the created row so we can use its id as a
+      // deterministic correlation key for the eventual Calendly
+      // booking. The shape is intentionally tolerant — fall back
+      // through a few likely field names so a small Hub response
+      // rename doesn't break this. If none match we still book; the
+      // Hub-side webhook just falls back to email matching.
+      const hubResponse = await postToHub('/api/public/intake', payload);
+      const trackingId =
+        hubResponse?.prospect_submission_id ||
+        hubResponse?.submission_id ||
+        hubResponse?.id ||
+        hubResponse?.data?.id ||
+        null;
 
       // Resolve a Calendly redirect: use the chosen teammate's link,
       // or fall back to Caleb (general intake) when "no preference"
@@ -224,23 +351,93 @@ export default function HubIntakeForm() {
       const url = buildCalendlyUrl(target?.calendly, {
         name: fullName,
         email: payload.email,
+        trackingId,
       });
 
       setRedirectName(target?.name || '');
       setRedirectUrl(url);
+      setSubmittedEmail(payload.email || '');
+      setSubmittedFirstName(payload.first_name || '');
       setStatus('ok');
-
-      if (url && typeof window !== 'undefined') {
-        // Small delay so the success message paints before the
-        // browser navigates — feels intentional rather than abrupt.
-        window.setTimeout(() => {
-          window.location.assign(url);
-        }, 1200);
-      }
     } catch (err) {
       setError(hubErrorMessage(err));
       setStatus('error');
     }
+  }
+
+  if (status === 'ok' && bookingConfirmed) {
+    const greeting = submittedFirstName ? `${submittedFirstName}, ` : '';
+    const meetingWith = redirectName ? ` with ${redirectName}` : '';
+    return (
+      <div className="motta-intake-confirm" role="status" aria-live="polite">
+        <header className="motta-intake-confirm__header">
+          <span className="motta-intake-confirm__alfred">
+            <span className="motta-intake-confirm__alfred-dot" aria-hidden="true" />
+            ALFRED Ai
+          </span>
+          <span className="motta-intake-confirm__signal" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12.5l4.5 4.5L19 7.5" />
+            </svg>
+          </span>
+        </header>
+
+        <h3 className="motta-intake-confirm__title">
+          {greeting}your call is on the books.
+        </h3>
+        <p className="motta-intake-confirm__lede">
+          Nice work. Your discovery call{meetingWith} is confirmed and a
+          calendar invite is on its way to{' '}
+          <strong>{submittedEmail || 'your inbox'}</strong>. I&apos;ll quietly
+          handle prep work in the background so the call itself can stay
+          focused on you.
+        </p>
+
+        <ul className="motta-intake-confirm__steps">
+          <li>
+            <span className="motta-intake-confirm__step-num" aria-hidden="true">1</span>
+            <div>
+              <strong>Check your email.</strong> A confirmation from{' '}
+              <span className="motta-intake-confirm__chip">ALFRED Ai</span>{' '}
+              will arrive within a few minutes — including the call link, a
+              short prep doc, and a reschedule link if anything changes.
+            </div>
+          </li>
+          <li>
+            <span className="motta-intake-confirm__step-num" aria-hidden="true">2</span>
+            <div>
+              <strong>Before the call.</strong> ALFRED enriches your profile
+              with public filings, prior-year context where applicable, and
+              the right Motta service playbook so we walk in informed.
+            </div>
+          </li>
+          <li>
+            <span className="motta-intake-confirm__step-num" aria-hidden="true">3</span>
+            <div>
+              <strong>On the call.</strong> 30 minutes, no fluff — we&apos;ll
+              talk through your situation and confirm scope. If we&apos;re a
+              fit, expect a fixed‑fee proposal within 48 hours.
+            </div>
+          </li>
+        </ul>
+
+        <p className="motta-intake-confirm__signoff">
+          See you on the call,
+          <br />
+          <strong>ALFRED Ai</strong> · on behalf of the Motta team
+        </p>
+
+        <div className="motta-intake-confirm__cta-row">
+          <a className="motta-intake-confirm__cta" href="/">
+            Back to the homepage
+            <span aria-hidden="true">→</span>
+          </a>
+          <a className="motta-intake-confirm__cta-secondary" href="/services">
+            Explore our services
+          </a>
+        </div>
+      </div>
+    );
   }
 
   if (status === 'ok') {
@@ -255,15 +452,24 @@ export default function HubIntakeForm() {
         <h3 className="motta-intake-success__title">Welcome to Motta.</h3>
         <p className="motta-intake-success__lede">
           Your intake has been received and ALFRED is already preparing a
-          research brief. {redirectUrl
-            ? <>Hold tight — we&apos;re sending you to schedule a 30‑minute discovery call{bookingWith}.</>
-            : <>We&apos;ll be in touch within one business day to schedule a 30‑minute discovery call.</>}
+          research brief.{redirectUrl
+            ? <> Pick a 30‑minute discovery call{bookingWith} below — your name and email are already filled in.</>
+            : <> We&apos;ll be in touch within one business day to schedule a 30‑minute discovery call.</>}
         </p>
-        <ol className="motta-intake-success__list">
+
+        {redirectUrl ? (
+          <CalendlyInline
+            url={redirectUrl}
+            name={redirectName}
+            onScheduled={() => setBookingConfirmed(true)}
+          />
+        ) : null}
+
+        <ol className="motta-intake-success__list" style={{ marginTop: 24 }}>
           <li>
             <strong>Right now.</strong>{' '}
             {redirectUrl
-              ? <>You&apos;ll be redirected to Calendly to pick a time{bookingWith}.</>
+              ? <>Choose a time on the calendar above — confirmation lands in your inbox.</>
               : <>ALFRED routes your intake to the right teammate.</>}
           </li>
           <li>
@@ -275,12 +481,6 @@ export default function HubIntakeForm() {
             a fixed‑fee proposal — usually within 48 hours of the call.
           </li>
         </ol>
-        {redirectUrl ? (
-          <p className="motta-intake-success__lede" style={{ marginTop: 16 }}>
-            Not redirected automatically?{' '}
-            <a href={redirectUrl} rel="noopener">Open the booking page</a>.
-          </p>
-        ) : null}
       </div>
     );
   }
@@ -579,7 +779,7 @@ export default function HubIntakeForm() {
         <p className="motta-intake-footer__meta">
           <span aria-hidden="true">⏱</span> Takes ~3 minutes ·{' '}
           <span aria-hidden="true">🔒</span> Encrypted in transit ·{' '}
-          You&apos;ll be sent to Calendly to pick a time
+          Pick a time on the next screen — no leaving this page
         </p>
         <button
           type="submit"
