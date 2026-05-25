@@ -25,7 +25,26 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: 'Motta',
+  title: {
+    default: 'Motta',
+    template: '%s · Motta',
+  },
+  description:
+    'Motta is a financial firm that pairs senior CPAs with ALFRED Ai to deliver tax, accounting, and advisory services with clarity and care.',
+  // Next.js auto-discovers `app/icon.png` + `app/apple-icon.png`, but
+  // we also pin them here so RSS readers, link unfurls, and browsers
+  // that don't honor the file convention still get the lotus mark.
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', type: 'image/png', sizes: '180x180' },
+    ],
+    shortcut: ['/icon.png'],
+  },
+  // Safari pinned-tab + browser UI tinting. Sage matches our palette.
+  themeColor: '#6B745D',
 };
 
 export default function RootLayout({ children }) {
