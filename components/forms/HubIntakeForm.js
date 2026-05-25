@@ -91,7 +91,7 @@ const TEAM_MEMBERS = [
 
 const NO_PREFERENCE = 'No preference — match me with a teammate';
 
-function buildCalendlyUrl(baseUrl, { name, email }) {
+function buildCalendlyUrl(baseUrl, { name, email, trackingId } = {}) {
   if (!baseUrl) return null;
   const params = new URLSearchParams();
   if (name) params.set('name', name);
@@ -100,6 +100,16 @@ function buildCalendlyUrl(baseUrl, { name, email }) {
   params.set('hide_gdpr_banner', '1');
   params.set('hide_landing_page_details', '1');
   params.set('primary_color', '6B745D');
+  // Tracking — the Hub's Calendly webhook handler reads
+  // `payload.tracking.utm_*` from the invitee.created event to
+  // deterministically join a booking back to the originating
+  // prospect_submissions row. utm_content carries the row id;
+  // utm_source/medium/campaign tag the surface so Hub analytics can
+  // split website intake bookings out from other Calendly traffic.
+  params.set('utm_source', 'motta-website');
+  params.set('utm_medium', 'intake-form');
+  params.set('utm_campaign', 'website-intake');
+  if (trackingId) params.set('utm_content', trackingId);
   const qs = params.toString();
   return qs ? `${baseUrl}?${qs}` : baseUrl;
 }
@@ -315,7 +325,19 @@ export default function HubIntakeForm() {
     };
 
     try {
-      await postToHub('/api/public/intake', payload);
+      // The Hub returns the created row so we can use its id as a
+      // deterministic correlation key for the eventual Calendly
+      // booking. The shape is intentionally tolerant — fall back
+      // through a few likely field names so a small Hub response
+      // rename doesn't break this. If none match we still book; the
+      // Hub-side webhook just falls back to email matching.
+      const hubResponse = await postToHub('/api/public/intake', payload);
+      const trackingId =
+        hubResponse?.prospect_submission_id ||
+        hubResponse?.submission_id ||
+        hubResponse?.id ||
+        hubResponse?.data?.id ||
+        null;
 
       // Resolve a Calendly redirect: use the chosen teammate's link,
       // or fall back to Caleb (general intake) when "no preference"
@@ -329,6 +351,7 @@ export default function HubIntakeForm() {
       const url = buildCalendlyUrl(target?.calendly, {
         name: fullName,
         email: payload.email,
+        trackingId,
       });
 
       setRedirectName(target?.name || '');
