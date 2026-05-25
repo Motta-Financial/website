@@ -82,6 +82,34 @@ export default function Contact() {
                     </li>
                   </ul>
                 </div>
+
+                <aside className="motta-intake-cta" aria-labelledby="motta-intake-cta-title">
+                  <span className="motta-intake-cta__eyebrow">
+                    <span className="motta-intake-cta__eyebrow-dot" aria-hidden="true" />
+                    New client? Skip the email tag.
+                  </span>
+                  <h3 id="motta-intake-cta-title" className="motta-intake-cta__title">
+                    Take the new‑client intake.
+                  </h3>
+                  <p className="motta-intake-cta__sub">
+                    A quick guided form (~3 minutes) tells us exactly how to
+                    help. ALFRED Ai builds your research brief automatically
+                    and routes you to the right teammate.
+                  </p>
+                  <div className="motta-intake-cta__row">
+                    <IntakeButton
+                      className="motta-intake-cta__btn"
+                      source="contact-page-cta"
+                      ariaLabel="Open the new-client intake form"
+                    >
+                      Take the Intake Form
+                      <span aria-hidden="true" className="motta-intake-cta__btn-arrow">→</span>
+                    </IntakeButton>
+                    <p className="motta-intake-cta__meta">
+                      No card required · One business‑day response
+                    </p>
+                  </div>
+                </aside>
               </div>
             </div>
             <div className="col-lg-7">
