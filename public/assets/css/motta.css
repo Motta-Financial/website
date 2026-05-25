@@ -1482,3 +1482,421 @@ main select:focus {
 .alfred-companion[data-state="excited"] .alfred-companion__mark {
   animation: alfred-bounce 0.6s ease;
 }
+
+/* ===== Intake form polish (HubIntakeForm) ====================
+   Step-by-step section cards, refined pills, sticky-feel footer
+   submit, brand-aligned success state. Field names and payload
+   shape are unchanged — this file is presentation only. ======= */
+
+.motta-intake-form { display: flex; flex-direction: column; gap: 22px; }
+
+.motta-intake-section {
+  background: var(--motta-warm, #F4F1EB);
+  border: 1px solid rgba(107, 116, 93, 0.18);
+  border-radius: 14px;
+  padding: 26px 26px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.motta-intake-section::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    var(--motta-sage, #6B745D) 0%,
+    var(--motta-sage-light, #8E9B79) 60%,
+    transparent 100%);
+  opacity: 0.65;
+}
+.motta-intake-section__head {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.motta-intake-section__step {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), transparent 60%),
+    var(--motta-sage, #6B745D);
+  color: var(--motta-warm, #F4F1EB);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(43, 47, 36, 0.18);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  line-height: 1;
+}
+.motta-intake-section__step-num {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.motta-intake-section__step-of {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+.motta-intake-section__eyebrow {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--motta-sage-deep, #4F573F);
+  margin-bottom: 6px;
+}
+.motta-intake-section__title {
+  font-size: clamp(20px, 2.4vw, 24px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+  color: var(--motta-charcoal, #1F1F1F);
+}
+.motta-intake-section__sub {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(31, 31, 31, 0.7);
+  max-width: 60ch;
+}
+.motta-intake-section__body { display: flex; flex-direction: column; gap: 14px; }
+
+/* Field labels — small, sage, sit above the input */
+.motta-intake-form .form-grp { margin-bottom: 0; }
+.motta-intake-form .form-grp label {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--motta-sage-deep, #4F573F);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.motta-intake-form .form-grp input,
+.motta-intake-form .form-grp select,
+.motta-intake-form .form-grp textarea {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid rgba(107, 116, 93, 0.28);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: var(--motta-charcoal, #1F1F1F);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+.motta-intake-form .form-grp input:hover,
+.motta-intake-form .form-grp select:hover,
+.motta-intake-form .form-grp textarea:hover {
+  border-color: rgba(107, 116, 93, 0.55);
+}
+.motta-intake-form .form-grp input:focus,
+.motta-intake-form .form-grp select:focus,
+.motta-intake-form .form-grp textarea:focus {
+  outline: none;
+  border-color: var(--motta-sage, #6B745D);
+  box-shadow: 0 0 0 3px rgba(142, 155, 121, 0.22);
+  background: #FFFFFF;
+}
+.motta-intake-form .form-grp textarea { resize: vertical; min-height: 96px; }
+
+/* Pill chips for service / entity selection */
+.motta-intake-pillgroup { display: flex; flex-direction: column; gap: 10px; }
+.motta-intake-pillgroup__label {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--motta-sage-deep, #4F573F);
+  font-weight: 600;
+}
+.motta-intake-pillgroup__pills { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.motta-intake-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 10px;
+  background: #FFFFFF;
+  border: 1px solid rgba(107, 116, 93, 0.32);
+  border-radius: 999px;
+  font-size: 13.5px;
+  color: var(--motta-charcoal, #1F1F1F);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+.motta-intake-pill:hover {
+  border-color: var(--motta-sage, #6B745D);
+  transform: translateY(-1px);
+}
+.motta-intake-pill__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(107, 116, 93, 0.12);
+  color: var(--motta-sage-deep, #4F573F);
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 700;
+}
+.motta-intake-pill.is-active {
+  background: var(--motta-sage, #6B745D);
+  border-color: var(--motta-sage, #6B745D);
+  color: var(--motta-warm, #F4F1EB);
+}
+.motta-intake-pill.is-active .motta-intake-pill__check {
+  background: rgba(255, 255, 255, 0.22);
+  color: var(--motta-warm, #F4F1EB);
+}
+.visually-hidden-input {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* Footer / submit */
+.motta-intake-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  padding: 18px 22px;
+  background: linear-gradient(180deg, rgba(244, 241, 235, 0.0) 0%, rgba(107, 116, 93, 0.08) 100%);
+  border: 1px solid rgba(107, 116, 93, 0.18);
+  border-radius: 14px;
+}
+@media (min-width: 720px) {
+  .motta-intake-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.motta-intake-footer__meta {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(31, 31, 31, 0.7);
+  line-height: 1.5;
+}
+.motta-intake-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--motta-sage-deep, #4F573F);
+  border: 1px solid var(--motta-sage-deep, #4F573F);
+  color: var(--motta-warm, #F4F1EB);
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 6px 18px rgba(43, 47, 36, 0.22);
+}
+.motta-intake-submit:hover:not(:disabled) {
+  background: var(--motta-charcoal, #1F1F1F);
+  border-color: var(--motta-charcoal, #1F1F1F);
+  transform: translateY(-1px);
+}
+.motta-intake-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.motta-intake-submit__arrow { transition: transform 0.18s ease; }
+.motta-intake-submit:hover:not(:disabled) .motta-intake-submit__arrow {
+  transform: translateX(3px);
+}
+
+.motta-intake-error {
+  margin: 0;
+  padding: 12px 16px;
+  background: #FDECEA;
+  border: 1px solid #F4B7B0;
+  border-radius: 10px;
+  color: #8C1D14;
+  font-size: 14px;
+}
+
+/* Success state */
+.motta-intake-success {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F4F1EB 100%);
+  border: 1px solid rgba(107, 116, 93, 0.22);
+  border-radius: 14px;
+  padding: 36px 32px;
+  text-align: left;
+}
+.motta-intake-success__badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--motta-sage, #6B745D);
+  color: var(--motta-warm, #F4F1EB);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 22px rgba(107, 116, 93, 0.35);
+}
+.motta-intake-success__title {
+  margin: 0 0 8px;
+  font-size: clamp(24px, 3vw, 30px);
+  color: var(--motta-sage-deep, #4F573F);
+}
+.motta-intake-success__lede {
+  margin: 0 0 16px;
+  color: rgba(31, 31, 31, 0.78);
+  line-height: 1.55;
+  max-width: 60ch;
+}
+.motta-intake-success__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+  counter-reset: motta-intake-success;
+}
+.motta-intake-success__list li {
+  position: relative;
+  padding: 14px 16px 14px 56px;
+  background: #FFFFFF;
+  border: 1px solid rgba(107, 116, 93, 0.18);
+  border-radius: 10px;
+  counter-increment: motta-intake-success;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(31, 31, 31, 0.85);
+}
+.motta-intake-success__list li::before {
+  content: counter(motta-intake-success);
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--motta-sage, #6B745D);
+  color: var(--motta-warm, #F4F1EB);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+.motta-intake-success__list strong {
+  color: var(--motta-sage-deep, #4F573F);
+  font-weight: 700;
+}
+
+/* When the intake form is rendered inside the modal, drop the
+   surrounding contact form chrome so we control the visuals here. */
+.motta-intake-modal__body .contact__form-wrap { background: transparent; padding: 0; }
+
+/* Mobile spacing */
+@media (max-width: 640px) {
+  .motta-intake-section { padding: 22px 18px; }
+  .motta-intake-section__head { gap: 14px; }
+  .motta-intake-section__step { width: 48px; height: 48px; }
+  .motta-intake-footer { padding: 14px 16px; }
+}
+
+/* ===== Intake CTA card (e.g. on the Contact page) ============ */
+.motta-intake-cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 16px;
+  padding: 28px 28px 26px;
+  margin-top: 24px;
+  color: var(--motta-warm, #F4F1EB);
+  background:
+    radial-gradient(900px 320px at 100% 0%, rgba(142, 155, 121, 0.35) 0%, transparent 60%),
+    linear-gradient(135deg, #2B2F24 0%, #4F573F 100%);
+  border: 1px solid rgba(142, 155, 121, 0.45);
+  box-shadow: 0 14px 40px rgba(15, 19, 16, 0.28);
+}
+.motta-intake-cta__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 235, 0.92);
+  background: rgba(15, 19, 16, 0.32);
+  border: 1px solid rgba(244, 241, 235, 0.22);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.motta-intake-cta__eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--motta-warm, #F4F1EB);
+  box-shadow: 0 0 8px rgba(244, 241, 235, 0.7);
+  animation: motta-dot-pulse 2.4s ease-in-out infinite;
+}
+.motta-intake-cta__title {
+  margin: 0 0 8px;
+  font-size: clamp(22px, 2.6vw, 28px);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--motta-warm, #F4F1EB);
+}
+.motta-intake-cta__sub {
+  margin: 0 0 18px;
+  color: rgba(244, 241, 235, 0.82);
+  line-height: 1.55;
+  max-width: 56ch;
+}
+.motta-intake-cta__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+}
+.motta-intake-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--motta-warm, #F4F1EB);
+  color: var(--motta-charcoal, #1F1F1F);
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 0;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 8px 24px rgba(15, 19, 16, 0.28);
+}
+.motta-intake-cta__btn:hover {
+  background: #FFFFFF;
+  transform: translateY(-1px);
+  color: var(--motta-charcoal, #1F1F1F);
+}
+.motta-intake-cta__btn-arrow { transition: transform 0.18s ease; }
+.motta-intake-cta__btn:hover .motta-intake-cta__btn-arrow {
+  transform: translateX(3px);
+}
+.motta-intake-cta__meta {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(244, 241, 235, 0.75);
+  line-height: 1.5;
+}
