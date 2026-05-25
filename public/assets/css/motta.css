@@ -1953,3 +1953,194 @@ main select:focus {
   .motta-calendly-embed { padding: 12px; }
   .motta-calendly-embed__frame { min-height: 660px; }
 }
+
+/* ===== Booking confirmation (post-Calendly) ================== */
+.motta-intake-confirm {
+  position: relative;
+  isolation: isolate;
+  border-radius: 16px;
+  padding: 32px 32px 28px;
+  background:
+    radial-gradient(1100px 360px at 0% 0%, rgba(142, 155, 121, 0.18) 0%, transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, var(--motta-warm, #F4F1EB) 100%);
+  border: 1px solid rgba(107, 116, 93, 0.22);
+  box-shadow: 0 14px 36px rgba(43, 47, 36, 0.10);
+}
+
+.motta-intake-confirm__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(107, 116, 93, 0.18);
+}
+
+.motta-intake-confirm__alfred {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--motta-sage-deep, #4F573F);
+  background: rgba(107, 116, 93, 0.10);
+  border: 1px solid rgba(107, 116, 93, 0.22);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+.motta-intake-confirm__alfred-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--motta-sage, #6B745D);
+  box-shadow: 0 0 0 0 rgba(107, 116, 93, 0.55);
+  animation: motta-dot-pulse 2.2s ease-in-out infinite;
+}
+@keyframes motta-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(107, 116, 93, 0.55); }
+  50%      { box-shadow: 0 0 0 6px rgba(107, 116, 93, 0); }
+}
+
+.motta-intake-confirm__signal {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--motta-sage, #6B745D);
+  color: var(--motta-warm, #F4F1EB);
+  box-shadow: 0 6px 16px rgba(107, 116, 93, 0.35);
+}
+
+.motta-intake-confirm__title {
+  margin: 0 0 10px;
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--motta-charcoal, #1F1F1F);
+  text-wrap: balance;
+}
+
+.motta-intake-confirm__lede {
+  margin: 0 0 22px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(31, 31, 31, 0.78);
+  max-width: 62ch;
+}
+.motta-intake-confirm__lede strong {
+  color: var(--motta-charcoal, #1F1F1F);
+  font-weight: 700;
+}
+
+.motta-intake-confirm__steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.motta-intake-confirm__steps li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: #FFFFFF;
+  border: 1px solid rgba(107, 116, 93, 0.18);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(31, 31, 31, 0.85);
+}
+.motta-intake-confirm__steps li strong {
+  color: var(--motta-sage-deep, #4F573F);
+  font-weight: 700;
+  margin-right: 4px;
+}
+.motta-intake-confirm__step-num {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--motta-sage, #6B745D);
+  color: var(--motta-warm, #F4F1EB);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.motta-intake-confirm__chip {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(107, 116, 93, 0.12);
+  border: 1px solid rgba(107, 116, 93, 0.22);
+  color: var(--motta-sage-deep, #4F573F);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  padding: 1px 8px;
+  border-radius: 999px;
+}
+
+.motta-intake-confirm__signoff {
+  margin: 0 0 22px;
+  padding: 14px 16px;
+  background: rgba(244, 241, 235, 0.6);
+  border-left: 3px solid var(--motta-sage, #6B745D);
+  border-radius: 6px;
+  font-style: italic;
+  color: rgba(31, 31, 31, 0.78);
+  line-height: 1.5;
+}
+.motta-intake-confirm__signoff strong {
+  font-style: normal;
+  color: var(--motta-sage-deep, #4F573F);
+  letter-spacing: 0.01em;
+}
+
+.motta-intake-confirm__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.motta-intake-confirm__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--motta-sage-deep, #4F573F);
+  color: var(--motta-warm, #F4F1EB);
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+.motta-intake-confirm__cta:hover {
+  background: var(--motta-charcoal, #1F1F1F);
+  color: var(--motta-warm, #F4F1EB);
+  transform: translateY(-1px);
+}
+.motta-intake-confirm__cta-secondary {
+  font-size: 14px;
+  color: var(--motta-sage-deep, #4F573F);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.motta-intake-confirm__cta-secondary:hover {
+  color: var(--motta-charcoal, #1F1F1F);
+}
+
+@media (max-width: 640px) {
+  .motta-intake-confirm { padding: 24px 20px 22px; }
+  .motta-intake-confirm__steps li { font-size: 13.5px; }
+}

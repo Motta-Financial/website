@@ -107,8 +107,32 @@ function buildCalendlyUrl(baseUrl, { name, email }) {
 // Inline Calendly embed. Lazily loads Calendly's widget.js once per
 // page lifecycle, then renders their official `.calendly-inline-widget`
 // div with our prefilled data-url. The user never leaves the site.
-function CalendlyInline({ url, name }) {
+// `onScheduled` fires when Calendly emits its `event_scheduled`
+// postMessage, which is how we know the booking actually completed.
+function CalendlyInline({ url, name, onScheduled }) {
   const containerRef = useRef(null);
+
+  // Listen for Calendly postMessage events. We only care about
+  // `calendly.event_scheduled` — that's the booking-confirmed signal.
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+    function isCalendlyEvent(e) {
+      return (
+        e?.origin === 'https://calendly.com' &&
+        e?.data?.event &&
+        typeof e.data.event === 'string' &&
+        e.data.event.indexOf('calendly.') === 0
+      );
+    }
+    function onMessage(e) {
+      if (!isCalendlyEvent(e)) return;
+      if (e.data.event === 'calendly.event_scheduled') {
+        onScheduled?.(e.data?.payload || null);
+      }
+    }
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, [onScheduled]);
 
   useEffect(() => {
     if (!url || typeof window === 'undefined') return undefined;
@@ -228,6 +252,12 @@ export default function HubIntakeForm() {
   // time so we don't lose it if the form re-renders.
   const [redirectUrl, setRedirectUrl] = useState(null);
   const [redirectName, setRedirectName] = useState('');
+  const [submittedEmail, setSubmittedEmail] = useState('');
+  const [submittedFirstName, setSubmittedFirstName] = useState('');
+  // Set once Calendly fires `calendly.event_scheduled`. When this
+  // flips to true we swap the booking screen for a confirmation
+  // panel from ALFRED Ai.
+  const [bookingConfirmed, setBookingConfirmed] = useState(false);
 
   const wantsBusiness =
     serviceFocus === 'Business Only' ||
@@ -303,11 +333,88 @@ export default function HubIntakeForm() {
 
       setRedirectName(target?.name || '');
       setRedirectUrl(url);
+      setSubmittedEmail(payload.email || '');
+      setSubmittedFirstName(payload.first_name || '');
       setStatus('ok');
     } catch (err) {
       setError(hubErrorMessage(err));
       setStatus('error');
     }
+  }
+
+  if (status === 'ok' && bookingConfirmed) {
+    const greeting = submittedFirstName ? `${submittedFirstName}, ` : '';
+    const meetingWith = redirectName ? ` with ${redirectName}` : '';
+    return (
+      <div className="motta-intake-confirm" role="status" aria-live="polite">
+        <header className="motta-intake-confirm__header">
+          <span className="motta-intake-confirm__alfred">
+            <span className="motta-intake-confirm__alfred-dot" aria-hidden="true" />
+            ALFRED Ai
+          </span>
+          <span className="motta-intake-confirm__signal" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12.5l4.5 4.5L19 7.5" />
+            </svg>
+          </span>
+        </header>
+
+        <h3 className="motta-intake-confirm__title">
+          {greeting}your call is on the books.
+        </h3>
+        <p className="motta-intake-confirm__lede">
+          Nice work. Your discovery call{meetingWith} is confirmed and a
+          calendar invite is on its way to{' '}
+          <strong>{submittedEmail || 'your inbox'}</strong>. I&apos;ll quietly
+          handle prep work in the background so the call itself can stay
+          focused on you.
+        </p>
+
+        <ul className="motta-intake-confirm__steps">
+          <li>
+            <span className="motta-intake-confirm__step-num" aria-hidden="true">1</span>
+            <div>
+              <strong>Check your email.</strong> A confirmation from{' '}
+              <span className="motta-intake-confirm__chip">ALFRED Ai</span>{' '}
+              will arrive within a few minutes — including the call link, a
+              short prep doc, and a reschedule link if anything changes.
+            </div>
+          </li>
+          <li>
+            <span className="motta-intake-confirm__step-num" aria-hidden="true">2</span>
+            <div>
+              <strong>Before the call.</strong> ALFRED enriches your profile
+              with public filings, prior-year context where applicable, and
+              the right Motta service playbook so we walk in informed.
+            </div>
+          </li>
+          <li>
+            <span className="motta-intake-confirm__step-num" aria-hidden="true">3</span>
+            <div>
+              <strong>On the call.</strong> 30 minutes, no fluff — we&apos;ll
+              talk through your situation and confirm scope. If we&apos;re a
+              fit, expect a fixed‑fee proposal within 48 hours.
+            </div>
+          </li>
+        </ul>
+
+        <p className="motta-intake-confirm__signoff">
+          See you on the call,
+          <br />
+          <strong>ALFRED Ai</strong> · on behalf of the Motta team
+        </p>
+
+        <div className="motta-intake-confirm__cta-row">
+          <a className="motta-intake-confirm__cta" href="/">
+            Back to the homepage
+            <span aria-hidden="true">→</span>
+          </a>
+          <a className="motta-intake-confirm__cta-secondary" href="/services">
+            Explore our services
+          </a>
+        </div>
+      </div>
+    );
   }
 
   if (status === 'ok') {
@@ -328,7 +435,11 @@ export default function HubIntakeForm() {
         </p>
 
         {redirectUrl ? (
-          <CalendlyInline url={redirectUrl} name={redirectName} />
+          <CalendlyInline
+            url={redirectUrl}
+            name={redirectName}
+            onScheduled={() => setBookingConfirmed(true)}
+          />
         ) : null}
 
         <ol className="motta-intake-success__list" style={{ marginTop: 24 }}>
