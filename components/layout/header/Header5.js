@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Menu from '../Menu';
 import MobileMenu from '../MobileMenu';
+import IntakeButton from '@/components/intake/IntakeButton';
 
 export default function Header5({
   scroll,
@@ -36,6 +37,15 @@ export default function Header5({
                     </div>
                     <div className="tgmenu__action tgmenu__action-five d-none d-md-block">
                       <ul className="list-wrap">
+                                        <li className="header-btn">
+                                          <IntakeButton
+                                            className="btn motta-header-intake"
+                                            source="header"
+                                            ariaLabel="Open new client intake form"
+                                          >
+                                            Intake Form
+                                          </IntakeButton>
+                                        </li>
                                         <li className="header-btn">
                                           <Link href="/login" className="btn">
                                             Log In
