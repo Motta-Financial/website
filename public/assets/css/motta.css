@@ -2144,3 +2144,30 @@ main select:focus {
   .motta-intake-confirm { padding: 24px 20px 22px; }
   .motta-intake-confirm__steps li { font-size: 13.5px; }
 }
+
+/* ===== Header intake CTA ===========================================
+   Sits next to the Log In button in Header5. We render the primary
+   Log In as the existing filled .btn and give the Intake button a
+   distinct outlined sage treatment so the two pills are immediately
+   readable as different actions. ================================ */
+.tg-header__style-five .tgmenu__action-five .list-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.tg-header__style-five .motta-header-intake.btn {
+  background: transparent;
+  color: var(--motta-sage-deep, #4F573F);
+  border: 1.5px solid var(--motta-sage, #6B745D);
+  box-shadow: none;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+.tg-header__style-five .motta-header-intake.btn:hover,
+.tg-header__style-five .motta-header-intake.btn:focus-visible {
+  background: var(--motta-sage, #6B745D);
+  color: var(--motta-warm, #F4F1EB);
+  transform: translateY(-1px);
+}
+@media (max-width: 767.98px) {
+  .tg-header__style-five .motta-header-intake.btn { display: none; }
+}
