@@ -75,6 +75,31 @@ const STATES = [
   'VT','VA','WA','WV','WI','WY','PR',
 ];
 
+// Motta team members with their Calendly booking links. The `name`
+// is what gets stored in the Hub's `preferred_team_member` column,
+// so it should match how teammates are referred to elsewhere. After
+// a successful intake submit we redirect to `calendly` with the
+// prospect's name + email prefilled.
+const TEAM_MEMBERS = [
+  { name: 'Dat Le', calendly: 'https://calendly.com/dat-le-motta' },
+  { name: 'Caleb Long', calendly: 'https://calendly.com/caleb-long-mottafinancial' },
+  { name: 'Amy Sparaco', calendly: 'https://calendly.com/amy-sparaco-mottafinancial' },
+  { name: 'Andrew Gianares', calendly: 'https://calendly.com/andrew-gianares-mottafinancial' },
+  { name: 'Micaela Palacios', calendly: 'https://calendly.com/micaela-palacios-mottafinancial' },
+  { name: 'Mark Dwyer', calendly: 'https://calendly.com/mark-dwyer-motta' },
+];
+
+const NO_PREFERENCE = 'No preference — match me with a teammate';
+
+function buildCalendlyUrl(baseUrl, { name, email }) {
+  if (!baseUrl) return null;
+  const params = new URLSearchParams();
+  if (name) params.set('name', name);
+  if (email) params.set('email', email);
+  const qs = params.toString();
+  return qs ? `${baseUrl}?${qs}` : baseUrl;
+}
+
 function Pill({ checked, onChange, children }) {
   return (
     <label
@@ -123,6 +148,11 @@ export default function HubIntakeForm() {
   const [serviceFocus, setServiceFocus] = useState('');
   const [services, setServices] = useState([]);
   const [entityTypes, setEntityTypes] = useState([]);
+  const [preferredTeamMember, setPreferredTeamMember] = useState('');
+  // Where we redirect after a successful intake. Captured at submit
+  // time so we don't lose it if the form re-renders.
+  const [redirectUrl, setRedirectUrl] = useState(null);
+  const [redirectName, setRedirectName] = useState('');
 
   const wantsBusiness =
     serviceFocus === 'Business Only' ||
@@ -173,7 +203,7 @@ export default function HubIntakeForm() {
       questions_or_concerns: get('questions_or_concerns') || undefined,
       additional_notes: get('additional_notes') || undefined,
       referral_source: get('referral_source') || undefined,
-      preferred_team_member: get('preferred_team_member') || undefined,
+      preferred_team_member: preferredTeamMember || undefined,
 
       page_url: typeof window !== 'undefined' ? window.location.href : undefined,
       website: get('website'), // honeypot — bots fill, real users leave empty
@@ -181,7 +211,32 @@ export default function HubIntakeForm() {
 
     try {
       await postToHub('/api/public/intake', payload);
+
+      // Resolve a Calendly redirect: use the chosen teammate's link,
+      // or fall back to Caleb (general intake) when "no preference"
+      // is selected, so every prospect lands on a booking page.
+      const chosen = TEAM_MEMBERS.find((t) => t.name === preferredTeamMember);
+      const fallback = TEAM_MEMBERS.find((t) => t.name === 'Caleb Long');
+      const target = chosen || fallback;
+      const fullName = [payload.first_name, payload.last_name]
+        .filter(Boolean)
+        .join(' ');
+      const url = buildCalendlyUrl(target?.calendly, {
+        name: fullName,
+        email: payload.email,
+      });
+
+      setRedirectName(target?.name || '');
+      setRedirectUrl(url);
       setStatus('ok');
+
+      if (url && typeof window !== 'undefined') {
+        // Small delay so the success message paints before the
+        // browser navigates — feels intentional rather than abrupt.
+        window.setTimeout(() => {
+          window.location.assign(url);
+        }, 1200);
+      }
     } catch (err) {
       setError(hubErrorMessage(err));
       setStatus('error');
@@ -189,8 +244,9 @@ export default function HubIntakeForm() {
   }
 
   if (status === 'ok') {
+    const bookingWith = redirectName ? ` with ${redirectName}` : '';
     return (
-      <div className="motta-intake-success" role="status">
+      <div className="motta-intake-success" role="status" aria-live="polite">
         <div className="motta-intake-success__badge" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12.5l4.5 4.5L19 7.5" />
@@ -199,22 +255,32 @@ export default function HubIntakeForm() {
         <h3 className="motta-intake-success__title">Welcome to Motta.</h3>
         <p className="motta-intake-success__lede">
           Your intake has been received and ALFRED is already preparing a
-          research brief for our team. Here&apos;s what happens next:
+          research brief. {redirectUrl
+            ? <>Hold tight — we&apos;re sending you to schedule a 30‑minute discovery call{bookingWith}.</>
+            : <>We&apos;ll be in touch within one business day to schedule a 30‑minute discovery call.</>}
         </p>
         <ol className="motta-intake-success__list">
           <li>
-            <strong>Today.</strong> ALFRED enriches your profile and routes it
-            to the right teammate based on your service focus.
+            <strong>Right now.</strong>{' '}
+            {redirectUrl
+              ? <>You&apos;ll be redirected to Calendly to pick a time{bookingWith}.</>
+              : <>ALFRED routes your intake to the right teammate.</>}
           </li>
           <li>
-            <strong>Within one business day.</strong> We&apos;ll reach out by
-            email to schedule a 30‑minute discovery call.
+            <strong>Within one business day.</strong> We&apos;ll confirm by
+            email and share a short prep doc ahead of the call.
           </li>
           <li>
             <strong>Next steps.</strong> If we&apos;re a fit, we&apos;ll send
             a fixed‑fee proposal — usually within 48 hours of the call.
           </li>
         </ol>
+        {redirectUrl ? (
+          <p className="motta-intake-success__lede" style={{ marginTop: 16 }}>
+            Not redirected automatically?{' '}
+            <a href={redirectUrl} rel="noopener">Open the booking page</a>.
+          </p>
+        ) : null}
       </div>
     );
   }
@@ -484,7 +550,17 @@ export default function HubIntakeForm() {
           <div className="col-md-6">
             <div className="form-grp">
               <label htmlFor="intake-team">Preferred Motta teammate</label>
-              <input id="intake-team" type="text" name="preferred_team_member" placeholder="Optional" />
+              <select
+                id="intake-team"
+                name="preferred_team_member"
+                value={preferredTeamMember}
+                onChange={(e) => setPreferredTeamMember(e.target.value)}
+              >
+                <option value="">{NO_PREFERENCE}</option>
+                {TEAM_MEMBERS.map((t) => (
+                  <option key={t.name} value={t.name}>{t.name}</option>
+                ))}
+              </select>
             </div>
           </div>
         </div>
@@ -503,14 +579,14 @@ export default function HubIntakeForm() {
         <p className="motta-intake-footer__meta">
           <span aria-hidden="true">⏱</span> Takes ~3 minutes ·{' '}
           <span aria-hidden="true">🔒</span> Encrypted in transit ·{' '}
-          ALFRED preps your brief automatically
+          You&apos;ll be sent to Calendly to pick a time
         </p>
         <button
           type="submit"
           className="btn motta-intake-submit"
           disabled={status === 'loading'}
         >
-          {status === 'loading' ? 'Submitting…' : 'Submit intake'}
+          {status === 'loading' ? 'Submitting…' : 'Submit & schedule call'}
           <span aria-hidden="true" className="motta-intake-submit__arrow">→</span>
         </button>
       </footer>
