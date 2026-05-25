@@ -2206,3 +2206,248 @@ main select:focus {
 @media (max-width: 767.98px) {
   .tg-header__style-five .motta-header-intake.btn { display: none; }
 }
+
+/* ===== Standalone /intake page =====================================
+   Opened in a separate popup window from IntakeButton / IntakeProvider.
+   The whole point is readability — wide, calm, generous spacing. The
+   `motta-intake-page-active` class on <html> lets us also relax the
+   form's modal-cramped overrides when it's hosted here.
+================================================================== */
+html.motta-intake-page-active,
+html.motta-intake-page-active body {
+  background: var(--motta-warm, #F4F1EB);
+}
+
+.motta-intake-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(900px 320px at 0% 0%, rgba(142, 155, 121, 0.18) 0%, transparent 60%),
+    radial-gradient(900px 320px at 100% 100%, rgba(107, 116, 93, 0.10) 0%, transparent 65%),
+    var(--motta-warm, #F4F1EB);
+  color: var(--motta-charcoal, #1F1F1F);
+}
+
+.motta-intake-page__grid {
+  flex: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 28px 32px;
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 1023.98px) {
+  .motta-intake-page__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px 20px 24px;
+  }
+}
+
+/* ----- Left rail ----- */
+.motta-intake-page__rail {
+  position: sticky;
+  top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+@media (max-width: 1023.98px) {
+  .motta-intake-page__rail { position: static; gap: 14px; }
+}
+
+.motta-intake-page__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--motta-charcoal, #1F1F1F);
+  font-family: var(--tg-heading-font-family, 'Outfit'), sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.motta-intake-page__brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--motta-sage-deep, #4F573F);
+  color: var(--motta-warm, #EAE6E1);
+  font-family: var(--tg-heading-font-family, 'Outfit'), sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.motta-intake-page__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--motta-sage-deep, #4F573F);
+  background: rgba(107, 116, 93, 0.10);
+  border: 1px solid rgba(107, 116, 93, 0.22);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+.motta-intake-page__eyebrow-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--motta-sage, #6B745D);
+  box-shadow: 0 0 0 0 rgba(107, 116, 93, 0.55);
+  animation: motta-dot-pulse 2.2s ease-in-out infinite;
+}
+.motta-intake-page__source {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  color: rgba(31, 31, 31, 0.65);
+}
+
+.motta-intake-page__title {
+  margin: 0;
+  font-family: var(--tg-heading-font-family, 'Outfit'), sans-serif;
+  font-size: clamp(28px, 3.4vw, 38px);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--motta-charcoal, #1F1F1F);
+  text-wrap: balance;
+}
+
+.motta-intake-page__lede {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: rgba(31, 31, 31, 0.78);
+  max-width: 38ch;
+}
+.motta-intake-page__lede strong {
+  color: var(--motta-sage-deep, #4F573F);
+  font-weight: 700;
+}
+
+.motta-intake-page__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.motta-intake-page__bullets li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #FFFFFF;
+  border: 1px solid rgba(107, 116, 93, 0.18);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(31, 31, 31, 0.85);
+}
+.motta-intake-page__bullets li strong {
+  color: var(--motta-sage-deep, #4F573F);
+  font-weight: 700;
+  margin-right: 4px;
+}
+.motta-intake-page__bullet-num {
+  flex: 0 0 auto;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--motta-sage, #6B745D);
+  color: var(--motta-warm, #EAE6E1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.motta-intake-page__rail-foot {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: rgba(31, 31, 31, 0.7);
+}
+.motta-intake-page__rail-foot a {
+  color: var(--motta-sage-deep, #4F573F);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ----- Form column ----- */
+.motta-intake-page__form {
+  background: #FFFFFF;
+  border: 1px solid rgba(107, 116, 93, 0.18);
+  border-radius: 18px;
+  padding: 36px 36px 30px;
+  box-shadow: 0 18px 48px rgba(43, 47, 36, 0.10);
+  min-width: 0;
+}
+@media (max-width: 767.98px) {
+  .motta-intake-page__form { padding: 24px 20px 22px; border-radius: 14px; }
+}
+
+/* On the standalone page we want the form to BREATHE — the modal
+   version is intentionally compact, so we relax row spacing and
+   field rhythm whenever it's hosted inside .motta-intake-page__form. */
+.motta-intake-page__form .form-grp { margin-bottom: 18px; }
+.motta-intake-page__form .form-grp label {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--motta-charcoal, #1F1F1F);
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+.motta-intake-page__form .form-grp input,
+.motta-intake-page__form .form-grp select,
+.motta-intake-page__form .form-grp textarea {
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(31, 31, 31, 0.14);
+  background: #FFFFFF;
+  width: 100%;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.motta-intake-page__form .form-grp input:focus,
+.motta-intake-page__form .form-grp select:focus,
+.motta-intake-page__form .form-grp textarea:focus {
+  outline: none;
+  border-color: var(--motta-sage, #6B745D);
+  box-shadow: 0 0 0 4px rgba(107, 116, 93, 0.18);
+}
+
+/* ----- Footer ----- */
+.motta-intake-page__foot {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 28px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 12.5px;
+  color: rgba(31, 31, 31, 0.6);
+}
+.motta-intake-page__back-link {
+  color: var(--motta-sage-deep, #4F573F);
+  text-decoration: none;
+  font-weight: 600;
+}
+.motta-intake-page__back-link:hover { text-decoration: underline; }
