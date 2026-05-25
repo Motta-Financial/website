@@ -2146,28 +2146,63 @@ main select:focus {
 }
 
 /* ===== Header intake CTA ===========================================
-   Sits next to the Log In button in Header5. We render the primary
-   Log In as the existing filled .btn and give the Intake button a
-   distinct outlined sage treatment so the two pills are immediately
-   readable as different actions. ================================ */
+   Sits next to the Log In button in Header5. The base template's
+   .btn paints itself with --tg-theme-primary and adds a ::before
+   overlay on hover, both of which fight our sage palette — so we
+   override BOTH header buttons here:
+     - Log In  = filled sage (primary action)
+     - Intake  = outlined sage (secondary action)
+   Higher specificity (.tg-header__style-five .header-btn .btn)
+   beats main.css's .btn rules without resorting to !important.
+================================================================== */
 .tg-header__style-five .tgmenu__action-five .list-wrap {
   display: inline-flex;
   align-items: center;
   gap: 10px;
 }
-.tg-header__style-five .motta-header-intake.btn {
+
+/* Kill the template's hover spotlight on header buttons so we get a
+   flat color swap instead of a half-tone wash. */
+.tg-header__style-five .header-btn .btn::before,
+.tg-header__style-five .header-btn .btn::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Primary: Log In */
+.tg-header__style-five .header-btn .btn {
+  background: var(--motta-sage, #6B745D);
+  color: var(--motta-warm, #EAE6E1);
+  border: 1.5px solid var(--motta-sage, #6B745D);
+  box-shadow: 0 2px 6px rgba(43, 47, 36, 0.10);
+  transition: background 0.18s ease, color 0.18s ease,
+              border-color 0.18s ease, transform 0.18s ease,
+              box-shadow 0.18s ease;
+}
+.tg-header__style-five .header-btn .btn:hover,
+.tg-header__style-five .header-btn .btn:focus-visible {
+  background: var(--motta-sage-deep, #4F573F);
+  border-color: var(--motta-sage-deep, #4F573F);
+  color: var(--motta-warm, #EAE6E1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(43, 47, 36, 0.18);
+}
+
+/* Secondary: Intake Form (outlined) */
+.tg-header__style-five .header-btn .motta-header-intake.btn {
   background: transparent;
   color: var(--motta-sage-deep, #4F573F);
   border: 1.5px solid var(--motta-sage, #6B745D);
   box-shadow: none;
-  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
 }
-.tg-header__style-five .motta-header-intake.btn:hover,
-.tg-header__style-five .motta-header-intake.btn:focus-visible {
+.tg-header__style-five .header-btn .motta-header-intake.btn:hover,
+.tg-header__style-five .header-btn .motta-header-intake.btn:focus-visible {
   background: var(--motta-sage, #6B745D);
-  color: var(--motta-warm, #F4F1EB);
+  border-color: var(--motta-sage, #6B745D);
+  color: var(--motta-warm, #EAE6E1);
   transform: translateY(-1px);
 }
+
 @media (max-width: 767.98px) {
   .tg-header__style-five .motta-header-intake.btn { display: none; }
 }
