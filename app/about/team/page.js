@@ -61,12 +61,12 @@ const teamMembers = [
   {
     slug: 'julian-jacobson',
     name: 'Julian Jacobson',
-    title: 'Associate, Client Experience',
-    credentials: 'Client Onboarding · Communications · Operations',
+    title: 'Associate, Client Operations',
+    credentials: 'Client Onboarding · Proposals & Billing · Workflow Coordination',
     image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Julian%20Jacobson-oGnYI2hOkwVBbU1va8lzZswT79Kp6p.jpg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Julian%20Jacobson-pV0TqUNQjGRcjZeurX7MCTny9ac5Gs.jpg',
     blurb:
-      "Julian joins Motta as the firm's first dedicated Client Experience Associate, serving as the connective tissue between clients and the Motta team. He owns the moments that shape every client relationship — proposal turnaround, onboarding, billing rhythm, and the everyday communication that keeps engagements moving.",
+      "Julian is Motta's Client Operations Associate, the operational bridge between clients and the internal team. He keeps proposals, onboarding, billing, and workflow visibility moving across the firm — owning engagement letters and invoicing through Ignition, deadline and follow-up tracking in Karbon, and the day-to-day communication that keeps every engagement responsive. His background spans operations and partnership roles at WWE, the Santa Cruz Warriors, and SponsorUnited.",
   },
 ];
 
