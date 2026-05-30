@@ -87,12 +87,12 @@ const teamMembers = [
   {
     slug: 'andrew-gianares',
     name: 'Andrew Gianares',
-    title: 'Team Member',
-    credentials: 'Full profile coming soon',
+    title: 'Accounting Advisory Senior',
+    credentials: 'Bookkeeping · Payroll · Working Capital Management',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Andrew%20Gianares-1LBQBMRYrxTw8SGVVYLTUN4FeX7UU2.jpg',
     blurb:
-      "A fuller profile is on the way. In the meantime, connect with Andrew directly using the links below.",
+      "Andrew anchors Motta's accounting team, keeping clients' books accurate and their cash flow under control. He owns the day-to-day financial operations businesses depend on — bookkeeping, payroll, and working capital management across accounts receivable, accounts payable, and vendor relationships. Fluent across every major accounting and payroll platform, he brings multi-industry experience and understands not just the mechanics of the close, but the reporting and compliance filings each business is responsible for.",
     email: 'Andrew.Gianares@MottaFinancial.com',
     linkedin: 'https://www.linkedin.com/in/andrew-gianares-33967b172/',
     calendly: 'https://calendly.com/andrew-gianares-mottafinancial',
