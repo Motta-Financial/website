@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
+import TeamContactLinks from '@/components/team/TeamContactLinks';
 
 export const metadata = {
   title: 'Meet Our Professionals | Motta Financial',
@@ -17,6 +18,8 @@ const teamMembers = [
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Portrait%20%28Headshot%29%20-%20Dat%20Le%20%5BWM%5D-kVzKTBVlGdBFKtNQtGCsPYvs3UAxYw.jpg',
     blurb:
       "Dat is the founder and Managing Partner of Motta Financial, leading the firm's strategic direction across tax, accounting, and advisory services from offices in Boston and Las Vegas. A two-time Suffolk University graduate, Dat built his foundation as a top-rated Audit Senior at Deloitte & Touche before deepening his technical skills through senior consulting and controller roles supporting IPOs, SPAC transactions, and complex revenue recognition.",
+    email: 'Dat.Le@MottaFinancial.com',
+    calendly: 'https://calendly.com/dat-le-motta',
     detailHref: '/team/dat-le',
   },
   {
@@ -28,6 +31,8 @@ const teamMembers = [
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Terry%20Song.png-IEMyP44Vgb8Idx1fPdxCC2qbVjiPpW.jpeg',
     blurb:
       "Terry leads Motta's tax advisory practice as the senior point of contact for complex engagements — high-net-worth individuals, family offices, and closely-held businesses. He is known for translating intricate tax positions into clear client guidance and for a research-first standard that ensures every position is supported by authoritative tax law.",
+    email: 'Terry.Song@MottaFinancial.com',
+    linkedin: 'https://www.linkedin.com/in/terry-song-3332a970/',
   },
   {
     slug: 'amy-sparaco',
@@ -38,6 +43,9 @@ const teamMembers = [
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Amy%20Sparaco-thMF9RPQsNKnzXdBn7bBp6qqnu74rt.jpg',
     blurb:
       "Amy leads Motta's accounting advisory practice, overseeing every client engagement from monthly bookkeeping through Fractional CFO services. She pairs world-class technical accounting with Motta certification in AI Business Transformation — delivering GAAP-compliant work product with intelligent AI integrated directly into client operations.",
+    email: 'Amy.Sparaco@MottaFinancial.com',
+    linkedin: 'https://www.linkedin.com/in/amysparaco/',
+    calendly: 'https://calendly.com/amy-sparaco-mottafinancial',
   },
   {
     slug: 'caleb-long',
@@ -48,6 +56,9 @@ const teamMembers = [
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Caleb%20Long-gj3veS3Ddc1lHawERIs0UQHSFk3wDX.jpg',
     blurb:
       "Caleb leads Motta's corporate development and M&A practice, advising business owners and platform investors on acquisitions, capital decisions, and post-close integration. He brings 7+ years of in-house strategic finance and corporate development experience — sourcing, modeling, and executing transactions across the lower-middle market.",
+    email: 'Caleb.Long@MottaFinancial.com',
+    linkedin: 'https://www.linkedin.com/in/caleb-long/',
+    calendly: 'https://calendly.com/caleb-long-mottafinancial',
   },
   {
     slug: 'micaela-palacios',
@@ -58,6 +69,9 @@ const teamMembers = [
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Micaela%20Palacios-66rSwUgEL32LdNFmli6cwtTfzysmOs.jpg',
     blurb:
       "Micaela focuses on individual tax preparation, year-round planning, and equity compensation strategy for employees navigating RSUs, ISOs, and ESPPs. A Suffolk Sawyer Honors graduate (3.95 GPA, Beta Alpha Psi), she serves Motta's multilingual client community in English and Spanish.",
+    email: 'Micaela.Palacios@MottaFinancial.com',
+    linkedin: 'https://www.linkedin.com/in/micaela-palacios-v16/',
+    calendly: 'https://calendly.com/micaela-palacios-mottafinancial',
   },
   {
     slug: 'julian-jacobson',
@@ -68,6 +82,32 @@ const teamMembers = [
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Julian%20Jacobson-pV0TqUNQjGRcjZeurX7MCTny9ac5Gs.jpg',
     blurb:
       "Julian is Motta's Client Operations Associate, the operational bridge between clients and the internal team. He keeps proposals, onboarding, billing, and workflow visibility moving across the firm — owning engagement letters and invoicing through Ignition, deadline and follow-up tracking in Karbon, and the day-to-day communication that keeps every engagement responsive. His background spans operations and partnership roles at WWE, the Santa Cruz Warriors, and SponsorUnited.",
+    email: 'Julian.Jacobson@MottaFinancial.com',
+    linkedin: 'https://www.linkedin.com/in/julianjacobson5/',
+  },
+  {
+    slug: 'andrew-gianares',
+    name: 'Andrew Gianares',
+    title: 'Team Member',
+    credentials: 'Full profile coming soon',
+    image:
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Andrew%20Gianares-1LBQBMRYrxTw8SGVVYLTUN4FeX7UU2.jpg',
+    blurb:
+      "A fuller profile is on the way. In the meantime, connect with Andrew directly using the links below.",
+    email: 'Andrew.Gianares@MottaFinancial.com',
+    linkedin: 'https://www.linkedin.com/in/andrew-gianares-33967b172/',
+    calendly: 'https://calendly.com/andrew-gianares-mottafinancial',
+  },
+  {
+    slug: 'samprina-zekio',
+    name: 'Samprina Zekio',
+    title: 'Team Member',
+    credentials: 'Full profile coming soon',
+    image:
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Samprina%20Zekio-GTqi19ZdKp1732WGzF5s5YFygrWUz9.jpg',
+    blurb:
+      "A fuller profile is on the way. In the meantime, connect with Samprina directly using the links below.",
+    email: 'Samprina.Zekio@MottaFinancial.com',
   },
 ];
 
@@ -101,8 +141,10 @@ export default function Team() {
 
             <div className="row justify-content-center gutter-24">
               {teamMembers.map((member) => {
-                const cardInner = (
-                  <div className="team__item-two shine-animate-item h-100">
+                // Card body WITHOUT the contact row — this is what gets
+                // wrapped in <Link> for members with a detail page.
+                const cardBody = (
+                  <>
                     <div className="team__thumb-two shine-animate">
                       <img
                         src={member.image || '/placeholder.svg'}
@@ -132,7 +174,7 @@ export default function Team() {
                         {member.blurb}
                       </p>
                     </div>
-                  </div>
+                  </>
                 );
 
                 return (
@@ -140,16 +182,24 @@ export default function Team() {
                     key={member.slug}
                     className="col-lg-4 col-md-6 col-sm-8 mb-30"
                   >
-                    {member.detailHref ? (
-                      <Link
-                        href={member.detailHref}
-                        style={{ textDecoration: 'none', display: 'block', height: '100%' }}
-                      >
-                        {cardInner}
-                      </Link>
-                    ) : (
-                      cardInner
-                    )}
+                    <div
+                      className="team__item-two shine-animate-item h-100"
+                      style={{ display: 'flex', flexDirection: 'column' }}
+                    >
+                      {member.detailHref ? (
+                        <Link
+                          href={member.detailHref}
+                          style={{ textDecoration: 'none', display: 'block' }}
+                        >
+                          {cardBody}
+                        </Link>
+                      ) : (
+                        cardBody
+                      )}
+                      {/* Rendered OUTSIDE the Link so the mailto/LinkedIn/
+                          Calendly anchors never nest inside the card link. */}
+                      <TeamContactLinks member={member} />
+                    </div>
                   </div>
                 );
               })}
