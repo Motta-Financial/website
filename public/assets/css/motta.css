@@ -2508,3 +2508,31 @@ html.motta-intake-page-active body {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(43, 47, 36, 0.16);
 }
+
+/* ===== Primary CTA button ==========================================
+   Bootstrap's `.btn` reset (background:transparent; color:body-color)
+   ties on specificity with the template's `.btn` and wins in the
+   bundle order, which renders some primary CTAs invisible (e.g. the
+   "Become a Client" button on /services). `.motta-cta` locks an
+   explicit treatment with a class-pair selector so it reliably beats
+   the lone `.btn` rules.
+
+   Note: the /services CTA sits on a SAGE section, so a sage fill would
+   blend in. We use a warm/cream fill with sage-deep text — high
+   contrast on sage, and clearly dominant over the outlined secondary
+   "Send Us a Message" button beside it. ======================== */
+.motta-cta.btn,
+a.motta-cta.btn,
+button.motta-cta.btn {
+  background: var(--motta-warm, #F4F1EB);
+  color: var(--motta-sage-deep, #4F573F);
+  border: 1.5px solid var(--motta-warm, #F4F1EB);
+}
+.motta-cta.btn:hover,
+.motta-cta.btn:focus-visible,
+a.motta-cta.btn:hover,
+button.motta-cta.btn:hover {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: var(--motta-sage-deep, #4F573F);
+}
