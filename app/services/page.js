@@ -119,7 +119,7 @@ export default function Services() {
                 Not sure where you fit? Tell us a little about your situation
                 and we&apos;ll point you to the right starting place.
               </p>
-              <IntakeButton className="btn mr-10" source="services">
+              <IntakeButton className="btn motta-cta mr-10" source="services">
                 Become a Client
               </IntakeButton>
               <Link href="/contact" className="btn border-btn">
