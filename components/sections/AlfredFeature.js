@@ -94,9 +94,11 @@ export default function AlfredFeature() {
               }}
             >
               Motta is built on the Japanese principle of <em>Mottainai</em> —
-              too good to waste. ALFRED Ai is how we live that philosophy: a
-              proprietary AI platform that lets our team focus entirely on the
-              work that actually moves clients forward.
+              too good to waste. ALFRED Ai — our Artificial Liaison for Rapid
+              Efficient Delivery — is how we live that philosophy: a proprietary
+              AI platform, layered on top of Intuit ProConnect Tax, that lets our
+              team focus entirely on the work that actually moves clients
+              forward.
             </p>
           </div>
         </div>
