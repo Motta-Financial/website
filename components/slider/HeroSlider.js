@@ -67,6 +67,45 @@ export default function HeroSlider() {
             <div className="row">
               <div className="col-lg-7">
                 <div className="slider__content">
+                  <span className="alfred-mark">Featured by Intuit</span>
+                  <span className="sub-title">ProConnect Tax Case Study</span>
+                  <h2 className="title">
+                    Intuit featured how we built a scalable tax practice.
+                  </h2>
+                  <p>
+                    Intuit profiled Motta Financial in an official ProConnect
+                    Tax case study — the story of a firm built from day one on
+                    automation, a Books-to-Tax workflow, and ALFRED Ai, with a
+                    relentless focus on putting client dollars toward value, not
+                    paperwork.
+                  </p>
+                  <Link
+                    href="/news/press/proconnect-case-study"
+                    className="btn mr-10"
+                  >
+                    Read the case study
+                  </Link>
+                  <Link href="/alfred" className="btn border-btn">
+                    Meet ALFRED Ai
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="slider__shape">
+            <img src="/assets/img/slider/slider_shape01.png" alt="" />
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide className="swiper-slide slider__single">
+          <div
+            className="slider__bg"
+            data-background="/assets/img/slider/slider_bg01.jpg"
+          />
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-7">
+                <div className="slider__content">
                   <span className="alfred-mark">Intuit Ecosystem Partner</span>
                   <span className="sub-title">Tax prep, reimagined</span>
                   <h2 className="title">

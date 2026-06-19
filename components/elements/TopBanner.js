@@ -11,10 +11,10 @@ const MESSAGES = [
     href: '/about',
   },
   {
-    pill: 'ProConnect Partner',
-    text: 'Motta is one of a handful of firms with partner-grade access to Intuit&apos;s ProConnect Open API.',
+    pill: 'Featured by Intuit',
+    text: 'Intuit featured Motta in an official ProConnect Tax case study on how we built a scalable practice with automation and ALFRED Ai.',
     cta: 'Read the case study →',
-    href: '/about',
+    href: '/news/press/proconnect-case-study',
   },
   {
     pill: 'Now booking',

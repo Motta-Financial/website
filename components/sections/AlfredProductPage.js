@@ -167,7 +167,8 @@ export default function AlfredProductPage() {
                   lineHeight: 1.65,
                 }}
               >
-                ALFRED Ai integrates with your existing tools — practice management, 
+                ALFRED Ai — our Artificial Liaison for Rapid Efficient Delivery —
+                integrates with your existing tools — practice management,
                 scheduling, billing, document storage — and turns disconnected systems 
                 into one intelligent workspace with live data, smart automation, and 
                 an AI assistant that actually knows your clients.

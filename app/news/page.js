@@ -3,17 +3,26 @@
 import Link from 'next/link';
 
 const FEATURED = {
-  href: '/news/press/ja-youth-summit-2026',
-  eyebrow: 'Press Release',
-  date: 'May 24, 2026',
+  href: '/news/press/proconnect-case-study',
+  eyebrow: 'Intuit ProConnect Case Study',
+  date: 'Featured by Intuit',
   title:
-    'Motta Financial Sponsors Inaugural JA Southern Massachusetts Youth Summit',
+    'How Motta Financial Built a Scalable Tax Practice with Intuit ProConnect Tax',
   desc:
-    'Motta joined Milestone Mortgage Solutions, UMass Dartmouth, and dozens of community partners as a Connection Sponsor of Junior Achievement\u2019s first regional Youth Summit on AI, opportunity, and leadership.',
-  image: '/assets/img/news/ja-youth-summit-2026.jpg',
+    'Intuit featured Motta Financial in an official ProConnect Tax case study \u2014 the story of a firm built from day one on automation, a Books-to-Tax workflow, and ALFRED Ai, with a relentless focus on putting client dollars toward value, not admin.',
+  image: '/assets/img/news/proconnect-case-study.png',
 };
 
 const RECENT = [
+  {
+    type: 'Press Release',
+    href: '/news/press/ja-youth-summit-2026',
+    date: 'May 24, 2026',
+    title:
+      'Motta Financial Sponsors Inaugural JA Southern Massachusetts Youth Summit',
+    desc:
+      'Motta joined Milestone Mortgage Solutions, UMass Dartmouth, and dozens of community partners as a Connection Sponsor of Junior Achievement\u2019s first regional Youth Summit on AI, opportunity, and leadership.',
+  },
   {
     type: 'Blog',
     href: '/news/blog/ja-youth-summit-why-we-showed-up',
