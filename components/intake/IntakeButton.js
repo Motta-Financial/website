@@ -1,40 +1,33 @@
 'use client';
 
 /**
- * IntakeButton — opens the intake form in a separate browser window.
+ * IntakeButton — sends prospects to Motta's legacy intake form.
  *
- * Why a new window:
- *  - The intake is dense and benefits from a dedicated, distraction-free
- *    surface with full viewport width (especially on tablet / 13" laptop).
- *  - It also lets prospects keep the marketing site open in the original
- *    tab while they fill things out.
+ * The intake now lives on the legacy site at
+ * https://www.mottafinancial.com/intake-form. Every intake CTA across
+ * the marketing site routes here so there is a single canonical form.
  *
  * Usage:
  *   <IntakeButton className="btn">Boot up an engagement</IntakeButton>
  *   <IntakeButton as="a" className="btn">Hire Motta</IntakeButton>
  *
  * Implementation notes:
- *  - We render an actual <a href="/intake"> when `as="a"` so the
- *    browser's middle-click / cmd-click / "Open in new tab" all work.
- *  - For <button>, we call window.open() with explicit popup features
- *    so the OS treats it as a proper detached window instead of a tab.
- *  - We also dispatch the legacy `motta:open-intake` event so any
- *    other listeners (analytics, ALFRED companion) keep firing.
+ *  - We render an actual <a href> when `as="a"` so the browser's
+ *    middle-click / cmd-click / "Open in new tab" all work natively.
+ *  - The legacy form is a full external page, so we navigate the
+ *    current tab to it (a real redirect) rather than a sized popup.
+ *  - We still dispatch the `motta:open-intake` event so any listeners
+ *    (analytics, ALFRED companion) keep firing before we leave.
  */
-const POPUP_FEATURES = [
-  'noopener',
-  'noreferrer',
-  'width=1080',
-  'height=920',
-  'menubar=no',
-  'toolbar=no',
-  'location=no',
-  'status=no',
-].join(',');
+const LEGACY_INTAKE_URL = 'https://www.mottafinancial.com/intake-form';
 
 function buildHref(source) {
-  if (!source) return '/intake';
-  return `/intake?source=${encodeURIComponent(source)}`;
+  if (!source) return LEGACY_INTAKE_URL;
+  // Pass the originating surface through as a UTM tag for analytics.
+  // The legacy form ignores unknown params, so this is harmless.
+  return `${LEGACY_INTAKE_URL}?utm_source=motta-website&utm_content=${encodeURIComponent(
+    source
+  )}`;
 }
 
 export default function IntakeButton({
@@ -62,9 +55,8 @@ export default function IntakeButton({
 
     if (typeof window === 'undefined') return;
 
-    // Fire the legacy event for any listeners that still care
-    // (analytics, ALFRED companion etc.) — but it no longer opens
-    // the in-page modal, that listener has been replaced.
+    // Fire the event for any listeners that still care (analytics,
+    // ALFRED companion etc.) before we navigate away.
     try {
       window.dispatchEvent(
         new CustomEvent('motta:open-intake', {
@@ -73,19 +65,14 @@ export default function IntakeButton({
       );
     } catch (_) {}
 
-    const win = window.open(href, 'motta-intake', POPUP_FEATURES);
-    // If the popup is blocked, fall back to a same-tab navigation so
-    // the prospect still reaches the form.
-    if (!win) window.location.assign(href);
-    else win.focus();
+    // Redirect the current tab to the legacy intake form.
+    window.location.assign(href);
   };
 
   if (as === 'a') {
     return (
       <a
         href={href}
-        target="motta-intake"
-        rel="noopener"
         className={className}
         style={style}
         onClick={open}
