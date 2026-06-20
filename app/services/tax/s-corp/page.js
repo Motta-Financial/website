@@ -1,6 +1,7 @@
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
 import ServiceDetailLayout from '@/components/sections/ServiceDetailLayout';
+import { ProConnectBlock } from '@/components/sections/IntuitCredentials';
 
 export const metadata = {
   title: 'S-Corp Elections & Compliance | Motta Financial',
@@ -160,6 +161,10 @@ export default function SCorpElections() {
           {
             heading: 'Deadlines and late relief',
             body: 'For an existing calendar-year business, Form 2553 is generally due by March 15 to take effect for the current year. New businesses file within 2 months and 15 days of starting. Missed the deadline? Relief is often available under Rev. Proc. 2013-30 with a proper reasonable-cause statement — and good news for LLCs: you do not need a separate Form 8832 first, since Form 2553 handles the classification change.',
+          },
+          {
+            heading: 'Prepared on Intuit ProConnect',
+            body: <ProConnectBlock />,
           },
           {
             heading: 'Want the full picture first?',

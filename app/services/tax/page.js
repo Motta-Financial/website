@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout';
 import ServiceDetailLayout from '@/components/sections/ServiceDetailLayout';
+import { ProConnectBlock } from '@/components/sections/IntuitCredentials';
 
 export const metadata = {
   title: 'Tax Services | Motta Financial',
@@ -49,7 +50,7 @@ export default function TaxServices() {
           },
           {
             heading: 'Powered by ProConnect',
-            body: 'Our partner-grade access to Intuit ProConnect lets ALFRED Ai prepare your return in minutes — so you get a faster turnaround and a more attentive CPA who can focus on the strategy that saves you money.',
+            body: <ProConnectBlock />,
           },
         ]}
       />

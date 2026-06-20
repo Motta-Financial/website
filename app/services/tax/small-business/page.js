@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout';
 import ServiceDetailLayout from '@/components/sections/ServiceDetailLayout';
+import { ProConnectBlock } from '@/components/sections/IntuitCredentials';
 
 export const metadata = {
   title: 'Small Business Tax Advisory | Motta Financial',
@@ -54,6 +55,10 @@ export default function SmallBusinessTaxAdvisory() {
           {
             heading: 'One team, year-round',
             body: 'Tax does not live in a vacuum. Because your tax advisor, bookkeeper, and payroll team all sit together at Motta, a change in one place updates everywhere — your reasonable salary, your estimates, your retirement contributions, and your QBI deduction all stay in sync. That coordination is where the real savings come from.',
+          },
+          {
+            heading: 'Prepared on Intuit ProConnect',
+            body: <ProConnectBlock />,
           },
         ]}
       />

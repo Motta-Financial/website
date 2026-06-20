@@ -1,6 +1,7 @@
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
 import IntakeButton from '@/components/intake/IntakeButton';
+import { TechPartnersStrip } from '@/components/sections/IntuitCredentials';
 
 export const metadata = {
   title: 'All Services | Motta Financial',
@@ -32,6 +33,7 @@ const SERVICE_CATEGORIES = [
       { title: 'CFO & Controller Services', href: '/services/accounting/cfo-controller' },
       { title: 'Bookkeeping', href: '/services/accounting/bookkeeping' },
       { title: 'Financial Reporting', href: '/services/accounting/financial-reporting' },
+      { title: 'Forensic Accounting', href: '/services/accounting/forensic-accounting' },
     ],
   },
   {
@@ -53,6 +55,13 @@ const SERVICE_CATEGORIES = [
     href: '/services/business-advisory',
     icon: 'flaticon-target',
     desc: 'Strategic advice for business owners — entity structuring, growth planning, M&A support, and the guidance you need to make confident decisions.',
+    services: [],
+  },
+  {
+    title: 'SaaS & Technology Advisory',
+    href: '/services/saas-tech-advisory',
+    icon: 'flaticon-startup',
+    desc: 'Where finance meets go-to-market for SaaS and technology companies — AWS Marketplace launch, Quote-to-Cash transformation, and audit-ready ASC 606 revenue accounting.',
     services: [],
   },
   {
@@ -79,7 +88,8 @@ export default function Services() {
               <div className="section-title mb-50">
                 <span className="sub-title">What We Deliver</span>
                 <h2 className="title">
-                  Four practices. One team that already talks to each other.
+                  Specialized practices. One team that already talks to each
+                  other.
                 </h2>
                 <p className="mt-3">
                   Most firms make you bounce between a bookkeeper, a tax
@@ -146,6 +156,8 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      <TechPartnersStrip />
     </Layout>
   );
 }
