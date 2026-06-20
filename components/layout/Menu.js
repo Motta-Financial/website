@@ -41,8 +41,23 @@ export default function Menu() {
               </ul>
             </li>
             <li className="menu-item-has-children">
-              <Link href="/services/accounting">Accounting</Link>
+              <Link href="/services/accounting">Office of the CFO</Link>
               <ul className="sub-menu">
+                <li>
+                  <Link href="/services/accounting/procure-to-pay">
+                    Procure-to-Pay (Money Out)
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/accounting/order-to-cash">
+                    Order-to-Cash (Money In)
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/accounting/record-to-report">
+                    Record-to-Report (The Numbers)
+                  </Link>
+                </li>
                 <li>
                   <Link href="/services/accounting/cfo-controller">
                     CFO &amp; Controller Services
@@ -59,6 +74,11 @@ export default function Menu() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/services/accounting/bookkeeping-small-business">
+                    Bookkeeping for Small Business
+                  </Link>
+                </li>
+                <li>
                   <Link href="/services/accounting/financial-reporting">
                     Financial Reporting
                   </Link>
@@ -66,6 +86,41 @@ export default function Menu() {
                 <li>
                   <Link href="/services/accounting/payroll">
                     Payroll Services
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li className="menu-item-has-children">
+              <Link href="/services/ma">Mergers &amp; Acquisitions</Link>
+              <ul className="sub-menu">
+                <li>
+                  <Link href="/services/ma/business-valuations">
+                    Business Valuations
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/ma/due-diligence">
+                    M&amp;A Due Diligence
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/ma/buy-sell-advisory">
+                    Buy-Side &amp; Sell-Side Advisory
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/ma/quality-of-earnings">
+                    Quality of Earnings (QofE)
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/ma/financial-modeling">
+                    Financial Modeling &amp; Investment Memos
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/ma/integration">
+                    Post-Close Integration &amp; Synergy
                   </Link>
                 </li>
               </ul>
@@ -97,6 +152,9 @@ export default function Menu() {
               <Link href="/news/media">Media</Link>
             </li>
           </ul>
+        </li>
+        <li>
+          <Link href="/resources">Resources</Link>
         </li>
         <li>
           <Link href="/contact">Contact</Link>

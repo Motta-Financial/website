@@ -5,13 +5,25 @@ const OTHER_SERVICES = [
   // Tax
   { href: '/services/tax', label: 'Tax Services' },
   { href: '/services/tax-planning', label: 'Tax Planning & Preparation' },
-  // Accounting
-  { href: '/services/accounting', label: 'Accounting Services' },
+  // Accounting — Office of the CFO
+  { href: '/services/accounting', label: 'Office of the CFO' },
+  { href: '/services/accounting/procure-to-pay', label: 'Procure-to-Pay (Money Out)' },
+  { href: '/services/accounting/order-to-cash', label: 'Order-to-Cash (Money In)' },
+  { href: '/services/accounting/record-to-report', label: 'Record-to-Report (The Numbers)' },
   { href: '/services/accounting/cfo-controller', label: 'CFO & Controller Services' },
   { href: '/services/accounting/business-infrastructure', label: 'Business Infrastructure' },
   { href: '/services/accounting/bookkeeping', label: 'Bookkeeping' },
+  { href: '/services/accounting/bookkeeping-small-business', label: 'Bookkeeping for Small Business' },
   { href: '/services/accounting/financial-reporting', label: 'Financial Reporting' },
   { href: '/services/accounting/payroll', label: 'Payroll Services' },
+  // Mergers & Acquisitions
+  { href: '/services/ma', label: 'Mergers & Acquisitions' },
+  { href: '/services/ma/business-valuations', label: 'Business Valuations' },
+  { href: '/services/ma/due-diligence', label: 'M&A Due Diligence' },
+  { href: '/services/ma/buy-sell-advisory', label: 'Buy-Side & Sell-Side Advisory' },
+  { href: '/services/ma/quality-of-earnings', label: 'Quality of Earnings (QofE)' },
+  { href: '/services/ma/financial-modeling', label: 'Financial Modeling & Investment Memos' },
+  { href: '/services/ma/integration', label: 'Post-Close Integration & Synergy' },
   // Business Advisory
   { href: '/services/business-advisory', label: 'Business Advisory' },
   // Wealth Management

@@ -56,9 +56,10 @@ export default function MobileMenu() {
               </Link>
             </li>
             <li>
-              <Link href="/services/accounting-advisory">
-                Accounting &amp; Payroll
-              </Link>
+              <Link href="/services/accounting">Office of the CFO</Link>
+            </li>
+            <li>
+              <Link href="/services/ma">Mergers &amp; Acquisitions</Link>
             </li>
             <li>
               <Link href="/services/business-entity-structuring">
@@ -98,6 +99,9 @@ export default function MobileMenu() {
 
         <li>
           <IntakeButton className="motta-intake-link" source="mobile-nav">Become a Client</IntakeButton>
+        </li>
+        <li>
+          <Link href="/resources">Resources</Link>
         </li>
         <li>
           <Link href="/contact">Contact</Link>
