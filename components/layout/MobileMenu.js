@@ -66,7 +66,7 @@ export default function MobileMenu() {
               </Link>
             </li>
             <li>
-              <Link href="/services/accounting">Office of the CFO</Link>
+              <Link href="/services/accounting">Accounting</Link>
             </li>
             <li>
               <Link href="/services/accounting/forensic-accounting">
@@ -106,6 +106,9 @@ export default function MobileMenu() {
                 Financial Statement Analysis
               </Link>
             </li>
+            <li>
+              <Link href="/resources">Resources</Link>
+            </li>
           </ul>
           <div
             className={
@@ -119,9 +122,6 @@ export default function MobileMenu() {
 
         <li>
           <IntakeButton className="motta-intake-link" source="mobile-nav">Become a Client</IntakeButton>
-        </li>
-        <li>
-          <Link href="/resources">Resources</Link>
         </li>
         <li>
           <Link href="/contact">Contact</Link>

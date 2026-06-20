@@ -51,7 +51,7 @@ export default function Menu() {
               </ul>
             </li>
             <li className="menu-item-has-children">
-              <Link href="/services/accounting">Office of the CFO</Link>
+              <Link href="/services/accounting">Accounting</Link>
               <ul className="sub-menu">
                 <li>
                   <Link href="/services/accounting/procure-to-pay">
@@ -81,11 +81,6 @@ export default function Menu() {
                 <li>
                   <Link href="/services/accounting/bookkeeping">
                     Bookkeeping
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/accounting/bookkeeping-small-business">
-                    Bookkeeping for Small Business
                   </Link>
                 </li>
                 <li>
@@ -151,6 +146,9 @@ export default function Menu() {
             <li>
               <Link href="/services/wealth-management">Wealth Management</Link>
             </li>
+            <li>
+              <Link href="/resources">Resources</Link>
+            </li>
           </ul>
         </li>
         <li className="menu-item-has-children">
@@ -172,9 +170,6 @@ export default function Menu() {
               <Link href="/news/media">Media</Link>
             </li>
           </ul>
-        </li>
-        <li>
-          <Link href="/resources">Resources</Link>
         </li>
         <li>
           <Link href="/contact">Contact</Link>

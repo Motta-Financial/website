@@ -1,37 +1,57 @@
 import Link from 'next/link';
 import IntakeButton from '@/components/intake/IntakeButton';
 
-const OTHER_SERVICES = [
-  // Tax
-  { href: '/services/tax', label: 'Tax Services' },
-  { href: '/services/tax-planning', label: 'Tax Planning & Preparation' },
-  { href: '/services/tax/small-business', label: 'Small Business Tax Advisory' },
-  { href: '/services/tax/s-corp', label: 'S-Corp Elections & Compliance' },
-  // Accounting — Office of the CFO
-  { href: '/services/accounting', label: 'Office of the CFO' },
-  { href: '/services/accounting/procure-to-pay', label: 'Procure-to-Pay (Money Out)' },
-  { href: '/services/accounting/order-to-cash', label: 'Order-to-Cash (Money In)' },
-  { href: '/services/accounting/record-to-report', label: 'Record-to-Report (The Numbers)' },
-  { href: '/services/accounting/cfo-controller', label: 'CFO & Controller Services' },
-  { href: '/services/accounting/business-infrastructure', label: 'Business Infrastructure' },
-  { href: '/services/accounting/bookkeeping', label: 'Bookkeeping' },
-  { href: '/services/accounting/bookkeeping-small-business', label: 'Bookkeeping for Small Business' },
-  { href: '/services/accounting/financial-reporting', label: 'Financial Reporting' },
-  { href: '/services/accounting/payroll', label: 'Payroll Services' },
-  { href: '/services/accounting/forensic-accounting', label: 'Forensic Accounting' },
-  // Mergers & Acquisitions
-  { href: '/services/ma', label: 'Mergers & Acquisitions' },
-  { href: '/services/ma/business-valuations', label: 'Business Valuations' },
-  { href: '/services/ma/due-diligence', label: 'M&A Due Diligence' },
-  { href: '/services/ma/buy-sell-advisory', label: 'Buy-Side & Sell-Side Advisory' },
-  { href: '/services/ma/quality-of-earnings', label: 'Quality of Earnings (QofE)' },
-  { href: '/services/ma/financial-modeling', label: 'Financial Modeling & Investment Memos' },
-  { href: '/services/ma/integration', label: 'Post-Close Integration & Synergy' },
-  // Business Advisory
-  { href: '/services/business-advisory', label: 'Business Advisory' },
-  { href: '/services/saas-tech-advisory', label: 'SaaS & Technology Advisory' },
-  // Wealth Management
-  { href: '/services/wealth-management', label: 'Wealth Management' },
+/**
+ * Other Services, organized by the firm's four core practice areas:
+ * Tax, Accounting, Business Advisory, and Wealth Management.
+ * Mergers & Acquisitions and SaaS & Technology Advisory live under
+ * Business Advisory.
+ */
+const SERVICE_GROUPS = [
+  {
+    area: 'Tax',
+    items: [
+      { href: '/services/tax', label: 'Tax Services' },
+      { href: '/services/tax-planning', label: 'Tax Planning & Preparation' },
+      { href: '/services/tax/small-business', label: 'Small Business Tax Advisory' },
+      { href: '/services/tax/s-corp', label: 'S-Corp Elections & Compliance' },
+    ],
+  },
+  {
+    area: 'Accounting',
+    items: [
+      { href: '/services/accounting', label: 'Office of the CFO' },
+      { href: '/services/accounting/procure-to-pay', label: 'Procure-to-Pay (Money Out)' },
+      { href: '/services/accounting/order-to-cash', label: 'Order-to-Cash (Money In)' },
+      { href: '/services/accounting/record-to-report', label: 'Record-to-Report (The Numbers)' },
+      { href: '/services/accounting/cfo-controller', label: 'CFO & Controller Services' },
+      { href: '/services/accounting/business-infrastructure', label: 'Business Infrastructure' },
+      { href: '/services/accounting/bookkeeping', label: 'Bookkeeping' },
+      { href: '/services/accounting/financial-reporting', label: 'Financial Reporting' },
+      { href: '/services/accounting/payroll', label: 'Payroll Services' },
+      { href: '/services/accounting/forensic-accounting', label: 'Forensic Accounting' },
+    ],
+  },
+  {
+    area: 'Business Advisory',
+    items: [
+      { href: '/services/business-advisory', label: 'Business Advisory' },
+      { href: '/services/ma', label: 'Mergers & Acquisitions' },
+      { href: '/services/ma/business-valuations', label: 'Business Valuations' },
+      { href: '/services/ma/due-diligence', label: 'M&A Due Diligence' },
+      { href: '/services/ma/buy-sell-advisory', label: 'Buy-Side & Sell-Side Advisory' },
+      { href: '/services/ma/quality-of-earnings', label: 'Quality of Earnings (QofE)' },
+      { href: '/services/ma/financial-modeling', label: 'Financial Modeling & Investment Memos' },
+      { href: '/services/ma/integration', label: 'Post-Close Integration & Synergy' },
+      { href: '/services/saas-tech-advisory', label: 'SaaS & Technology Advisory' },
+    ],
+  },
+  {
+    area: 'Wealth Management',
+    items: [
+      { href: '/services/wealth-management', label: 'Wealth Management' },
+    ],
+  },
 ];
 
 /**
@@ -131,17 +151,29 @@ export default function ServiceDetailLayout({
                 <div className="sidebar__widget sidebar__widget-two">
                   <div className="sidebar__cat-list-two">
                     <h4 className="sidebar__widget-title">Other Services</h4>
-                    <ul className="list-wrap">
-                      {OTHER_SERVICES.filter(
+                    {SERVICE_GROUPS.map((group) => {
+                      const items = group.items.filter(
                         (s) => s.href !== currentHref
-                      ).map((s) => (
-                        <li key={s.href}>
-                          <Link href={s.href}>
-                            {s.label} <i className="flaticon-arrow-button" />
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                      );
+                      if (items.length === 0) return null;
+                      return (
+                        <div key={group.area} className="sidebar__cat-group">
+                          <h5 className="sidebar__cat-group-title">
+                            {group.area}
+                          </h5>
+                          <ul className="list-wrap">
+                            {items.map((s) => (
+                              <li key={s.href}>
+                                <Link href={s.href}>
+                                  {s.label}{' '}
+                                  <i className="flaticon-arrow-button" />
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
 

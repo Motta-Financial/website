@@ -126,28 +126,54 @@ export default function MergersAcquisitions() {
                   borderRadius: 16,
                 }}
               >
-                <span
-                  className="sub-title"
-                  style={{ display: 'block', marginBottom: 8 }}
-                >
-                  Meet your corporate development lead
-                </span>
-                <h3 className="title" style={{ marginBottom: 6 }}>
-                  Caleb Long
-                </h3>
-                <p
+                <div
                   style={{
-                    margin: 0,
-                    fontWeight: 600,
-                    color: 'var(--motta-sage-deep, #6b745d)',
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                    gap: 24,
+                    marginBottom: 20,
                   }}
                 >
-                  Director, Corporate Development &amp; M&amp;A
-                </p>
-                <p style={{ margin: '4px 0 20px', fontSize: 14, opacity: 0.75 }}>
-                  Strategic Finance &nbsp;|&nbsp; M&amp;A &nbsp;|&nbsp; Business
-                  Transformation &nbsp;|&nbsp; Boston
-                </p>
+                  <img
+                    src="/assets/img/team/caleb-long.jpg"
+                    alt="Caleb Long, Director of Corporate Development & M&A at Motta Financial"
+                    style={{
+                      width: 120,
+                      height: 120,
+                      borderRadius: '50%',
+                      objectFit: 'cover',
+                      objectPosition: 'center top',
+                      flexShrink: 0,
+                      border: '3px solid #fff',
+                      boxShadow: '0 6px 20px rgba(43,47,36,0.12)',
+                    }}
+                  />
+                  <div style={{ flex: '1 1 280px', minWidth: 240 }}>
+                    <span
+                      className="sub-title"
+                      style={{ display: 'block', marginBottom: 8 }}
+                    >
+                      Meet your corporate development lead
+                    </span>
+                    <h3 className="title" style={{ marginBottom: 6 }}>
+                      Caleb Long
+                    </h3>
+                    <p
+                      style={{
+                        margin: 0,
+                        fontWeight: 600,
+                        color: 'var(--motta-sage-deep, #6b745d)',
+                      }}
+                    >
+                      Director, Corporate Development &amp; M&amp;A
+                    </p>
+                    <p style={{ margin: '4px 0 0', fontSize: 14, opacity: 0.75 }}>
+                      Strategic Finance &nbsp;|&nbsp; M&amp;A &nbsp;|&nbsp;
+                      Business Transformation &nbsp;|&nbsp; Boston
+                    </p>
+                  </div>
+                </div>
                 <p style={{ maxWidth: '70ch' }}>
                   Caleb leads Motta&apos;s corporate development and M&amp;A
                   practice with seven-plus years of in-house strategic finance

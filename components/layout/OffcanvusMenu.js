@@ -12,25 +12,20 @@ export default function OffcanvusMenu({ isOffcanvus, handleOffcanvus }) {
                     </div>
                     <div className="offCanvas__side-info mb-30">
                         <div className="contact-list mb-30">
-                            <h4>Office Address</h4>
-                            <p>123/A, Miranda City Likaoli <br /> Prikano, Dope</p>
+                            <h4>Offices</h4>
+                            <p>Boston, MA <br /> Las Vegas, NV</p>
                         </div>
                         <div className="contact-list mb-30">
                             <h4>Phone Number</h4>
-                            <p>+0989 7876 9865 9</p>
-                            <p>+(090) 8765 86543 85</p>
+                            <p><a href="tel:+17025146055">(702) 514-6055</a></p>
                         </div>
                         <div className="contact-list mb-30">
                             <h4>Email Address</h4>
-                            <p>info@example.com</p>
-                            <p>example.mail@hum.com</p>
+                            <p><a href="mailto:Info@MottaFinancial.com">Info@MottaFinancial.com</a></p>
                         </div>
                     </div>
                     <div className="offCanvas__social-icon mt-30">
-                        <Link href="/javascript:void(0)"><i className="fab fa-facebook-f" /></Link>
-                        <Link href="/javascript:void(0)"><i className="fab fa-twitter" /></Link>
-                        <Link href="/javascript:void(0)"><i className="fab fa-google-plus-g" /></Link>
-                        <Link href="/javascript:void(0)"><i className="fab fa-instagram" /></Link>
+                        <Link href="https://www.linkedin.com/company/motta-financial/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in" /></Link>
                     </div>
                 </div>
                 <div className={`offCanvas__overly ${isOffcanvus ? "active" : ""}`} onClick={handleOffcanvus} />
