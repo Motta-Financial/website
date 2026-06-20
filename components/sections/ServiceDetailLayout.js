@@ -5,6 +5,8 @@ const OTHER_SERVICES = [
   // Tax
   { href: '/services/tax', label: 'Tax Services' },
   { href: '/services/tax-planning', label: 'Tax Planning & Preparation' },
+  { href: '/services/tax/small-business', label: 'Small Business Tax Advisory' },
+  { href: '/services/tax/s-corp', label: 'S-Corp Elections & Compliance' },
   // Accounting — Office of the CFO
   { href: '/services/accounting', label: 'Office of the CFO' },
   { href: '/services/accounting/procure-to-pay', label: 'Procure-to-Pay (Money Out)' },

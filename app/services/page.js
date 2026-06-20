@@ -16,6 +16,8 @@ const SERVICE_CATEGORIES = [
     desc: 'Year-round tax planning and preparation for individuals, families, and businesses — with ALFRED Ai handling the heavy lifting so your CPA can focus on strategy.',
     services: [
       { title: 'Tax Planning & Preparation', href: '/services/tax-planning' },
+      { title: 'Small Business Tax Advisory', href: '/services/tax/small-business' },
+      { title: 'S-Corp Elections & Compliance', href: '/services/tax/s-corp' },
     ],
   },
   {
