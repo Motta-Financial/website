@@ -32,6 +32,20 @@ const SERVICE_CATEGORIES = [
     ],
   },
   {
+    title: 'Mergers & Acquisitions',
+    href: '/services/ma',
+    icon: 'flaticon-investment',
+    desc: 'Institutional-grade deal execution for the lower-middle market — valuations, due diligence, quality of earnings, buy-side and sell-side advisory, financial modeling, and post-close integration.',
+    services: [
+      { title: 'Business Valuations (409A & Transaction)', href: '/services/ma/business-valuations' },
+      { title: 'M&A Due Diligence', href: '/services/ma/due-diligence' },
+      { title: 'Buy-Side & Sell-Side Advisory', href: '/services/ma/buy-sell-advisory' },
+      { title: 'Quality of Earnings (QofE)', href: '/services/ma/quality-of-earnings' },
+      { title: 'Financial Modeling & Investment Memos', href: '/services/ma/financial-modeling' },
+      { title: 'Post-Close Integration & Synergy', href: '/services/ma/integration' },
+    ],
+  },
+  {
     title: 'Business Advisory',
     href: '/services/business-advisory',
     icon: 'flaticon-target',

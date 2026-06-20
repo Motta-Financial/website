@@ -13,6 +13,14 @@ const OTHER_SERVICES = [
   { href: '/services/accounting/bookkeeping-small-business', label: 'Bookkeeping for Small Business' },
   { href: '/services/accounting/financial-reporting', label: 'Financial Reporting' },
   { href: '/services/accounting/payroll', label: 'Payroll Services' },
+  // Mergers & Acquisitions
+  { href: '/services/ma', label: 'Mergers & Acquisitions' },
+  { href: '/services/ma/business-valuations', label: 'Business Valuations' },
+  { href: '/services/ma/due-diligence', label: 'M&A Due Diligence' },
+  { href: '/services/ma/buy-sell-advisory', label: 'Buy-Side & Sell-Side Advisory' },
+  { href: '/services/ma/quality-of-earnings', label: 'Quality of Earnings (QofE)' },
+  { href: '/services/ma/financial-modeling', label: 'Financial Modeling & Investment Memos' },
+  { href: '/services/ma/integration', label: 'Post-Close Integration & Synergy' },
   // Business Advisory
   { href: '/services/business-advisory', label: 'Business Advisory' },
   // Wealth Management

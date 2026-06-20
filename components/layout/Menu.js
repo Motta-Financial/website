@@ -75,6 +75,41 @@ export default function Menu() {
                 </li>
               </ul>
             </li>
+            <li className="menu-item-has-children">
+              <Link href="/services/ma">Mergers &amp; Acquisitions</Link>
+              <ul className="sub-menu">
+                <li>
+                  <Link href="/services/ma/business-valuations">
+                    Business Valuations
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/ma/due-diligence">
+                    M&amp;A Due Diligence
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/ma/buy-sell-advisory">
+                    Buy-Side &amp; Sell-Side Advisory
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/ma/quality-of-earnings">
+                    Quality of Earnings (QofE)
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/ma/financial-modeling">
+                    Financial Modeling &amp; Investment Memos
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/ma/integration">
+                    Post-Close Integration &amp; Synergy
+                  </Link>
+                </li>
+              </ul>
+            </li>
             <li>
               <Link href="/services/business-advisory">Business Advisory</Link>
             </li>
