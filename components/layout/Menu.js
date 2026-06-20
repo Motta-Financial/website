@@ -38,6 +38,16 @@ export default function Menu() {
                     Tax Planning &amp; Preparation
                   </Link>
                 </li>
+                <li>
+                  <Link href="/services/tax/small-business">
+                    Small Business Tax Advisory
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/tax/s-corp">
+                    S-Corp Elections &amp; Compliance
+                  </Link>
+                </li>
               </ul>
             </li>
             <li className="menu-item-has-children">

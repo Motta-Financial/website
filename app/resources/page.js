@@ -16,6 +16,13 @@ const RESOURCES = [
     file: '/assets/downloads/office-of-the-cfo-process-cycles.pdf',
     meta: 'PDF · Framework overview',
   },
+  {
+    eyebrow: 'Tax · Small Business',
+    title: "The Small Business Owner's Guide to the S-Corporation Election",
+    desc: 'How an S-Corp election lowers self-employment tax for a profitable single-member LLC — what it is, when it pays off, the reasonable-compensation rule, real costs, deadlines, and a readiness checklist with worked 2026 numbers.',
+    file: '/assets/downloads/s-corp-election-small-business-guide.pdf',
+    meta: 'PDF · Plain-English guide',
+  },
 ];
 
 export default function Resources() {
