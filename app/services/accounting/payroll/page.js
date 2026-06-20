@@ -4,11 +4,11 @@ import ServiceDetailLayout from '@/components/sections/ServiceDetailLayout';
 export const metadata = {
   title: 'Payroll Services | Motta Financial',
   description:
-    'Reliable payroll processing, tax filings, and compliance — multi-state, contractors, and all the complexity handled for you. An ADP Certified Partner and Gusto partner firm.',
+    'Reliable payroll processing, tax filings, and compliance — multi-state, contractors, and all the complexity handled for you. An ADP Certified Partner, Gusto partner, and Rippling partner firm.',
 };
 
 /**
- * Payroll platform partners block (ADP + Gusto).
+ * Payroll platform partners block (ADP + Gusto + Rippling).
  *
  * Brand-compliance notes:
  *  - Motta's own brand stays at the forefront — this block lives inside
@@ -106,6 +106,38 @@ function PayrollPartnersBlock() {
           </p>
         </div>
       </div>
+
+      {/* Rippling */}
+      <div
+        style={{
+          padding: '28px',
+          background: '#ffffff',
+          border: '1px solid rgba(107, 116, 93, 0.18)',
+          borderRadius: 12,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 16,
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', minHeight: 72 }}>
+          <img
+            src="/assets/img/partners/rippling-logo.png"
+            alt="Rippling"
+            style={{ height: 30, width: 'auto' }}
+          />
+        </div>
+        <div>
+          <h3 className="title-two" style={{ fontSize: 22, marginBottom: 8 }}>
+            Rippling Partner
+          </h3>
+          <p style={{ margin: 0 }}>
+            Rippling brings payroll, benefits, HR, and IT into a single system —
+            a great fit for fast-scaling teams. As a Rippling partner firm, we
+            help you run payroll across states and entities while keeping
+            onboarding, compliance, and reporting connected in one place.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -152,7 +184,7 @@ export default function Payroll() {
           },
           {
             heading: 'Platform-agnostic',
-            body: 'ADP and Gusto are our go-to platforms, but we also work with Rippling, Paychex, or whatever fits your business. If you need to switch, we manage the migration.',
+            body: 'ADP, Gusto, and Rippling are our go-to platforms, but we also work with Paychex or whatever fits your business. If you need to switch, we manage the migration.',
           },
           {
             heading: 'Integrated with your books',
