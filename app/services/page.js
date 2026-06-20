@@ -1,6 +1,7 @@
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
 import IntakeButton from '@/components/intake/IntakeButton';
+import { TechPartnersStrip } from '@/components/sections/IntuitCredentials';
 
 export const metadata = {
   title: 'All Services | Motta Financial',
@@ -146,6 +147,8 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      <TechPartnersStrip />
     </Layout>
   );
 }
