@@ -24,6 +24,11 @@ const SERVICES = [
     desc: 'Reliable monthly bookkeeping from senior accountants — categorized transactions, reconciled accounts, and books you can trust.',
   },
   {
+    href: '/services/accounting/bookkeeping-small-business',
+    title: 'Bookkeeping for Small Business',
+    desc: 'Small-business bookkeeping from a Platinum-tier Certified QuickBooks ProAdvisor team — QuickBooks Online setup, clean monthly books, and owner-ready reports.',
+  },
+  {
     href: '/services/accounting/financial-reporting',
     title: 'Financial Reporting',
     desc: 'Clear, actionable financial reports that help you understand your business — KPI dashboards, monthly packages, and board-ready presentations.',

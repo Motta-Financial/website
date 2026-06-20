@@ -59,6 +59,11 @@ export default function Menu() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/services/accounting/bookkeeping-small-business">
+                    Bookkeeping for Small Business
+                  </Link>
+                </li>
+                <li>
                   <Link href="/services/accounting/financial-reporting">
                     Financial Reporting
                   </Link>

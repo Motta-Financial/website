@@ -10,6 +10,7 @@ const OTHER_SERVICES = [
   { href: '/services/accounting/cfo-controller', label: 'CFO & Controller Services' },
   { href: '/services/accounting/business-infrastructure', label: 'Business Infrastructure' },
   { href: '/services/accounting/bookkeeping', label: 'Bookkeeping' },
+  { href: '/services/accounting/bookkeeping-small-business', label: 'Bookkeeping for Small Business' },
   { href: '/services/accounting/financial-reporting', label: 'Financial Reporting' },
   { href: '/services/accounting/payroll', label: 'Payroll Services' },
   // Business Advisory
