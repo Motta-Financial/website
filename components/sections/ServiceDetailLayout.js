@@ -18,6 +18,7 @@ const OTHER_SERVICES = [
   { href: '/services/accounting/bookkeeping-small-business', label: 'Bookkeeping for Small Business' },
   { href: '/services/accounting/financial-reporting', label: 'Financial Reporting' },
   { href: '/services/accounting/payroll', label: 'Payroll Services' },
+  { href: '/services/accounting/forensic-accounting', label: 'Forensic Accounting' },
   // Mergers & Acquisitions
   { href: '/services/ma', label: 'Mergers & Acquisitions' },
   { href: '/services/ma/business-valuations', label: 'Business Valuations' },
@@ -28,6 +29,7 @@ const OTHER_SERVICES = [
   { href: '/services/ma/integration', label: 'Post-Close Integration & Synergy' },
   // Business Advisory
   { href: '/services/business-advisory', label: 'Business Advisory' },
+  { href: '/services/saas-tech-advisory', label: 'SaaS & Technology Advisory' },
   // Wealth Management
   { href: '/services/wealth-management', label: 'Wealth Management' },
 ];

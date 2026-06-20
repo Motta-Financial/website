@@ -98,6 +98,11 @@ export default function Menu() {
                     Payroll Services
                   </Link>
                 </li>
+                <li>
+                  <Link href="/services/accounting/forensic-accounting">
+                    Forensic Accounting
+                  </Link>
+                </li>
               </ul>
             </li>
             <li className="menu-item-has-children">
@@ -137,6 +142,11 @@ export default function Menu() {
             </li>
             <li>
               <Link href="/services/business-advisory">Business Advisory</Link>
+            </li>
+            <li>
+              <Link href="/services/saas-tech-advisory">
+                SaaS &amp; Technology Advisory
+              </Link>
             </li>
             <li>
               <Link href="/services/wealth-management">Wealth Management</Link>

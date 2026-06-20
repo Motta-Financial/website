@@ -66,6 +66,11 @@ const SERVICES = [
     title: 'Payroll Services',
     desc: 'Accurate payroll processing, multi-state compliance, contractor payments, and 1099s — so you can focus on running your business.',
   },
+  {
+    href: '/services/accounting/forensic-accounting',
+    title: 'Forensic Accounting',
+    desc: 'Fraud investigation, asset tracing, economic damages, and litigation support — evidence-grade findings that hold up under scrutiny and in court.',
+  },
 ];
 
 export default function AccountingServices() {

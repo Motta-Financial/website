@@ -69,7 +69,17 @@ export default function MobileMenu() {
               <Link href="/services/accounting">Office of the CFO</Link>
             </li>
             <li>
+              <Link href="/services/accounting/forensic-accounting">
+                Forensic Accounting
+              </Link>
+            </li>
+            <li>
               <Link href="/services/ma">Mergers &amp; Acquisitions</Link>
+            </li>
+            <li>
+              <Link href="/services/saas-tech-advisory">
+                SaaS &amp; Technology Advisory
+              </Link>
             </li>
             <li>
               <Link href="/services/business-entity-structuring">
