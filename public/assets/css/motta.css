@@ -2536,3 +2536,112 @@ button.motta-cta.btn:hover {
   border-color: #FFFFFF;
   color: var(--motta-sage-deep, #4F573F);
 }
+
+/* ===== Meet the Team — service-line section headings =============== */
+.motta-team-group__head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 760px;
+  margin: 0 auto 36px;
+}
+.motta-team-group__line {
+  flex: 1 1 auto;
+  height: 1px;
+  background: rgba(107, 116, 93, 0.28);
+}
+.motta-team-group__title {
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  color: var(--motta-charcoal, #2b2f24);
+  text-align: center;
+}
+@media (max-width: 575px) {
+  .motta-team-group__title { font-size: 18px; }
+  .motta-team-group__head { gap: 12px; margin-bottom: 26px; }
+}
+
+/* ===== Other Services sidebar — grouped by practice area =========== */
+.sidebar__cat-group + .sidebar__cat-group {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(107, 116, 93, 0.16);
+}
+.sidebar__cat-group-title {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--motta-sage-deep, #4F573F);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* =====================================================================
+   Global width + responsiveness overrides
+   ---------------------------------------------------------------------
+   The default Bootstrap container tops out at 1320px, which left a lot
+   of empty gutter on larger screens and made the site feel narrow.
+   Widen the container progressively, and tighten the very large
+   vertical section paddings (pt-120 / pb-120, etc.) on phones so pages
+   fit the screen and breathe correctly on mobile.
+   ================================================================== */
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1480px;
+  }
+}
+@media (min-width: 1700px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1560px;
+  }
+}
+
+/* Tablet: scale down the big section paddings */
+@media (max-width: 991.98px) {
+  .pt-120 { padding-top: 80px !important; }
+  .pb-120 { padding-bottom: 80px !important; }
+  .pt-90 { padding-top: 64px !important; }
+  .pb-90 { padding-bottom: 64px !important; }
+  .mb-60 { margin-bottom: 40px !important; }
+  .mb-50 { margin-bottom: 36px !important; }
+}
+
+/* Phones: tighter still, and give the container real edge padding */
+@media (max-width: 767.98px) {
+  .pt-120 { padding-top: 56px !important; }
+  .pb-120 { padding-bottom: 56px !important; }
+  .pt-90 { padding-top: 48px !important; }
+  .pb-90 { padding-bottom: 48px !important; }
+  .mb-60 { margin-bottom: 32px !important; }
+  .mb-50 { margin-bottom: 28px !important; }
+  .mb-40 { margin-bottom: 24px !important; }
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  /* Prevent horizontal overflow from wide media on small screens */
+  .services__details-thumb img,
+  .services-details-area img {
+    width: 100%;
+    height: auto;
+  }
+}

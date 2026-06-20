@@ -13,6 +13,7 @@ const teamMembers = [
     slug: 'dat-le',
     name: 'Dat Le, CPA',
     title: 'Managing Partner & Founder',
+    group: 'Firm Leadership',
     credentials: 'CPA · Suffolk Adjunct Professor · Boston · Las Vegas',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Portrait%20%28Headshot%29%20-%20Dat%20Le%20%5BWM%5D-kVzKTBVlGdBFKtNQtGCsPYvs3UAxYw.jpg',
@@ -25,6 +26,7 @@ const teamMembers = [
     slug: 'terry-song',
     name: 'Terry Song, CPA',
     title: 'Director, Tax Advisory',
+    group: 'Tax',
     credentials: 'CPA · 10+ Years Experience · Boston',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Terry%20Song.png-IEMyP44Vgb8Idx1fPdxCC2qbVjiPpW.jpeg',
@@ -37,6 +39,7 @@ const teamMembers = [
     slug: 'amy-sparaco',
     name: 'Amy Sparaco',
     title: 'Manager, Accounting Advisory',
+    group: 'Accounting',
     credentials: 'Technical Accounting Lead · AI Business Transformation Certified',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Amy%20Sparaco-thMF9RPQsNKnzXdBn7bBp6qqnu74rt.jpg',
@@ -50,6 +53,7 @@ const teamMembers = [
     slug: 'caleb-long',
     name: 'Caleb Long',
     title: 'Director, Corporate Development & M&A',
+    group: 'Business Advisory',
     credentials: 'Strategic Finance · M&A · Business Transformation',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Caleb%20Long-gj3veS3Ddc1lHawERIs0UQHSFk3wDX.jpg',
@@ -63,6 +67,7 @@ const teamMembers = [
     slug: 'micaela-palacios',
     name: 'Micaela Palacios',
     title: 'Associate, Tax Advisory',
+    group: 'Tax',
     credentials: 'CPA Eligible · Suffolk University · Bilingual EN / ES',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Micaela%20Palacios-66rSwUgEL32LdNFmli6cwtTfzysmOs.jpg',
@@ -76,6 +81,7 @@ const teamMembers = [
     slug: 'julian-jacobson',
     name: 'Julian Jacobson',
     title: 'Associate, Client Operations',
+    group: 'Client Operations',
     credentials: 'Client Onboarding · Proposals & Billing · Workflow Coordination',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Julian%20Jacobson-pV0TqUNQjGRcjZeurX7MCTny9ac5Gs.jpg',
@@ -88,6 +94,7 @@ const teamMembers = [
     slug: 'andrew-gianares',
     name: 'Andrew Gianares',
     title: 'Accounting Advisory Senior',
+    group: 'Accounting',
     credentials: 'Bookkeeping · Payroll · Working Capital Management',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Andrew%20Gianares-1LBQBMRYrxTw8SGVVYLTUN4FeX7UU2.jpg',
@@ -101,6 +108,7 @@ const teamMembers = [
     slug: 'samprina-zekio',
     name: 'Samprina Zekio',
     title: 'Team Member',
+    group: 'Client Operations',
     credentials: 'Full profile coming soon',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Samprina%20Zekio-GTqi19ZdKp1732WGzF5s5YFygrWUz9.jpg',
@@ -108,6 +116,15 @@ const teamMembers = [
       "A fuller profile is on the way. In the meantime, connect with Samprina directly using the links below.",
     email: 'Samprina.Zekio@MottaFinancial.com',
   },
+];
+
+// Display order for the service-line sections on the team page.
+const TEAM_GROUP_ORDER = [
+  'Firm Leadership',
+  'Tax',
+  'Accounting',
+  'Business Advisory',
+  'Client Operations',
 ];
 
 export default function AboutTeamPage() {
@@ -137,50 +154,63 @@ export default function AboutTeamPage() {
                 </div>
               </div>
             </div>
-            <div className="row justify-content-center gutter-24">
-              {teamMembers.map((member) => (
-                <div
-                  key={member.slug}
-                  className="col-lg-4 col-md-6 col-sm-8 mb-30"
-                >
-                  <div
-                    className="team__item-two shine-animate-item h-100"
-                    style={{ display: 'flex', flexDirection: 'column' }}
-                  >
-                    <div className="team__thumb-two shine-animate">
-                      <img
-                        src={member.image || '/placeholder.svg'}
-                        alt={member.name}
-                        style={{
-                          width: '100%',
-                          height: '360px',
-                          objectFit: 'cover',
-                          objectPosition: 'center top',
-                        }}
-                      />
-                    </div>
-                    <div className="team__content-two">
-                      <h4 className="title">{member.name}</h4>
-                      <span>{member.title}</span>
-                      <p
-                        style={{
-                          fontSize: '13px',
-                          color: 'var(--motta-sage, #6B745D)',
-                          marginTop: '6px',
-                          marginBottom: '12px',
-                        }}
+            {TEAM_GROUP_ORDER.map((groupName) => {
+              const members = teamMembers.filter((m) => m.group === groupName);
+              if (members.length === 0) return null;
+              return (
+                <div key={groupName} className="motta-team-group mb-50">
+                  <div className="motta-team-group__head">
+                    <span className="motta-team-group__line" />
+                    <h3 className="motta-team-group__title">{groupName}</h3>
+                    <span className="motta-team-group__line" />
+                  </div>
+                  <div className="row justify-content-center gutter-24">
+                    {members.map((member) => (
+                      <div
+                        key={member.slug}
+                        className="col-lg-4 col-md-6 col-sm-8 mb-30"
                       >
-                        {member.credentials}
-                      </p>
-                      <p style={{ fontSize: '14px', lineHeight: 1.6 }}>
-                        {member.blurb}
-                      </p>
-                    </div>
-                    <TeamContactLinks member={member} />
+                        <div
+                          className="team__item-two shine-animate-item h-100"
+                          style={{ display: 'flex', flexDirection: 'column' }}
+                        >
+                          <div className="team__thumb-two shine-animate">
+                            <img
+                              src={member.image || '/placeholder.svg'}
+                              alt={member.name}
+                              style={{
+                                width: '100%',
+                                height: '360px',
+                                objectFit: 'cover',
+                                objectPosition: 'center top',
+                              }}
+                            />
+                          </div>
+                          <div className="team__content-two">
+                            <h4 className="title">{member.name}</h4>
+                            <span>{member.title}</span>
+                            <p
+                              style={{
+                                fontSize: '13px',
+                                color: 'var(--motta-sage, #6B745D)',
+                                marginTop: '6px',
+                                marginBottom: '12px',
+                              }}
+                            >
+                              {member.credentials}
+                            </p>
+                            <p style={{ fontSize: '14px', lineHeight: 1.6 }}>
+                              {member.blurb}
+                            </p>
+                          </div>
+                          <TeamContactLinks member={member} />
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
 
             <div className="row justify-content-center mt-30">
               <div className="col-lg-8 text-center">

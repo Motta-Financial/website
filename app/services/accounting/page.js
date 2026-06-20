@@ -49,12 +49,7 @@ const SERVICES = [
   {
     href: '/services/accounting/bookkeeping',
     title: 'Bookkeeping',
-    desc: 'Reliable monthly bookkeeping from senior accountants — categorized transactions, reconciled accounts, and books you can trust.',
-  },
-  {
-    href: '/services/accounting/bookkeeping-small-business',
-    title: 'Bookkeeping for Small Business',
-    desc: 'Small-business bookkeeping from a Platinum-tier Certified QuickBooks ProAdvisor team — QuickBooks Online setup, clean monthly books, and owner-ready reports.',
+    desc: 'Reliable monthly bookkeeping from senior accountants and a Platinum-tier Certified QuickBooks ProAdvisor team — categorized transactions, reconciled accounts, and books you can trust, from small business to scale.',
   },
   {
     href: '/services/accounting/financial-reporting',
@@ -88,14 +83,16 @@ export default function AccountingServices() {
               <div className="section-title text-center mb-50">
                 <span className="sub-title">The Office of the CFO</span>
                 <h2 className="title">
-                  One team owns your whole finance function
+                  Your entire Office of the CFO, under one roof
                 </h2>
                 <p style={{ maxWidth: '68ch', margin: '0 auto' }}>
-                  Most growing businesses stitch together a bookkeeper, a
-                  controller, a fractional CFO, and a tax preparer — four
-                  vendors looking at four versions of the numbers. Motta runs
-                  all three core finance cycles as one connected system, on
-                  shared data, under one accountable partner.
+                  Whatever lives inside the Office of the CFO — bookkeeping,
+                  accounts payable and receivable, payroll, the monthly close,
+                  financial reporting, controller oversight, and fractional CFO
+                  leadership — Motta can run it. Most growing businesses stitch
+                  together four vendors looking at four versions of the numbers.
+                  We run all three core finance cycles as one connected system,
+                  on shared data, under one accountable partner.
                 </p>
               </div>
             </div>
