@@ -41,8 +41,23 @@ export default function Menu() {
               </ul>
             </li>
             <li className="menu-item-has-children">
-              <Link href="/services/accounting">Accounting</Link>
+              <Link href="/services/accounting">Office of the CFO</Link>
               <ul className="sub-menu">
+                <li>
+                  <Link href="/services/accounting/procure-to-pay">
+                    Procure-to-Pay (Money Out)
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/accounting/order-to-cash">
+                    Order-to-Cash (Money In)
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/accounting/record-to-report">
+                    Record-to-Report (The Numbers)
+                  </Link>
+                </li>
                 <li>
                   <Link href="/services/accounting/cfo-controller">
                     CFO &amp; Controller Services
@@ -137,6 +152,9 @@ export default function Menu() {
               <Link href="/news/media">Media</Link>
             </li>
           </ul>
+        </li>
+        <li>
+          <Link href="/resources">Resources</Link>
         </li>
         <li>
           <Link href="/contact">Contact</Link>

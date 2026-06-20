@@ -19,16 +19,17 @@ const SERVICE_CATEGORIES = [
     ],
   },
   {
-    title: 'Accounting',
+    title: 'Office of the CFO',
     href: '/services/accounting',
     icon: 'flaticon-financial-profit',
-    desc: 'Full-service accounting for growing businesses — from daily bookkeeping to fractional CFO leadership.',
+    desc: 'One team owns your whole finance function — Procure-to-Pay, Order-to-Cash, and Record-to-Report — on shared data, under one accountable partner.',
     services: [
+      { title: 'Procure-to-Pay (Money Out)', href: '/services/accounting/procure-to-pay' },
+      { title: 'Order-to-Cash (Money In)', href: '/services/accounting/order-to-cash' },
+      { title: 'Record-to-Report (The Numbers)', href: '/services/accounting/record-to-report' },
       { title: 'CFO & Controller Services', href: '/services/accounting/cfo-controller' },
-      { title: 'Business Infrastructure', href: '/services/accounting/business-infrastructure' },
       { title: 'Bookkeeping', href: '/services/accounting/bookkeeping' },
       { title: 'Financial Reporting', href: '/services/accounting/financial-reporting' },
-      { title: 'Payroll Services', href: '/services/accounting/payroll' },
     ],
   },
   {

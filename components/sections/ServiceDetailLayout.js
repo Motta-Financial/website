@@ -5,8 +5,11 @@ const OTHER_SERVICES = [
   // Tax
   { href: '/services/tax', label: 'Tax Services' },
   { href: '/services/tax-planning', label: 'Tax Planning & Preparation' },
-  // Accounting
-  { href: '/services/accounting', label: 'Accounting Services' },
+  // Accounting — Office of the CFO
+  { href: '/services/accounting', label: 'Office of the CFO' },
+  { href: '/services/accounting/procure-to-pay', label: 'Procure-to-Pay (Money Out)' },
+  { href: '/services/accounting/order-to-cash', label: 'Order-to-Cash (Money In)' },
+  { href: '/services/accounting/record-to-report', label: 'Record-to-Report (The Numbers)' },
   { href: '/services/accounting/cfo-controller', label: 'CFO & Controller Services' },
   { href: '/services/accounting/business-infrastructure', label: 'Business Infrastructure' },
   { href: '/services/accounting/bookkeeping', label: 'Bookkeeping' },
