@@ -231,9 +231,6 @@ function SectionCard({ step, total, eyebrow, title, sub, children }) {
   return (
     <section className="motta-intake-section" aria-labelledby={`intake-step-${step}`}>
       <header className="motta-intake-section__head">
-        <span className="motta-intake-section__step" aria-hidden="true">
-          <span className="motta-intake-section__step-num">{step}</span>
-        </span>
         <div>
           <span className="motta-intake-section__eyebrow">
             <span className="motta-intake-section__progress">{`Step ${step} / ${total}`}</span>
@@ -783,8 +780,7 @@ export default function HubIntakeForm() {
 
       <footer className="motta-intake-footer">
         <p className="motta-intake-footer__meta">
-              Takes about 3 minutes · Encrypted in transit · Schedule your
-              call on the next screen, without leaving this page
+          We&apos;ll help you set up your call on the very next screen.
         </p>
         <button
           type="submit"

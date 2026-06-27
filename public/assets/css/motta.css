@@ -1510,29 +1510,7 @@ main select:focus {
   opacity: 0.65;
 }
 .motta-intake-section__head {
-  display: flex;
-  gap: 18px;
-  align-items: center;
   margin-bottom: 20px;
-}
-.motta-intake-section__step {
-  flex: 0 0 auto;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: transparent;
-  border: 1.5px solid rgba(79, 87, 63, 0.4);
-  color: var(--motta-sage-deep, #4F573F);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-}
-.motta-intake-section__step-num {
-  font-family: var(--tg-heading-font-family);
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
 }
 .motta-intake-section__eyebrow {
   display: inline-block;
