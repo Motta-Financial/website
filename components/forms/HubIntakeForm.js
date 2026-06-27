@@ -21,7 +21,7 @@ const honeypotStyle = {
 };
 
 const SERVICE_FOCUS_OPTIONS = [
-  { value: '', label: 'How can we help? *' },
+  { value: '', label: 'How can we help?' },
   { value: 'Personal Only', label: 'Personal — individual taxes, planning, IRS support' },
   { value: 'Business Only', label: 'Business — bookkeeping, payroll, business taxes, formation' },
   { value: 'Both Personal & Business', label: 'Both personal & business' },
@@ -86,7 +86,6 @@ const TEAM_MEMBERS = [
   { name: 'Amy Sparaco', calendly: 'https://calendly.com/amy-sparaco-mottafinancial' },
   { name: 'Andrew Gianares', calendly: 'https://calendly.com/andrew-gianares-mottafinancial' },
   { name: 'Micaela Palacios', calendly: 'https://calendly.com/micaela-palacios-mottafinancial' },
-  { name: 'Mark Dwyer', calendly: 'https://calendly.com/mark-dwyer-motta' },
 ];
 
 const NO_PREFERENCE = 'No preference — match me with a teammate';
@@ -573,7 +572,7 @@ export default function HubIntakeForm() {
         sub="Pick the lane that fits — we&apos;ll show the relevant follow-ups."
       >
         <div className="form-grp">
-          <label htmlFor="intake-focus">Service focus *</label>
+          <label htmlFor="intake-focus">Service focus</label>
               <select
                 id="intake-focus"
                 name="service_focus_select"
