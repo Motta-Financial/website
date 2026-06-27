@@ -363,6 +363,31 @@
   padding: 4px 14px 4px 6px;
 }
 
+/* Hero photo was washed out: the image sat at 0.7 opacity over a white
+   slide, and the dark tint rendered *behind* it. Show the photo at full
+   strength with a readable dark-sage gradient layered on top instead. */
+.slider__single .slider__bg {
+  opacity: 1;
+}
+.slider__single::before {
+  background: linear-gradient(
+    90deg,
+    rgba(28, 32, 22, 0.86) 0%,
+    rgba(28, 32, 22, 0.66) 42%,
+    rgba(28, 32, 22, 0.28) 100%
+  );
+  opacity: 1;
+  z-index: 1;
+}
+.slider__single::after {
+  display: none;
+}
+.slider__single .container,
+.slider__single .slider__content {
+  position: relative;
+  z-index: 2;
+}
+
 .motta-topbanner__pill-logo {
   margin-right: -2px;
 }
