@@ -120,9 +120,14 @@ function buildCalendlyUrl(baseUrl, { name, email, trackingId } = {}) {
 // postMessage, which is how we know the booking actually completed.
 function CalendlyInline({ url, name, onScheduled }) {
   const containerRef = useRef(null);
+  // Actual content height reported by Calendly. Null until the widget
+  // tells us, so the frame can collapse to fit instead of showing a
+  // fixed-height beige placeholder below the calendar.
+  const [frameHeight, setFrameHeight] = useState(null);
 
-  // Listen for Calendly postMessage events. We only care about
-  // `calendly.event_scheduled` — that's the booking-confirmed signal.
+  // Listen for Calendly postMessage events: `event_scheduled` confirms a
+  // booking, and `page_height` reports the iframe's real content height
+  // so we can size the frame to fit (no dead space underneath).
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
     function isCalendlyEvent(e) {
@@ -137,6 +142,10 @@ function CalendlyInline({ url, name, onScheduled }) {
       if (!isCalendlyEvent(e)) return;
       if (e.data.event === 'calendly.event_scheduled') {
         onScheduled?.(e.data?.payload || null);
+      } else if (e.data.event === 'calendly.page_height') {
+        const raw = e.data?.payload?.height;
+        const px = typeof raw === 'string' ? parseInt(raw, 10) : raw;
+        if (Number.isFinite(px) && px > 0) setFrameHeight(px);
       }
     }
     window.addEventListener('message', onMessage);
@@ -194,7 +203,10 @@ function CalendlyInline({ url, name, onScheduled }) {
       ) : null}
       <div
         ref={containerRef}
-        className="motta-calendly-embed__frame"
+        className={`motta-calendly-embed__frame${
+          frameHeight ? ' is-sized' : ''
+        }`}
+        style={frameHeight ? { height: `${frameHeight}px` } : undefined}
         aria-label={name ? `Schedule a call with ${name}` : 'Schedule a call'}
       />
       <p className="motta-calendly-embed__fallback">

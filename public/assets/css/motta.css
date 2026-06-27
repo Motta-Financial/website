@@ -1931,14 +1931,22 @@ main select:focus {
 }
 .motta-calendly-embed__frame {
   position: relative;
-  min-height: 720px;
+  /* Initial height only while Calendly loads. Once the widget reports
+     its real content height (.is-sized), we size to fit exactly so
+     there's no empty space below the calendar. */
+  min-height: 360px;
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
-  background: var(--motta-warm, #F4F1EB);
+  background: #FFFFFF;
+  transition: height 0.2s ease;
+}
+.motta-calendly-embed__frame.is-sized {
+  min-height: 0;
 }
 .motta-calendly-embed__frame iframe {
   width: 100% !important;
+  height: 100% !important;
   border: 0 !important;
 }
 .motta-calendly-embed__fallback {
@@ -1953,7 +1961,8 @@ main select:focus {
 }
 @media (max-width: 640px) {
   .motta-calendly-embed { padding: 12px; }
-  .motta-calendly-embed__frame { min-height: 660px; }
+  .motta-calendly-embed__frame { min-height: 320px; }
+  .motta-calendly-embed__frame.is-sized { min-height: 0; }
 }
 
 /* ===== Booking confirmation (post-Calendly) ================== */
