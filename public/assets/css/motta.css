@@ -1516,40 +1516,23 @@ main select:focus {
   margin-bottom: 20px;
 }
 .motta-intake-section__step {
-  position: relative;
   flex: 0 0 auto;
-  width: 54px;
-  height: 54px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: var(--motta-sage-deep, #4F573F);
-  color: var(--motta-warm, #EAE6E1);
+  background: transparent;
+  border: 1.5px solid rgba(79, 87, 63, 0.4);
+  color: var(--motta-sage-deep, #4F573F);
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   line-height: 1;
 }
-.motta-intake-section__step::before {
-  content: '';
-  position: absolute;
-  inset: 4px;
-  border-radius: 50%;
-  border: 1px solid rgba(234, 230, 225, 0.32);
-  pointer-events: none;
-}
 .motta-intake-section__step-num {
   font-family: var(--tg-heading-font-family);
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: 0.01em;
-}
-.motta-intake-section__step-of {
-  font-family: var(--tg-body-font-family);
-  font-size: 8.5px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  margin-top: 3px;
-  opacity: 0.72;
 }
 .motta-intake-section__eyebrow {
   display: inline-block;
@@ -1559,6 +1542,13 @@ main select:focus {
   text-transform: uppercase;
   color: var(--motta-sage-deep, #4F573F);
   margin-bottom: 6px;
+}
+.motta-intake-section__progress {
+  font-weight: 700;
+}
+.motta-intake-section__eyebrow-sep {
+  margin: 0 8px;
+  opacity: 0.5;
 }
 .motta-intake-section__title {
   font-size: clamp(20px, 2.4vw, 24px);

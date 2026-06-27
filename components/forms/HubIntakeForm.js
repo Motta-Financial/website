@@ -233,12 +233,17 @@ function SectionCard({ step, total, eyebrow, title, sub, children }) {
       <header className="motta-intake-section__head">
         <span className="motta-intake-section__step" aria-hidden="true">
           <span className="motta-intake-section__step-num">{step}</span>
-          <span className="motta-intake-section__step-of">of {total}</span>
         </span>
         <div>
-          {eyebrow ? (
-            <span className="motta-intake-section__eyebrow">{eyebrow}</span>
-          ) : null}
+          <span className="motta-intake-section__eyebrow">
+            <span className="motta-intake-section__progress">{`Step ${step} / ${total}`}</span>
+            {eyebrow ? (
+              <>
+                <span className="motta-intake-section__eyebrow-sep" aria-hidden="true">·</span>
+                {eyebrow}
+              </>
+            ) : null}
+          </span>
           <h3 id={`intake-step-${step}`} className="motta-intake-section__title">
             {title}
           </h3>
