@@ -388,6 +388,22 @@
   z-index: 2;
 }
 
+/* The two hero CTAs used different box models: the filled .btn had no
+   border (~46px tall) while .border-btn added 1px border + taller
+   padding (~50px), so the row sat on mismatched baselines. Normalize
+   both to one height/box model and align them on a single row. */
+.slider__single .slider__content .btn {
+  box-sizing: border-box;
+  min-height: 52px;
+  padding-top: 0;
+  padding-bottom: 0;
+  vertical-align: top;
+}
+.slider__single .slider__content .btn.border-btn {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+
 .motta-topbanner__pill-logo {
   margin-right: -2px;
 }
