@@ -19,7 +19,7 @@
  *  - We still dispatch the `motta:open-intake` event so any listeners
  *    (analytics, ALFRED companion) keep firing before we leave.
  */
-const LEGACY_INTAKE_URL = 'https://www.mottafinancial.com/intake-form';
+const LEGACY_INTAKE_URL = '/intake';
 
 function buildHref(source) {
   if (!source) return LEGACY_INTAKE_URL;

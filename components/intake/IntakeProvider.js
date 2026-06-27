@@ -14,7 +14,7 @@ import { useEffect } from 'react';
  * the event programmatically: TopBanner, AlfredCompanion,
  * IntakeFloatingButton, etc.
  */
-const LEGACY_INTAKE_URL = 'https://www.mottafinancial.com/intake-form';
+const LEGACY_INTAKE_URL = '/intake';
 
 function buildHref(source) {
   if (!source) return LEGACY_INTAKE_URL;
