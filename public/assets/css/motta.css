@@ -363,6 +363,29 @@
   padding: 4px 14px 4px 6px;
 }
 
+/* The two hero badge pills (.alfred-mark + .sub-title) were different
+   element types with different heights (36 vs 32px) and font sizes
+   (12 vs 16px), so their inline vertical centers sat ~7px apart and
+   read as misaligned. Normalize both into one matched pill row: equal
+   height, shared baseline (vertical-align: top), and same spacing. */
+.slider__content .alfred-mark,
+.slider__content .sub-title {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  vertical-align: top;
+  margin-bottom: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.slider__content .sub-title {
+  padding: 4px 16px;
+  border-radius: 999px;
+}
+
 /* Hero photo was washed out: the image sat at 0.7 opacity over a white
    slide, and the dark tint rendered *behind* it. Show the photo at full
    strength with a readable dark-sage gradient layered on top instead. */
