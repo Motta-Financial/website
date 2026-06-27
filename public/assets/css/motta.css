@@ -1546,9 +1546,9 @@ main select:focus {
 }
 .motta-intake-section__eyebrow {
   display: inline-block;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 11px;
-  letter-spacing: 0.2em;
+  font-family: var(--tg-body-font-family);
+  font-size: 13px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--motta-sage-deep, #4F573F);
   margin-bottom: 6px;
@@ -1564,7 +1564,7 @@ main select:focus {
   margin: 0;
   font-size: 14px;
   line-height: 1.55;
-  color: rgba(31, 31, 31, 0.7);
+  color: rgba(31, 31, 31, 0.55);
   max-width: 60ch;
 }
 .motta-intake-section__body { display: flex; flex-direction: column; gap: 14px; }
@@ -1573,10 +1573,9 @@ main select:focus {
 .motta-intake-form .form-grp { margin-bottom: 0; }
 .motta-intake-form .form-grp label {
   display: block;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--tg-body-font-family);
+  font-size: 13px;
+  letter-spacing: 0.04em;
   color: var(--motta-sage-deep, #4F573F);
   margin-bottom: 6px;
   font-weight: 600;
@@ -1607,15 +1606,18 @@ main select:focus {
   background: #FFFFFF;
 }
 .motta-intake-form .form-grp textarea { resize: vertical; min-height: 96px; }
+.motta-intake-form .form-grp input::placeholder,
+.motta-intake-form .form-grp textarea::placeholder {
+  color: rgba(51, 51, 51, 0.45);
+}
 
 /* Pill chips for service / entity selection */
 .motta-intake-pillgroup { display: flex; flex-direction: column; gap: 10px; }
 .motta-intake-pillgroup__label {
   margin: 0;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--tg-body-font-family);
+  font-size: 13px;
+  letter-spacing: 0.04em;
   color: var(--motta-sage-deep, #4F573F);
   font-weight: 600;
 }
@@ -1687,12 +1689,12 @@ main select:focus {
     justify-content: space-between;
   }
 }
-.motta-intake-footer__meta {
+ .motta-intake-footer__meta {
   margin: 0;
   font-size: 13px;
-  color: rgba(31, 31, 31, 0.7);
+  color: rgba(31, 31, 31, 0.55);
   line-height: 1.5;
-}
+  }
 .motta-intake-submit {
   display: inline-flex;
   align-items: center;
