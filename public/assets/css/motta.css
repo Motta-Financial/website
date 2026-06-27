@@ -1676,6 +1676,7 @@ main select:focus {
 .motta-intake-submit {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   background: var(--motta-sage-deep, #4F573F);
   border: 1px solid var(--motta-sage-deep, #4F573F);
@@ -1687,15 +1688,36 @@ main select:focus {
   transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
   box-shadow: 0 6px 18px rgba(43, 47, 36, 0.22);
 }
+/* Kill the base template's flaticon arrow (.btn::after) so we only
+   show our own arrow / spinner — and remove the resulting gap. */
+.motta-intake-submit::after {
+  content: none !important;
+  display: none !important;
+}
 .motta-intake-submit:hover:not(:disabled) {
   background: var(--motta-charcoal, #1F1F1F);
   border-color: var(--motta-charcoal, #1F1F1F);
   transform: translateY(-1px);
 }
-.motta-intake-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.motta-intake-submit:disabled { cursor: progress; }
+.motta-intake-submit[aria-busy='true'] { background: var(--motta-sage, #6B745D); border-color: var(--motta-sage, #6B745D); }
 .motta-intake-submit__arrow { transition: transform 0.18s ease; }
 .motta-intake-submit:hover:not(:disabled) .motta-intake-submit__arrow {
   transform: translateX(3px);
+}
+.motta-intake-submit__spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(244, 241, 235, 0.35);
+  border-top-color: var(--motta-warm, #F4F1EB);
+  animation: motta-intake-spin 0.7s linear infinite;
+}
+@keyframes motta-intake-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motta-intake-submit__spinner { animation-duration: 1.6s; }
 }
 
 .motta-intake-error {

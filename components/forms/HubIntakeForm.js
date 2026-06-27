@@ -786,9 +786,14 @@ export default function HubIntakeForm() {
           type="submit"
           className="btn motta-intake-submit"
           disabled={status === 'loading'}
+          aria-busy={status === 'loading'}
         >
           {status === 'loading' ? 'Submitting…' : 'Submit & schedule call'}
-          <span aria-hidden="true" className="motta-intake-submit__arrow">→</span>
+          {status === 'loading' ? (
+            <span aria-hidden="true" className="motta-intake-submit__spinner" />
+          ) : (
+            <span aria-hidden="true" className="motta-intake-submit__arrow">→</span>
+          )}
         </button>
       </footer>
 
