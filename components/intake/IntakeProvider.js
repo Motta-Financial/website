@@ -9,11 +9,10 @@ import { useRouter } from 'next/navigation';
  *
  *   window.dispatchEvent(new CustomEvent('motta:open-intake', { detail: { source } }))
  *
- * The intake now lives on the legacy site at
- * https://www.mottafinancial.com/intake-form. IntakeButton handles
- * direct clicks; this provider covers the entry points that dispatch
- * the event programmatically: TopBanner, AlfredCompanion,
- * IntakeFloatingButton, etc.
+ * The intake form now lives natively on this site at /intake.
+ * IntakeButton handles direct clicks; this provider covers the entry
+ * points that dispatch the event programmatically: TopBanner,
+ * AlfredCompanion, IntakeFloatingButton, etc.
  */
 const INTAKE_URL = '/intake';
 
