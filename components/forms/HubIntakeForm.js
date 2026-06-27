@@ -574,7 +574,7 @@ export default function HubIntakeForm() {
         sub="Pick the lane that fits — we&apos;ll show the relevant follow-ups."
       >
         <div className="form-grp">
-          <label htmlFor="intake-focus">Service focus</label>
+          <label htmlFor="intake-focus">Service focus *</label>
               <select
                 id="intake-focus"
                 name="service_focus_select"
