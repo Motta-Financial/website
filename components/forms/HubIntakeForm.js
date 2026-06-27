@@ -574,13 +574,14 @@ export default function HubIntakeForm() {
       >
         <div className="form-grp">
           <label htmlFor="intake-focus">Service focus *</label>
-          <select
-            id="intake-focus"
-            name="service_focus_select"
-            value={serviceFocus}
-            onChange={(e) => setServiceFocus(e.target.value)}
-            required
-          >
+              <select
+                id="intake-focus"
+                name="service_focus_select"
+                className={serviceFocus ? undefined : 'is-placeholder'}
+                value={serviceFocus}
+                onChange={(e) => setServiceFocus(e.target.value)}
+                required
+              >
             {SERVICE_FOCUS_OPTIONS.map((o) => (
               <option key={o.value} value={o.value} disabled={!o.value}>
                 {o.label}
@@ -753,6 +754,7 @@ export default function HubIntakeForm() {
               <select
                 id="intake-team"
                 name="preferred_team_member"
+                className={preferredTeamMember ? undefined : 'is-placeholder'}
                 value={preferredTeamMember}
                 onChange={(e) => setPreferredTeamMember(e.target.value)}
               >
