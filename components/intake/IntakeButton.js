@@ -1,7 +1,9 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 /**
- * IntakeButton — sends prospects to Motta's legacy intake form.
+ * IntakeButton — sends prospects to Motta's native intake form.
  *
  * The intake now lives on the legacy site at
  * https://www.mottafinancial.com/intake-form. Every intake CTA across
@@ -19,13 +21,13 @@
  *  - We still dispatch the `motta:open-intake` event so any listeners
  *    (analytics, ALFRED companion) keep firing before we leave.
  */
-const LEGACY_INTAKE_URL = '/intake';
+const INTAKE_URL = '/intake';
 
 function buildHref(source) {
-  if (!source) return LEGACY_INTAKE_URL;
+  if (!source) return INTAKE_URL;
   // Pass the originating surface through as a UTM tag for analytics.
-  // The legacy form ignores unknown params, so this is harmless.
-  return `${LEGACY_INTAKE_URL}?utm_source=motta-website&utm_content=${encodeURIComponent(
+  // The intake route ignores unknown params, so this is harmless.
+  return `${INTAKE_URL}?utm_source=motta-website&utm_content=${encodeURIComponent(
     source
   )}`;
 }
@@ -39,6 +41,7 @@ export default function IntakeButton({
   ariaLabel,
   ...rest
 }) {
+  const router = useRouter();
   const href = buildHref(source);
 
   const open = (e) => {
@@ -65,8 +68,8 @@ export default function IntakeButton({
       );
     } catch (_) {}
 
-    // Redirect the current tab to the legacy intake form.
-    window.location.assign(href);
+    // Client-side transition to the native intake route.
+    router.push(href);
   };
 
   if (as === 'a') {
