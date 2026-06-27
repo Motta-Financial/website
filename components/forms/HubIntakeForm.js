@@ -780,7 +780,7 @@ export default function HubIntakeForm() {
 
       <footer className="motta-intake-footer">
         <p className="motta-intake-footer__meta">
-          We&apos;ll help you set up your call on the very next screen.
+          From here, we&apos;ll get you on the calendar with the right person.
         </p>
         <button
           type="submit"
