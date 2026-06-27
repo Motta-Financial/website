@@ -385,6 +385,10 @@
   padding: 4px 16px;
   border-radius: 999px;
 }
+/* Breathing room between the two pills so they aren't almost touching. */
+.slider__content .alfred-mark {
+  margin-right: 14px;
+}
 
 /* Hero photo was washed out: the image sat at 0.7 opacity over a white
    slide, and the dark tint rendered *behind* it. Show the photo at full
