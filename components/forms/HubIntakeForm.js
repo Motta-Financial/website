@@ -783,9 +783,8 @@ export default function HubIntakeForm() {
 
       <footer className="motta-intake-footer">
         <p className="motta-intake-footer__meta">
-          <span aria-hidden="true">⏱</span> Takes ~3 minutes ·{' '}
-          <span aria-hidden="true">🔒</span> Encrypted in transit ·{' '}
-          Pick a time on the next screen — no leaving this page
+              Takes about 3 minutes · Encrypted in transit · Schedule your
+              call on the next screen, without leaving this page
         </p>
         <button
           type="submit"

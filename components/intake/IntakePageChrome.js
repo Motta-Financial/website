@@ -53,24 +53,42 @@ export default function IntakePageChrome({ source, children }) {
 
           <ul className="motta-intake-page__bullets">
             <li>
-              <span className="motta-intake-page__bullet-num" aria-hidden="true">1</span>
+              <span className="motta-intake-page__bullet-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 2v6h6" />
+                  <path d="M9 13h6" />
+                  <path d="M9 17h4" />
+                </svg>
+              </span>
               <div>
                 <strong>You submit.</strong> Three minutes, encrypted in
                 transit.
               </div>
             </li>
             <li>
-              <span className="motta-intake-page__bullet-num" aria-hidden="true">2</span>
+              <span className="motta-intake-page__bullet-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 3l1.9 5.1L19 11l-5.1 1.9L12 18l-1.9-5L5 11l5.1-2.9z" />
+                </svg>
+              </span>
               <div>
                 <strong>ALFRED preps.</strong> Your responses are routed to
                 the right teammate with relevant context attached.
               </div>
             </li>
             <li>
-              <span className="motta-intake-page__bullet-num" aria-hidden="true">3</span>
+              <span className="motta-intake-page__bullet-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <path d="M16 2v4" />
+                  <path d="M8 2v4" />
+                  <path d="M3 10h18" />
+                </svg>
+              </span>
               <div>
                 <strong>Pick a time.</strong> Schedule a 30‑minute discovery
-                call right after you submit — no leaving this window.
+                call right after you submit.
               </div>
             </li>
           </ul>
