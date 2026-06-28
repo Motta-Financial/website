@@ -41,7 +41,8 @@ export default function Callback1() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  alignSelf: 'center',
+                  alignSelf: 'flex-start',
+                  marginTop: 4,
                   fontSize: 14,
                   color: 'rgba(255,255,255,0.85)',
                   textDecoration: 'underline',

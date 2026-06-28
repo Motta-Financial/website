@@ -2730,3 +2730,16 @@ button.motta-cta.btn:hover {
     height: auto;
   }
 }
+
+/* Back-to-top button: the template only used text-align/line-height, so
+   the chevron sat off-center and looked crooked. Center it properly. */
+.scroll__top {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.scroll__top i {
+  display: block;
+  line-height: 1;
+}

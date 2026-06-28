@@ -36,7 +36,7 @@ export default function AlfredFeature() {
       style={{
         background:
           'linear-gradient(180deg, #2b2f24 0%, #232619 55%, #1c1f15 100%)',
-        padding: '120px 0',
+        padding: '80px 0 120px',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -58,7 +58,7 @@ export default function AlfredFeature() {
               style={{
                 display: 'flex',
                 justifyContent: 'center',
-                marginBottom: 24,
+                marginBottom: 12,
                 filter: 'drop-shadow(0 12px 28px rgba(142,155,121,0.35))',
               }}
             >
@@ -69,25 +69,18 @@ export default function AlfredFeature() {
                 priority
               />
             </div>
-            <span
-              className="alfred-mark"
+            <p
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                padding: '6px 16px',
-                borderRadius: 999,
-                background: 'rgba(142, 155, 121, 0.18)',
-                border: '1px solid rgba(142, 155, 121, 0.4)',
-                color: 'rgba(234, 230, 225, 0.95)',
-                fontSize: 12,
-                fontWeight: 600,
-                letterSpacing: '0.08em',
+                color: 'rgba(234, 230, 225, 0.7)',
+                fontSize: 13,
+                fontWeight: 500,
+                letterSpacing: '0.16em',
                 textTransform: 'uppercase',
-                marginBottom: 24,
+                marginBottom: 28,
               }}
             >
               The AI platform powering Motta
-            </span>
+            </p>
             <h2
               className="title"
               style={{
