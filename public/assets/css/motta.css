@@ -2773,3 +2773,25 @@ button.motta-cta.btn:hover {
   background: transparent;
   border-top: 1px solid rgba(107, 116, 93, 0.16);
 }
+
+/* Outlined buttons used standalone (.border-btn without .btn) had sharp
+   square corners that clashed with the pill style used everywhere else.
+   Round them to match .btn so every outlined button is a pill. */
+.border-btn {
+  border-radius: 8dvh;
+}
+
+/* Book a Demo form sat on a dark section but its placeholder text rendered
+   near-black and was unreadable. Give placeholders a visible muted cream. */
+#demo input::placeholder,
+#demo textarea::placeholder {
+  color: rgba(244, 241, 235, 0.6);
+  opacity: 1;
+}
+#demo input::-webkit-input-placeholder,
+#demo textarea::-webkit-input-placeholder {
+  color: rgba(244, 241, 235, 0.6);
+}
+#demo select {
+  color: #f4f1eb;
+}

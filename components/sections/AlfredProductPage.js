@@ -723,6 +723,7 @@ export default function AlfredProductPage() {
                         className="btn"
                         style={{
                           width: '100%',
+                          justifyContent: 'center',
                           padding: '16px 32px',
                           fontSize: 16,
                           opacity: submitting ? 0.7 : 1,
