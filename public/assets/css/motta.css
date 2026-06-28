@@ -2743,3 +2743,25 @@ button.motta-cta.btn:hover {
   display: block;
   line-height: 1;
 }
+
+/* Line the arrow up directly under the ALFRED companion logo: match their
+   horizontal centers. Companion center sits 56px from the right edge
+   (right:20 + 72/2); a 40px-wide arrow needs right:36 to share that center. */
+.scroll__top,
+.scroll__top.open {
+  right: 36px;
+}
+@media (max-width: 767.98px) {
+  /* arrow shrinks to 30px wide here, companion still centered 56px in */
+  .scroll__top,
+  .scroll__top.open {
+    right: 41px;
+  }
+}
+@media (max-width: 575px) {
+  /* companion shrinks (right:14 + 60/2 = 44px center); 30px arrow -> right:29 */
+  .scroll__top,
+  .scroll__top.open {
+    right: 29px;
+  }
+}
