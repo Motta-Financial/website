@@ -2765,3 +2765,11 @@ button.motta-cta.btn:hover {
     right: 29px;
   }
 }
+
+/* Footer copyright bar inherited a cool gray (--tg-color-gray-1) that
+   clashed with the warm cream page background. Let the body cream show
+   through and use a soft warm divider so the bottom matches the top. */
+.footer-bottom {
+  background: transparent;
+  border-top: 1px solid rgba(107, 116, 93, 0.16);
+}
