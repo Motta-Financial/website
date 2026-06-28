@@ -56,7 +56,7 @@ export default function AlfredFeature() {
           <div className="col-lg-8 text-center">
             <div
               style={{
-                display: 'inline-flex',
+                display: 'flex',
                 justifyContent: 'center',
                 marginBottom: 24,
                 filter: 'drop-shadow(0 12px 28px rgba(142,155,121,0.35))',
@@ -69,7 +69,23 @@ export default function AlfredFeature() {
                 priority
               />
             </div>
-            <span className="alfred-mark" style={{ marginBottom: 24 }}>
+            <span
+              className="alfred-mark"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '6px 16px',
+                borderRadius: 999,
+                background: 'rgba(142, 155, 121, 0.18)',
+                border: '1px solid rgba(142, 155, 121, 0.4)',
+                color: 'rgba(234, 230, 225, 0.95)',
+                fontSize: 12,
+                fontWeight: 600,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                marginBottom: 24,
+              }}
+            >
               The AI platform powering Motta
             </span>
             <h2

@@ -30,18 +30,10 @@ export default function Callback1() {
                 alignItems: 'flex-start',
               }}
             >
-              <IntakeButton
-                className="btn"
-                style={{ width: '100%', textAlign: 'center' }}
-                source="callback"
-              >
+              <IntakeButton className="btn" source="callback">
                 Boot up an engagement
               </IntakeButton>
-              <Link
-                href="/contact"
-                className="btn border-btn"
-                style={{ width: '100%', textAlign: 'center' }}
-              >
+              <Link href="/contact" className="btn border-btn">
                 Send Us a Message
               </Link>
               <a
