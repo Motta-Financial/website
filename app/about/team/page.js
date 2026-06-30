@@ -109,11 +109,11 @@ const teamMembers = [
     name: 'Samprina Zekio',
     title: 'Backend Development Lead, Intern',
     group: 'Client Operations',
-    credentials: 'Suffolk University · Boston · Trilingual',
+    credentials: 'Suffolk University · Boston · 4 Languages',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Samprina%20Zekio-GTqi19ZdKp1732WGzF5s5YFygrWUz9.jpg',
     blurb:
-      "Samprina leads backend development for ALFRED Ai through the Suffolk University SEED Program, reporting to Managing Partner Dat Le. She designs the backend infrastructure, API workflows, and automation behind ALFRED Ai, the Supabase-powered Motta Hub, and Project Alpha — Motta's ProConnect integration, where she owns OAuth and token handling, data sync, and tax-return status tracking. A full-stack builder fluent across Supabase, PostgreSQL, Vercel, JavaScript, and Python, she is pursuing a B.S. in Business Analytics & Information Systems and Cybersecurity at Suffolk's Sawyer Business School with a 4.0 GPA, and speaks Greek, English, and Albanian.",
+      "Samprina leads backend development for ALFRED Ai through the Suffolk University SEED Program, reporting to Dat Le, CPA. She designs the infrastructure, API workflows, and automation behind ALFRED Ai, the Supabase-powered Motta Hub, and Project Alpha — Motta's ProConnect integration, where she owns OAuth, data sync, and tax-return status tracking. A full-stack builder working across Supabase, PostgreSQL, Vercel, JavaScript, and Python, she is pursuing a B.S. in Business Analytics & Information Systems and Cybersecurity with a 4.0 GPA and speaks four languages.",
     email: 'Samprina.Zekio@MottaFinancial.com',
     linkedin: 'https://www.linkedin.com/in/samprina-zekio/',
   },
