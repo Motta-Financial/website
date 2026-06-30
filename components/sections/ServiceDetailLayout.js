@@ -148,38 +148,34 @@ export default function ServiceDetailLayout({
 
             <div className="col-30">
               <aside className="services__sidebar">
-                <nav
-                  className="motta-svc-side"
-                  aria-label="Services navigation"
-                >
-                  <span className="motta-svc-side__label">Services</span>
-                  {SERVICE_GROUPS.map((group) => (
-                    <div className="motta-svc-side__group" key={group.area}>
-                      <span className="motta-svc-side__eyebrow">
-                        {group.area}
-                      </span>
-                      <ul className="motta-svc-side__list">
-                        {group.items.map((s) => {
-                          const isActive = s.href === currentHref;
-                          return (
-                            <li key={s.href}>
-                              <Link
-                                href={s.href}
-                                className={
-                                  'motta-svc-side__link' +
-                                  (isActive ? ' is-active' : '')
-                                }
-                                aria-current={isActive ? 'page' : undefined}
-                              >
-                                {s.label}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  ))}
-                </nav>
+                <div className="sidebar__widget sidebar__widget-two">
+                  <div className="sidebar__cat-list-two">
+                    <h4 className="sidebar__widget-title">Other Services</h4>
+                    {SERVICE_GROUPS.map((group) => {
+                      const items = group.items.filter(
+                        (s) => s.href !== currentHref
+                      );
+                      if (items.length === 0) return null;
+                      return (
+                        <div key={group.area} className="sidebar__cat-group">
+                          <h5 className="sidebar__cat-group-title">
+                            {group.area}
+                          </h5>
+                          <ul className="list-wrap">
+                            {items.map((s) => (
+                              <li key={s.href}>
+                                <Link href={s.href}>
+                                  {s.label}{' '}
+                                  <i className="flaticon-arrow-button" />
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
 
                 <div className="sidebar__widget sidebar__widget-two">
                   <div
