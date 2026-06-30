@@ -2889,3 +2889,65 @@ button.motta-cta.btn:hover {
   display: none;
 }
 
+/* Layout: a uniform 3-column grid so every card is the same width and the
+   leftover two on the second row align left (instead of stretching to 50%
+   each). Also tightens padding/type so the section is far more compact. */
+.services__bg-three .cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin: 0;
+}
+@media (max-width: 991px) {
+  .services__bg-three .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 575px) {
+  .services__bg-three .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+.services__bg-three .card-wrapper {
+  flex: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.services__bg-three .services__item-three {
+  height: 100%;
+  padding: 26px 26px 24px;
+  border-radius: 14px;
+  margin-bottom: 0;
+}
+/* Compact icon + heading row */
+.services__bg-three .services__icon-three {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  border-radius: 12px;
+  font-size: 22px;
+}
+.services__bg-three .services__item-top {
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.services__bg-three .services__item-top-title .title {
+  font-size: 18px;
+  line-height: 1.25;
+  margin: 0;
+}
+/* Tighter body copy, clamped so cards stay even height */
+.services__bg-three .services__content-three p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+/* Smaller, lighter Read More control */
+.services__bg-three .services__content-three .btn-two {
+  padding: 8px 18px;
+  font-size: 13px;
+}
+
