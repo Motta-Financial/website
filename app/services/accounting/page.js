@@ -268,7 +268,7 @@ export default function AccountingServices() {
                 <IntakeButton className="btn mr-10" source="accounting: Office of the CFO">
                   Become a Client
                 </IntakeButton>
-                <Link href="/contact" className="btn border-btn">
+                <Link href="/contact" className="btn border-btn border-btn--ink">
                   Send Us a Message
                 </Link>
               </div>

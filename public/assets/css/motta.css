@@ -2795,3 +2795,27 @@ button.motta-cta.btn:hover {
 #demo select {
   color: #f4f1eb;
 }
+
+/* Section eyebrow labels (.section-title .sub-title) defaulted to white,
+   which is invisible on the cream/beige content sections used across the
+   site. Use the sage brand color so they are always readable. Dark
+   sections opt back into white via the .white-title modifier. */
+.section-title .sub-title {
+  color: var(--tg-theme-primary);
+}
+.section-title.white-title .sub-title {
+  color: var(--tg-color-white-default);
+}
+
+/* Visible-on-light variant of the outlined button. The base .border-btn is
+   white (for dark sections); this modifier paints it sage so the outlined
+   CTA stays readable on cream/beige backgrounds. */
+.border-btn.border-btn--ink {
+  color: var(--tg-theme-primary);
+  border-color: var(--tg-theme-primary);
+}
+.border-btn.border-btn--ink:hover {
+  background: var(--tg-theme-primary);
+  border-color: var(--tg-theme-primary);
+  color: var(--motta-cream, #f7f5f1);
+}

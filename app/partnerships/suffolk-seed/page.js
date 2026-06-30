@@ -392,7 +392,7 @@ export default function SuffolkSeedPartnership() {
           href="https://boston.suffolk.edu/seed/people/"
           target="_blank"
           rel="noopener noreferrer"
-          className="border-btn"
+          className="border-btn border-btn--ink"
           style={{ marginLeft: 12 }}
         >
           Meet the SEED Team

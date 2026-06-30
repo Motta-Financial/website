@@ -139,7 +139,7 @@ export default function ServiceDetailLayout({
                   <IntakeButton className="btn mr-10" source={`service: ${title}`}>
                     Become a Client
                   </IntakeButton>
-                  <Link href="/contact" className="btn border-btn">
+                  <Link href="/contact" className="btn border-btn border-btn--ink">
                     Send Us a Message
                   </Link>
                 </div>
