@@ -29,6 +29,38 @@ export default function FounderPage() {
                   alt="Dat Le, Founder of Motta Financial"
                 />
               </div>
+            </div>
+            <div className="col-lg-7">
+              <div className="motta-founder-story__content">
+                <span className="motta-eyebrow">Founder &amp; Managing Partner</span>
+                <h1 className="motta-founder-story__name">Dat Le, CPA</h1>
+                <blockquote className="motta-founder-story__quote">
+                  <p>&ldquo;No need to worry, my accountant handles that.&rdquo;</p>
+                  <cite>— The Notorious B.I.G., <em>Juicy</em> (1994)</cite>
+                </blockquote>
+                <p className="motta-founder-story__lead">
+                  That single line changed everything.
+                </p>
+                <p>
+                  When Dat Le first heard Biggie rap about having an accountant 
+                  who just <em>handled things</em>, something clicked. It wasn&apos;t 
+                  about spreadsheets or tax codes — it was about freedom. The 
+                  freedom to focus on what you&apos;re building while someone else 
+                  makes sure the numbers work.
+                </p>
+                <p>
+                  That lyric inspired Dat to take an accounting class in high 
+                  school. What started as curiosity turned into a career — from 
+                  Big Four experience to founding Motta Financial in 2023 with a 
+                  simple mission: give every client that same feeling Biggie was 
+                  talking about.
+                </p>
+                <p>
+                  No need to worry. We handle it.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-5">
               <div className="motta-founder-connect">
                 <span className="motta-founder-connect__label">
                   Connect with Dat
@@ -83,36 +115,6 @@ export default function FounderPage() {
                     <span>GitHub</span>
                   </a>
                 </div>
-              </div>
-            </div>
-            <div className="col-lg-7">
-              <div className="motta-founder-story__content">
-                <span className="motta-eyebrow">Founder &amp; Managing Partner</span>
-                <h1 className="motta-founder-story__name">Dat Le, CPA</h1>
-                <blockquote className="motta-founder-story__quote">
-                  <p>&ldquo;No need to worry, my accountant handles that.&rdquo;</p>
-                  <cite>— The Notorious B.I.G., <em>Juicy</em> (1994)</cite>
-                </blockquote>
-                <p className="motta-founder-story__lead">
-                  That single line changed everything.
-                </p>
-                <p>
-                  When Dat Le first heard Biggie rap about having an accountant 
-                  who just <em>handled things</em>, something clicked. It wasn&apos;t 
-                  about spreadsheets or tax codes — it was about freedom. The 
-                  freedom to focus on what you&apos;re building while someone else 
-                  makes sure the numbers work.
-                </p>
-                <p>
-                  That lyric inspired Dat to take an accounting class in high 
-                  school. What started as curiosity turned into a career — from 
-                  Big Four experience to founding Motta Financial in 2023 with a 
-                  simple mission: give every client that same feeling Biggie was 
-                  talking about.
-                </p>
-                <p>
-                  No need to worry. We handle it.
-                </p>
               </div>
             </div>
           </div>
@@ -324,7 +326,7 @@ export default function FounderPage() {
         }
 
         .motta-founder-connect {
-          margin-top: 24px;
+          margin-top: 0;
           padding: 24px 26px;
           background: #fff;
           border: 1px solid rgba(142, 155, 121, 0.25);
