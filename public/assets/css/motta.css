@@ -2859,3 +2859,33 @@ button.motta-cta.btn:hover {
   margin-bottom: 0;
 }
 
+/* Homepage "Five practice areas" section sits on a solid sage background.
+   The vendor theme left the heading dark and the sub-title sage-on-sage
+   (invisible), the cards pure white (clashing with the warm palette), and
+   the icons a washed-out grey. Re-tone everything to the Motta system. */
+.services__bg-three .section-title .title {
+  color: var(--motta-cream-100, #f4f1eb);
+}
+.services__bg-three .section-title .sub-title {
+  color: var(--motta-cream-100, #f4f1eb);
+  opacity: 0.85;
+}
+/* Cards: warm cream instead of stark white so they belong to the palette */
+.services__bg-three .services__item-three {
+  background: var(--motta-cream-50, #fbf8f2);
+  border: 1px solid rgba(244, 241, 235, 0.5);
+}
+/* Icon badge: solid sage tile with a cream glyph, matching the brand icons
+   used elsewhere; drop the leftover blue divider accent */
+.services__bg-three .services__icon-three {
+  background: var(--motta-sage, #8e9b79);
+  border-color: var(--motta-sage, #8e9b79);
+  color: var(--motta-cream-100, #f4f1eb);
+}
+.services__bg-three .services__icon-three i {
+  color: var(--motta-cream-100, #f4f1eb);
+}
+.services__bg-three .services__icon-three::before {
+  display: none;
+}
+
