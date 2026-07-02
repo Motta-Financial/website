@@ -2985,12 +2985,38 @@ button.motta-cta.btn:hover {
 .motta-services-overview p {
   color: var(--motta-charcoal, #333333);
 }
-/* Clean 2-up cards: white surface, warm border, soft shadow, even height */
+/* Layout: a real CSS grid (matches the homepage) so all six cards align in
+   a clean 3 x 2 grid with generous, even gutters — instead of the cramped,
+   uneven Bootstrap 2-up fallback the cards had before. */
+.motta-services-overview .cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 0;
+}
+.motta-services-overview .cards-container > [class*="col-"] {
+  width: 100%;
+  max-width: 100%;
+  flex: none;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 991px) {
+  .motta-services-overview .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 575px) {
+  .motta-services-overview .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* Clean cards: white surface, warm border, soft shadow, even height */
 .motta-services-overview .services__item-three {
   background: var(--motta-white, #fff);
   border: 1px solid var(--motta-cream-200, #eae6e1);
   border-radius: 16px;
-  padding: 30px 32px;
+  padding: 32px 32px 30px;
   box-shadow: 0 16px 44px -32px rgba(15, 19, 16, 0.4);
   height: 100%;
 }
