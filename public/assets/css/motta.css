@@ -2968,3 +2968,72 @@ button.motta-cta.btn:hover {
   font-size: 13px;
 }
 
+/* ===== /services overview page =====
+   This full page was reusing the homepage's heavy solid-sage band
+   (`services__bg-three`), which left the intro paragraph dark-on-sage
+   (unreadable) and misaligned these Bootstrap columns via the homepage
+   grid override. Give it a light, readable treatment that matches the
+   rest of the site. */
+.motta-services-overview {
+  background: var(--motta-cream-100, #f4f1eb);
+}
+.motta-services-overview .section-title .sub-title {
+  color: var(--motta-sage-deep, #4f573f);
+}
+.motta-services-overview .section-title .title {
+  color: var(--motta-charcoal, #333333);
+}
+.motta-services-overview p {
+  color: var(--motta-charcoal, #333333);
+}
+/* Clean 2-up cards: white surface, warm border, soft shadow, even height */
+.motta-services-overview .services__item-three {
+  background: var(--motta-white, #fff);
+  border: 1px solid var(--motta-cream-200, #eae6e1);
+  border-radius: 16px;
+  padding: 30px 32px;
+  box-shadow: 0 16px 44px -32px rgba(15, 19, 16, 0.4);
+  height: 100%;
+}
+.motta-services-overview .services__item-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+/* Sage icon badge with cream glyph (matches the brand icons elsewhere) */
+.motta-services-overview .services__icon-three {
+  flex: 0 0 auto;
+  width: 54px;
+  height: 54px;
+  line-height: 54px;
+  text-align: center;
+  border-radius: 14px;
+  background: var(--motta-sage, #6b745d);
+  border-color: var(--motta-sage, #6b745d);
+  color: var(--motta-cream-100, #f4f1eb);
+  font-size: 24px;
+}
+.motta-services-overview .services__icon-three i {
+  color: var(--motta-cream-100, #f4f1eb);
+}
+.motta-services-overview .services__icon-three::before {
+  display: none;
+}
+.motta-services-overview .services__item-top-title .title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.25;
+}
+.motta-services-overview .services__item-top-title .title a {
+  color: var(--motta-charcoal, #333333);
+  transition: color 0.2s ease;
+}
+.motta-services-overview .services__item-top-title .title a:hover {
+  color: var(--motta-sage-deep, #4f573f);
+}
+.motta-services-overview .services__content-three p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+

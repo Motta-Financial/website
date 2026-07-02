@@ -81,7 +81,7 @@ export default function Services() {
       breadcrumbTitle="All Services"
       breadcrumbEyebrow="What we do"
     >
-      <section className="services__area-three services__bg-three">
+      <section className="services__area-three motta-services-overview">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-7 col-lg-8 text-center">
