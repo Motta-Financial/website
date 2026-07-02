@@ -2614,24 +2614,23 @@ html.motta-intake-page-active body {
    explicit treatment with a class-pair selector so it reliably beats
    the lone `.btn` rules.
 
-   Note: the /services CTA sits on a SAGE section, so a sage fill would
-   blend in. We use a warm/cream fill with sage-deep text — high
-   contrast on sage, and clearly dominant over the outlined secondary
-   "Send Us a Message" button beside it. ======================== */
+   Note: the /services CTA now sits on a LIGHT cream section, so a cream
+   fill would blend in. We use a solid sage fill with cream text — the
+   dominant primary next to the outlined "Send Us a Message" beside it. */
 .motta-cta.btn,
 a.motta-cta.btn,
 button.motta-cta.btn {
-  background: var(--motta-warm, #F4F1EB);
-  color: var(--motta-sage-deep, #4F573F);
-  border: 1.5px solid var(--motta-warm, #F4F1EB);
+  background: var(--motta-sage-deep, #4F573F);
+  color: var(--motta-cream, #F7F5F1);
+  border: 1.5px solid var(--motta-sage-deep, #4F573F);
 }
 .motta-cta.btn:hover,
 .motta-cta.btn:focus-visible,
 a.motta-cta.btn:hover,
 button.motta-cta.btn:hover {
-  background: #FFFFFF;
-  border-color: #FFFFFF;
-  color: var(--motta-sage-deep, #4F573F);
+  background: var(--motta-charcoal, #2B2F24);
+  border-color: var(--motta-charcoal, #2B2F24);
+  color: var(--motta-cream, #F7F5F1);
 }
 
 /* ===== Meet the Team — service-line section headings =============== */
