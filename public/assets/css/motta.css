@@ -2975,6 +2975,18 @@ button.motta-cta.btn:hover {
    rest of the site. */
 .motta-services-overview {
   background: var(--motta-cream-100, #f4f1eb);
+  /* The section had zero vertical padding, which crammed the heading against
+     the hero and the CTA against the footer band. Give it generous, airy
+     top/bottom padding (more than the homepage's 90px) so the whole block
+     sits lower and breathes. */
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+/* Push the "Not sure where you fit?" CTA well below the card grid, and give
+   it space beneath the buttons before the platforms band. */
+.motta-services-overview .motta-services-cta {
+  margin-top: 90px;
+  padding-top: 40px;
 }
 .motta-services-overview .section-title .sub-title {
   color: var(--motta-sage-deep, #4f573f);
