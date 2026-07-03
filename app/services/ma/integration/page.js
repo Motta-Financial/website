@@ -17,7 +17,7 @@ export default function Integration() {
     >
       <ServiceDetailLayout
         currentHref="/services/ma/integration"
-        heroImage="/assets/img/services/integration-hero.jpg"
+        heroImage="/assets/img/services/saas-tech-advisory-hero.jpg"
         title="Post-Close Integration & Synergy"
         lede="The deal closes and the real work begins. Most acquisitions underdeliver not because the thesis was wrong, but because integration stalls. Motta builds and helps execute the integration plan so the synergies you underwrote in diligence actually reach the bottom line."
         bullets={[
