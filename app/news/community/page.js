@@ -95,8 +95,9 @@ export default function CommunityOverview() {
             we&apos;d love to hear from you.
           </p>
         </div>
-        <Link href="/contact" className="btn">
+        <Link href="/contact" className="motta-community__get-in-touch">
           Get in Touch
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </Link>
       </div>
 
@@ -159,11 +160,11 @@ export default function CommunityOverview() {
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
-          min-height: 220px;
+          min-height: 280px;
         }
         @media (min-width: 768px) {
           .motta-community__card-img--photo {
-            min-height: 200px;
+            min-height: 260px;
           }
         }
         .motta-community__card-img img {
@@ -214,6 +215,26 @@ export default function CommunityOverview() {
             flex-direction: column;
             align-items: flex-start;
           }
+        }
+        .motta-community__get-in-touch {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          white-space: nowrap;
+          flex-shrink: 0;
+          padding: 13px 22px;
+          border-radius: 999px;
+          background: var(--motta-sage, #8e9b79);
+          color: #fff;
+          font-size: 15px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .motta-community__get-in-touch:hover {
+          background: var(--motta-sage-deep, #6b745d);
+          color: #fff;
+          transform: translateY(-1px);
         }
       `}</style>
     </article>

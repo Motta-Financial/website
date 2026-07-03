@@ -81,7 +81,13 @@ export default function ServiceDetailLayout({
             <div className="col-70 order-0 order-lg-2">
               {heroImage ? (
                 <div className="services__details-thumb">
-                  <img src={heroImage} alt={title} />
+                  <img
+                    src={heroImage}
+                    alt={title}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
                 </div>
               ) : null}
               <div className="services__details-content">
