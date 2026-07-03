@@ -152,7 +152,7 @@ export default function Payroll() {
     >
       <ServiceDetailLayout
         currentHref="/services/accounting/payroll"
-        heroImage="/assets/img/services/services_details02.jpg"
+        heroImage="/assets/img/services/payroll-hero.jpg"
         title="Payroll Services"
         lede="Payroll should just work. Motta handles the processing, tax filings, and compliance so you can focus on running your business — not debugging why someone&apos;s check was wrong or chasing down a state registration."
         bullets={[

@@ -49,7 +49,7 @@ export default function BusinessValuations() {
     >
       <ServiceDetailLayout
         currentHref="/services/ma/business-valuations"
-        heroImage="/assets/img/services/services_details03.jpg"
+        heroImage="/assets/img/services/business-valuations-hero.jpg"
         title="Business Valuations (409A & Transaction)"
         lede="Whether you're pricing equity awards, planning a transaction, or simply need to know what your business is worth, valuation is where every deal starts. Motta delivers defensible, transaction-ready valuations built on the same rigorous, driver-based modeling institutional buyers expect — led by a corporate development team that has sat on the other side of the table."
         bullets={[

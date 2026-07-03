@@ -17,7 +17,7 @@ export default function ForensicAccounting() {
     >
       <ServiceDetailLayout
         currentHref="/services/accounting/forensic-accounting"
-        heroImage="/assets/img/services/services_details_forensic.png"
+        heroImage="/assets/img/services/forensic-accounting-hero.jpg"
         title="Forensic Accounting & Litigation Support"
         lede="When the numbers have to hold up under scrutiny — in a dispute, an investigation, or a courtroom — you need more than a bookkeeper. Motta digs into the transactions, reconstructs what actually happened, and produces findings that are clear, defensible, and built to withstand cross-examination."
         bullets={[

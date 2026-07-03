@@ -17,7 +17,7 @@ export default function BusinessAdvisory() {
     >
       <ServiceDetailLayout
         currentHref="/services/business-advisory"
-        heroImage="/assets/img/services/services_details03.jpg"
+        heroImage="/assets/img/services/business-advisory-hero.jpg"
         title="Business Advisory"
         lede="Running a business means making big decisions with incomplete information. Motta brings the financial expertise and outside perspective to help you think through what&apos;s next — whether you&apos;re starting up, scaling, or planning an exit."
         bullets={[
