@@ -16,11 +16,15 @@ export default function NewsArticle({
 }) {
   return (
     <article className="motta-news-article">
-      <Link href={backHref} className="motta-news-article__back">
-        <i className="flaticon-left-arrow" /> {backLabel}
-      </Link>
-      <span className="motta-eyebrow">{eyebrow}</span>
-      {date ? <p className="motta-news-article__date">{date}</p> : null}
+      <div className="motta-news-article__meta-row">
+        <Link href={backHref} className="motta-news-article__back">
+          <i className="flaticon-left-arrow" /> {backLabel}
+        </Link>
+        {eyebrow ? (
+          <span className="motta-news-article__eyebrow-pill">{eyebrow}</span>
+        ) : null}
+        {date ? <span className="motta-news-article__date">{date}</span> : null}
+      </div>
       <h1 className="motta-news-article__title">{title}</h1>
       {subtitle ? <p className="motta-news-article__sub">{subtitle}</p> : null}
 
@@ -37,6 +41,13 @@ export default function NewsArticle({
       <div className="motta-news-article__body">{children}</div>
 
       <style jsx>{`
+        .motta-news-article__meta-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin-bottom: 20px;
+        }
         .motta-news-article__back {
           display: inline-flex;
           align-items: center;
@@ -47,16 +58,27 @@ export default function NewsArticle({
           text-transform: uppercase;
           color: var(--motta-sage-deep, #6b745d);
           text-decoration: none;
-          margin-bottom: 20px;
         }
         .motta-news-article__back:hover {
           color: var(--motta-charcoal, #2b2f24);
         }
+        .motta-news-article__eyebrow-pill {
+          display: inline-flex;
+          align-items: center;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--motta-sage-deep, #6b745d);
+          background: rgba(142, 155, 121, 0.12);
+          border: 1px solid rgba(142, 155, 121, 0.28);
+          border-radius: 999px;
+          padding: 3px 10px;
+        }
         .motta-news-article__date {
-          font-size: 13px;
+          font-size: 12px;
           letter-spacing: 0.06em;
-          color: rgba(43, 47, 36, 0.6);
-          margin: 6px 0 12px;
+          color: rgba(43, 47, 36, 0.5);
         }
         .motta-news-article__title {
           font-size: clamp(28px, 3.4vw, 42px);

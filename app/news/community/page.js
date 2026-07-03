@@ -132,9 +132,8 @@ export default function CommunityOverview() {
           margin-bottom: 40px;
         }
         .motta-community__card {
-          display: grid;
-          grid-template-columns: 260px 1fr;
-          gap: 0;
+          display: flex;
+          flex-direction: column;
           border-radius: 14px;
           overflow: hidden;
           background: var(--motta-cream-50, #fbf8f2);
@@ -143,11 +142,6 @@ export default function CommunityOverview() {
           text-decoration: none;
           transition: transform 0.2s ease, border-color 0.2s ease,
             box-shadow 0.2s ease;
-        }
-        @media (max-width: 767px) {
-          .motta-community__card {
-            grid-template-columns: 1fr;
-          }
         }
         .motta-community__card:hover {
           transform: translateY(-3px);
@@ -166,15 +160,14 @@ export default function CommunityOverview() {
         .motta-community__card-img--photo {
           padding: 0;
           overflow: hidden;
-          min-height: 360px;
-          height: 100%;
+          height: 320px;
+          flex-shrink: 0;
         }
         .motta-community__card-img--photo img {
           width: 100%;
           height: 100%;
-          min-height: 360px;
           object-fit: cover;
-          object-position: center top;
+          object-position: center 20%;
           display: block;
         }
         .motta-community__card-img img {
