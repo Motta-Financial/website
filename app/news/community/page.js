@@ -11,7 +11,7 @@ const COMMUNITY_ITEMS = [
     desc:
       'Motta Financial is a Connection Sponsor of JA Southern Massachusetts, supporting the inaugural 2026 Youth Summit at UMass Dartmouth and JA\u2019s year-round programs in financial literacy, entrepreneurship, and career readiness.',
     image: '/assets/img/news/ja-youth-summit-2026.jpg',
-    imagePosition: 'center 22%',
+    imagePosition: 'center 10%',
   },
   {
     href: '/news/community/suffolk-seed',
@@ -31,7 +31,7 @@ const COMMUNITY_ITEMS = [
     desc:
       'Founder Dat Le joined fellow Suffolk alumni in a $225,000 surprise gift to honor Associate Dean Tracey Riley \u2014 establishing the Accounting Winternships Fund and the Tracey Riley Legacy Fund to support the next generation of accountants.',
     image: '/assets/img/news/suffolk-scholarship/group-four.jpg',
-    imagePosition: 'center 28%',
+    imagePosition: 'center 12%',
   },
 ];
 
@@ -67,14 +67,23 @@ export default function CommunityOverview() {
                 />
               </div>
             ) : (
-              <div className="motta-community__card-img motta-community__card-img--photo">
+              <div
+                className="motta-community__card-img--photo"
+                style={{ height: 380, overflow: 'hidden', flexShrink: 0 }}
+              >
                 <img
                   src={item.image}
                   alt={item.org}
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
-                  style={{ objectPosition: item.imagePosition || 'center top' }}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: item.imagePosition || 'center 15%',
+                    display: 'block',
+                  }}
                 />
               </div>
             )}
@@ -157,21 +166,8 @@ export default function CommunityOverview() {
           min-height: 160px;
           flex-shrink: 0;
         }
-        .motta-community__card-img--photo {
-          padding: 0;
-          overflow: hidden;
-          height: 320px;
-          flex-shrink: 0;
-        }
-        .motta-community__card-img--photo img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center 20%;
-          display: block;
-        }
         .motta-community__card-img img {
-          max-width: 100%;
+          max-width: 80%;
           max-height: 110px;
           height: auto;
           display: block;
