@@ -17,7 +17,7 @@ export default function SaasTechAdvisory() {
     >
       <ServiceDetailLayout
         currentHref="/services/saas-tech-advisory"
-        heroImage="/assets/img/services/services_details_saas.png"
+        heroImage="/assets/img/services/saas-tech-advisory-hero.jpg"
         title="SaaS & Technology Advisory"
         lede="Where finance meets go-to-market. We help SaaS and technology companies bring clarity to the complexity of new sales channels, billing modernization, and audit-ready revenue recognition — the full arc from diagnosis to delivery, from the first quote to cash in the bank."
         bullets={[

@@ -17,7 +17,7 @@ export default function FinancialModeling() {
     >
       <ServiceDetailLayout
         currentHref="/services/ma/financial-modeling"
-        heroImage="/assets/img/services/services_details_graph01.jpg"
+        heroImage="/assets/img/services/financial-modeling-hero.jpg"
         title="Financial Modeling & Investment Memos"
         lede="Big decisions deserve more than a spreadsheet of guesses. Motta builds driver-based financial models and the investment memos that turn them into decisions — the same deliverables used to win board approval, secure capital, and close acquisitions."
         bullets={[
