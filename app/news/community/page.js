@@ -58,17 +58,25 @@ export default function CommunityOverview() {
                 className="motta-community__card-img"
                 style={{ background: item.imageBg }}
               >
-                <img src={item.image} alt={`${item.org} logo`} />
+                <img
+                  src={item.image}
+                  alt={`${item.org} logo`}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                />
               </div>
             ) : (
-              <div
-                className="motta-community__card-img motta-community__card-img--photo"
-                style={{
-                  backgroundImage: `url(${item.image})`,
-                  backgroundPosition: item.imagePosition || 'center',
-                }}
-                aria-hidden="true"
-              />
+              <div className="motta-community__card-img motta-community__card-img--photo">
+                <img
+                  src={item.image}
+                  alt={item.org}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  style={{ objectPosition: item.imagePosition || 'center top' }}
+                />
+              </div>
             )}
             <div className="motta-community__card-body">
               <span className="motta-community__card-eyebrow">
@@ -153,13 +161,21 @@ export default function CommunityOverview() {
           justify-content: center;
           padding: 22px;
           min-height: 160px;
+          flex-shrink: 0;
         }
         .motta-community__card-img--photo {
           padding: 0;
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          min-height: 220px;
+          overflow: hidden;
+          min-height: 360px;
+          height: 100%;
+        }
+        .motta-community__card-img--photo img {
+          width: 100%;
+          height: 100%;
+          min-height: 360px;
+          object-fit: cover;
+          object-position: center top;
+          display: block;
         }
         .motta-community__card-img img {
           max-width: 100%;
