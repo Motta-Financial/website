@@ -1,5 +1,4 @@
 import Link from "next/link"
-import InstagramFeed from "@/components/elements/InstagramFeed"
 import { SOCIALS } from "@/lib/socials"
 
 export default function Footer2() {
@@ -92,12 +91,6 @@ export default function Footer2() {
                                                 <li><Link href="/contact">Pricing</Link></li>
                                             </ul>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-3 col-lg-4 col-md-6">
-                                    <div className="footer-widget">
-                                        <h4 className="fw-title">Instagram Posts</h4>
-                                        <InstagramFeed limit={6} />
                                     </div>
                                 </div>
                             </div>

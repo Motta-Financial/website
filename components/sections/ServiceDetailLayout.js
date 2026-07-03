@@ -152,9 +152,7 @@ export default function ServiceDetailLayout({
                   <div className="sidebar__cat-list-two">
                     <h4 className="sidebar__widget-title">Other Services</h4>
                     {SERVICE_GROUPS.map((group) => {
-                      const items = group.items.filter(
-                        (s) => s.href !== currentHref
-                      );
+                      const items = group.items;
                       if (items.length === 0) return null;
                       return (
                         <div key={group.area} className="sidebar__cat-group">
@@ -162,14 +160,21 @@ export default function ServiceDetailLayout({
                             {group.area}
                           </h5>
                           <ul className="list-wrap">
-                            {items.map((s) => (
-                              <li key={s.href}>
-                                <Link href={s.href}>
-                                  {s.label}{' '}
-                                  <i className="flaticon-arrow-button" />
-                                </Link>
-                              </li>
-                            ))}
+                            {items.map((s) => {
+                              const isActive = s.href === currentHref;
+                              return (
+                                <li key={s.href}>
+                                  <Link
+                                    href={s.href}
+                                    className={isActive ? 'is-active' : undefined}
+                                    aria-current={isActive ? 'page' : undefined}
+                                  >
+                                    {s.label}{' '}
+                                    <i className="flaticon-arrow-button" />
+                                  </Link>
+                                </li>
+                              );
+                            })}
                           </ul>
                         </div>
                       );
