@@ -615,10 +615,19 @@
   text-shadow: 0 1px 14px rgba(15, 19, 16, 0.35);
 }
 .motta-breadcrumb__crumbs.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
   margin: 0;
   padding: 0;
+  list-style: none;
   font-size: 13px;
   letter-spacing: 0.04em;
+}
+.motta-breadcrumb__crumbs .breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
 }
 .motta-breadcrumb__crumbs .breadcrumb-item,
 .motta-breadcrumb__crumbs .breadcrumb-item a {
@@ -632,6 +641,7 @@
 }
 .motta-breadcrumb__crumbs .breadcrumb-item + .breadcrumb-item::before {
   content: "/";
+  display: inline-block;
   color: rgba(234, 230, 225, 0.55);
   padding: 0 8px;
 }

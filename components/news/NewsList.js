@@ -23,11 +23,20 @@ export default function NewsList({ eyebrow, title, lead, items }) {
             {item.image ? (
               <div
                 className="motta-news-list__card-img"
-                style={{
-                  backgroundImage: `url(${item.image})`,
-                  background: item.imageBg || undefined,
-                  backgroundPosition: item.imagePosition || 'center',
-                }}
+                style={
+                  item.imageBg
+                    ? {
+                        background: item.imageBg,
+                        backgroundImage: `url(${item.image})`,
+                        backgroundSize: 'contain',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                      }
+                    : {
+                        backgroundImage: `url(${item.image})`,
+                        backgroundPosition: item.imagePosition || 'center',
+                      }
+                }
                 aria-hidden="true"
               />
             ) : null}
@@ -60,10 +69,10 @@ export default function NewsList({ eyebrow, title, lead, items }) {
         }
         .motta-news-list__card {
           display: grid;
-          grid-template-columns: 220px 1fr;
-          gap: 24px;
-          padding: 22px;
+          grid-template-columns: 260px 1fr;
+          gap: 0;
           border-radius: 14px;
+          overflow: hidden;
           background: var(--motta-cream-50, #fbf8f2);
           border: 1px solid rgba(107, 116, 93, 0.16);
           color: var(--motta-charcoal, #2b2f24);
@@ -89,13 +98,20 @@ export default function NewsList({ eyebrow, title, lead, items }) {
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
-          border-radius: 10px;
-          min-height: 220px;
+          min-height: 200px;
+          width: 100%;
+          flex-shrink: 0;
         }
-        @media (min-width: 768px) {
+        @media (max-width: 767px) {
           .motta-news-list__card-img {
-            min-height: 180px;
+            min-height: 200px;
           }
+        }
+        .motta-news-list__card-body {
+          padding: 22px 24px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
         .motta-news-list__card-eyebrow {
           font-size: 11px;

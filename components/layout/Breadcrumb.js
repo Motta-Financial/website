@@ -49,13 +49,14 @@ export default function Breadcrumb({
                 <p className="motta-breadcrumb__tagline">{tagline}</p>
               ) : null}
               <nav aria-label="breadcrumb">
-                <ol className="breadcrumb motta-breadcrumb__crumbs">
-                  <li className="breadcrumb-item">
+                <ol className="breadcrumb motta-breadcrumb__crumbs" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', listStyle: 'none', margin: 0, padding: 0, gap: 0 }}>
+                  <li className="breadcrumb-item" style={{ display: 'flex', alignItems: 'center' }}>
                     <Link href={backHref}>{backLabel}</Link>
                   </li>
                   <li
                     className="breadcrumb-item active"
                     aria-current="page"
+                    style={{ display: 'flex', alignItems: 'center' }}
                   >
                     {breadcrumbTitle}
                   </li>
