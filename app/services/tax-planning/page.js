@@ -17,7 +17,7 @@ export default function TaxPlanning() {
     >
       <ServiceDetailLayout
         currentHref="/services/tax-planning"
-        heroImage="/assets/img/services/services_details01.jpg"
+        heroImage="/assets/img/services/tax-planning-hero.jpg"
         title="Tax Planning & Preparation"
         lede="Most people only think about taxes once a year — and pay extra for it. Motta works with you year-round, looking at every big decision before it happens so the bill in April is the smallest one possible. ALFRED Ai handles the heavy lifting on your return so your CPA can focus on the strategy that actually saves you money."
         bullets={[
