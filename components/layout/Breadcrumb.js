@@ -12,6 +12,8 @@ export default function Breadcrumb({
   eyebrow,
   tagline,
   backgroundImage,
+  backHref = '/',
+  backLabel = 'Home',
 }) {
   const bg = backgroundImage || '/assets/img/slider/slider_bg01.jpg';
 
@@ -49,7 +51,7 @@ export default function Breadcrumb({
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb motta-breadcrumb__crumbs">
                   <li className="breadcrumb-item">
-                    <Link href="/">Home</Link>
+                    <Link href={backHref}>{backLabel}</Link>
                   </li>
                   <li
                     className="breadcrumb-item active"

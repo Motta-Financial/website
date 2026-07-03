@@ -32,6 +32,8 @@ export default function Layout({
   breadcrumbEyebrow,
   breadcrumbTagline,
   breadcrumbImage,
+  breadcrumbBackHref,
+  breadcrumbBackLabel,
   children,
   transparent,
 }) {
@@ -147,6 +149,8 @@ export default function Layout({
             eyebrow={breadcrumbEyebrow}
             tagline={breadcrumbTagline}
             backgroundImage={breadcrumbImage}
+            backHref={breadcrumbBackHref}
+            backLabel={breadcrumbBackLabel}
           />
         )}
 

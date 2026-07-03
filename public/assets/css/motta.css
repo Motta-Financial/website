@@ -2659,6 +2659,28 @@ button.motta-cta.btn:hover {
   .motta-team-group__head { gap: 12px; margin-bottom: 26px; }
 }
 
+/* ===== "Back to Services" link — bottom of section pages ============ */
+.motta-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--motta-sage-deep, #6b745d);
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+.motta-back-link svg {
+  transition: transform 0.2s ease;
+}
+.motta-back-link:hover {
+  color: var(--motta-charcoal, #2b2f24);
+  gap: 12px;
+}
+.motta-back-link:hover svg {
+  transform: translateX(-3px);
+}
+
 /* ===== Other Services sidebar — grouped by practice area =========== */
 .sidebar__cat-group + .sidebar__cat-group {
   margin-top: 22px;
