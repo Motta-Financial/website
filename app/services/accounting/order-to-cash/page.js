@@ -145,7 +145,7 @@ export default function OrderToCash() {
     >
       <ServiceDetailLayout
         currentHref="/services/accounting/order-to-cash"
-        heroImage="/assets/img/services/services_details04.jpg"
+        heroImage="/assets/img/services/order-to-cash-hero.jpg"
         title="Order-to-Cash — Money In"
         lede="From a new customer and a quote to cash in the bank and revenue recognized — the cycle that funds your growth. Powered by Motta Bookkeeping, QuickBooks setup, and Fractional CFO reporting, with ALFRED Ai surfacing AR aging and cash-flow signals while collections strategy stays human."
         bullets={[
