@@ -2,10 +2,12 @@ import Link from 'next/link';
 import IntakeButton from '@/components/intake/IntakeButton';
 
 /**
- * Other Services, organized by the firm's four core practice areas:
- * Tax, Accounting, Business Advisory, and Wealth Management.
- * Mergers & Acquisitions and SaaS & Technology Advisory live under
- * Business Advisory.
+ * Only the practice areas that have subcategories get a sidebar: Tax,
+ * Accounting, and Mergers & Acquisitions. On any page within one of these
+ * groups, the sidebar shows ONLY that group's items (with the current page
+ * highlighted). Pages that don't belong to one of these groups
+ * (Business Advisory, SaaS & Technology Advisory, Wealth Management, etc.)
+ * render no sidebar at all and the content goes full-width.
  */
 const SERVICE_GROUPS = [
   {
@@ -33,9 +35,8 @@ const SERVICE_GROUPS = [
     ],
   },
   {
-    area: 'Business Advisory',
+    area: 'Mergers & Acquisitions',
     items: [
-      { href: '/services/business-advisory', label: 'Business Advisory' },
       { href: '/services/ma', label: 'Mergers & Acquisitions' },
       { href: '/services/ma/business-valuations', label: 'Business Valuations' },
       { href: '/services/ma/due-diligence', label: 'M&A Due Diligence' },
@@ -43,16 +44,18 @@ const SERVICE_GROUPS = [
       { href: '/services/ma/quality-of-earnings', label: 'Quality of Earnings (QofE)' },
       { href: '/services/ma/financial-modeling', label: 'Financial Modeling & Investment Memos' },
       { href: '/services/ma/integration', label: 'Post-Close Integration & Synergy' },
-      { href: '/services/saas-tech-advisory', label: 'SaaS & Technology Advisory' },
-    ],
-  },
-  {
-    area: 'Wealth Management',
-    items: [
-      { href: '/services/wealth-management', label: 'Wealth Management' },
     ],
   },
 ];
+
+/** Find the subcategory group that the current page belongs to (or null). */
+function findActiveGroup(currentHref) {
+  return (
+    SERVICE_GROUPS.find((group) =>
+      group.items.some((item) => item.href === currentHref)
+    ) || null
+  );
+}
 
 /**
  * ServiceDetailLayout — shared layout for all /services/* sub-pages.
@@ -73,12 +76,19 @@ export default function ServiceDetailLayout({
   bullets = [],
   heroImage,
 }) {
+  const activeGroup = findActiveGroup(currentHref);
+  const hasSidebar = Boolean(activeGroup);
+
   return (
     <section className="services__details-area">
       <div className="container">
         <div className="services__details-wrap">
           <div className="row">
-            <div className="col-70 order-0 order-lg-2">
+            <div
+              className={
+                hasSidebar ? 'col-70 order-0 order-lg-2' : 'col-12'
+              }
+            >
               {heroImage ? (
                 <div className="services__details-thumb">
                   <img src={heroImage} alt={title} />
@@ -146,39 +156,33 @@ export default function ServiceDetailLayout({
               </div>
             </div>
 
+            {hasSidebar ? (
             <div className="col-30">
               <aside className="services__sidebar">
                 <div className="sidebar__widget sidebar__widget-two">
                   <div className="sidebar__cat-list-two">
-                    <h4 className="sidebar__widget-title">Other Services</h4>
-                    {SERVICE_GROUPS.map((group) => {
-                      const items = group.items;
-                      if (items.length === 0) return null;
-                      return (
-                        <div key={group.area} className="sidebar__cat-group">
-                          <h5 className="sidebar__cat-group-title">
-                            {group.area}
-                          </h5>
-                          <ul className="list-wrap">
-                            {items.map((s) => {
-                              const isActive = s.href === currentHref;
-                              return (
-                                <li key={s.href}>
-                                  <Link
-                                    href={s.href}
-                                    className={isActive ? 'is-active' : undefined}
-                                    aria-current={isActive ? 'page' : undefined}
-                                  >
-                                    {s.label}{' '}
-                                    <i className="flaticon-arrow-button" />
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      );
-                    })}
+                    <h4 className="sidebar__widget-title">
+                      {activeGroup.area}
+                    </h4>
+                    <div className="sidebar__cat-group">
+                      <ul className="list-wrap">
+                        {activeGroup.items.map((s) => {
+                          const isActive = s.href === currentHref;
+                          return (
+                            <li key={s.href}>
+                              <Link
+                                href={s.href}
+                                className={isActive ? 'is-active' : undefined}
+                                aria-current={isActive ? 'page' : undefined}
+                              >
+                                {s.label}{' '}
+                                <i className="flaticon-arrow-button" />
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
                   </div>
                 </div>
 
@@ -207,6 +211,7 @@ export default function ServiceDetailLayout({
                 </div>
               </aside>
             </div>
+            ) : null}
           </div>
         </div>
       </div>
