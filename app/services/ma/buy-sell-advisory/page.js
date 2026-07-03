@@ -17,7 +17,7 @@ export default function BuySellAdvisory() {
     >
       <ServiceDetailLayout
         currentHref="/services/ma/buy-sell-advisory"
-        heroImage="/assets/img/services/services_details_ma.png"
+        heroImage="/assets/img/services/buy-sell-advisory-hero.jpg"
         title="Buy-Side & Sell-Side Advisory"
         lede="Most owners go through the biggest transaction of their lives once. We have run dozens. Motta brings in-house corporate development discipline to both sides of the table — guiding buyers and sellers from first conversation through a signed, closed deal."
         bullets={[

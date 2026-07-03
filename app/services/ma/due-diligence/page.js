@@ -17,7 +17,7 @@ export default function DueDiligence() {
     >
       <ServiceDetailLayout
         currentHref="/services/ma/due-diligence"
-        heroImage="/assets/img/services/services_details04.jpg"
+        heroImage="/assets/img/services/due-diligence-hero.jpg"
         title="M&A Due Diligence"
         lede="Diligence is where deals are won, repriced, or walked away from. Motta runs a disciplined, cross-functional diligence process — built from years of executing acquisitions in-house — that surfaces the risks and the upside before you commit capital or sign a deal."
         bullets={[

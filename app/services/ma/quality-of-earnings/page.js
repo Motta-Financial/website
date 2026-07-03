@@ -17,7 +17,7 @@ export default function QualityOfEarnings() {
     >
       <ServiceDetailLayout
         currentHref="/services/ma/quality-of-earnings"
-        heroImage="/assets/img/services/services_details05.jpg"
+        heroImage="/assets/img/services/quality-of-earnings-hero.jpg"
         title="Quality of Earnings (QofE)"
         lede="Reported earnings and real, sustainable earnings are rarely the same number. A Quality of Earnings analysis cuts through one-time items, owner add-backs, and accounting noise to show what a business actually earns — the figure every purchase price is built on."
         bullets={[
