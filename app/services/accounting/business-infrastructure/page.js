@@ -17,7 +17,7 @@ export default function BusinessInfrastructure() {
     >
       <ServiceDetailLayout
         currentHref="/services/accounting/business-infrastructure"
-        heroImage="/assets/img/services/services_details02.jpg"
+        heroImage="/assets/img/services/business-infrastructure-hero.jpg"
         title="Business Infrastructure Set Up & Optimization"
         lede="The right financial infrastructure makes everything else easier — clean data, automated workflows, and systems that talk to each other. Whether you&apos;re starting fresh or untangling years of workarounds, we build the foundation your business needs to scale."
         bullets={[

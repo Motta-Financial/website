@@ -92,7 +92,7 @@ export default function Bookkeeping() {
     >
       <ServiceDetailLayout
         currentHref="/services/accounting/bookkeeping"
-        heroImage="/assets/img/services/services_details02.jpg"
+        heroImage="/assets/img/services/bookkeeping-hero.jpg"
         title="Bookkeeping"
         lede="Clean books are the foundation of every good financial decision. Whether you're a small business owner who shouldn't have to wear the bookkeeper's hat too, or a scaling company that needs airtight monthly numbers, Motta handles your day-to-day bookkeeping with senior accountants who actually understand your business — backed by a Platinum-tier Certified QuickBooks ProAdvisor team. ALFRED Ai does the repetitive work so your accountant can focus on accuracy and insight."
         bullets={[
