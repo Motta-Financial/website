@@ -837,7 +837,6 @@ export default function HubIntakeForm() {
             </div>
           </div>
         </div>
-        </div>
         <div className="form-grp">
           <label htmlFor="intake-notes">Anything else we should know</label>
           <textarea
