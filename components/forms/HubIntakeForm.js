@@ -531,6 +531,10 @@ export default function HubIntakeForm() {
         style={honeypotStyle}
       />
 
+      <p style={{ fontSize: 12, fontStyle: 'italic', color: 'rgba(43,47,36,0.52)', margin: '0 0 20px', letterSpacing: '0.01em' }}>
+        Fields marked with <span style={{ color: '#c0392b', fontStyle: 'normal', fontWeight: 700 }}>*</span> are required.
+      </p>
+
       <SectionCard
         step={1}
         total={totalSteps}
@@ -774,7 +778,7 @@ export default function HubIntakeForm() {
         <div className="row g-3">
           <div className="col-md-6">
             <div className="form-grp">
-              <label htmlFor="intake-behind">Are you currently behind on any tax filings?</label>
+              <label htmlFor="intake-behind">Are you currently behind on any tax filings? <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
               <select id="intake-behind" name="behind_on_filings" defaultValue="">
                 <option value="" disabled>Select…</option>
                 {BEHIND_ON_FILINGS_OPTIONS.map((o) => (
@@ -785,7 +789,7 @@ export default function HubIntakeForm() {
           </div>
           <div className="col-md-6">
             <div className="form-grp">
-              <label htmlFor="intake-notices">Any pending IRS or state notices?</label>
+              <label htmlFor="intake-notices">Any pending IRS or state notices? <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
               <select id="intake-notices" name="pending_tax_notices" defaultValue="">
                 <option value="" disabled>Select…</option>
                 {PENDING_NOTICES_OPTIONS.map((o) => (
@@ -796,7 +800,7 @@ export default function HubIntakeForm() {
           </div>
           <div className="col-md-6">
             <div className="form-grp">
-              <label htmlFor="intake-cpa">Do you currently work with a CPA or bookkeeper?</label>
+              <label htmlFor="intake-cpa">Do you currently work with a CPA or bookkeeper? <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
               <select id="intake-cpa" name="current_cpa_status" defaultValue="">
                 <option value="" disabled>Select…</option>
                 {CURRENT_CPA_OPTIONS.map((o) => (
