@@ -68,6 +68,18 @@ const REVENUE_RANGES = [
   '$1M+',
 ];
 
+const BEHIND_ON_FILINGS_OPTIONS = [
+  'No',
+  'Yes — personal',
+  'Yes — business',
+  'Yes — both',
+  'Not sure',
+];
+
+const PENDING_NOTICES_OPTIONS = ['No', 'Yes', 'Not sure'];
+
+const CURRENT_CPA_OPTIONS = ['No', 'Yes'];
+
 const STATES = [
   'AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID','IL','IN',
   'IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH',
@@ -332,6 +344,11 @@ export default function HubIntakeForm() {
       additional_notes: get('additional_notes') || undefined,
       referral_source: get('referral_source') || undefined,
       preferred_team_member: preferredTeamMember || undefined,
+
+      behind_on_filings: get('behind_on_filings') || undefined,
+      pending_tax_notices: get('pending_tax_notices') || undefined,
+      current_cpa_status: get('current_cpa_status') || undefined,
+      cpa_switch_reason: get('cpa_switch_reason') || undefined,
 
       page_url: typeof window !== 'undefined' ? window.location.href : undefined,
       website: get('website'), // honeypot — bots fill, real users leave empty
@@ -757,6 +774,47 @@ export default function HubIntakeForm() {
         <div className="row g-3">
           <div className="col-md-6">
             <div className="form-grp">
+              <label htmlFor="intake-behind">Are you currently behind on any tax filings?</label>
+              <select id="intake-behind" name="behind_on_filings" defaultValue="">
+                <option value="" disabled>Select…</option>
+                {BEHIND_ON_FILINGS_OPTIONS.map((o) => (
+                  <option key={o} value={o}>{o}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="form-grp">
+              <label htmlFor="intake-notices">Any pending IRS or state notices?</label>
+              <select id="intake-notices" name="pending_tax_notices" defaultValue="">
+                <option value="" disabled>Select…</option>
+                {PENDING_NOTICES_OPTIONS.map((o) => (
+                  <option key={o} value={o}>{o}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="form-grp">
+              <label htmlFor="intake-cpa">Do you currently work with a CPA or bookkeeper?</label>
+              <select id="intake-cpa" name="current_cpa_status" defaultValue="">
+                <option value="" disabled>Select…</option>
+                {CURRENT_CPA_OPTIONS.map((o) => (
+                  <option key={o} value={o}>{o}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="form-grp">
+              <label htmlFor="intake-switch">If you&apos;re switching, what&apos;s prompting the change?</label>
+              <input id="intake-switch" type="text" name="cpa_switch_reason" placeholder="Optional" />
+            </div>
+          </div>
+        </div>
+        <div className="row g-3">
+          <div className="col-md-6">
+            <div className="form-grp">
               <label htmlFor="intake-referral">Who referred you?</label>
               <input id="intake-referral" type="text" name="referral_source" placeholder="Optional" />
             </div>
@@ -778,6 +836,7 @@ export default function HubIntakeForm() {
               </select>
             </div>
           </div>
+        </div>
         </div>
         <div className="form-grp">
           <label htmlFor="intake-notes">Anything else we should know</label>
