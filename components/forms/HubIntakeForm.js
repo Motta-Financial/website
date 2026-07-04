@@ -545,19 +545,19 @@ export default function HubIntakeForm() {
         <div className="row g-3">
           <div className="col-md-6">
             <div className="form-grp">
-              <label htmlFor="intake-first-name">First name *</label>
+              <label htmlFor="intake-first-name">First name <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
               <input id="intake-first-name" type="text" name="first_name" autoComplete="given-name" required />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-grp">
-              <label htmlFor="intake-last-name">Last name *</label>
+              <label htmlFor="intake-last-name">Last name <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
               <input id="intake-last-name" type="text" name="last_name" autoComplete="family-name" required />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-grp">
-              <label htmlFor="intake-email">Email *</label>
+              <label htmlFor="intake-email">Email <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
               <input id="intake-email" type="email" name="email" autoComplete="email" required />
             </div>
           </div>
@@ -607,7 +607,7 @@ export default function HubIntakeForm() {
         sub="Pick the lane that fits — we&apos;ll show the relevant follow-ups."
       >
         <div className="form-grp">
-          <label htmlFor="intake-focus">Service focus *</label>
+          <label htmlFor="intake-focus">Service focus <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
               <select
                 id="intake-focus"
                 name="service_focus_select"
