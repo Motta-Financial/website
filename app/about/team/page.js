@@ -61,6 +61,17 @@ const teamMembers = [
     email: 'Justin.Bestel@MottaFinancial.com',
   },
   {
+    slug: 'shinika-shelley',
+    name: 'Shinika Shelley',
+    title: 'Senior Accounting Consultant',
+    group: 'Accounting',
+    credentials: 'Controller-Level · Fractional CFO · Multi-Client · 19 Years Experience',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/7CB62C0D-75E8-4D6A-B324-3EB9D7590D6C%20%281%29-AwUjJh6BnFVF5y4tdVS5bUiQ34gLng.png',
+    blurb:
+      "Shinika is a senior accounting professional with nineteen years of experience delivering full-cycle accounting, financial reporting, and advisory services across healthcare, SaaS, B2B, entertainment, and real estate. She has served in Controller and Fractional CFO capacities — leading month-end close, cash flow strategy, multi-entity reporting, and client advisory for businesses ranging from dental investment portfolios to entertainment industry clients. Known for her precision, process improvement instincts, and ability to manage complex multi-client engagements, Shinika is also the founder of Last Stop Consulting LLC.",
+    email: 'Shinika.Shelley@MottaFinancial.com',
+  },
+  {
     slug: 'caleb-long',
     name: 'Caleb Long',
     title: 'Director, Corporate Development & M&A',
