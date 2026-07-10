@@ -954,7 +954,7 @@ textarea {
   font-size: 15px;
   font-weight: 600;
   line-height: normal;
-  color: var(--tg-color-white-default);
+  color: var(--tg-theme-primary);
   margin-bottom: 12px;
 }
 .section-title .title {
@@ -991,6 +991,9 @@ textarea {
   }
 }
 .section-title.white-title .title {
+  color: var(--tg-color-white-default);
+}
+.section-title.white-title .sub-title {
   color: var(--tg-color-white-default);
 }
 
