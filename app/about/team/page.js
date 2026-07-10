@@ -50,6 +50,17 @@ const teamMembers = [
     calendly: 'https://calendly.com/amy-sparaco-mottafinancial',
   },
   {
+    slug: 'justin-bestel',
+    name: 'Justin Bestel, CPA',
+    title: 'Senior Accounting Consultant',
+    group: 'Accounting',
+    credentials: 'CPA · Multi-Industry · Financial Services · Healthcare · Manufacturing',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Justin%20Bestel-NFYsWXGsvPNVcBDfDrnRighvOzAsbw.jpg',
+    blurb:
+      "Justin is a senior-level accounting and finance consultant with a track record across financial services, healthcare, manufacturing, and public accounting. He brings hands-on expertise in month-end close, financial statement preparation, cash flow forecasting, budgeting, and ERP implementation — and a proven ability to step into complex environments and add immediate value. A CPA and University of Minnesota Duluth graduate, Justin also leads process improvement initiatives and has supported companies preparing for public offerings.",
+    email: 'Justin.Bestel@MottaFinancial.com',
+  },
+  {
     slug: 'caleb-long',
     name: 'Caleb Long',
     title: 'Director, Corporate Development & M&A',
