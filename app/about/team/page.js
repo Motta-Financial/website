@@ -191,7 +191,7 @@ export default function AboutTeamPage() {
                     {members.map((member) => (
                       <div
                         key={member.slug}
-                        className={`${groupName === 'Accounting' ? 'col-lg-5' : 'col-lg-4'} col-md-6 col-sm-8 mb-30`}
+                        className="col-lg-4 col-md-6 col-sm-8 mb-30"
                       >
                         <div
                           className="team__item-two shine-animate-item h-100"
