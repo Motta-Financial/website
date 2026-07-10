@@ -203,9 +203,9 @@ export default function AboutTeamPage() {
                               alt={member.name}
                               style={{
                                 width: '100%',
-                                height: '380px',
+                                aspectRatio: '4 / 3',
                                 objectFit: 'cover',
-                                objectPosition: 'center top',
+                                objectPosition: 'center 15%',
                                 display: 'block',
                               }}
                             />
