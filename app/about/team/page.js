@@ -191,19 +191,19 @@ export default function AboutTeamPage() {
                     {members.map((member) => (
                       <div
                         key={member.slug}
-                        className={`${groupName === 'Accounting' ? 'col-lg-6' : 'col-lg-4'} col-md-6 col-sm-8 mb-30`}
+                        className="col-lg-6 col-md-6 col-sm-8 mb-30"
                       >
                         <div
                           className="team__item-two shine-animate-item h-100"
                           style={{ display: 'flex', flexDirection: 'column' }}
                         >
-                          <div className="team__thumb-two shine-animate" style={{ overflow: 'hidden' }}>
+                          <div className="team__thumb-two shine-animate" style={{ overflow: 'hidden', borderRadius: 'inherit' }}>
                             <img
                               src={member.image || '/placeholder.svg'}
                               alt={member.name}
                               style={{
                                 width: '100%',
-                                aspectRatio: '4 / 5',
+                                height: '380px',
                                 objectFit: 'cover',
                                 objectPosition: 'center top',
                                 display: 'block',
