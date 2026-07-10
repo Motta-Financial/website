@@ -2585,8 +2585,8 @@ textarea {
   top: 0;
   width: 100%;
   height: 100%;
-  background: #6a7358;
-  opacity: 0.7;
+  background: #1a1f14;
+  opacity: 0.72;
   z-index: 0;
 }
 .slider__single::after {
@@ -2596,8 +2596,8 @@ textarea {
   top: 0;
   width: 70%;
   height: 100%;
-  opacity: 0.9;
-  background: #333333;
+  opacity: 0.85;
+  background: #1a1f14;
   filter: blur(200px);
   z-index: 0;
 }
