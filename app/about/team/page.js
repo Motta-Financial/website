@@ -197,15 +197,16 @@ export default function AboutTeamPage() {
                           className="team__item-two shine-animate-item h-100"
                           style={{ display: 'flex', flexDirection: 'column' }}
                         >
-                          <div className="team__thumb-two shine-animate">
+                          <div className="team__thumb-two shine-animate" style={{ overflow: 'hidden' }}>
                             <img
                               src={member.image || '/placeholder.svg'}
                               alt={member.name}
                               style={{
                                 width: '100%',
-                                height: '360px',
+                                height: '300px',
                                 objectFit: 'cover',
                                 objectPosition: 'center top',
+                                display: 'block',
                               }}
                             />
                           </div>
