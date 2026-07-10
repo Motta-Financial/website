@@ -203,7 +203,7 @@ export default function AboutTeamPage() {
                               alt={member.name}
                               style={{
                                 width: '100%',
-                                height: '300px',
+                                aspectRatio: '4 / 5',
                                 objectFit: 'cover',
                                 objectPosition: 'center top',
                                 display: 'block',
