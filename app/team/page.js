@@ -86,6 +86,16 @@ const teamMembers = [
     linkedin: 'https://www.linkedin.com/in/julianjacobson5/',
   },
   {
+    slug: 'justin-bestel',
+    name: 'Justin Bestel, CPA',
+    title: 'Senior Accounting Consultant',
+    credentials: 'CPA · Multi-Industry · Financial Services · Healthcare · Manufacturing',
+    image: '/assets/img/team/justin-bestel.jpg',
+    blurb:
+      "Justin is a senior-level accounting and finance consultant with a track record across financial services, healthcare, manufacturing, and public accounting. He brings hands-on expertise in month-end close, financial statement preparation, cash flow forecasting, budgeting, and ERP implementation — and a proven ability to step into complex environments and add immediate value. A CPA and University of Minnesota Duluth graduate, Justin also leads process improvement initiatives and has supported companies preparing for public offerings.",
+    email: 'Justin.Bestel@MottaFinancial.com',
+  },
+  {
     slug: 'andrew-gianares',
     name: 'Andrew Gianares',
     title: 'Accounting Advisory Senior',
