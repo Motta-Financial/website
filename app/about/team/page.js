@@ -63,20 +63,7 @@ const teamMembers = [
     linkedin: 'https://www.linkedin.com/in/caleb-long/',
     calendly: 'https://calendly.com/caleb-long-mottafinancial',
   },
-  {
-    slug: 'micaela-palacios',
-    name: 'Micaela Palacios',
-    title: 'Associate, Tax Advisory',
-    group: 'Tax',
-    credentials: 'CPA Eligible · Suffolk University · Bilingual EN / ES',
-    image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Micaela%20Palacios-66rSwUgEL32LdNFmli6cwtTfzysmOs.jpg',
-    blurb:
-      "Micaela focuses on individual tax preparation, year-round planning, and equity-compensation strategy for employees navigating RSUs, ISOs, and ESPPs. A Suffolk Sawyer Honors graduate (3.95 GPA, Beta Alpha Psi), she brings real client experience from Suffolk's EEDC clinic and serves Motta's multilingual client community in English and Spanish.",
-    email: 'Micaela.Palacios@MottaFinancial.com',
-    linkedin: 'https://www.linkedin.com/in/micaela-palacios-v16/',
-    calendly: 'https://calendly.com/micaela-palacios-mottafinancial',
-  },
+
   {
     slug: 'julian-jacobson',
     name: 'Julian Jacobson',
