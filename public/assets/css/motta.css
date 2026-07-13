@@ -363,31 +363,32 @@
   padding: 4px 14px 4px 6px;
 }
 
-/* The two hero badge pills (.alfred-mark + .sub-title) were different
-   element types with different heights (36 vs 32px) and font sizes
-   (12 vs 16px), so their inline vertical centers sat ~7px apart and
-   read as misaligned. Normalize both into one matched pill row: equal
-   height, shared baseline (vertical-align: top), and same spacing. */
+/* Normalize both hero badge pills to identical size, font, and spacing */
 .slider__content .alfred-mark,
 .slider__content .sub-title {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
-  min-height: 38px;
-  vertical-align: top;
-  margin-bottom: 18px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  min-height: 36px;
+  vertical-align: middle;
+  margin-bottom: 20px;
+  font-size: 11px !important;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  line-height: 1;
 }
 .slider__content .sub-title {
-  padding: 4px 16px;
+  padding: 4px 14px;
   border-radius: 999px;
+  color: var(--motta-alfred-halo) !important;
+  background: rgba(142, 155, 121, 0.18);
+  border: 1px solid rgba(142, 155, 121, 0.4);
+  margin-left: 10px;
 }
-/* Breathing room between the two pills so they aren't almost touching. */
+/* Breathing room to the right of the first pill */
 .slider__content .alfred-mark {
-  margin-right: 14px;
+  margin-right: 0;
 }
 
 /* Hero photo was washed out: the image sat at 0.7 opacity over a white
@@ -414,6 +415,10 @@
 .slider__single .slider__content {
   position: relative;
   z-index: 3;
+}
+/* Shift the hero text block toward the left edge of the viewport */
+.slider__single .container {
+  padding-left: 0;
 }
 
 /* The two hero CTAs used different box models: the filled .btn had no
