@@ -823,23 +823,7 @@ export default function HubIntakeForm() {
               <input id="intake-referral" type="text" name="referral_source" placeholder="Optional" />
             </div>
           </div>
-          <div className="col-md-6">
-            <div className="form-grp">
-              <label htmlFor="intake-team">Preferred Motta teammate</label>
-              <select
-                id="intake-team"
-                name="preferred_team_member"
-                className={preferredTeamMember ? undefined : 'is-placeholder'}
-                value={preferredTeamMember}
-                onChange={(e) => setPreferredTeamMember(e.target.value)}
-              >
-                <option value="">{NO_PREFERENCE}</option>
-                {TEAM_MEMBERS.map((t) => (
-                  <option key={t.name} value={t.name}>{t.name}</option>
-                ))}
-              </select>
-            </div>
-          </div>
+          <div className="col-md-6" />
         </div>
         <div className="form-grp">
           <label htmlFor="intake-notes">Anything else we should know</label>
