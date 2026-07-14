@@ -52,8 +52,8 @@ export default function FounderPage() {
                 </p>
               </div>
             </div>
-            <div style={{ flex: '0 1 auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-              <div className="motta-founder-story__media motta-founder-story__media--compact">
+            <div style={{ flex: '0 1 auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', alignSelf: 'flex-start', marginTop: 0 }}>
+              <div className="motta-founder-story__media motta-founder-story__media--compact" style={{ marginTop: 0 }}>
                 <img
                   src="/assets/img/about/dat-le-founder.jpg"
                   alt="Dat Le, Founder of Motta Financial"
