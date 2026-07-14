@@ -349,11 +349,15 @@ export default function FounderPage() {
         }
 
         .motta-founder-connect {
-          margin-top: 24px;
+          margin-top: 0;
+          margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+          max-width: 280px;
           padding: 24px 26px;
           background: #fff;
           border: 1px solid rgba(142, 155, 121, 0.25);
-          border-radius: 14px;
+          border-radius: 0 0 14px 14px;
           box-shadow: 0 12px 32px -22px rgba(15, 19, 16, 0.35);
         }
         .motta-founder-connect__label {
@@ -474,6 +478,25 @@ export default function FounderPage() {
           gap: 16px;
           flex-wrap: wrap;
           margin-top: 28px;
+        }
+        .border-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 12px 28px;
+          font-size: 15px;
+          font-weight: 500;
+          letter-spacing: 0.02em;
+          color: var(--motta-charcoal, #2b2f24);
+          background: transparent;
+          border: 2px solid var(--motta-charcoal, #2b2f24);
+          border-radius: 8px;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        .border-btn:hover {
+          background: var(--motta-charcoal, #2b2f24);
+          color: var(--motta-warm, #f4f1eb);
         }
 
         .motta-founder-philosophy {
