@@ -350,8 +350,8 @@ export default function FounderPage() {
 
         .motta-founder-connect {
           margin-top: 20px;
-          margin-left: auto;
-          margin-right: auto;
+          margin-left: 0;
+          margin-right: 0;
           margin-bottom: 20px;
           width: 100%;
           max-width: 280px;
