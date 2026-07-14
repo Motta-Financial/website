@@ -483,20 +483,21 @@ export default function FounderPage() {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          padding: 12px 28px;
+          padding: 12px 32px;
           font-size: 15px;
           font-weight: 500;
           letter-spacing: 0.02em;
           color: var(--motta-charcoal, #2b2f24);
-          background: transparent;
-          border: 2px solid var(--motta-charcoal, #2b2f24);
-          border-radius: 8px;
+          background: #fff;
+          border: 1.5px solid rgba(142, 155, 121, 0.3);
+          border-radius: 50px;
           text-decoration: none;
           transition: all 0.3s ease;
         }
         .border-btn:hover {
           background: var(--motta-charcoal, #2b2f24);
-          color: var(--motta-warm, #f4f1eb);
+          color: #fff;
+          border-color: var(--motta-charcoal, #2b2f24);
         }
 
         .motta-founder-philosophy {
