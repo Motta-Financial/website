@@ -349,15 +349,16 @@ export default function FounderPage() {
         }
 
         .motta-founder-connect {
-          margin-top: 0;
+          margin-top: 20px;
           margin-left: auto;
           margin-right: auto;
+          margin-bottom: 20px;
           width: 100%;
           max-width: 280px;
           padding: 24px 26px;
           background: #fff;
           border: 1px solid rgba(142, 155, 121, 0.25);
-          border-radius: 0 0 14px 14px;
+          border-radius: 14px;
           box-shadow: 0 12px 32px -22px rgba(15, 19, 16, 0.35);
         }
         .motta-founder-connect__label {
