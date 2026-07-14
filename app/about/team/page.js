@@ -12,13 +12,13 @@ const teamMembers = [
   {
     slug: 'dat-le',
     name: 'Dat Le, CPA',
-    title: 'Managing Partner & Founder',
+    title: 'Founder | Modern Accounting Architect',
     group: 'Firm Leadership',
     credentials: 'CPA · Suffolk Adjunct Professor · Boston · Las Vegas',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Portrait%20%28Headshot%29%20-%20Dat%20Le%20%5BWM%5D-kVzKTBVlGdBFKtNQtGCsPYvs3UAxYw.jpg',
     blurb:
-      "Dat is the founder and Managing Partner of Motta Financial, leading the firm's strategic direction across tax, accounting, and advisory services from offices in Boston and Las Vegas. A two-time Suffolk University graduate, Dat built his foundation as a top-rated Audit Senior at Deloitte & Touche before deepening his technical skills through senior consulting and controller roles supporting IPOs, SPAC transactions, and complex revenue recognition.",
+      "Dat Le is the Founder of Motta Financial, an AI-powered CPA and advisory firm built on one core philosophy: every client dollar should go toward creating value—not administrative work. After beginning his career at Deloitte, Dat held leadership roles across public accounting, technical consulting, and corporate finance before founding Motta Financial in 2023. Rather than building another traditional accounting firm, he set out to redesign the operating model itself—combining automation, artificial intelligence, and elite tax expertise to deliver a faster, more transparent, and more strategic client experience. Under Dat's leadership, Motta Financial has grown from a solo practice into a nine-person firm serving more than 600 tax engagements while maintaining a deliberately lean operating model. By integrating ProConnect Tax, proprietary AI workflows, and ALFRED—Motta's internal AI platform—the firm has reduced administrative preparation time by more than 80%, allowing professionals to spend more time where they create the greatest value: planning, research, advisory, and client relationships. Dat believes accountants don't create wealth—they protect it. His philosophy is that business owners play offense by building companies and generating income, while great advisors play defense by preserving that wealth through thoughtful tax planning, financial strategy, and disciplined execution. This belief drives every workflow, every technology investment, and every client relationship at Motta Financial. In addition to leading Motta Financial, Dat serves as an adjunct professor at Suffolk University, where he teaches accounting and mentors future professionals. He also established the Le Family Scholarship to help create opportunities for the next generation of business leaders. Outside the office, Dat enjoys golf, following Boston sports, spending time with his dog Brody, and exploring how artificial intelligence will reshape the future of professional services.",
     email: 'Dat.Le@MottaFinancial.com',
     calendly: 'https://calendly.com/dat-le-motta',
   },
