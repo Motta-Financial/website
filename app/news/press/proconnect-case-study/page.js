@@ -9,9 +9,6 @@ export default function ProConnectCaseStudy() {
       date="Featured by Intuit&reg; ProConnect&trade; Tax"
       title="How Motta Financial Built a Scalable Tax Practice with Intuit ProConnect Tax"
       subtitle="Intuit featured Motta Financial in an official ProConnect Tax case study &mdash; the story of a firm built from day one on automation, a Books-to-Tax workflow, AI, and a refusal to let a single client dollar go to waste."
-      heroImage="/assets/img/news/proconnect-case-study.png"
-      heroAlt="A modern, tech-forward accounting workspace representing Motta Financial's ProConnect Tax workflow"
-      heroCaption="Intuit ProConnect Tax serves as the operational backbone of Motta Financial's practice, with ALFRED Ai layered on top."
       backHref="/news/press"
       backLabel="All Press Releases"
     >
@@ -193,9 +190,19 @@ export default function ProConnectCaseStudy() {
         <h3>About the case study</h3>
         <p>
           This article summarizes an official Intuit&reg; ProConnect&trade; Tax case study
-          featuring Motta Financial. Intuit, ProConnect, and QuickBooks are trademarks of
-          Intuit Inc., used here for identification purposes. To learn how Motta pairs
-          ProConnect Tax with ALFRED Ai for your return, get in touch with our team.
+          featuring Motta Financial, published July 13, 2026 on the Intuit Tax Pro Center.{' '}
+          <a
+            href="https://accountants.intuit.com/taxprocenter/practice-management/motta-financial-case-study/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read the full case study on Intuit&rsquo;s Tax Pro Center &rarr;
+          </a>
+        </p>
+        <p>
+          Intuit, ProConnect, and QuickBooks are trademarks of Intuit Inc., used here for
+          identification purposes. To learn how Motta pairs ProConnect Tax with ALFRED Ai
+          for your return, get in touch with our team.
         </p>
       </div>
 

@@ -97,10 +97,14 @@ export default function NewsArticle({
         }
         .motta-news-article__hero {
           margin: 0 0 32px;
+          max-width: 70ch;
         }
         .motta-news-article__hero img {
           width: 100%;
           height: auto;
+          max-height: 480px;
+          object-fit: cover;
+          object-position: center top;
           display: block;
           border-radius: 14px;
         }
