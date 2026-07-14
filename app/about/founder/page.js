@@ -287,7 +287,8 @@ export default function FounderPage() {
           }
         }
         .motta-founder-story__row {
-          gap: 50px 0;
+          gap: 0;
+          flex-wrap: nowrap !important;
         }
         .motta-founder-story__media {
           position: relative;
