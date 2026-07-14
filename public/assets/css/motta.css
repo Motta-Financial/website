@@ -331,64 +331,54 @@
 }
 
 
-/* ===== Home hero refresh (Motta-aligned) ===== */
-.slider__content .sub-title { color: var(--motta-alfred-glow); }
-.slider__content .alfred-mark {
-  display: inline-flex;
+/* ===== Home hero pills ===== */
+/* Pill row wrapper — both pills sit on a single flex row */
+.slider__content .slider__pill-row {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: rgba(142, 155, 121, 0.18);
-  border: 1px solid rgba(142, 155, 121, 0.4);
-  color: var(--motta-alfred-halo);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-}
-.slider__content .alfred-mark::before {
-  content: "";
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--motta-alfred-glow);
-  box-shadow: 0 0 8px var(--motta-alfred-glow);
-  animation: motta-pulse 2.4s ease-in-out infinite;
-}
-
-.slider__content .alfred-mark--with-logo::before { display: none; }
-.slider__content .alfred-mark--with-logo {
   gap: 10px;
-  padding: 4px 14px 4px 6px;
+  margin-bottom: 22px;
 }
 
-/* Normalize both hero badge pills to identical size, font, and spacing */
+/* Shared pill base */
 .slider__content .alfred-mark,
 .slider__content .sub-title {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
-  min-height: 36px;
-  vertical-align: middle;
-  margin-bottom: 20px;
-  font-size: 11px !important;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(142, 155, 121, 0.18);
+  border: 1px solid rgba(142, 155, 121, 0.4);
+  color: var(--motta-alfred-halo);
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   line-height: 1;
+  margin: 0;
 }
-.slider__content .sub-title {
-  padding: 4px 14px;
-  border-radius: 999px;
-  color: var(--motta-alfred-halo) !important;
-  background: rgba(142, 155, 121, 0.18);
-  border: 1px solid rgba(142, 155, 121, 0.4);
-  margin-left: 10px;
-}
-/* Breathing room to the right of the first pill */
+
+/* ALFRED AI pill — tighter left padding to let the logo breathe */
 .slider__content .alfred-mark {
-  margin-right: 0;
+  gap: 8px;
+}
+.slider__content .alfred-mark--with-logo {
+  padding-left: 6px;
+}
+
+/* Pulsing dot (non-logo variant) */
+.slider__content .alfred-mark:not(.alfred-mark--with-logo)::before {
+  content: "";
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--motta-alfred-glow);
+  box-shadow: 0 0 8px var(--motta-alfred-glow);
+  animation: motta-pulse 2.4s ease-in-out infinite;
 }
 
 /* Hero photo was washed out: the image sat at 0.7 opacity over a white
