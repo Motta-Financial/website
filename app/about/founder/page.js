@@ -141,19 +141,19 @@ export default function FounderPage() {
             <div className="col-lg-8 offset-lg-2">
               <div className="motta-founder-bio__content">
                 <span className="motta-eyebrow">Founder Bio</span>
-                <h3 className="motta-section-title">Dat Le, CPA — Founder | Modern Accounting Architect</h3>
+                <h3 className="motta-section-title">Dat Le, CPA - Founder & Modern Accounting Architect</h3>
                 
                 <p>
                   Dat Le is the Founder of Motta Financial, an AI-powered CPA and advisory 
                   firm built on one core philosophy: every client dollar should go toward 
-                  creating value—not administrative work.
+                  creating value, not administrative work.
                 </p>
 
                 <p>
                   After beginning his career at Deloitte, Dat held leadership roles across 
                   public accounting, technical consulting, and corporate finance before 
                   founding Motta Financial in 2023. Rather than building another traditional 
-                  accounting firm, he set out to redesign the operating model itself—combining 
+                  accounting firm, he set out to redesign the operating model itself by combining 
                   automation, artificial intelligence, and elite tax expertise to deliver a 
                   faster, more transparent, and more strategic client experience.
                 </p>
@@ -162,14 +162,14 @@ export default function FounderPage() {
                   Under Dat's leadership, Motta Financial has grown from a solo practice into 
                   a nine-person firm serving more than 600 tax engagements while maintaining 
                   a deliberately lean operating model. By integrating ProConnect Tax, 
-                  proprietary AI workflows, and ALFRED—Motta's internal AI platform—the firm 
+                  proprietary AI workflows, and ALFRED (Motta's internal AI platform), the firm 
                   has reduced administrative preparation time by more than 80%, allowing 
                   professionals to spend more time where they create the greatest value: 
                   planning, research, advisory, and client relationships.
                 </p>
 
                 <p>
-                  <strong>Dat believes accountants don't create wealth—they protect it.</strong>
+                  <strong>Dat believes accountants don't create wealth. They protect it.</strong>
                 </p>
 
                 <p>
