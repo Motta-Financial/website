@@ -22,8 +22,8 @@ export default function FounderPage() {
       <section className="motta-founder-story">
         <div className="container">
           <div className="row align-items-center motta-founder-story__row">
-            <div className="col-lg-5">
-              <div className="motta-founder-story__media">
+            <div className="col-lg-4">
+              <div className="motta-founder-story__media motta-founder-story__media--compact">
                 <img
                   src="/assets/img/about/dat-le-founder.jpg"
                   alt="Dat Le, Founder of Motta Financial"
@@ -294,6 +294,9 @@ export default function FounderPage() {
           border-radius: 16px;
           overflow: hidden;
           box-shadow: 0 30px 60px -25px rgba(15, 19, 16, 0.35);
+        }
+        .motta-founder-story__media--compact {
+          max-width: 280px;
         }
         .motta-founder-story__media img {
           width: 100%;
