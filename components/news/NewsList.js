@@ -86,6 +86,27 @@ export default function NewsList({ eyebrow, title, lead, items }) {
         }
         .motta-news-list__card--text {
           grid-template-columns: 1fr;
+          background: transparent;
+          border: none;
+          border-bottom: 1px solid rgba(107, 116, 93, 0.16);
+          border-radius: 0;
+          box-shadow: none;
+          padding: 24px 0;
+        }
+        .motta-news-list__card--text:first-child {
+          padding-top: 8px;
+        }
+        .motta-news-list__card--text:last-child {
+          border-bottom: none;
+        }
+        .motta-news-list__card--text:hover {
+          transform: none;
+          border-color: transparent;
+          border-bottom-color: var(--motta-sage, #8e9b79);
+          box-shadow: none;
+        }
+        .motta-news-list__card--text .motta-news-list__card-body {
+          padding: 0;
         }
         .motta-news-list__card:hover {
           transform: translateY(-3px);

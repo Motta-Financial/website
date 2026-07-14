@@ -28,7 +28,7 @@ export default function PressIndex() {
     <NewsList
       eyebrow="Press Releases"
       title="Press &amp; Announcements"
-      lead="Official announcements from Motta Financial \u2014 sponsorships, partnerships, leadership news, and media releases. For interview requests or further information, contact us directly."
+      lead="Official announcements from Motta Financial — sponsorships, partnerships, leadership news, and media releases. For interview requests or further information, contact us directly."
       items={ITEMS}
     />
   );

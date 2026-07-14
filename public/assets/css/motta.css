@@ -623,44 +623,36 @@
   color: rgba(244, 241, 235, 0.92);
   text-shadow: 0 1px 14px rgba(15, 19, 16, 0.35);
 }
-.motta-breadcrumb__crumbs.breadcrumb {
+.motta-breadcrumb__crumbs {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0;
   margin: 0;
   padding: 0;
-  list-style: none;
   font-family: var(--tg-body-font-family, inherit);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.01em;
 }
-.motta-breadcrumb__crumbs .breadcrumb-item {
-  display: inline-flex;
-  align-items: center;
-  float: none;
-}
-.motta-breadcrumb__crumbs .breadcrumb-item,
-.motta-breadcrumb__crumbs .breadcrumb-item a {
+.motta-breadcrumb__crumb-link {
   color: rgba(244, 241, 235, 0.72);
   font-weight: 500;
+  text-decoration: none;
 }
-.motta-breadcrumb__crumbs .breadcrumb-item a:hover {
+.motta-breadcrumb__crumb-link:hover {
   color: var(--motta-warm);
 }
-.motta-breadcrumb__crumbs .breadcrumb-item.active {
+.motta-breadcrumb__crumb-sep {
+  color: rgba(234, 230, 225, 0.45);
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0 10px;
+  line-height: 1;
+}
+.motta-breadcrumb__crumb-current {
   color: var(--motta-warm);
   font-weight: 600;
-}
-.motta-breadcrumb__crumbs .breadcrumb-item + .breadcrumb-item::before {
-  content: "/";
-  display: inline-flex;
-  align-items: center;
-  color: rgba(234, 230, 225, 0.45);
-  padding: 0 8px !important;
-  font-weight: 400;
-  float: none;
 }
 
 /* Honor reduced-motion: kill the rule pan + dot pulse. */
