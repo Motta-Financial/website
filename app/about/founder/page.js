@@ -502,7 +502,7 @@ export default function FounderPage() {
         }
 
         .motta-founder-philosophy {
-          padding: 80px 0;
+          padding: 60px 0 40px;
           background: var(--motta-cream-50, #fbf8f2);
         }
         .motta-founder-philosophy p {
@@ -512,7 +512,7 @@ export default function FounderPage() {
           margin: 0 0 24px;
         }
         .motta-founder-pull {
-          margin: 0;
+          margin: 20px 0 0;
           padding: 24px 28px;
           background: rgba(142, 155, 121, 0.10);
           border-left: 4px solid var(--motta-sage, #8e9b79);
