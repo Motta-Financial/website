@@ -22,7 +22,7 @@ export default function FounderPage() {
       <section className="motta-founder-story">
         <div className="container">
           <div className="row motta-founder-story__row" style={{ gap: '40px', display: 'flex !important', alignItems: 'flex-start', width: '100%', flexWrap: 'nowrap' }}>
-            <div style={{ flex: '0 0 auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px', minWidth: '280px' }}>
+            <div style={{ flex: '0 0 280px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px' }}>
               <div className="motta-founder-story__media motta-founder-story__media--compact">
                 <img
                   src="/assets/img/about/dat-le-founder.jpg"
@@ -85,7 +85,7 @@ export default function FounderPage() {
                 </div>
               </div>
             </div>
-            <div style={{ flex: '1 1 auto', minWidth: 0 }}>
+            <div style={{ flex: '1 1 auto', minWidth: '300px', maxWidth: '100%' }}>
               <div className="motta-founder-story__content">
                 <span className="motta-eyebrow">Founder &amp; Managing Partner</span>
                 <h1 className="motta-founder-story__name">Dat Le, CPA</h1>
