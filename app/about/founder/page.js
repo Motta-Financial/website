@@ -21,8 +21,38 @@ export default function FounderPage() {
       {/* === Founder Story === */}
       <section className="motta-founder-story">
         <div className="container">
-          <div className="row align-items-start motta-founder-story__row" style={{ marginRight: 0, marginLeft: '-8px', gap: 0 }}>
-            <div className="col-lg-4" style={{ paddingLeft: '8px', paddingRight: '8px', flex: '0 0 auto', width: 'auto', maxWidth: 'none' }}>
+          <div className="row align-items-start motta-founder-story__row" style={{ gap: '24px', display: 'flex', justifyContent: 'center' }}>
+            <div style={{ flex: '0 1 45%' }}>
+              <div className="motta-founder-story__content">
+                <span className="motta-eyebrow">Founder &amp; Managing Partner</span>
+                <h1 className="motta-founder-story__name">Dat Le, CPA</h1>
+                <blockquote className="motta-founder-story__quote">
+                  <p>&ldquo;No need to worry, my accountant handles that.&rdquo;</p>
+                  <cite>— The Notorious B.I.G., <em>Juicy</em> (1994)</cite>
+                </blockquote>
+                <p className="motta-founder-story__lead">
+                  That single line changed everything.
+                </p>
+                <p>
+                  When Dat Le first heard Biggie rap about having an accountant 
+                  who just <em>handled things</em>, something clicked. It wasn&apos;t 
+                  about spreadsheets or tax codes — it was about freedom. The 
+                  freedom to focus on what you&apos;re building while someone else 
+                  makes sure the numbers work.
+                </p>
+                <p>
+                  That lyric inspired Dat to take an accounting class in high 
+                  school. What started as curiosity turned into a career — from 
+                  Big Four experience to founding Motta Financial in 2023 with a 
+                  simple mission: give every client that same feeling Biggie was 
+                  talking about.
+                </p>
+                <p>
+                  No need to worry. We handle it.
+                </p>
+              </div>
+            </div>
+            <div style={{ flex: '0 1 auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
               <div className="motta-founder-story__media motta-founder-story__media--compact">
                 <img
                   src="/assets/img/about/dat-le-founder.jpg"
@@ -83,36 +113,6 @@ export default function FounderPage() {
                     <span>GitHub</span>
                   </a>
                 </div>
-              </div>
-            </div>
-            <div className="col-lg-7" style={{ paddingLeft: '8px', paddingRight: '0px' }}>
-              <div className="motta-founder-story__content">
-                <span className="motta-eyebrow">Founder &amp; Managing Partner</span>
-                <h1 className="motta-founder-story__name">Dat Le, CPA</h1>
-                <blockquote className="motta-founder-story__quote">
-                  <p>&ldquo;No need to worry, my accountant handles that.&rdquo;</p>
-                  <cite>— The Notorious B.I.G., <em>Juicy</em> (1994)</cite>
-                </blockquote>
-                <p className="motta-founder-story__lead">
-                  That single line changed everything.
-                </p>
-                <p>
-                  When Dat Le first heard Biggie rap about having an accountant 
-                  who just <em>handled things</em>, something clicked. It wasn&apos;t 
-                  about spreadsheets or tax codes — it was about freedom. The 
-                  freedom to focus on what you&apos;re building while someone else 
-                  makes sure the numbers work.
-                </p>
-                <p>
-                  That lyric inspired Dat to take an accounting class in high 
-                  school. What started as curiosity turned into a career — from 
-                  Big Four experience to founding Motta Financial in 2023 with a 
-                  simple mission: give every client that same feeling Biggie was 
-                  talking about.
-                </p>
-                <p>
-                  No need to worry. We handle it.
-                </p>
               </div>
             </div>
           </div>
