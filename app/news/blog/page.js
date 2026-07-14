@@ -115,7 +115,7 @@ export default function BlogIndex() {
     <NewsList
       eyebrow="From the Motta Blog"
       title="Blog"
-      lead="Practical, plain-language notes from the Motta team \u2014 written for the founders, advisors, attorneys, and lenders we work with every day."
+      lead="Practical, plain-language notes from the Motta team — written for the founders, advisors, attorneys, and lenders we work with every day."
       items={ITEMS}
     />
   );

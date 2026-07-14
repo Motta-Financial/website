@@ -12,6 +12,7 @@ export default function NewsArticle({
   heroCaption,
   backHref = '/news',
   backLabel = 'All News',
+  intuitLink,
   children,
 }) {
   return (
@@ -27,6 +28,22 @@ export default function NewsArticle({
       </div>
       <h1 className="motta-news-article__title">{title}</h1>
       {subtitle ? <p className="motta-news-article__sub">{subtitle}</p> : null}
+
+      {intuitLink ? (
+        <a
+          href={intuitLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="motta-news-article__source-banner"
+        >
+          <span className="motta-news-article__source-banner-label">
+            Published on Intuit Tax Pro Center
+          </span>
+          <span className="motta-news-article__source-banner-cta">
+            Read the original article &rarr;
+          </span>
+        </a>
+      ) : null}
 
       {heroImage ? (
         <figure className="motta-news-article__hero">
@@ -94,6 +111,36 @@ export default function NewsArticle({
           color: rgba(43, 47, 36, 0.78);
           margin: 0 0 28px;
           max-width: 65ch;
+        }
+        .motta-news-article__source-banner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          margin: 0 0 32px;
+          padding: 16px 22px;
+          border-radius: 12px;
+          background: rgba(142, 155, 121, 0.12);
+          border: 1.5px solid rgba(142, 155, 121, 0.4);
+          text-decoration: none;
+          transition: background 0.2s ease, border-color 0.2s ease;
+        }
+        .motta-news-article__source-banner:hover {
+          background: rgba(142, 155, 121, 0.2);
+          border-color: var(--motta-sage, #8e9b79);
+        }
+        .motta-news-article__source-banner-label {
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          color: var(--motta-sage-deep, #6b745d);
+          text-transform: uppercase;
+        }
+        .motta-news-article__source-banner-cta {
+          font-size: 15px;
+          font-weight: 700;
+          color: var(--motta-charcoal, #2b2f24);
+          white-space: nowrap;
         }
         .motta-news-article__hero {
           margin: 0 0 32px;

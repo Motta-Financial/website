@@ -11,6 +11,7 @@ export default function ProConnectCaseStudy() {
       subtitle="Intuit featured Motta Financial in an official ProConnect Tax case study &mdash; the story of a firm built from day one on automation, a Books-to-Tax workflow, AI, and a refusal to let a single client dollar go to waste."
       backHref="/news/press"
       backLabel="All Press Releases"
+      intuitLink="https://accountants.intuit.com/taxprocenter/practice-management/motta-financial-case-study/"
     >
       <p>
         Intuit&reg; has featured Motta Financial in an official{' '}
@@ -188,17 +189,6 @@ export default function ProConnectCaseStudy() {
 
       <div className="motta-news-article__about">
         <h3>About the case study</h3>
-        <p>
-          This article summarizes an official Intuit&reg; ProConnect&trade; Tax case study
-          featuring Motta Financial, published July 13, 2026 on the Intuit Tax Pro Center.{' '}
-          <a
-            href="https://accountants.intuit.com/taxprocenter/practice-management/motta-financial-case-study/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read the full case study on Intuit&rsquo;s Tax Pro Center &rarr;
-          </a>
-        </p>
         <p>
           Intuit, ProConnect, and QuickBooks are trademarks of Intuit Inc., used here for
           identification purposes. To learn how Motta pairs ProConnect Tax with ALFRED Ai
