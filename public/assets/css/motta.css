@@ -639,6 +639,7 @@
 .motta-breadcrumb__crumbs .breadcrumb-item {
   display: inline-flex;
   align-items: center;
+  float: none;
 }
 .motta-breadcrumb__crumbs .breadcrumb-item,
 .motta-breadcrumb__crumbs .breadcrumb-item a {
@@ -654,10 +655,12 @@
 }
 .motta-breadcrumb__crumbs .breadcrumb-item + .breadcrumb-item::before {
   content: "/";
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   color: rgba(234, 230, 225, 0.45);
-  padding: 0 9px;
+  padding: 0 8px !important;
   font-weight: 400;
+  float: none;
 }
 
 /* Honor reduced-motion: kill the rule pan + dot pulse. */

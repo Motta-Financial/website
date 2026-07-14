@@ -20,7 +20,6 @@ const ITEMS = [
       'Motta Financial Sponsors Inaugural JA Southern Massachusetts Youth Summit',
     desc:
       'Local CPA and advisory firm joins Milestone Mortgage Solutions, UMass Dartmouth, and dozens of community partners as a Connection Sponsor of Junior Achievement\u2019s first regional Youth Summit on AI, opportunity, and leadership.',
-    image: '/assets/img/news/ja-youth-summit-2026.jpg',
   },
 ];
 
