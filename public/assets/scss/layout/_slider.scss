@@ -125,6 +125,16 @@
 .slider__single {
     &.swiper-slide-active {
         & .slider__content {
+            & .alfred-mark {
+                -webkit-animation-delay: 0s;
+                animation-delay: 0s;
+                -webkit-animation-duration: .8s;
+                animation-duration: .8s;
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+                -webkit-animation-name: fadeInUp2;
+                animation-name: fadeInUp2;
+            }
             & .sub-title {
                 -webkit-animation-delay: .3s;
                 animation-delay: .3s;
