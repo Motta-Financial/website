@@ -347,18 +347,20 @@
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
-  height: 34px;
-  padding: 0 14px;
+  height: 36px;
+  padding: 0 16px;
   border-radius: 999px;
-  background: rgba(142, 155, 121, 0.18);
-  border: 1px solid rgba(142, 155, 121, 0.4);
-  color: var(--motta-alfred-halo);
+  background: rgba(79, 87, 63, 0.72);
+  border: 1px solid rgba(142, 155, 121, 0.65);
+  color: var(--motta-warm, #EAE6E1);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   line-height: 1;
   margin: 0;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 /* ALFRED AI pill — tighter left padding to let the logo breathe */
@@ -2703,6 +2705,38 @@ button.motta-cta.btn:hover {
   color: var(--motta-sage-deep, #4F573F);
   margin-bottom: 12px;
   font-weight: 700;
+}
+
+/* Override template's cool-blue sidebar boxes with Motta's warm sage palette */
+.sidebar__cat-list-two .list-wrap li a,
+.sidebar__cat-list .list-wrap li a {
+  background: var(--motta-warm, #EAE6E1) !important;
+  border: 1px solid rgba(107, 116, 93, 0.22) !important;
+  border-radius: 10px !important;
+  color: var(--motta-charcoal, #333333) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+}
+.sidebar__cat-list-two .list-wrap li a:hover,
+.sidebar__cat-list .list-wrap li a:hover {
+  background: var(--motta-sage, #6B745D) !important;
+  border-color: var(--motta-sage, #6B745D) !important;
+  color: var(--motta-white, #FFFFFF) !important;
+}
+.sidebar__cat-list-two .list-wrap li a:hover i,
+.sidebar__cat-list .list-wrap li a:hover i {
+  color: var(--motta-warm, #EAE6E1) !important;
+}
+.sidebar__cat-list-two .list-wrap li a.is-active,
+.sidebar__cat-list .list-wrap li a.is-active {
+  background: var(--motta-sage-deep, #4F573F) !important;
+  border-color: var(--motta-sage-deep, #4F573F) !important;
+  color: var(--motta-white, #FFFFFF) !important;
+}
+.sidebar__cat-list-two .list-wrap li a.is-active i,
+.sidebar__cat-list .list-wrap li a.is-active i {
+  color: var(--motta-warm, #EAE6E1) !important;
 }
 
 /* =====================================================================
