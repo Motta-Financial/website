@@ -43,7 +43,7 @@ export default function FounderPage() {
                 <p>
                   When Dat Le first heard Biggie rap about having an accountant 
                   who just <em>handled things</em>, something clicked. It wasn&apos;t 
-                  about spreadsheets or tax codes — it was about freedom. The 
+                  about spreadsheets or tax codes - it was about freedom. The 
                   freedom to focus on what you&apos;re building while someone else 
                   makes sure the numbers work.
                 </p>
@@ -270,6 +270,7 @@ export default function FounderPage() {
           border-radius: 16px;
           overflow: hidden;
           box-shadow: 0 30px 60px -25px rgba(15, 19, 16, 0.35);
+          max-width: 380px;
         }
         .motta-founder-story__media img {
           width: 100%;
@@ -427,6 +428,8 @@ export default function FounderPage() {
         }
         .motta-founder-bio--alt {
           background: var(--motta-cream-50, #fbf8f2);
+          margin-top: -40px;
+          padding-top: 50px;
         }
         .motta-founder-bio__content {
           text-align: left;
@@ -485,9 +488,9 @@ export default function FounderPage() {
           border-radius: 0 12px 12px 0;
         }
         .motta-founder-pull p {
-          font-size: 19px;
+          font-size: 16px;
           font-style: italic;
-          line-height: 1.5;
+          line-height: 1.6;
           color: var(--motta-charcoal, #2b2f24);
           margin: 0 0 12px;
         }
