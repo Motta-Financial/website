@@ -155,7 +155,7 @@ export default function FounderPage() {
                   Deloitte, served as a consulting manager at WilliamsMarston
                   LLC, was a senior manager at Outseer, and ran global
                   corporate controllership for ANA, Inc. in Las Vegas. He was
-                  named to Suffolk&rsquo;s &ldquo;10 Under 10&rdquo; alumni list in 2017
+                  named to Suffolk&rsquo;s "10 Under 10" alumni list in 2017
                   and co-hosted the 2023 ceremony alongside Suffolk President
                   Marisa Kelly.
                 </p>
@@ -168,7 +168,7 @@ export default function FounderPage() {
                   professionals serving 600+ tax returns a year across real
                   estate investors, self-employed professionals, equity-comp
                   heavy tech employees, and businesses that need a fractional
-                  CFO &mdash; all without sacrificing the high-touch advisory
+                  CFO - all without sacrificing the high-touch advisory
                   experience the firm was built around.
                 </p>
               </div>
@@ -183,7 +183,7 @@ export default function FounderPage() {
           <div className="row">
             <div className="col-lg-8 offset-lg-2">
               <span className="motta-eyebrow">Why &ldquo;Motta&rdquo;</span>
-              <h3 className="motta-section-title">Mottainai &mdash; nothing wasted</h3>
+              <h3 className="motta-section-title">Mottainai - nothing wasted</h3>
               <p>
                 The firm name comes from the Japanese principle{' '}
                 <em>mottainai</em>, which roughly translates to{' '}
@@ -195,14 +195,14 @@ export default function FounderPage() {
               </p>
               <blockquote className="motta-founder-pull">
                 <p>
-                  &ldquo;Even if I&rsquo;m the best CPA in the world, I can&rsquo;t
+                  Even if I&rsquo;m the best CPA in the world, I can&rsquo;t
                   generate revenue for a client. They play offense and score
-                  points &mdash; our job is to play defense and prevent money
+                  points - our job is to play defense and prevent money
                   from going out. Mottainai is essentially being efficient
                   with your resources. Our name is rooted in helping people
-                  and businesses do that.&rdquo;
+                  and businesses do that.
                 </p>
-                <cite>&mdash; Dat Le, ProConnect Tax case study</cite>
+                <cite>— Dat Le, ProConnect Tax case study</cite>
               </blockquote>
             </div>
           </div>
@@ -271,6 +271,7 @@ export default function FounderPage() {
           overflow: hidden;
           box-shadow: 0 30px 60px -25px rgba(15, 19, 16, 0.35);
           max-width: 380px;
+          margin-left: auto;
         }
         .motta-founder-story__media img {
           width: 100%;
@@ -488,7 +489,7 @@ export default function FounderPage() {
           border-radius: 0 12px 12px 0;
         }
         .motta-founder-pull p {
-          font-size: 16px;
+          font-size: 18px;
           font-style: italic;
           line-height: 1.6;
           color: var(--motta-charcoal, #2b2f24);
