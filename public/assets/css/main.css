@@ -8745,12 +8745,12 @@ textarea {
   }
 }
 .team__details-inner .row .col-36 {
-  width: 35.6%;
+  width: 25%;
   flex: 0 0 auto;
 }
 @media (max-width: 991.98px) {
   .team__details-inner .row .col-36 {
-    width: 60%;
+    width: 40%;
   }
 }
 @media (max-width: 767.98px) {
@@ -8759,7 +8759,7 @@ textarea {
   }
 }
 .team__details-inner .row .col-64 {
-  width: 64.4%;
+  width: 75%;
   flex: 0 0 auto;
 }
 @media (max-width: 991.98px) {

@@ -365,6 +365,13 @@
             }
         }
         &-info {
+            background: var(--tg-color-white-default);
+            @include box-shadow(0px 5px 15px rgba(0, 0, 0, 0.08));
+            @include border-radius(12px);
+            padding: 30px 25px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 1;
             & > .list-wrap {
                 & > li {
                     @include flexbox();
