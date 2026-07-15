@@ -246,12 +246,16 @@ export default function FounderPage() {
         }
 
         .motta-founder-connect {
-          margin-top: 0;
+          margin-top: -40px;
+          margin-left: auto;
+          max-width: 380px;
           padding: 24px 26px;
           background: #fff;
           border: 1px solid rgba(142, 155, 121, 0.25);
           border-radius: 14px;
           box-shadow: 0 12px 32px -22px rgba(15, 19, 16, 0.35);
+          position: relative;
+          z-index: 1;
         }
         .motta-founder-connect__label {
           display: block;
