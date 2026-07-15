@@ -147,13 +147,9 @@ export default function FounderPage() {
           width: 100%;
         }
         .motta-founder-story__media img {
-          width: 100%;
+          width: 75%;
           height: auto;
           display: block;
-          aspect-ratio: 3 / 3.5;
-          max-height: 340px;
-          object-fit: cover;
-          object-position: center top;
         }
         .motta-founder-story__content {
           max-width: 600px;
