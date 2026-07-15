@@ -144,16 +144,16 @@ export default function FounderPage() {
                 <h2 className="motta-section-title" style={{ marginBottom: '24px' }}>Dat Le, CPA</h2>
                 <h3 className="motta-section-title" style={{ fontSize: '18px', fontWeight: '500', color: 'var(--motta-sage-deep, #6b745d)', marginBottom: '28px' }}>Founder | Modern Accounting Architect</h3>
                 <p>
-                  Dat Le is the Founder of Motta Financial, an AI-powered CPA and advisory firm built on one core philosophy: every client dollar should go toward creating value—not administrative work.
+                  Dat Le is the Founder of Motta Financial, an AI-powered CPA and advisory firm built on one core philosophy: every client dollar should go toward creating value, not administrative work.
                 </p>
                 <p>
-                  After beginning his career at Deloitte, Dat held leadership roles across public accounting, technical consulting, and corporate finance before founding Motta Financial in 2023. Rather than building another traditional accounting firm, he set out to redesign the operating model itself—combining automation, artificial intelligence, and elite tax expertise to deliver a faster, more transparent, and more strategic client experience.
+                  After beginning his career at Deloitte, Dat held leadership roles across public accounting, technical consulting, and corporate finance before founding Motta Financial in 2023. Rather than building another traditional accounting firm, he set out to redesign the operating model itself: combining automation, artificial intelligence, and elite tax expertise to deliver a faster, more transparent, and more strategic client experience.
                 </p>
                 <p>
-                  Under Dat&rsquo;s leadership, Motta Financial has grown from a solo practice into a nine-person firm serving more than 600 tax engagements while maintaining a deliberately lean operating model. By integrating ProConnect Tax, proprietary AI workflows, and ALFRED—Motta&rsquo;s internal AI platform—the firm has reduced administrative preparation time by more than 80%, allowing professionals to spend more time where they create the greatest value: planning, research, advisory, and client relationships.
+                  Under Dat&rsquo;s leadership, Motta Financial has grown from a solo practice into a nine-person firm serving more than 600 tax engagements while maintaining a deliberately lean operating model. By integrating ProConnect Tax, proprietary AI workflows, and ALFRED (Motta&rsquo;s internal AI platform), the firm has reduced administrative preparation time by more than 80%, allowing professionals to spend more time where they create the greatest value: planning, research, advisory, and client relationships.
                 </p>
                 <p>
-                  <em>Dat believes accountants don&rsquo;t create wealth—they protect it.</em>
+                  <em>Dat believes accountants don&rsquo;t create wealth, they protect it.</em>
                 </p>
                 <p>
                   His philosophy is that business owners play offense by building companies and generating income, while great advisors play defense by preserving that wealth through thoughtful tax planning, financial strategy, and disciplined execution. This belief drives every workflow, every technology investment, and every client relationship at Motta Financial.
@@ -194,6 +194,7 @@ export default function FounderPage() {
           box-shadow: 0 30px 60px -25px rgba(15, 19, 16, 0.35);
           max-width: 380px;
           margin-left: auto;
+          margin-top: -60px;
         }
         .motta-founder-story__media img {
           width: 100%;
@@ -246,7 +247,7 @@ export default function FounderPage() {
         }
 
         .motta-founder-connect {
-          margin-top: -40px;
+          margin-top: -100px;
           margin-left: auto;
           max-width: 380px;
           padding: 24px 26px;
