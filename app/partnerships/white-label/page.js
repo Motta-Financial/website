@@ -139,8 +139,8 @@ export default function WhiteLabelPartnership() {
             </div>
           ))}
         </div>
-        <div style={{ textAlign: 'center', marginTop: 30 }}>
-          <Link href="/contact" className="btn">
+        <div style={{ textAlign: 'center', marginTop: 36 }}>
+          <Link href="/contact" className="btn motta-wl-page__why-btn">
             Start a White Label Conversation
           </Link>
         </div>
@@ -268,8 +268,9 @@ export default function WhiteLabelPartnership() {
         .motta-wl-page__why {
           margin: 50px -48px 0;
           padding: 60px 48px;
-          background: linear-gradient(180deg, #1f261c 0%, #14180f 100%);
+          background: #6B745D;
           color: var(--motta-warm, #f4f1eb);
+          border-radius: 16px;
         }
         @media (max-width: 767px) {
           .motta-wl-page__why {
@@ -280,7 +281,7 @@ export default function WhiteLabelPartnership() {
         .motta-wl-page__why-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 18px;
+          gap: 16px;
         }
         @media (max-width: 767px) {
           .motta-wl-page__why-grid {
@@ -292,8 +293,8 @@ export default function WhiteLabelPartnership() {
           gap: 16px;
           padding: 22px;
           border-radius: 12px;
-          background: rgba(244, 241, 235, 0.05);
-          border: 1px solid rgba(244, 241, 235, 0.1);
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.15);
         }
         .motta-wl-page__why-num {
           flex-shrink: 0;
@@ -301,7 +302,7 @@ export default function WhiteLabelPartnership() {
           font-size: 26px;
           font-weight: 700;
           line-height: 1;
-          color: var(--motta-sage, #8e9b79);
+          color: rgba(244, 241, 235, 0.45);
           width: 44px;
         }
         .motta-wl-page__why-card h4 {
@@ -310,10 +311,19 @@ export default function WhiteLabelPartnership() {
           margin: 0 0 6px;
         }
         .motta-wl-page__why-card p {
-          color: rgba(244, 241, 235, 0.82);
+          color: rgba(244, 241, 235, 0.85);
           font-size: 13.5px;
           line-height: 1.6;
           margin: 0;
+        }
+        .motta-wl-page__why-btn {
+          background: var(--motta-charcoal, #2b2f24) !important;
+          border-color: var(--motta-charcoal, #2b2f24) !important;
+          color: var(--motta-warm, #f4f1eb) !important;
+        }
+        .motta-wl-page__why-btn:hover {
+          background: #1a1e15 !important;
+          border-color: #1a1e15 !important;
         }
       `}</style>
     </article>
