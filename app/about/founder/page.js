@@ -33,29 +33,23 @@ export default function FounderPage() {
               <div className="motta-founder-story__content">
                 <span className="motta-eyebrow">Founder &amp; Managing Partner</span>
                 <h1 className="motta-founder-story__name">Dat Le, CPA</h1>
-                <blockquote className="motta-founder-story__quote">
-                  <p>&ldquo;No need to worry, my accountant handles that.&rdquo;</p>
-                  <cite>— The Notorious B.I.G., <em>Juicy</em> (1994)</cite>
-                </blockquote>
-                <p className="motta-founder-story__lead">
-                  That single line changed everything.
+                <p>
+                  Dat Le is the Founder of Motta Financial, an AI-powered CPA and advisory firm built on one core philosophy: every client dollar should go toward creating value, not administrative work.
                 </p>
                 <p>
-                  When Dat Le first heard Biggie rap about having an accountant 
-                  who just <em>handled things</em>, something clicked. It wasn&apos;t 
-                  about spreadsheets or tax codes - it was about freedom. The 
-                  freedom to focus on what you&apos;re building while someone else 
-                  makes sure the numbers work.
+                  After beginning his career at Deloitte, Dat held leadership roles across public accounting, technical consulting, and corporate finance before founding Motta Financial in 2023. Rather than building another traditional accounting firm, he set out to redesign the operating model itself: combining automation, artificial intelligence, and elite tax expertise to deliver a faster, more transparent, and more strategic client experience.
                 </p>
                 <p>
-                  That lyric inspired Dat to take an accounting class in high 
-                  school. What started as curiosity turned into a career — from 
-                  Big Four experience to founding Motta Financial in 2023 with a 
-                  simple mission: give every client that same feeling Biggie was 
-                  talking about.
+                  Under Dat&rsquo;s leadership, Motta Financial has grown from a solo practice into a nine-person firm serving more than 600 tax engagements while maintaining a deliberately lean operating model. By integrating ProConnect Tax, proprietary AI workflows, and ALFRED (Motta&rsquo;s internal AI platform), the firm has reduced administrative preparation time by more than 80%, allowing professionals to spend more time where they create the greatest value: planning, research, advisory, and client relationships.
                 </p>
                 <p>
-                  No need to worry. We handle it.
+                  <em>Dat believes accountants don&rsquo;t create wealth, they protect it.</em> His philosophy is that business owners play offense by building companies and generating income, while great advisors play defense by preserving that wealth through thoughtful tax planning, financial strategy, and disciplined execution.
+                </p>
+                <p>
+                  In addition to leading Motta Financial, Dat serves as an adjunct professor at Suffolk University, where he teaches accounting and mentors future professionals. He also established the Le Family Scholarship to help create opportunities for the next generation of business leaders.
+                </p>
+                <p>
+                  Outside the office, Dat enjoys golf, following Boston sports, spending time with his dog Brody, and exploring how artificial intelligence will reshape the future of professional services.
                 </p>
               </div>
             </div>
@@ -120,55 +114,7 @@ export default function FounderPage() {
         </div>
       </section>
 
-      {/* === Tagline Banner === */}
-      <section className="motta-founder-tagline">
-        <div className="container">
-          <div className="motta-founder-tagline__inner">
-            <span className="motta-founder-tagline__eyebrow">Our Tagline</span>
-            <h2 className="motta-founder-tagline__text">
-              &ldquo;No Need to Worry<br />My Accountant Handles That&rdquo;
-            </h2>
-            <p className="motta-founder-tagline__sub">
-              Inspired by Notorious B.I.G. &bull; Lived every day at Motta Financial
-            </p>
-          </div>
-        </div>
-      </section>
 
-      {/* === Full Bio === */}
-      <section className="motta-founder-bio">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 offset-lg-2">
-              <div className="motta-founder-bio__content">
-                <h2 className="motta-section-title" style={{ marginBottom: '24px' }}>Dat Le, CPA</h2>
-                <h3 className="motta-section-title" style={{ fontSize: '18px', fontWeight: '500', color: 'var(--motta-sage-deep, #6b745d)', marginBottom: '28px' }}>Founder | Modern Accounting Architect</h3>
-                <p>
-                  Dat Le is the Founder of Motta Financial, an AI-powered CPA and advisory firm built on one core philosophy: every client dollar should go toward creating value, not administrative work.
-                </p>
-                <p>
-                  After beginning his career at Deloitte, Dat held leadership roles across public accounting, technical consulting, and corporate finance before founding Motta Financial in 2023. Rather than building another traditional accounting firm, he set out to redesign the operating model itself: combining automation, artificial intelligence, and elite tax expertise to deliver a faster, more transparent, and more strategic client experience.
-                </p>
-                <p>
-                  Under Dat&rsquo;s leadership, Motta Financial has grown from a solo practice into a nine-person firm serving more than 600 tax engagements while maintaining a deliberately lean operating model. By integrating ProConnect Tax, proprietary AI workflows, and ALFRED (Motta&rsquo;s internal AI platform), the firm has reduced administrative preparation time by more than 80%, allowing professionals to spend more time where they create the greatest value: planning, research, advisory, and client relationships.
-                </p>
-                <p>
-                  <em>Dat believes accountants don&rsquo;t create wealth, they protect it.</em>
-                </p>
-                <p>
-                  His philosophy is that business owners play offense by building companies and generating income, while great advisors play defense by preserving that wealth through thoughtful tax planning, financial strategy, and disciplined execution. This belief drives every workflow, every technology investment, and every client relationship at Motta Financial.
-                </p>
-                <p>
-                  In addition to leading Motta Financial, Dat serves as an adjunct professor at Suffolk University, where he teaches accounting and mentors future professionals. He also established the Le Family Scholarship to help create opportunities for the next generation of business leaders.
-                </p>
-                <p>
-                  Outside the office, Dat enjoys golf, following Boston sports, spending time with his dog Brody, and exploring how artificial intelligence will reshape the future of professional services.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
 
@@ -313,89 +259,6 @@ export default function FounderPage() {
         }
         .motta-founder-connect__social i {
           font-size: 14px;
-        }
-
-        .motta-founder-tagline {
-          padding: 80px 0;
-          background: linear-gradient(
-            135deg,
-            var(--motta-sage-deep, #6b745d) 0%,
-            #4f5742 100%
-          );
-          text-align: center;
-        }
-        .motta-founder-tagline__inner {
-          max-width: 700px;
-          margin: 0 auto;
-        }
-        .motta-founder-tagline__eyebrow {
-          display: inline-block;
-          font-family: var(--tg-heading-font-family, ui-monospace, monospace);
-          font-size: 12px;
-          letter-spacing: 0.22em;
-          text-transform: uppercase;
-          color: rgba(244, 241, 235, 0.7);
-          margin-bottom: 18px;
-        }
-        .motta-founder-tagline__text {
-          font-size: clamp(28px, 4vw, 48px);
-          line-height: 1.15;
-          letter-spacing: -0.02em;
-          color: var(--motta-warm, #f4f1eb);
-          margin: 0 0 20px;
-        }
-        .motta-founder-tagline__sub {
-          font-size: 15px;
-          color: rgba(244, 241, 235, 0.75);
-          margin: 0;
-        }
-
-        .motta-founder-bio {
-          padding: 90px 0;
-          background: var(--motta-warm, #f4f1eb);
-        }
-        .motta-founder-bio--alt {
-          background: var(--motta-cream-50, #fbf8f2);
-          margin-top: -40px;
-          padding-top: 50px;
-        }
-        .motta-founder-bio__content {
-          text-align: left;
-        }
-        .motta-founder-bio__content p {
-          font-size: 17px;
-          line-height: 1.75;
-          color: rgba(43, 47, 36, 0.85);
-          margin: 0 0 18px;
-        }
-        .motta-founder-bio__content a {
-          color: var(--motta-sage-deep, #6b745d);
-          text-decoration: underline;
-          text-underline-offset: 3px;
-        }
-        .motta-founder-bio__cta {
-          display: flex;
-          gap: 16px;
-          flex-wrap: wrap;
-          margin-top: 28px;
-          justify-content: flex-end;
-        }
-        .motta-founder-bio__cta .border-btn {
-          border: 1px solid var(--motta-sage-deep, #6b745d);
-          color: var(--motta-sage-deep, #6b745d);
-          background: transparent;
-          padding: 12px 24px;
-          border-radius: 999px;
-          font-weight: 500;
-          font-size: 15px;
-          text-decoration: none;
-          transition: all 0.2s ease;
-          display: inline-flex;
-          align-items: center;
-        }
-        .motta-founder-bio__cta .border-btn:hover {
-          background: var(--motta-sage-deep, #6b745d);
-          color: var(--motta-warm, #f4f1eb);
         }
 
         .motta-founder-philosophy {
