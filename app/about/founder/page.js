@@ -140,7 +140,7 @@ export default function FounderPage() {
           box-shadow: 0 30px 60px -25px rgba(15, 19, 16, 0.35);
           max-width: 380px;
           margin-left: auto;
-          margin-top: -60px;
+          margin-top: -120px;
         }
         .motta-founder-story__media img {
           width: 100%;
@@ -193,7 +193,7 @@ export default function FounderPage() {
         }
 
         .motta-founder-connect {
-          margin-top: -100px;
+          margin-top: -160px;
           margin-left: auto;
           max-width: 380px;
           padding: 24px 26px;
