@@ -281,7 +281,9 @@ export default function HubIntakeForm() {
   const [error, setError] = useState(null);
   const [serviceFocus, setServiceFocus] = useState('');
   const [services, setServices] = useState([]);
+  const [servicesOther, setServicesOther] = useState('');
   const [entityTypes, setEntityTypes] = useState([]);
+  const [entityTypesOther, setEntityTypesOther] = useState('');
   const [preferredTeamMember, setPreferredTeamMember] = useState('');
   // Where we redirect after a successful intake. Captured at submit
   // time so we don't lose it if the form re-renders.
@@ -327,8 +329,22 @@ export default function HubIntakeForm() {
       zip: get('zip') || undefined,
 
       service_focus: serviceFocus || undefined,
-      services_requested: services.length > 0 ? services : undefined,
-      entity_types: entityTypes.length > 0 ? entityTypes : undefined,
+      services_requested: (() => {
+        const list = [...services];
+        if (services.includes('Other') && servicesOther.trim()) {
+          const idx = list.indexOf('Other');
+          list[idx] = `Other: ${servicesOther.trim()}`;
+        }
+        return list.length > 0 ? list : undefined;
+      })(),
+      entity_types: (() => {
+        const list = [...entityTypes];
+        if (entityTypes.includes('Other') && entityTypesOther.trim()) {
+          const idx = list.indexOf('Other');
+          list[idx] = `Other: ${entityTypesOther.trim()}`;
+        }
+        return list.length > 0 ? list : undefined;
+      })(),
 
       business_name: get('business_name') || undefined,
       business_email: get('business_email') || undefined,
@@ -650,7 +666,27 @@ export default function HubIntakeForm() {
                     {s}
                   </Pill>
                 ))}
+              <Pill
+                checked={services.includes('Other')}
+                onChange={() => {
+                  toggle(services, setServices, 'Other');
+                  if (services.includes('Other')) setServicesOther('');
+                }}
+              >
+                Other
+              </Pill>
             </div>
+            {services.includes('Other') && (
+              <div className="motta-intake-other-input">
+                <input
+                  type="text"
+                  placeholder="Please describe…"
+                  value={servicesOther}
+                  onChange={(e) => setServicesOther(e.target.value)}
+                  aria-label="Other service description"
+                />
+              </div>
+            )}
           </div>
         )}
 
@@ -668,7 +704,27 @@ export default function HubIntakeForm() {
                 {t}
               </Pill>
             ))}
+            <Pill
+              checked={entityTypes.includes('Other')}
+              onChange={() => {
+                toggle(entityTypes, setEntityTypes, 'Other');
+                if (entityTypes.includes('Other')) setEntityTypesOther('');
+              }}
+            >
+              Other
+            </Pill>
           </div>
+          {entityTypes.includes('Other') && (
+            <div className="motta-intake-other-input">
+              <input
+                type="text"
+                placeholder="Please describe…"
+                value={entityTypesOther}
+                onChange={(e) => setEntityTypesOther(e.target.value)}
+                aria-label="Other return or filing description"
+              />
+            </div>
+          )}
         </div>
       </SectionCard>
 
