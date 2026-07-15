@@ -1464,45 +1464,46 @@ main select:focus {
   outline: none;
 }
 
-/* Service detail sidebar — replace the template's pale-blue
-   "Other Services" cards with the brand cream + sage palette. */
+/* Service detail sidebar — warm beige cards with dark sage active state.
+   Applied across all sidebar lists: Services, News, Partnerships. */
 .sidebar__cat-list-two .list-wrap li a,
 .sidebar__cat-list .list-wrap li a {
-  background: #FFFFFF;
-  border: 1px solid rgba(107, 116, 93, 0.18);
+  background: var(--motta-warm, #EAE6E1);
+  border: 1px solid rgba(107, 116, 93, 0.22);
   border-radius: 10px;
-  color: var(--motta-charcoal, #2b2f24);
+  color: var(--motta-charcoal, #333333);
+  font-size: 16px;
+  font-weight: 500;
   transition: background 0.2s ease, color 0.2s ease,
               border-color 0.2s ease, transform 0.2s ease,
               box-shadow 0.2s ease;
 }
 .sidebar__cat-list-two .list-wrap li a i,
 .sidebar__cat-list .list-wrap li a i {
-  color: var(--motta-sage-deep, #6b745d);
+  color: var(--motta-sage-deep, #4F573F);
 }
 .sidebar__cat-list-two .list-wrap li a:hover,
 .sidebar__cat-list .list-wrap li a:hover {
-  background: var(--motta-sage-deep, #6b745d);
-  border-color: var(--motta-sage-deep, #6b745d);
-  color: var(--motta-cream-100, #F4F1EB);
+  background: var(--motta-sage, #6B745D);
+  border-color: var(--motta-sage, #6B745D);
+  color: var(--motta-white, #FFFFFF);
   transform: translateY(-1px);
   box-shadow: 0 14px 28px -18px rgba(15, 19, 16, 0.35);
 }
 .sidebar__cat-list-two .list-wrap li a:hover i,
 .sidebar__cat-list .list-wrap li a:hover i {
-  color: var(--motta-cream-100, #F4F1EB);
+  color: var(--motta-white, #FFFFFF);
 }
-/* Active page in a boxed sidebar nav (e.g. Partnerships) reads as a
-   persistent sage-filled box so the current section is obvious. */
+/* Active page — persistent dark-sage filled card so the current section is obvious. */
 .sidebar__cat-list-two .list-wrap li a.is-active,
 .sidebar__cat-list .list-wrap li a.is-active {
-  background: var(--motta-sage-deep, #6b745d);
-  border-color: var(--motta-sage-deep, #6b745d);
-  color: var(--motta-cream-100, #F4F1EB);
+  background: var(--motta-sage-deep, #4F573F);
+  border-color: var(--motta-sage-deep, #4F573F);
+  color: var(--motta-white, #FFFFFF);
 }
 .sidebar__cat-list-two .list-wrap li a.is-active i,
 .sidebar__cat-list .list-wrap li a.is-active i {
-  color: var(--motta-cream-100, #F4F1EB);
+  color: var(--motta-white, #FFFFFF);
 }
 
 /* Sidebar widget heading underline — match the sage accent
@@ -2707,37 +2708,7 @@ button.motta-cta.btn:hover {
   font-weight: 700;
 }
 
-/* Override template's cool-blue sidebar boxes with Motta's warm sage palette */
-.sidebar__cat-list-two .list-wrap li a,
-.sidebar__cat-list .list-wrap li a {
-  background: var(--motta-warm, #EAE6E1) !important;
-  border: 1px solid rgba(107, 116, 93, 0.22) !important;
-  border-radius: 10px !important;
-  color: var(--motta-charcoal, #333333) !important;
-  font-size: 16px !important;
-  font-weight: 500 !important;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
-}
-.sidebar__cat-list-two .list-wrap li a:hover,
-.sidebar__cat-list .list-wrap li a:hover {
-  background: var(--motta-sage, #6B745D) !important;
-  border-color: var(--motta-sage, #6B745D) !important;
-  color: var(--motta-white, #FFFFFF) !important;
-}
-.sidebar__cat-list-two .list-wrap li a:hover i,
-.sidebar__cat-list .list-wrap li a:hover i {
-  color: var(--motta-warm, #EAE6E1) !important;
-}
-.sidebar__cat-list-two .list-wrap li a.is-active,
-.sidebar__cat-list .list-wrap li a.is-active {
-  background: var(--motta-sage-deep, #4F573F) !important;
-  border-color: var(--motta-sage-deep, #4F573F) !important;
-  color: var(--motta-white, #FFFFFF) !important;
-}
-.sidebar__cat-list-two .list-wrap li a.is-active i,
-.sidebar__cat-list .list-wrap li a.is-active i {
-  color: var(--motta-warm, #EAE6E1) !important;
-}
+/* Sidebar card styles are defined earlier in this file — no duplicate needed. */
 
 /* =====================================================================
    Global width + responsiveness overrides
