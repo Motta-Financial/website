@@ -172,22 +172,7 @@ export default function FounderPage() {
 
 
 
-      {/* === Contact Section === */}
-      <section className="motta-founder-bio motta-founder-bio--alt">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 offset-lg-2">
-              <div className="motta-founder-bio__content">
-                <div className="motta-founder-bio__cta">
-                  <Link href="/contact" className="border-btn">
-                    Get in Touch
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <style>{`
         .motta-founder-story {
