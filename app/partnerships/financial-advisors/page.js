@@ -84,36 +84,27 @@ export default function FinancialAdvisorsPartnership() {
     <article className="motta-fa-page">
       {/* Header */}
       <div className="motta-fa-page__hero">
-        <div className="motta-fa-page__hero-text">
-          <span className="motta-eyebrow">Featured Partnership</span>
-          <h1 className="motta-section-title" style={{ marginBottom: 18 }}>
-            Financial Advisors &amp; CPAs
-          </h1>
-          <p className="motta-fa-page__lead">
-            Tax planning and financial planning are the same conversation. We partner with
-            financial advisors who share one common goal: deliver the best possible product
-            for the end user &mdash; the client.
-          </p>
-          <p>
-            When a client&apos;s CPA and financial advisor work together seamlessly,
-            investment strategies, tax positions, retirement timing, and estate decisions
-            stop being separate spreadsheets and start being a single coordinated plan.
-            That&apos;s where the real value shows up.
-          </p>
-          <p>
-            We bring tax expertise, compliance discipline, and a forward-looking advisory
-            lens. Our partner advisors bring deep capital markets experience, behavioral
-            coaching, and long-term wealth strategy. Together, we cover every angle of a
-            client&apos;s financial life.
-          </p>
-        </div>
-        <div className="motta-fa-page__hero-media">
-          <img
-            src="/assets/img/partnerships/financial-advisors.jpg"
-            alt="A CPA and a financial advisor reviewing a client's holistic financial plan together"
-          />
-          <div className="motta-fa-page__badge">The Dynamic Duo</div>
-        </div>
+        <span className="motta-eyebrow">Featured Partnership</span>
+        <h1 className="motta-section-title" style={{ marginBottom: 18 }}>
+          Financial Advisors &amp; CPAs
+        </h1>
+        <p className="motta-fa-page__lead">
+          Tax planning and financial planning are the same conversation. We partner with
+          financial advisors who share one common goal: deliver the best possible product
+          for the end user &mdash; the client.
+        </p>
+        <p>
+          When a client&apos;s CPA and financial advisor work together seamlessly,
+          investment strategies, tax positions, retirement timing, and estate decisions
+          stop being separate spreadsheets and start being a single coordinated plan.
+          That&apos;s where the real value shows up.
+        </p>
+        <p>
+          We bring tax expertise, compliance discipline, and a forward-looking advisory
+          lens. Our partner advisors bring deep capital markets experience, behavioral
+          coaching, and long-term wealth strategy. Together, we cover every angle of a
+          client&apos;s financial life.
+        </p>
       </div>
 
       {/* Two disciplines */}
@@ -149,9 +140,9 @@ export default function FinancialAdvisorsPartnership() {
 
       {/* Benefits */}
       <section className="motta-fa-page__benefits">
-        <header className="motta-fa-page__block-head motta-fa-page__block-head--light">
-          <span className="motta-eyebrow motta-eyebrow--light">Benefits to the Client</span>
-          <h2 className="motta-section-title motta-section-title--light">
+        <header className="motta-fa-page__block-head">
+          <span className="motta-eyebrow">Benefits to the Client</span>
+          <h2 className="motta-section-title">
             What Coordination Actually Delivers
           </h2>
         </header>
@@ -200,18 +191,10 @@ export default function FinancialAdvisorsPartnership() {
 
       <style jsx>{`
         .motta-fa-page__hero {
-          display: grid;
-          grid-template-columns: 1.1fr 0.9fr;
-          gap: 40px;
-          align-items: center;
+          max-width: 72ch;
           margin-bottom: 60px;
         }
-        @media (max-width: 991px) {
-          .motta-fa-page__hero {
-            grid-template-columns: 1fr;
-          }
-        }
-        .motta-fa-page__hero-text p {
+        .motta-fa-page__hero p {
           font-size: 15px;
           line-height: 1.7;
           color: rgba(43, 47, 36, 0.82);
@@ -220,31 +203,6 @@ export default function FinancialAdvisorsPartnership() {
         .motta-fa-page__lead {
           font-size: 17px !important;
           color: var(--motta-charcoal, #2b2f24) !important;
-        }
-        .motta-fa-page__hero-media {
-          position: relative;
-          border-radius: 16px;
-          overflow: hidden;
-          box-shadow: 0 24px 48px -28px rgba(15, 19, 16, 0.32);
-        }
-        .motta-fa-page__hero-media img {
-          width: 100%;
-          aspect-ratio: 4 / 3;
-          object-fit: cover;
-          display: block;
-        }
-        .motta-fa-page__badge {
-          position: absolute;
-          top: 16px;
-          left: 16px;
-          padding: 8px 14px;
-          border-radius: 8px;
-          background: var(--motta-charcoal, #2b2f24);
-          color: var(--motta-warm, #f4f1eb);
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
         }
 
         .motta-fa-page__block {
@@ -338,18 +296,15 @@ export default function FinancialAdvisorsPartnership() {
         .motta-fa-page__benefits {
           margin: 50px -48px;
           padding: 60px 48px;
-          background: linear-gradient(180deg, #1f261c 0%, #14180f 100%);
-          color: var(--motta-warm, #f4f1eb);
-          border-radius: 0;
+          background: #ffffff;
+          border-top: 1px solid rgba(107, 116, 93, 0.14);
+          border-bottom: 1px solid rgba(107, 116, 93, 0.14);
         }
         @media (max-width: 767px) {
           .motta-fa-page__benefits {
             margin: 40px -22px;
             padding: 48px 22px;
           }
-        }
-        .motta-fa-page__block-head--light p {
-          color: rgba(244, 241, 235, 0.78);
         }
         .motta-fa-page__benefits-grid {
           display: grid;
@@ -366,28 +321,28 @@ export default function FinancialAdvisorsPartnership() {
           gap: 14px;
           padding: 22px;
           border-radius: 12px;
-          background: rgba(244, 241, 235, 0.05);
-          border: 1px solid rgba(244, 241, 235, 0.1);
+          background: var(--motta-cream, #f7f5f1);
+          border: 1px solid rgba(107, 116, 93, 0.14);
         }
         .motta-fa-page__benefit-icon {
           flex-shrink: 0;
           width: 44px;
           height: 44px;
           border-radius: 10px;
-          background: var(--motta-sage, #8e9b79);
-          color: var(--motta-warm, #f4f1eb);
+          background: var(--motta-sage, #6b745d);
+          color: #ffffff;
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 18px;
         }
         .motta-fa-page__benefit h4 {
-          color: var(--motta-warm, #f4f1eb);
+          color: var(--motta-charcoal, #2b2f24);
           font-size: 17px;
           margin: 0 0 6px;
         }
         .motta-fa-page__benefit p {
-          color: rgba(244, 241, 235, 0.82);
+          color: rgba(43, 47, 36, 0.78);
           font-size: 13.5px;
           line-height: 1.6;
           margin: 0;

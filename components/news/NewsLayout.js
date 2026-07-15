@@ -82,7 +82,7 @@ export default function NewsLayout({ children }) {
       <style jsx>{`
         .motta-news-shell {
           padding: 70px 0 90px;
-          background: var(--motta-warm, #f4f1eb);
+          background: var(--motta-cream, #f7f5f1);
         }
         .services__sidebar {
           position: sticky;

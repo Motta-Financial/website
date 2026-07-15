@@ -72,31 +72,22 @@ export default function WhiteLabelPartnership() {
   return (
     <article className="motta-wl-page">
       <div className="motta-wl-page__hero">
-        <div>
-          <span className="motta-eyebrow">Professional Partnership</span>
-          <h1 className="motta-section-title" style={{ marginBottom: 18 }}>
-            White Label Tax &amp; Accounting
-          </h1>
-          <p className="motta-wl-page__lead">
-            Motta-level quality, delivered under your umbrella. We white label our tax and
-            accounting services for other professional service firms who want to expand
-            what they can offer their clients without expanding their bench.
-          </p>
-          <p>
-            Financial advisors who want to add tax planning. RIAs who need accounting for
-            their business-owner book. Law firms supporting M&amp;A and estate work. Family
-            offices coordinating across multiple advisors. We sit behind your brand,
-            produce institutional-grade work, and let you keep the client relationship
-            exactly where it belongs &mdash; with you.
-          </p>
-        </div>
-        <div className="motta-wl-page__hero-media">
-          <img
-            src="/assets/img/partnerships/white-label.jpg"
-            alt="A behind-the-scenes professional services partnership where Motta delivers tax and accounting work under a partner&apos;s brand"
-          />
-          <div className="motta-wl-page__badge">Behind the Scenes</div>
-        </div>
+        <span className="motta-eyebrow">Professional Partnership</span>
+        <h1 className="motta-section-title" style={{ marginBottom: 18 }}>
+          White Label Tax &amp; Accounting
+        </h1>
+        <p className="motta-wl-page__lead">
+          Motta-level quality, delivered under your umbrella. We white label our tax and
+          accounting services for other professional service firms who want to expand
+          what they can offer their clients without expanding their bench.
+        </p>
+        <p>
+          Financial advisors who want to add tax planning. RIAs who need accounting for
+          their business-owner book. Law firms supporting M&amp;A and estate work. Family
+          offices coordinating across multiple advisors. We sit behind your brand,
+          produce institutional-grade work, and let you keep the client relationship
+          exactly where it belongs &mdash; with you.
+        </p>
       </div>
 
       <section className="motta-wl-page__block">
@@ -122,9 +113,9 @@ export default function WhiteLabelPartnership() {
       </section>
 
       <section className="motta-wl-page__why">
-        <header className="motta-wl-page__block-head motta-wl-page__block-head--light">
-          <span className="motta-eyebrow motta-eyebrow--light">Why Motta</span>
-          <h2 className="motta-section-title motta-section-title--light">
+        <header className="motta-wl-page__block-head">
+          <span className="motta-eyebrow">Why Motta</span>
+          <h2 className="motta-section-title">
             Built to Sit Behind Your Brand
           </h2>
         </header>
@@ -139,8 +130,8 @@ export default function WhiteLabelPartnership() {
             </div>
           ))}
         </div>
-        <div style={{ textAlign: 'center', marginTop: 30 }}>
-          <Link href="/contact" className="btn">
+        <div style={{ textAlign: 'center', marginTop: 36 }}>
+          <Link href="/contact" className="btn motta-wl-page__why-btn">
             Start a White Label Conversation
           </Link>
         </div>
@@ -148,16 +139,8 @@ export default function WhiteLabelPartnership() {
 
       <style jsx>{`
         .motta-wl-page__hero {
-          display: grid;
-          grid-template-columns: 1.1fr 0.9fr;
-          gap: 40px;
-          align-items: center;
+          max-width: 72ch;
           margin-bottom: 60px;
-        }
-        @media (max-width: 991px) {
-          .motta-wl-page__hero {
-            grid-template-columns: 1fr;
-          }
         }
         .motta-wl-page__hero p {
           font-size: 15px;
@@ -168,31 +151,6 @@ export default function WhiteLabelPartnership() {
         .motta-wl-page__lead {
           font-size: 17px !important;
           color: var(--motta-charcoal, #2b2f24) !important;
-        }
-        .motta-wl-page__hero-media {
-          position: relative;
-          border-radius: 16px;
-          overflow: hidden;
-          box-shadow: 0 24px 48px -28px rgba(15, 19, 16, 0.32);
-        }
-        .motta-wl-page__hero-media img {
-          width: 100%;
-          aspect-ratio: 4 / 3;
-          object-fit: cover;
-          display: block;
-        }
-        .motta-wl-page__badge {
-          position: absolute;
-          top: 16px;
-          left: 16px;
-          padding: 8px 14px;
-          border-radius: 8px;
-          background: var(--motta-charcoal, #2b2f24);
-          color: var(--motta-warm, #f4f1eb);
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
         }
 
         .motta-wl-page__block {
@@ -268,8 +226,8 @@ export default function WhiteLabelPartnership() {
         .motta-wl-page__why {
           margin: 50px -48px 0;
           padding: 60px 48px;
-          background: linear-gradient(180deg, #1f261c 0%, #14180f 100%);
-          color: var(--motta-warm, #f4f1eb);
+          background: #ffffff;
+          border-top: 1px solid rgba(107, 116, 93, 0.14);
         }
         @media (max-width: 767px) {
           .motta-wl-page__why {
@@ -280,7 +238,7 @@ export default function WhiteLabelPartnership() {
         .motta-wl-page__why-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 18px;
+          gap: 16px;
         }
         @media (max-width: 767px) {
           .motta-wl-page__why-grid {
@@ -292,8 +250,8 @@ export default function WhiteLabelPartnership() {
           gap: 16px;
           padding: 22px;
           border-radius: 12px;
-          background: rgba(244, 241, 235, 0.05);
-          border: 1px solid rgba(244, 241, 235, 0.1);
+          background: var(--motta-cream, #f7f5f1);
+          border: 1px solid rgba(107, 116, 93, 0.14);
         }
         .motta-wl-page__why-num {
           flex-shrink: 0;
@@ -301,19 +259,28 @@ export default function WhiteLabelPartnership() {
           font-size: 26px;
           font-weight: 700;
           line-height: 1;
-          color: var(--motta-sage, #8e9b79);
+          color: var(--motta-sage, #6b745d);
           width: 44px;
         }
         .motta-wl-page__why-card h4 {
-          color: var(--motta-warm, #f4f1eb);
+          color: var(--motta-charcoal, #2b2f24);
           font-size: 17px;
           margin: 0 0 6px;
         }
         .motta-wl-page__why-card p {
-          color: rgba(244, 241, 235, 0.82);
+          color: rgba(43, 47, 36, 0.78);
           font-size: 13.5px;
           line-height: 1.6;
           margin: 0;
+        }
+        .motta-wl-page__why-btn {
+          background: var(--motta-sage, #6b745d) !important;
+          border-color: var(--motta-sage, #6b745d) !important;
+          color: #ffffff !important;
+        }
+        .motta-wl-page__why-btn:hover {
+          background: var(--motta-sage-deep, #4f573f) !important;
+          border-color: var(--motta-sage-deep, #4f573f) !important;
         }
       `}</style>
     </article>
