@@ -145,11 +145,14 @@ export default function FounderPage() {
           overflow: hidden;
           box-shadow: 0 30px 60px -25px rgba(15, 19, 16, 0.35);
           width: 100%;
+          max-height: 420px;
         }
         .motta-founder-story__media img {
-          width: 75%;
-          height: auto;
+          width: 100%;
+          height: 420px;
           display: block;
+          object-fit: cover;
+          object-position: center 15%;
         }
         .motta-founder-story__content {
           max-width: 600px;
