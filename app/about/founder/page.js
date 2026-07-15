@@ -20,40 +20,15 @@ export default function FounderPage() {
       {/* === Founder Story === */}
       <section className="motta-founder-story">
         <div className="container">
-          <div className="row align-items-center motta-founder-story__row">
-            <div className="col-lg-5">
+          <div className="row motta-founder-story__row">
+            {/* Left column: photo + connect box stacked */}
+            <div className="col-lg-5 motta-founder-story__left">
               <div className="motta-founder-story__media">
                 <img
                   src="/assets/img/about/dat-le-founder.jpg"
                   alt="Dat Le, Founder of Motta Financial"
                 />
               </div>
-            </div>
-            <div className="col-lg-7">
-              <div className="motta-founder-story__content">
-                <span className="motta-eyebrow">Founder &amp; Managing Partner</span>
-                <h1 className="motta-founder-story__name">Dat Le, CPA</h1>
-                <p>
-                  Dat Le is the Founder of Motta Financial, an AI-powered CPA and advisory firm built on one core philosophy: every client dollar should go toward creating value, not administrative work.
-                </p>
-                <p>
-                  After beginning his career at Deloitte, Dat held leadership roles across public accounting, technical consulting, and corporate finance before founding Motta Financial in 2023. Rather than building another traditional accounting firm, he set out to redesign the operating model itself: combining automation, artificial intelligence, and elite tax expertise to deliver a faster, more transparent, and more strategic client experience.
-                </p>
-                <p>
-                  Under Dat&rsquo;s leadership, Motta Financial has grown from a solo practice into a nine-person firm serving more than 600 tax engagements while maintaining a deliberately lean operating model. By integrating ProConnect Tax, proprietary AI workflows, and ALFRED (Motta&rsquo;s internal AI platform), the firm has reduced administrative preparation time by more than 80%, allowing professionals to spend more time where they create the greatest value: planning, research, advisory, and client relationships.
-                </p>
-                <p>
-                  <em>Dat believes accountants don&rsquo;t create wealth, they protect it.</em> His philosophy is that business owners play offense by building companies and generating income, while great advisors play defense by preserving that wealth through thoughtful tax planning, financial strategy, and disciplined execution.
-                </p>
-                <p>
-                  In addition to leading Motta Financial, Dat serves as an adjunct professor at Suffolk University, where he teaches accounting and mentors future professionals. He also established the Le Family Scholarship to help create opportunities for the next generation of business leaders.
-                </p>
-                <p>
-                  Outside the office, Dat enjoys golf, following Boston sports, spending time with his dog Brody, and exploring how artificial intelligence will reshape the future of professional services.
-                </p>
-              </div>
-            </div>
-            <div className="col-lg-5">
               <div className="motta-founder-connect">
                 <span className="motta-founder-connect__label">
                   Connect with Dat
@@ -110,6 +85,31 @@ export default function FounderPage() {
                 </div>
               </div>
             </div>
+            {/* Right column: bio content */}
+            <div className="col-lg-7">
+              <div className="motta-founder-story__content">
+                <span className="motta-eyebrow">Founder &amp; Managing Partner</span>
+                <h1 className="motta-founder-story__name">Dat Le, CPA</h1>
+                <p>
+                  Dat Le is the Founder of Motta Financial, an AI-powered CPA and advisory firm built on one core philosophy: every client dollar should go toward creating value, not administrative work.
+                </p>
+                <p>
+                  After beginning his career at Deloitte, Dat held leadership roles across public accounting, technical consulting, and corporate finance before founding Motta Financial in 2023. Rather than building another traditional accounting firm, he set out to redesign the operating model itself: combining automation, artificial intelligence, and elite tax expertise to deliver a faster, more transparent, and more strategic client experience.
+                </p>
+                <p>
+                  Under Dat&rsquo;s leadership, Motta Financial has grown from a solo practice into a nine-person firm serving more than 600 tax engagements while maintaining a deliberately lean operating model. By integrating ProConnect Tax, proprietary AI workflows, and ALFRED (Motta&rsquo;s internal AI platform), the firm has reduced administrative preparation time by more than 80%, allowing professionals to spend more time where they create the greatest value: planning, research, advisory, and client relationships.
+                </p>
+                <p>
+                  <em>Dat believes accountants don&rsquo;t create wealth, they protect it.</em> His philosophy is that business owners play offense by building companies and generating income, while great advisors play defense by preserving that wealth through thoughtful tax planning, financial strategy, and disciplined execution.
+                </p>
+                <p>
+                  In addition to leading Motta Financial, Dat serves as an adjunct professor at Suffolk University, where he teaches accounting and mentors future professionals. He also established the Le Family Scholarship to help create opportunities for the next generation of business leaders.
+                </p>
+                <p>
+                  Outside the office, Dat enjoys golf, following Boston sports, spending time with his dog Brody, and exploring how artificial intelligence will reshape the future of professional services.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -132,15 +132,19 @@ export default function FounderPage() {
         }
         .motta-founder-story__row {
           gap: 50px 0;
+          align-items: flex-start;
+        }
+        .motta-founder-story__left {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
         }
         .motta-founder-story__media {
           position: relative;
           border-radius: 16px;
           overflow: hidden;
           box-shadow: 0 30px 60px -25px rgba(15, 19, 16, 0.35);
-          max-width: 380px;
-          margin-left: auto;
-          margin-top: -150px;
+          width: 100%;
         }
         .motta-founder-story__media img {
           width: 100%;
@@ -193,9 +197,7 @@ export default function FounderPage() {
         }
 
         .motta-founder-connect {
-          margin-top: -190px;
-          margin-left: auto;
-          max-width: 380px;
+          width: 100%;
           padding: 24px 26px;
           background: #fff;
           border: 1px solid rgba(142, 155, 121, 0.25);
