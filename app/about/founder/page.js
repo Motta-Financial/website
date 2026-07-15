@@ -1,6 +1,5 @@
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
-import IntakeButton from '@/components/intake/IntakeButton';
 
 export const metadata = {
   title: 'Meet Our Founder | Dat Le | Motta Financial',
@@ -243,9 +242,6 @@ export default function FounderPage() {
                   <Link href="/news/media">Media</Link> section.
                 </p>
                 <div className="motta-founder-bio__cta">
-                  <IntakeButton className="btn" source="founder-page">
-                    Become a Client
-                  </IntakeButton>
                   <Link href="/contact" className="border-btn">
                     Get in Touch
                   </Link>
@@ -451,6 +447,24 @@ export default function FounderPage() {
           gap: 16px;
           flex-wrap: wrap;
           margin-top: 28px;
+          justify-content: flex-end;
+        }
+        .motta-founder-bio__cta .border-btn {
+          border: 1px solid var(--motta-sage-deep, #6b745d);
+          color: var(--motta-sage-deep, #6b745d);
+          background: transparent;
+          padding: 12px 24px;
+          border-radius: 999px;
+          font-weight: 500;
+          font-size: 15px;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          display: inline-flex;
+          align-items: center;
+        }
+        .motta-founder-bio__cta .border-btn:hover {
+          background: var(--motta-sage-deep, #6b745d);
+          color: var(--motta-warm, #f4f1eb);
         }
 
         .motta-founder-philosophy {
