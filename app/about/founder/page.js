@@ -150,8 +150,10 @@ export default function FounderPage() {
           width: 100%;
           height: auto;
           display: block;
-          aspect-ratio: 4 / 5;
+          aspect-ratio: 3 / 3.5;
+          max-height: 340px;
           object-fit: cover;
+          object-position: center top;
         }
         .motta-founder-story__content {
           max-width: 600px;
