@@ -18,7 +18,7 @@ export default function SmallBusinessTaxAdvisory() {
     >
       <ServiceDetailLayout
         currentHref="/services/tax/small-business"
-        heroImage="/assets/img/services/services_details_small_business.png"
+        heroImage="/assets/img/services/small-business-tax-hero.jpg"
         title="Small Business Tax Advisory"
         lede="Most small business owners overpay tax simply because no one is looking at the whole picture before the year closes. Motta works alongside you year-round — choosing the right entity, structuring how you pay yourself, staying current on payroll and estimates, and filing accurate business returns — so the money you keep is the result of a plan, not an accident in April."
         bullets={[

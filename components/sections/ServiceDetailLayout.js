@@ -81,7 +81,13 @@ export default function ServiceDetailLayout({
             <div className="col-70 order-0 order-lg-2">
               {heroImage ? (
                 <div className="services__details-thumb">
-                  <img src={heroImage} alt={title} />
+                  <img
+                    src={heroImage}
+                    alt={title}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
                 </div>
               ) : null}
               <div className="services__details-content">
@@ -139,7 +145,7 @@ export default function ServiceDetailLayout({
                   <IntakeButton className="btn mr-10" source={`service: ${title}`}>
                     Become a Client
                   </IntakeButton>
-                  <Link href="/contact" className="btn border-btn">
+                  <Link href="/contact" className="btn border-btn border-btn--ink">
                     Send Us a Message
                   </Link>
                 </div>
@@ -151,29 +157,30 @@ export default function ServiceDetailLayout({
                 <div className="sidebar__widget sidebar__widget-two">
                   <div className="sidebar__cat-list-two">
                     <h4 className="sidebar__widget-title">Other Services</h4>
-                    {SERVICE_GROUPS.map((group) => {
-                      const items = group.items.filter(
-                        (s) => s.href !== currentHref
-                      );
-                      if (items.length === 0) return null;
-                      return (
-                        <div key={group.area} className="sidebar__cat-group">
-                          <h5 className="sidebar__cat-group-title">
-                            {group.area}
-                          </h5>
-                          <ul className="list-wrap">
-                            {items.map((s) => (
+                    {SERVICE_GROUPS.map((group) => (
+                      <div key={group.area} className="sidebar__cat-group">
+                        <h5 className="sidebar__cat-group-title">
+                          {group.area}
+                        </h5>
+                        <ul className="list-wrap">
+                          {group.items.map((s) => {
+                            const isActive = s.href === currentHref;
+                            return (
                               <li key={s.href}>
-                                <Link href={s.href}>
+                                <Link
+                                  href={s.href}
+                                  className={isActive ? 'is-active' : undefined}
+                                  aria-current={isActive ? 'page' : undefined}
+                                >
                                   {s.label}{' '}
                                   <i className="flaticon-arrow-button" />
                                 </Link>
                               </li>
-                            ))}
-                          </ul>
-                        </div>
-                      );
-                    })}
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    ))}
                   </div>
                 </div>
 

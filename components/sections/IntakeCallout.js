@@ -36,21 +36,14 @@ export default function IntakeCallout() {
               style={{
                 display: 'flex',
                 flexDirection: 'column',
+                alignItems: 'flex-start',
                 gap: 14,
               }}
             >
-              <IntakeButton
-                className="btn"
-                style={{ textAlign: 'center' }}
-                source="callout"
-              >
+              <IntakeButton className="btn" source="callout">
                 Boot up an engagement
               </IntakeButton>
-              <Link
-                href="/contact"
-                className="btn border-btn"
-                style={{ textAlign: 'center' }}
-              >
+              <Link href="/contact" className="btn border-btn">
                 Send Us a Message
               </Link>
             </div>

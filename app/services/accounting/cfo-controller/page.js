@@ -17,7 +17,7 @@ export default function CFOController() {
     >
       <ServiceDetailLayout
         currentHref="/services/accounting/cfo-controller"
-        heroImage="/assets/img/services/services_details02.jpg"
+        heroImage="/assets/img/services/cfo-controller-hero.jpg"
         title="CFO & Controller Services"
         lede="You need senior financial leadership but aren't ready for a full-time hire. Motta provides fractional CFOs and Controllers who integrate with your team, bring institutional knowledge from working with dozens of companies, and scale up or down as your business evolves."
         bullets={[

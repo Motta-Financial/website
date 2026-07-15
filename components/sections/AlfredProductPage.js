@@ -116,7 +116,7 @@ export default function AlfredProductPage() {
             <div className="col-lg-10 text-center">
               <div
                 style={{
-                  display: 'inline-flex',
+                  display: 'flex',
                   justifyContent: 'center',
                   marginBottom: 32,
                   filter: 'drop-shadow(0 16px 40px rgba(142,155,121,0.4))',
@@ -723,6 +723,7 @@ export default function AlfredProductPage() {
                         className="btn"
                         style={{
                           width: '100%',
+                          justifyContent: 'center',
                           padding: '16px 32px',
                           fontSize: 16,
                           opacity: submitting ? 0.7 : 1,

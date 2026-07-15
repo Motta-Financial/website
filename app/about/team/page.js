@@ -63,20 +63,7 @@ const teamMembers = [
     linkedin: 'https://www.linkedin.com/in/caleb-long/',
     calendly: 'https://calendly.com/caleb-long-mottafinancial',
   },
-  {
-    slug: 'micaela-palacios',
-    name: 'Micaela Palacios',
-    title: 'Associate, Tax Advisory',
-    group: 'Tax',
-    credentials: 'CPA Eligible · Suffolk University · Bilingual EN / ES',
-    image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Micaela%20Palacios-66rSwUgEL32LdNFmli6cwtTfzysmOs.jpg',
-    blurb:
-      "Micaela focuses on individual tax preparation, year-round planning, and equity-compensation strategy for employees navigating RSUs, ISOs, and ESPPs. A Suffolk Sawyer Honors graduate (3.95 GPA, Beta Alpha Psi), she brings real client experience from Suffolk's EEDC clinic and serves Motta's multilingual client community in English and Spanish.",
-    email: 'Micaela.Palacios@MottaFinancial.com',
-    linkedin: 'https://www.linkedin.com/in/micaela-palacios-v16/',
-    calendly: 'https://calendly.com/micaela-palacios-mottafinancial',
-  },
+
   {
     slug: 'julian-jacobson',
     name: 'Julian Jacobson',
@@ -105,16 +92,39 @@ const teamMembers = [
     calendly: 'https://calendly.com/andrew-gianares-mottafinancial',
   },
   {
+    slug: 'justin-bestel',
+    name: 'Justin Bestel, CPA',
+    title: 'Senior Accounting Consultant',
+    group: 'Accounting',
+    credentials: 'CPA · Multi-Industry · Financial Services · Healthcare · Manufacturing',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Justin%20Bestel-NFYsWXGsvPNVcBDfDrnRighvOzAsbw.jpg',
+    blurb:
+      "Justin is a senior-level accounting and finance consultant with a track record across financial services, healthcare, manufacturing, and public accounting. He brings hands-on expertise in month-end close, financial statement preparation, cash flow forecasting, budgeting, and ERP implementation — and a proven ability to step into complex environments and add immediate value. A CPA and University of Minnesota Duluth graduate, Justin also leads process improvement initiatives and has supported companies preparing for public offerings.",
+    email: 'Justin.Bestel@MottaFinancial.com',
+  },
+  {
+    slug: 'shinika-shelley',
+    name: 'Shinika Shelley',
+    title: 'Senior Accounting Consultant',
+    group: 'Accounting',
+    credentials: 'Controller-Level · Fractional CFO · Multi-Client · 19 Years Experience',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/7CB62C0D-75E8-4D6A-B324-3EB9D7590D6C%20%281%29-AwUjJh6BnFVF5y4tdVS5bUiQ34gLng.png',
+    blurb:
+      "Shinika is a senior accounting professional with nineteen years of experience delivering full-cycle accounting, financial reporting, and advisory services across healthcare, SaaS, B2B, entertainment, and real estate. She has served in Controller and Fractional CFO capacities — leading month-end close, cash flow strategy, multi-entity reporting, and client advisory for businesses ranging from dental investment portfolios to entertainment industry clients. Known for her precision, process improvement instincts, and ability to manage complex multi-client engagements, Shinika is also the founder of Last Stop Consulting LLC.",
+    email: 'Shinika.Shelley@MottaFinancial.com',
+  },
+  {
     slug: 'samprina-zekio',
     name: 'Samprina Zekio',
-    title: 'Team Member',
+    title: 'Backend Development Lead, Intern',
     group: 'Client Operations',
-    credentials: 'Full profile coming soon',
+    credentials: 'Suffolk University · Boston · 4 Languages',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Samprina%20Zekio-GTqi19ZdKp1732WGzF5s5YFygrWUz9.jpg',
     blurb:
-      "A fuller profile is on the way. In the meantime, connect with Samprina directly using the links below.",
+      "Samprina leads backend development for ALFRED Ai through the Suffolk University SEED Program, reporting to Dat Le, CPA. She designs the infrastructure, API workflows, and automation behind ALFRED Ai, the Supabase-powered Motta Hub, and Project Alpha — Motta's ProConnect integration, where she owns OAuth, data sync, and tax-return status tracking. A full-stack builder working across Supabase, PostgreSQL, Vercel, JavaScript, and Python, she is pursuing a B.S. in Business Analytics & Information Systems and Cybersecurity with a 4.0 GPA and speaks four languages.",
     email: 'Samprina.Zekio@MottaFinancial.com',
+    linkedin: 'https://www.linkedin.com/in/samprina-zekio/',
   },
 ];
 
@@ -178,12 +188,7 @@ export default function AboutTeamPage() {
                             <img
                               src={member.image || '/placeholder.svg'}
                               alt={member.name}
-                              style={{
-                                width: '100%',
-                                height: '360px',
-                                objectFit: 'cover',
-                                objectPosition: 'center top',
-                              }}
+                              style={{ objectPosition: 'center 15%' }}
                             />
                           </div>
                           <div className="team__content-two">

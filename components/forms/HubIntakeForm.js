@@ -21,7 +21,7 @@ const honeypotStyle = {
 };
 
 const SERVICE_FOCUS_OPTIONS = [
-  { value: '', label: 'How can we help? *' },
+  { value: '', label: 'How can we help?' },
   { value: 'Personal Only', label: 'Personal — individual taxes, planning, IRS support' },
   { value: 'Business Only', label: 'Business — bookkeeping, payroll, business taxes, formation' },
   { value: 'Both Personal & Business', label: 'Both personal & business' },
@@ -68,6 +68,18 @@ const REVENUE_RANGES = [
   '$1M+',
 ];
 
+const BEHIND_ON_FILINGS_OPTIONS = [
+  'No',
+  'Yes — personal',
+  'Yes — business',
+  'Yes — both',
+  'Not sure',
+];
+
+const PENDING_NOTICES_OPTIONS = ['No', 'Yes', 'Not sure'];
+
+const CURRENT_CPA_OPTIONS = ['No', 'Yes'];
+
 const STATES = [
   'AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID','IL','IN',
   'IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH',
@@ -86,7 +98,6 @@ const TEAM_MEMBERS = [
   { name: 'Amy Sparaco', calendly: 'https://calendly.com/amy-sparaco-mottafinancial' },
   { name: 'Andrew Gianares', calendly: 'https://calendly.com/andrew-gianares-mottafinancial' },
   { name: 'Micaela Palacios', calendly: 'https://calendly.com/micaela-palacios-mottafinancial' },
-  { name: 'Mark Dwyer', calendly: 'https://calendly.com/mark-dwyer-motta' },
 ];
 
 const NO_PREFERENCE = 'No preference — match me with a teammate';
@@ -121,9 +132,14 @@ function buildCalendlyUrl(baseUrl, { name, email, trackingId } = {}) {
 // postMessage, which is how we know the booking actually completed.
 function CalendlyInline({ url, name, onScheduled }) {
   const containerRef = useRef(null);
+  // Actual content height reported by Calendly. Null until the widget
+  // tells us, so the frame can collapse to fit instead of showing a
+  // fixed-height beige placeholder below the calendar.
+  const [frameHeight, setFrameHeight] = useState(null);
 
-  // Listen for Calendly postMessage events. We only care about
-  // `calendly.event_scheduled` — that's the booking-confirmed signal.
+  // Listen for Calendly postMessage events: `event_scheduled` confirms a
+  // booking, and `page_height` reports the iframe's real content height
+  // so we can size the frame to fit (no dead space underneath).
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
     function isCalendlyEvent(e) {
@@ -138,6 +154,10 @@ function CalendlyInline({ url, name, onScheduled }) {
       if (!isCalendlyEvent(e)) return;
       if (e.data.event === 'calendly.event_scheduled') {
         onScheduled?.(e.data?.payload || null);
+      } else if (e.data.event === 'calendly.page_height') {
+        const raw = e.data?.payload?.height;
+        const px = typeof raw === 'string' ? parseInt(raw, 10) : raw;
+        if (Number.isFinite(px) && px > 0) setFrameHeight(px);
       }
     }
     window.addEventListener('message', onMessage);
@@ -195,7 +215,10 @@ function CalendlyInline({ url, name, onScheduled }) {
       ) : null}
       <div
         ref={containerRef}
-        className="motta-calendly-embed__frame"
+        className={`motta-calendly-embed__frame${
+          frameHeight ? ' is-sized' : ''
+        }`}
+        style={frameHeight ? { height: `${frameHeight}px` } : undefined}
         aria-label={name ? `Schedule a call with ${name}` : 'Schedule a call'}
       />
       <p className="motta-calendly-embed__fallback">
@@ -232,14 +255,16 @@ function SectionCard({ step, total, eyebrow, title, sub, children }) {
   return (
     <section className="motta-intake-section" aria-labelledby={`intake-step-${step}`}>
       <header className="motta-intake-section__head">
-        <span className="motta-intake-section__step" aria-hidden="true">
-          <span className="motta-intake-section__step-num">{step}</span>
-          <span className="motta-intake-section__step-of">of {total}</span>
-        </span>
         <div>
-          {eyebrow ? (
-            <span className="motta-intake-section__eyebrow">{eyebrow}</span>
-          ) : null}
+          <span className="motta-intake-section__eyebrow">
+            <span className="motta-intake-section__progress">{`Step ${step} / ${total}`}</span>
+            {eyebrow ? (
+              <>
+                <span className="motta-intake-section__eyebrow-sep" aria-hidden="true">·</span>
+                {eyebrow}
+              </>
+            ) : null}
+          </span>
           <h3 id={`intake-step-${step}`} className="motta-intake-section__title">
             {title}
           </h3>
@@ -319,6 +344,11 @@ export default function HubIntakeForm() {
       additional_notes: get('additional_notes') || undefined,
       referral_source: get('referral_source') || undefined,
       preferred_team_member: preferredTeamMember || undefined,
+
+      behind_on_filings: get('behind_on_filings') || undefined,
+      pending_tax_notices: get('pending_tax_notices') || undefined,
+      current_cpa_status: get('current_cpa_status') || undefined,
+      cpa_switch_reason: get('cpa_switch_reason') || undefined,
 
       page_url: typeof window !== 'undefined' ? window.location.href : undefined,
       website: get('website'), // honeypot — bots fill, real users leave empty
@@ -501,6 +531,10 @@ export default function HubIntakeForm() {
         style={honeypotStyle}
       />
 
+      <p style={{ fontSize: 12, fontStyle: 'italic', color: 'rgba(43,47,36,0.52)', margin: '0 0 20px', letterSpacing: '0.01em' }}>
+        Fields marked with <span style={{ color: '#c0392b', fontStyle: 'normal', fontWeight: 700 }}>*</span> are required.
+      </p>
+
       <SectionCard
         step={1}
         total={totalSteps}
@@ -511,19 +545,19 @@ export default function HubIntakeForm() {
         <div className="row g-3">
           <div className="col-md-6">
             <div className="form-grp">
-              <label htmlFor="intake-first-name">First name *</label>
+              <label htmlFor="intake-first-name">First name <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
               <input id="intake-first-name" type="text" name="first_name" autoComplete="given-name" required />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-grp">
-              <label htmlFor="intake-last-name">Last name *</label>
+              <label htmlFor="intake-last-name">Last name <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
               <input id="intake-last-name" type="text" name="last_name" autoComplete="family-name" required />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-grp">
-              <label htmlFor="intake-email">Email *</label>
+              <label htmlFor="intake-email">Email <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
               <input id="intake-email" type="email" name="email" autoComplete="email" required />
             </div>
           </div>
@@ -573,14 +607,15 @@ export default function HubIntakeForm() {
         sub="Pick the lane that fits — we&apos;ll show the relevant follow-ups."
       >
         <div className="form-grp">
-          <label htmlFor="intake-focus">Service focus *</label>
-          <select
-            id="intake-focus"
-            name="service_focus_select"
-            value={serviceFocus}
-            onChange={(e) => setServiceFocus(e.target.value)}
-            required
-          >
+          <label htmlFor="intake-focus">Service focus <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
+              <select
+                id="intake-focus"
+                name="service_focus_select"
+                className={serviceFocus ? undefined : 'is-placeholder'}
+                value={serviceFocus}
+                onChange={(e) => setServiceFocus(e.target.value)}
+                required
+              >
             {SERVICE_FOCUS_OPTIONS.map((o) => (
               <option key={o.value} value={o.value} disabled={!o.value}>
                 {o.label}
@@ -743,26 +778,52 @@ export default function HubIntakeForm() {
         <div className="row g-3">
           <div className="col-md-6">
             <div className="form-grp">
-              <label htmlFor="intake-referral">Who referred you?</label>
-              <input id="intake-referral" type="text" name="referral_source" placeholder="Optional" />
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="form-grp">
-              <label htmlFor="intake-team">Preferred Motta teammate</label>
-              <select
-                id="intake-team"
-                name="preferred_team_member"
-                value={preferredTeamMember}
-                onChange={(e) => setPreferredTeamMember(e.target.value)}
-              >
-                <option value="">{NO_PREFERENCE}</option>
-                {TEAM_MEMBERS.map((t) => (
-                  <option key={t.name} value={t.name}>{t.name}</option>
+              <label htmlFor="intake-behind">Are you currently behind on any tax filings? <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
+              <select id="intake-behind" name="behind_on_filings" defaultValue="">
+                <option value="" disabled>Select…</option>
+                {BEHIND_ON_FILINGS_OPTIONS.map((o) => (
+                  <option key={o} value={o}>{o}</option>
                 ))}
               </select>
             </div>
           </div>
+          <div className="col-md-6">
+            <div className="form-grp">
+              <label htmlFor="intake-notices">Any pending IRS or state notices? <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
+              <select id="intake-notices" name="pending_tax_notices" defaultValue="">
+                <option value="" disabled>Select…</option>
+                {PENDING_NOTICES_OPTIONS.map((o) => (
+                  <option key={o} value={o}>{o}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="form-grp">
+              <label htmlFor="intake-cpa">Do you currently work with a CPA or bookkeeper? <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
+              <select id="intake-cpa" name="current_cpa_status" defaultValue="">
+                <option value="" disabled>Select…</option>
+                {CURRENT_CPA_OPTIONS.map((o) => (
+                  <option key={o} value={o}>{o}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="form-grp">
+              <label htmlFor="intake-switch">If you&apos;re switching, what&apos;s prompting the change?</label>
+              <input id="intake-switch" type="text" name="cpa_switch_reason" placeholder="Optional" />
+            </div>
+          </div>
+        </div>
+        <div className="row g-3">
+          <div className="col-md-6">
+            <div className="form-grp">
+              <label htmlFor="intake-referral">Who referred you?</label>
+              <input id="intake-referral" type="text" name="referral_source" placeholder="Optional" />
+            </div>
+          </div>
+          <div className="col-md-6" />
         </div>
         <div className="form-grp">
           <label htmlFor="intake-notes">Anything else we should know</label>
@@ -777,17 +838,20 @@ export default function HubIntakeForm() {
 
       <footer className="motta-intake-footer">
         <p className="motta-intake-footer__meta">
-          <span aria-hidden="true">⏱</span> Takes ~3 minutes ·{' '}
-          <span aria-hidden="true">🔒</span> Encrypted in transit ·{' '}
-          Pick a time on the next screen — no leaving this page
+          From here, we&apos;ll get you on the calendar with the right person.
         </p>
         <button
           type="submit"
           className="btn motta-intake-submit"
           disabled={status === 'loading'}
+          aria-busy={status === 'loading'}
         >
           {status === 'loading' ? 'Submitting…' : 'Submit & schedule call'}
-          <span aria-hidden="true" className="motta-intake-submit__arrow">→</span>
+          {status === 'loading' ? (
+            <span aria-hidden="true" className="motta-intake-submit__spinner" />
+          ) : (
+            <span aria-hidden="true" className="motta-intake-submit__arrow">→</span>
+          )}
         </button>
       </footer>
 

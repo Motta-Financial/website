@@ -52,7 +52,7 @@ export default function SCorpElections() {
     >
       <ServiceDetailLayout
         currentHref="/services/tax/s-corp"
-        heroImage="/assets/img/services/services_details_scorp.png"
+        heroImage="/assets/img/services/s-corp-hero.jpg"
         title="S-Corp Elections & Compliance"
         lede="If you run a profitable single-member LLC, every dollar of profit is hit with 15.3% self-employment tax before income tax even starts. An S-corporation election can legally remove that layer from the distribution portion of your profit — but only when the salary is reasonable and the compliance is handled. Motta runs the whole thing: we confirm it pays off, file the election, set your salary, stand up payroll, and keep you compliant year after year."
         bullets={[

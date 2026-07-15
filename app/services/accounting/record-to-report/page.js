@@ -109,7 +109,7 @@ export default function RecordToReport() {
     >
       <ServiceDetailLayout
         currentHref="/services/accounting/record-to-report"
-        heroImage="/assets/img/services/services_details05.jpg"
+        heroImage="/assets/img/services/record-to-report-hero.jpg"
         title="Record-to-Report — The Numbers"
         lede="From sub-ledger close through consolidated, GAAP-grade financial statements — the monthly close that tells you where you really stand. Powered by Motta monthly close, technical accounting, and Office of the CFO reporting, with ALFRED Ai running the close checklist and reconciliations while technical judgment stays with our CPAs."
         bullets={[

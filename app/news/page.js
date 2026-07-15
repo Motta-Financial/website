@@ -15,6 +15,15 @@ const FEATURED = {
 
 const RECENT = [
   {
+    type: 'Intuit ProConnect Case Study',
+    href: '/news/press/proconnect-case-study',
+    date: 'July 13, 2026',
+    title:
+      'How Motta Financial Built a Scalable Tax Practice with Intuit ProConnect Tax',
+    desc:
+      'Intuit featured Motta Financial in an official ProConnect Tax case study \u2014 the story of a firm built from day one on automation, a Books-to-Tax workflow, and ALFRED Ai, with a relentless focus on client value.',
+  },
+  {
     type: 'Press Release',
     href: '/news/press/ja-youth-summit-2026',
     date: 'May 24, 2026',
@@ -142,7 +151,7 @@ export default function NewsOverview() {
         </Link>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         .motta-news-overview__lead {
           font-size: 17px;
           line-height: 1.7;
@@ -151,9 +160,7 @@ export default function NewsOverview() {
           margin: 0 0 32px;
         }
         .motta-news-overview__featured {
-          display: grid;
-          grid-template-columns: 280px 1fr;
-          gap: 0;
+          display: block;
           border-radius: 16px;
           overflow: hidden;
           background: var(--motta-charcoal, #2b2f24);
@@ -162,23 +169,24 @@ export default function NewsOverview() {
           margin-bottom: 36px;
           transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        @media (max-width: 767px) {
-          .motta-news-overview__featured {
-            grid-template-columns: 1fr;
-          }
-        }
         .motta-news-overview__featured:hover {
           transform: translateY(-3px);
           box-shadow: 0 18px 44px -22px rgba(15, 19, 16, 0.5);
           color: var(--motta-warm, #f4f1eb);
         }
         .motta-news-overview__featured-img {
+          width: 100%;
+          aspect-ratio: 16 / 7;
           background-size: cover;
-          background-position: center top;
-          min-height: 320px;
+          background-position: center center;
+        }
+        @media (max-width: 575px) {
+          .motta-news-overview__featured-img {
+            aspect-ratio: 3 / 2;
+          }
         }
         .motta-news-overview__featured-body {
-          padding: 30px 32px;
+          padding: 30px 34px 34px;
         }
         .motta-news-overview__featured-eyebrow {
           display: block;

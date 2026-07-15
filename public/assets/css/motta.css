@@ -331,36 +331,100 @@
 }
 
 
-/* ===== Home hero refresh (Motta-aligned) ===== */
-.slider__content .sub-title { color: var(--motta-alfred-glow); }
-.slider__content .alfred-mark {
+/* ===== Home hero pills ===== */
+/* Pill row wrapper — both pills sit on a single flex row */
+.slider__content .slider__pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+/* Shared pill base */
+.slider__content .alfred-mark,
+.slider__content .sub-title {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 4px 12px;
+  height: 34px;
+  padding: 0 14px;
   border-radius: 999px;
   background: rgba(142, 155, 121, 0.18);
   border: 1px solid rgba(142, 155, 121, 0.4);
   color: var(--motta-alfred-halo);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  line-height: 1;
+  margin: 0;
 }
-.slider__content .alfred-mark::before {
+
+/* ALFRED AI pill — tighter left padding to let the logo breathe */
+.slider__content .alfred-mark {
+  gap: 8px;
+}
+.slider__content .alfred-mark--with-logo {
+  padding-left: 6px;
+}
+
+/* Pulsing dot (non-logo variant) */
+.slider__content .alfred-mark:not(.alfred-mark--with-logo)::before {
   content: "";
-  width: 7px; height: 7px;
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--motta-alfred-glow);
   box-shadow: 0 0 8px var(--motta-alfred-glow);
   animation: motta-pulse 2.4s ease-in-out infinite;
 }
 
-.slider__content .alfred-mark--with-logo::before { display: none; }
-.slider__content .alfred-mark--with-logo {
-  gap: 10px;
-  padding: 4px 14px 4px 6px;
+/* Hero photo was washed out: the image sat at 0.7 opacity over a white
+   slide, and the dark tint rendered *behind* it. Show the photo at full
+   strength with a readable dark-sage gradient layered on top instead. */
+.slider__single .slider__bg {
+  opacity: 1;
+  z-index: 1;
+}
+.slider__single::before {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 25, 15, 0.90) 0%,
+    rgba(20, 25, 15, 0.78) 45%,
+    rgba(20, 25, 15, 0.62) 100%
+  );
+  opacity: 1;
+  z-index: 2;
+}
+.slider__single::after {
+  display: none;
+}
+.slider__single .container,
+.slider__single .slider__content {
+  position: relative;
+  z-index: 3;
+}
+/* Shift the hero text block toward the left edge of the viewport */
+.slider__single .container {
+  padding-left: 0;
+}
+
+/* The two hero CTAs used different box models: the filled .btn had no
+   border (~46px tall) while .border-btn added 1px border + taller
+   padding (~50px), so the row sat on mismatched baselines. Normalize
+   both to one height/box model and align them on a single row. */
+.slider__single .slider__content .btn {
+  box-sizing: border-box;
+  min-height: 52px;
+  padding-top: 0;
+  padding-bottom: 0;
+  vertical-align: top;
+}
+.slider__single .slider__content .btn.border-btn {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
 }
 
 .motta-topbanner__pill-logo {
@@ -498,16 +562,17 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  align-items: flex-start;
+  gap: 0;
 }
 .motta-breadcrumb__eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  align-self: flex-start;
-  font-family: var(--tg-heading-font-family, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-family: var(--tg-body-font-family, inherit);
   font-size: 12px;
-  letter-spacing: 0.18em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--motta-warm);
   padding: 6px 14px;
@@ -516,6 +581,7 @@
   background: rgba(15, 19, 16, 0.28);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  margin-bottom: 16px;
 }
 .motta-breadcrumb__eyebrow-dot {
   width: 6px;
@@ -524,6 +590,7 @@
   background: var(--motta-warm);
   box-shadow: 0 0 10px rgba(234, 230, 225, 0.85);
   animation: motta-dot-pulse 2.4s ease-in-out infinite;
+  flex-shrink: 0;
 }
 @keyframes motta-dot-pulse {
   0%, 100% { opacity: 1;   transform: scale(1); }
@@ -534,38 +601,48 @@
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--motta-warm);
-  margin: 0;
+  margin: 0 0 14px;
   text-wrap: balance;
   text-shadow: 0 2px 24px rgba(15, 19, 16, 0.35);
 }
 .motta-breadcrumb__tagline {
-  margin: 0;
+  margin: 0 0 14px;
   max-width: 60ch;
   font-size: 16px;
   line-height: 1.55;
   color: rgba(244, 241, 235, 0.92);
   text-shadow: 0 1px 14px rgba(15, 19, 16, 0.35);
 }
-.motta-breadcrumb__crumbs.breadcrumb {
+.motta-breadcrumb__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
   margin: 0;
   padding: 0;
-  font-size: 13px;
-  letter-spacing: 0.04em;
+  font-family: var(--tg-body-font-family, inherit);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
-.motta-breadcrumb__crumbs .breadcrumb-item,
-.motta-breadcrumb__crumbs .breadcrumb-item a {
-  color: rgba(244, 241, 235, 0.78);
+.motta-breadcrumb__crumb-link {
+  color: rgba(244, 241, 235, 0.72);
+  font-weight: 500;
+  text-decoration: none;
 }
-.motta-breadcrumb__crumbs .breadcrumb-item a:hover {
+.motta-breadcrumb__crumb-link:hover {
   color: var(--motta-warm);
 }
-.motta-breadcrumb__crumbs .breadcrumb-item.active {
-  color: var(--motta-warm);
+.motta-breadcrumb__crumb-sep {
+  color: rgba(234, 230, 225, 0.45);
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0 10px;
+  line-height: 1;
 }
-.motta-breadcrumb__crumbs .breadcrumb-item + .breadcrumb-item::before {
-  content: "/";
-  color: rgba(234, 230, 225, 0.55);
-  padding: 0 8px;
+.motta-breadcrumb__crumb-current {
+  color: var(--motta-warm);
+  font-weight: 600;
 }
 
 /* Honor reduced-motion: kill the rule pan + dot pulse. */
@@ -1413,6 +1490,18 @@ main select:focus {
 .sidebar__cat-list .list-wrap li a:hover i {
   color: var(--motta-cream-100, #F4F1EB);
 }
+/* Active page in a boxed sidebar nav (e.g. Partnerships) reads as a
+   persistent sage-filled box so the current section is obvious. */
+.sidebar__cat-list-two .list-wrap li a.is-active,
+.sidebar__cat-list .list-wrap li a.is-active {
+  background: var(--motta-sage-deep, #6b745d);
+  border-color: var(--motta-sage-deep, #6b745d);
+  color: var(--motta-cream-100, #F4F1EB);
+}
+.sidebar__cat-list-two .list-wrap li a.is-active i,
+.sidebar__cat-list .list-wrap li a.is-active i {
+  color: var(--motta-cream-100, #F4F1EB);
+}
 
 /* Sidebar widget heading underline — match the sage accent
    used in the section titles. */
@@ -1510,48 +1599,23 @@ main select:focus {
   opacity: 0.65;
 }
 .motta-intake-section__head {
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
   margin-bottom: 20px;
-}
-.motta-intake-section__step {
-  flex: 0 0 auto;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), transparent 60%),
-    var(--motta-sage, #6B745D);
-  color: var(--motta-warm, #F4F1EB);
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 16px rgba(43, 47, 36, 0.18);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  line-height: 1;
-}
-.motta-intake-section__step-num {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-.motta-intake-section__step-of {
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  margin-top: 4px;
-  opacity: 0.8;
 }
 .motta-intake-section__eyebrow {
   display: inline-block;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 11px;
-  letter-spacing: 0.2em;
+  font-family: var(--tg-body-font-family);
+  font-size: 13px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--motta-sage-deep, #4F573F);
   margin-bottom: 6px;
+}
+.motta-intake-section__progress {
+  font-weight: 700;
+}
+.motta-intake-section__eyebrow-sep {
+  margin: 0 8px;
+  opacity: 0.5;
 }
 .motta-intake-section__title {
   font-size: clamp(20px, 2.4vw, 24px);
@@ -1564,7 +1628,7 @@ main select:focus {
   margin: 0;
   font-size: 14px;
   line-height: 1.55;
-  color: rgba(31, 31, 31, 0.7);
+  color: rgba(31, 31, 31, 0.55);
   max-width: 60ch;
 }
 .motta-intake-section__body { display: flex; flex-direction: column; gap: 14px; }
@@ -1573,12 +1637,11 @@ main select:focus {
 .motta-intake-form .form-grp { margin-bottom: 0; }
 .motta-intake-form .form-grp label {
   display: block;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--tg-body-font-family);
+  font-size: 14px;
+  letter-spacing: 0.04em;
   color: var(--motta-sage-deep, #4F573F);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-weight: 600;
 }
 .motta-intake-form .form-grp input,
@@ -1586,9 +1649,9 @@ main select:focus {
 .motta-intake-form .form-grp textarea {
   width: 100%;
   background: #FFFFFF;
-  border: 1px solid rgba(107, 116, 93, 0.28);
-  border-radius: 10px;
-  padding: 12px 14px;
+  border: 1px solid rgba(79, 87, 63, 0.25);
+  border-radius: 8px;
+  padding: 13px 16px;
   font-size: 15px;
   color: var(--motta-charcoal, #1F1F1F);
   transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
@@ -1607,15 +1670,21 @@ main select:focus {
   background: #FFFFFF;
 }
 .motta-intake-form .form-grp textarea { resize: vertical; min-height: 96px; }
+.motta-intake-form .form-grp input::placeholder,
+.motta-intake-form .form-grp textarea::placeholder {
+  color: rgba(51, 51, 51, 0.45);
+}
+.motta-intake-form .form-grp select.is-placeholder {
+  color: rgba(51, 51, 51, 0.45);
+}
 
 /* Pill chips for service / entity selection */
 .motta-intake-pillgroup { display: flex; flex-direction: column; gap: 10px; }
 .motta-intake-pillgroup__label {
   margin: 0;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--tg-body-font-family);
+  font-size: 14px;
+  letter-spacing: 0.04em;
   color: var(--motta-sage-deep, #4F573F);
   font-weight: 600;
 }
@@ -1687,15 +1756,16 @@ main select:focus {
     justify-content: space-between;
   }
 }
-.motta-intake-footer__meta {
+ .motta-intake-footer__meta {
   margin: 0;
   font-size: 13px;
-  color: rgba(31, 31, 31, 0.7);
+  color: rgba(31, 31, 31, 0.55);
   line-height: 1.5;
-}
+  }
 .motta-intake-submit {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   background: var(--motta-sage-deep, #4F573F);
   border: 1px solid var(--motta-sage-deep, #4F573F);
@@ -1707,15 +1777,36 @@ main select:focus {
   transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
   box-shadow: 0 6px 18px rgba(43, 47, 36, 0.22);
 }
+/* Kill the base template's flaticon arrow (.btn::after) so we only
+   show our own arrow / spinner — and remove the resulting gap. */
+.motta-intake-submit::after {
+  content: none !important;
+  display: none !important;
+}
 .motta-intake-submit:hover:not(:disabled) {
   background: var(--motta-charcoal, #1F1F1F);
   border-color: var(--motta-charcoal, #1F1F1F);
   transform: translateY(-1px);
 }
-.motta-intake-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.motta-intake-submit:disabled { cursor: progress; }
+.motta-intake-submit[aria-busy='true'] { background: var(--motta-sage, #6B745D); border-color: var(--motta-sage, #6B745D); }
 .motta-intake-submit__arrow { transition: transform 0.18s ease; }
 .motta-intake-submit:hover:not(:disabled) .motta-intake-submit__arrow {
   transform: translateX(3px);
+}
+.motta-intake-submit__spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(244, 241, 235, 0.35);
+  border-top-color: var(--motta-warm, #F4F1EB);
+  animation: motta-intake-spin 0.7s linear infinite;
+}
+@keyframes motta-intake-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motta-intake-submit__spinner { animation-duration: 1.6s; }
 }
 
 .motta-intake-error {
@@ -1929,14 +2020,22 @@ main select:focus {
 }
 .motta-calendly-embed__frame {
   position: relative;
-  min-height: 720px;
+  /* Initial height only while Calendly loads. Once the widget reports
+     its real content height (.is-sized), we size to fit exactly so
+     there's no empty space below the calendar. */
+  min-height: 360px;
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
-  background: var(--motta-warm, #F4F1EB);
+  background: #FFFFFF;
+  transition: height 0.2s ease;
+}
+.motta-calendly-embed__frame.is-sized {
+  min-height: 0;
 }
 .motta-calendly-embed__frame iframe {
   width: 100% !important;
+  height: 100% !important;
   border: 0 !important;
 }
 .motta-calendly-embed__fallback {
@@ -1951,7 +2050,8 @@ main select:focus {
 }
 @media (max-width: 640px) {
   .motta-calendly-embed { padding: 12px; }
-  .motta-calendly-embed__frame { min-height: 660px; }
+  .motta-calendly-embed__frame { min-height: 320px; }
+  .motta-calendly-embed__frame.is-sized { min-height: 0; }
 }
 
 /* ===== Booking confirmation (post-Calendly) ================== */
@@ -2343,10 +2443,10 @@ html.motta-intake-page-active body {
   flex-direction: column;
   gap: 10px;
 }
-.motta-intake-page__bullets li {
+ .motta-intake-page__bullets li {
   display: flex;
   gap: 12px;
-  align-items: flex-start;
+  align-items: center;
   background: #FFFFFF;
   border: 1px solid rgba(107, 116, 93, 0.18);
   border-radius: 12px;
@@ -2360,19 +2460,19 @@ html.motta-intake-page-active body {
   font-weight: 700;
   margin-right: 4px;
 }
-.motta-intake-page__bullet-num {
+.motta-intake-page__bullet-icon {
   flex: 0 0 auto;
-  width: 24px; height: 24px;
+  width: 34px; height: 34px;
   border-radius: 50%;
-  background: var(--motta-sage, #6B745D);
+  background: var(--motta-sage-deep, #4F573F);
   color: var(--motta-warm, #EAE6E1);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 12px;
-  font-weight: 700;
-  margin-top: 1px;
+}
+.motta-intake-page__bullet-icon svg {
+  width: 17px;
+  height: 17px;
 }
 .motta-intake-page__rail-foot {
   margin: 4px 0 0;
@@ -2404,11 +2504,11 @@ html.motta-intake-page-active body {
    field rhythm whenever it's hosted inside .motta-intake-page__form. */
 .motta-intake-page__form .form-grp { margin-bottom: 18px; }
 .motta-intake-page__form .form-grp label {
-  font-size: 13px;
-  letter-spacing: 0.02em;
+  font-size: 14.5px;
+  letter-spacing: 0.01em;
   color: var(--motta-charcoal, #1F1F1F);
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   display: inline-block;
 }
 .motta-intake-page__form .form-grp input,
@@ -2416,19 +2516,25 @@ html.motta-intake-page-active body {
 .motta-intake-page__form .form-grp textarea {
   font-size: 15px;
   line-height: 1.5;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(31, 31, 31, 0.14);
+  padding: 13px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(79, 87, 63, 0.25);
   background: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(31, 31, 31, 0.04);
   width: 100%;
   transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.motta-intake-page__form .form-grp input:hover,
+.motta-intake-page__form .form-grp select:hover,
+.motta-intake-page__form .form-grp textarea:hover {
+  border-color: rgba(79, 87, 63, 0.45);
 }
 .motta-intake-page__form .form-grp input:focus,
 .motta-intake-page__form .form-grp select:focus,
 .motta-intake-page__form .form-grp textarea:focus {
   outline: none;
   border-color: var(--motta-sage, #6B745D);
-  box-shadow: 0 0 0 4px rgba(107, 116, 93, 0.18);
+  box-shadow: 0 0 0 3px rgba(107, 116, 93, 0.18);
 }
 
 /* ----- Footer ----- */
@@ -2517,24 +2623,23 @@ html.motta-intake-page-active body {
    explicit treatment with a class-pair selector so it reliably beats
    the lone `.btn` rules.
 
-   Note: the /services CTA sits on a SAGE section, so a sage fill would
-   blend in. We use a warm/cream fill with sage-deep text — high
-   contrast on sage, and clearly dominant over the outlined secondary
-   "Send Us a Message" button beside it. ======================== */
+   Note: the /services CTA now sits on a LIGHT cream section, so a cream
+   fill would blend in. We use a solid sage fill with cream text — the
+   dominant primary next to the outlined "Send Us a Message" beside it. */
 .motta-cta.btn,
 a.motta-cta.btn,
 button.motta-cta.btn {
-  background: var(--motta-warm, #F4F1EB);
-  color: var(--motta-sage-deep, #4F573F);
-  border: 1.5px solid var(--motta-warm, #F4F1EB);
+  background: var(--motta-sage-deep, #4F573F);
+  color: var(--motta-cream, #F7F5F1);
+  border: 1.5px solid var(--motta-sage-deep, #4F573F);
 }
 .motta-cta.btn:hover,
 .motta-cta.btn:focus-visible,
 a.motta-cta.btn:hover,
 button.motta-cta.btn:hover {
-  background: #FFFFFF;
-  border-color: #FFFFFF;
-  color: var(--motta-sage-deep, #4F573F);
+  background: var(--motta-charcoal, #2B2F24);
+  border-color: var(--motta-charcoal, #2B2F24);
+  color: var(--motta-cream, #F7F5F1);
 }
 
 /* ===== Meet the Team — service-line section headings =============== */
@@ -2561,6 +2666,28 @@ button.motta-cta.btn:hover {
 @media (max-width: 575px) {
   .motta-team-group__title { font-size: 18px; }
   .motta-team-group__head { gap: 12px; margin-bottom: 26px; }
+}
+
+/* ===== "Back to Services" link — bottom of section pages ============ */
+.motta-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--motta-sage-deep, #6b745d);
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+.motta-back-link svg {
+  transition: transform 0.2s ease;
+}
+.motta-back-link:hover {
+  color: var(--motta-charcoal, #2b2f24);
+  gap: 12px;
+}
+.motta-back-link:hover svg {
+  transform: translateX(-3px);
 }
 
 /* ===== Other Services sidebar — grouped by practice area =========== */
@@ -2645,3 +2772,336 @@ button.motta-cta.btn:hover {
     height: auto;
   }
 }
+
+/* Back-to-top button: the template only used text-align/line-height, so
+   the chevron sat off-center and looked crooked. Center it properly. */
+.scroll__top {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.scroll__top i {
+  display: block;
+  line-height: 1;
+}
+
+/* Line the arrow up directly under the ALFRED companion logo: match their
+   horizontal centers. Companion center sits 56px from the right edge
+   (right:20 + 72/2); a 40px-wide arrow needs right:36 to share that center. */
+.scroll__top,
+.scroll__top.open {
+  right: 36px;
+}
+@media (max-width: 767.98px) {
+  /* arrow shrinks to 30px wide here, companion still centered 56px in */
+  .scroll__top,
+  .scroll__top.open {
+    right: 41px;
+  }
+}
+@media (max-width: 575px) {
+  /* companion shrinks (right:14 + 60/2 = 44px center); 30px arrow -> right:29 */
+  .scroll__top,
+  .scroll__top.open {
+    right: 29px;
+  }
+}
+
+/* Footer copyright bar inherited a cool gray (--tg-color-gray-1) that
+   clashed with the warm cream page background. Let the body cream show
+   through and use a soft warm divider so the bottom matches the top. */
+.footer-bottom {
+  background: transparent;
+  border-top: 1px solid rgba(107, 116, 93, 0.16);
+}
+
+/* Outlined buttons used standalone (.border-btn without .btn) had sharp
+   square corners that clashed with the pill style used everywhere else.
+   Round them to match .btn so every outlined button is a pill. */
+.border-btn {
+  border-radius: 8dvh;
+}
+
+/* Book a Demo form sat on a dark section but its placeholder text rendered
+   near-black and was unreadable. Give placeholders a visible muted cream. */
+#demo input::placeholder,
+#demo textarea::placeholder {
+  color: rgba(244, 241, 235, 0.6);
+  opacity: 1;
+}
+#demo input::-webkit-input-placeholder,
+#demo textarea::-webkit-input-placeholder {
+  color: rgba(244, 241, 235, 0.6);
+}
+#demo select {
+  color: #f4f1eb;
+}
+
+/* Section eyebrow labels (.section-title .sub-title) defaulted to white,
+   which is invisible on the cream/beige content sections used across the
+   site. Use the sage brand color so they are always readable. Dark
+   sections opt back into white via the .white-title modifier. */
+.section-title .sub-title {
+  color: var(--tg-theme-primary);
+}
+.section-title.white-title .sub-title {
+  color: var(--tg-color-white-default);
+}
+
+/* Visible-on-light variant of the outlined button. The base .border-btn is
+   white (for dark sections); this modifier paints it sage so the outlined
+   CTA stays readable on cream/beige backgrounds. */
+.border-btn.border-btn--ink {
+  color: var(--tg-theme-primary);
+  border-color: var(--tg-theme-primary);
+}
+.border-btn.border-btn--ink:hover {
+  background: var(--tg-theme-primary);
+  border-color: var(--tg-theme-primary);
+  color: var(--motta-cream, #f7f5f1);
+}
+
+/* Service-detail hero images: the base rule only set width:100% + min-height,
+   so square/portrait source images rendered enormous and inconsistent.
+   Lock every hero to the same 16:9 landscape frame (matching the well-sized
+   ones) and crop with object-fit so dimensions stay uniform site-wide. */
+.services__details-thumb img {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: 0;
+  object-fit: cover;
+}
+
+/* Bottom feature boxes sat at uneven heights within a row because each box
+   only grew to fit its own text. Make the columns stretch and the boxes
+   fill the row height so paired boxes always align. */
+.services__details-list .row {
+  align-items: stretch;
+  row-gap: 30px;
+}
+.services__details-list .row > [class*='col-'] {
+  display: flex;
+}
+.services__details-list-box {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+/* Homepage "Five practice areas" section sits on a solid sage background.
+   The vendor theme left the heading dark and the sub-title sage-on-sage
+   (invisible), the cards pure white (clashing with the warm palette), and
+   the icons a washed-out grey. Re-tone everything to the Motta system. */
+.services__bg-three .section-title .title {
+  color: var(--motta-cream-100, #f4f1eb);
+}
+.services__bg-three .section-title .sub-title {
+  color: var(--motta-cream-100, #f4f1eb);
+  opacity: 0.85;
+}
+/* Cards: warm cream instead of stark white so they belong to the palette */
+.services__bg-three .services__item-three {
+  background: var(--motta-cream-50, #fbf8f2);
+  border: 1px solid rgba(244, 241, 235, 0.5);
+}
+/* Icon badge: solid sage tile with a cream glyph, matching the brand icons
+   used elsewhere; drop the leftover blue divider accent */
+.services__bg-three .services__icon-three {
+  background: var(--motta-sage, #8e9b79);
+  border-color: var(--motta-sage, #8e9b79);
+  color: var(--motta-cream-100, #f4f1eb);
+}
+.services__bg-three .services__icon-three i {
+  color: var(--motta-cream-100, #f4f1eb);
+}
+.services__bg-three .services__icon-three::before {
+  display: none;
+}
+
+/* Layout: a uniform 3-column grid so every card is the same width and the
+   leftover two on the second row align left (instead of stretching to 50%
+   each). Also tightens padding/type so the section is far more compact. */
+.services__bg-three .cards-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 22px;
+  margin: 0;
+}
+/* Each card spans 2 of the 6 columns = 3 per row. The last two cards are
+   offset by one column each so they sit centered under the top row instead
+   of left-aligned with an empty slot on the right. */
+.services__bg-three .card-wrapper {
+  grid-column: span 2;
+}
+.services__bg-three .card-wrapper:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+.services__bg-three .card-wrapper:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+@media (max-width: 991px) {
+  .services__bg-three .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .services__bg-three .card-wrapper,
+  .services__bg-three .card-wrapper:nth-child(4),
+  .services__bg-three .card-wrapper:nth-child(5) {
+    grid-column: auto;
+  }
+}
+@media (max-width: 575px) {
+  .services__bg-three .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+.services__bg-three .card-wrapper {
+  flex: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.services__bg-three .services__item-three {
+  height: 100%;
+  padding: 26px 26px 24px;
+  border-radius: 14px;
+  margin-bottom: 0;
+}
+/* Compact icon + heading row */
+.services__bg-three .services__icon-three {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  border-radius: 12px;
+  font-size: 22px;
+}
+.services__bg-three .services__item-top {
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.services__bg-three .services__item-top-title .title {
+  font-size: 18px;
+  line-height: 1.25;
+  margin: 0;
+}
+/* Tighter body copy, clamped so cards stay even height */
+.services__bg-three .services__content-three p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+/* Smaller, lighter Read More control */
+.services__bg-three .services__content-three .btn-two {
+  padding: 8px 18px;
+  font-size: 13px;
+}
+
+/* ===== /services overview page =====
+   This full page was reusing the homepage's heavy solid-sage band
+   (`services__bg-three`), which left the intro paragraph dark-on-sage
+   (unreadable) and misaligned these Bootstrap columns via the homepage
+   grid override. Give it a light, readable treatment that matches the
+   rest of the site. */
+.motta-services-overview {
+  background: var(--motta-cream-100, #f4f1eb);
+  /* The section had zero vertical padding, which crammed the heading against
+     the hero and the CTA against the footer band. Give it generous, airy
+     top/bottom padding (more than the homepage's 90px) so the whole block
+     sits lower and breathes. */
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+/* Push the "Not sure where you fit?" CTA well below the card grid, and give
+   it space beneath the buttons before the platforms band. */
+.motta-services-overview .motta-services-cta {
+  margin-top: 90px;
+  padding-top: 40px;
+}
+.motta-services-overview .section-title .sub-title {
+  color: var(--motta-sage-deep, #4f573f);
+}
+.motta-services-overview .section-title .title {
+  color: var(--motta-charcoal, #333333);
+}
+.motta-services-overview p {
+  color: var(--motta-charcoal, #333333);
+}
+/* Layout: a real CSS grid (matches the homepage) so all six cards align in
+   a clean 3 x 2 grid with generous, even gutters — instead of the cramped,
+   uneven Bootstrap 2-up fallback the cards had before. */
+.motta-services-overview .cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 0;
+}
+.motta-services-overview .cards-container > [class*="col-"] {
+  width: 100%;
+  max-width: 100%;
+  flex: none;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 991px) {
+  .motta-services-overview .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 575px) {
+  .motta-services-overview .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* Clean cards: white surface, warm border, soft shadow, even height */
+.motta-services-overview .services__item-three {
+  background: var(--motta-white, #fff);
+  border: 1px solid var(--motta-cream-200, #eae6e1);
+  border-radius: 16px;
+  padding: 32px 32px 30px;
+  box-shadow: 0 16px 44px -32px rgba(15, 19, 16, 0.4);
+  height: 100%;
+}
+.motta-services-overview .services__item-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+/* Sage icon badge with cream glyph (matches the brand icons elsewhere) */
+.motta-services-overview .services__icon-three {
+  flex: 0 0 auto;
+  width: 54px;
+  height: 54px;
+  line-height: 54px;
+  text-align: center;
+  border-radius: 14px;
+  background: var(--motta-sage, #6b745d);
+  border-color: var(--motta-sage, #6b745d);
+  color: var(--motta-cream-100, #f4f1eb);
+  font-size: 24px;
+}
+.motta-services-overview .services__icon-three i {
+  color: var(--motta-cream-100, #f4f1eb);
+}
+.motta-services-overview .services__icon-three::before {
+  display: none;
+}
+.motta-services-overview .services__item-top-title .title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.25;
+}
+.motta-services-overview .services__item-top-title .title a {
+  color: var(--motta-charcoal, #333333);
+  transition: color 0.2s ease;
+}
+.motta-services-overview .services__item-top-title .title a:hover {
+  color: var(--motta-sage-deep, #4f573f);
+}
+.motta-services-overview .services__content-three p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+

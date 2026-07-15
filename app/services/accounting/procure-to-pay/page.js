@@ -117,7 +117,7 @@ export default function ProcureToPay() {
     >
       <ServiceDetailLayout
         currentHref="/services/accounting/procure-to-pay"
-        heroImage="/assets/img/services/services_details03.jpg"
+        heroImage="/assets/img/services/procure-to-pay-hero.jpg"
         title="Procure-to-Pay — Money Out"
         lede="From the first purchase requisition to a reconciled payment — every dollar that leaves your business, controlled and accounted for. Powered by Motta Accounting & Bookkeeping and Payroll Services (Gusto, ADP, Paychex), with ALFRED Ai capturing invoices and triaging AP exceptions while our advisors approve every payment."
         bullets={[

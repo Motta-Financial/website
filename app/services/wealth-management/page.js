@@ -17,7 +17,7 @@ export default function WealthManagement() {
     >
       <ServiceDetailLayout
         currentHref="/services/wealth-management"
-        heroImage="/assets/img/services/services_details04.jpg"
+        heroImage="/assets/img/services/wealth-management-hero.jpg"
         title="Wealth Management"
         lede="Building wealth is about more than picking investments — it&apos;s about aligning your money with your life. Motta provides comprehensive financial planning that coordinates your taxes, retirement, estate, and investments into one coherent strategy."
         bullets={[

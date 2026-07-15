@@ -11,7 +11,7 @@ const COMMUNITY_ITEMS = [
     desc:
       'Motta Financial is a Connection Sponsor of JA Southern Massachusetts, supporting the inaugural 2026 Youth Summit at UMass Dartmouth and JA\u2019s year-round programs in financial literacy, entrepreneurship, and career readiness.',
     image: '/assets/img/news/ja-youth-summit-2026.jpg',
-    imagePosition: 'center 22%',
+    imagePosition: 'center 10%',
   },
   {
     href: '/news/community/suffolk-seed',
@@ -31,7 +31,7 @@ const COMMUNITY_ITEMS = [
     desc:
       'Founder Dat Le joined fellow Suffolk alumni in a $225,000 surprise gift to honor Associate Dean Tracey Riley \u2014 establishing the Accounting Winternships Fund and the Tracey Riley Legacy Fund to support the next generation of accountants.',
     image: '/assets/img/news/suffolk-scholarship/group-four.jpg',
-    imagePosition: 'center 28%',
+    imagePosition: 'center 12%',
   },
 ];
 
@@ -58,17 +58,34 @@ export default function CommunityOverview() {
                 className="motta-community__card-img"
                 style={{ background: item.imageBg }}
               >
-                <img src={item.image} alt={`${item.org} logo`} />
+                <img
+                  src={item.image}
+                  alt={`${item.org} logo`}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                />
               </div>
             ) : (
               <div
-                className="motta-community__card-img motta-community__card-img--photo"
-                style={{
-                  backgroundImage: `url(${item.image})`,
-                  backgroundPosition: item.imagePosition || 'center',
-                }}
-                aria-hidden="true"
-              />
+                className="motta-community__card-img--photo"
+                style={{ height: 380, overflow: 'hidden', flexShrink: 0 }}
+              >
+                <img
+                  src={item.image}
+                  alt={item.org}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: item.imagePosition || 'center 15%',
+                    display: 'block',
+                  }}
+                />
+              </div>
             )}
             <div className="motta-community__card-body">
               <span className="motta-community__card-eyebrow">
@@ -95,8 +112,9 @@ export default function CommunityOverview() {
             we&apos;d love to hear from you.
           </p>
         </div>
-        <Link href="/contact" className="btn">
+        <Link href="/contact" className="motta-community__get-in-touch">
           Get in Touch
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </Link>
       </div>
 
@@ -123,22 +141,16 @@ export default function CommunityOverview() {
           margin-bottom: 40px;
         }
         .motta-community__card {
-          display: grid;
-          grid-template-columns: 220px 1fr;
-          gap: 24px;
-          padding: 22px;
+          display: flex;
+          flex-direction: column;
           border-radius: 14px;
+          overflow: hidden;
           background: var(--motta-cream-50, #fbf8f2);
           border: 1px solid rgba(107, 116, 93, 0.16);
           color: var(--motta-charcoal, #2b2f24);
           text-decoration: none;
           transition: transform 0.2s ease, border-color 0.2s ease,
             box-shadow 0.2s ease;
-        }
-        @media (max-width: 767px) {
-          .motta-community__card {
-            grid-template-columns: 1fr;
-          }
         }
         .motta-community__card:hover {
           transform: translateY(-3px);
@@ -151,26 +163,20 @@ export default function CommunityOverview() {
           align-items: center;
           justify-content: center;
           padding: 22px;
-          border-radius: 10px;
-          min-height: 130px;
-        }
-        .motta-community__card-img--photo {
-          padding: 0;
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          min-height: 220px;
-        }
-        @media (min-width: 768px) {
-          .motta-community__card-img--photo {
-            min-height: 200px;
-          }
+          min-height: 160px;
+          flex-shrink: 0;
         }
         .motta-community__card-img img {
-          max-width: 100%;
+          max-width: 80%;
           max-height: 110px;
           height: auto;
           display: block;
+        }
+        .motta-community__card-body {
+          padding: 22px 24px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
         .motta-community__card-eyebrow {
           font-size: 11px;
@@ -214,6 +220,26 @@ export default function CommunityOverview() {
             flex-direction: column;
             align-items: flex-start;
           }
+        }
+        .motta-community__get-in-touch {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          white-space: nowrap;
+          flex-shrink: 0;
+          padding: 13px 22px;
+          border-radius: 999px;
+          background: var(--motta-sage, #8e9b79);
+          color: #fff;
+          font-size: 15px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .motta-community__get-in-touch:hover {
+          background: var(--motta-sage-deep, #6b745d);
+          color: #fff;
+          transform: translateY(-1px);
         }
       `}</style>
     </article>

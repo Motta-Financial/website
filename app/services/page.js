@@ -81,7 +81,7 @@ export default function Services() {
       breadcrumbTitle="All Services"
       breadcrumbEyebrow="What we do"
     >
-      <section className="services__area-three services__bg-three">
+      <section className="services__area-three motta-services-overview">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-7 col-lg-8 text-center">
@@ -140,7 +140,7 @@ export default function Services() {
             ))}
           </div>
 
-          <div className="row justify-content-center mt-30">
+          <div className="row justify-content-center motta-services-cta">
             <div className="col-lg-8 text-center">
               <p>
                 Not sure where you fit? Tell us a little about your situation
@@ -149,7 +149,7 @@ export default function Services() {
               <IntakeButton className="btn motta-cta mr-10" source="services">
                 Become a Client
               </IntakeButton>
-              <Link href="/contact" className="btn border-btn">
+              <Link href="/contact" className="btn border-btn border-btn--ink">
                 Send Us a Message
               </Link>
             </div>

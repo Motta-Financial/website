@@ -153,7 +153,7 @@ export default function Resources() {
                 <IntakeButton className="btn mr-10" source="resources">
                   Become a Client
                 </IntakeButton>
-                <Link href="/contact" className="btn border-btn">
+                <Link href="/contact" className="btn border-btn border-btn--ink">
                   Send Us a Message
                 </Link>
               </div>

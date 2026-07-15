@@ -17,7 +17,7 @@ export default function FinancialReporting() {
     >
       <ServiceDetailLayout
         currentHref="/services/accounting/financial-reporting"
-        heroImage="/assets/img/services/services_details02.jpg"
+        heroImage="/assets/img/services/financial-reporting-hero.jpg"
         title="Financial Reporting"
         lede="Financial statements are only useful if you actually read them. Motta delivers reports designed for decision-making — the numbers that matter, explained in plain English, delivered on a schedule that works for your business."
         bullets={[
