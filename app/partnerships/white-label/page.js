@@ -259,7 +259,7 @@ export default function WhiteLabelPartnership() {
           font-size: 26px;
           font-weight: 700;
           line-height: 1;
-          color: #ffffff;
+          color: var(--motta-sage, #6b745d);
           width: 44px;
         }
         .motta-wl-page__why-card h4 {
