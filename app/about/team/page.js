@@ -128,6 +128,89 @@ const teamMembers = [
   },
 ];
 
+const cardStyle = {
+  background: '#FFFFFF',
+  borderRadius: '12px',
+  overflow: 'hidden',
+  boxShadow: '0 2px 12px rgba(20,23,108,0.07)',
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
+  border: '1px solid #EBEBEA',
+};
+
+const imgStyle = {
+  width: '100%',
+  aspectRatio: '4/3',
+  objectFit: 'cover',
+  objectPosition: 'center 15%',
+  display: 'block',
+};
+
+const bodyStyle = {
+  padding: '28px 28px 20px',
+  display: 'flex',
+  flexDirection: 'column',
+  flexGrow: 1,
+};
+
+const deptStyle = {
+  fontFamily: 'Outfit, sans-serif',
+  fontSize: '10px',
+  fontWeight: 700,
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase',
+  color: '#6B745D',
+  marginBottom: '6px',
+  display: 'block',
+};
+
+const nameStyle = {
+  fontFamily: 'Outfit, sans-serif',
+  fontSize: '20px',
+  fontWeight: 600,
+  color: '#14176C',
+  marginBottom: '4px',
+  lineHeight: 1.2,
+};
+
+const roleStyle = {
+  fontFamily: 'Outfit, sans-serif',
+  fontSize: '14px',
+  fontWeight: 400,
+  color: '#5A5F4E',
+  marginBottom: '16px',
+  display: 'block',
+  lineHeight: 1.4,
+};
+
+const dividerStyle = {
+  height: '1px',
+  background: '#E8E6E1',
+  margin: '0 0 16px',
+  border: 'none',
+};
+
+const credStyle = {
+  fontFamily: 'Inter, sans-serif',
+  fontSize: '11.5px',
+  fontWeight: 500,
+  color: '#9B9D92',
+  marginBottom: '14px',
+  lineHeight: 1.5,
+  letterSpacing: '0.01em',
+};
+
+const blurbStyle = {
+  fontFamily: 'Inter, sans-serif',
+  fontSize: '13.5px',
+  fontWeight: 400,
+  color: '#3E4073',
+  lineHeight: 1.75,
+  marginBottom: 0,
+  flexGrow: 1,
+};
+
 export default function AboutTeamPage() {
   return (
     <>
@@ -139,9 +222,10 @@ export default function AboutTeamPage() {
       >
         <section className="team__area-two pt-120 pb-90">
           <div className="container">
+
             <div className="row justify-content-center">
               <div className="col-xl-7 col-lg-9">
-                <div className="section-title text-center mb-50 tg-heading-subheading animation-style3">
+                <div className="section-title text-center mb-60 tg-heading-subheading animation-style3">
                   <span className="sub-title">OUR TEAM</span>
                   <h2 className="title tg-element-title">Meet Our Team</h2>
                   <p className="mt-3">
@@ -154,29 +238,22 @@ export default function AboutTeamPage() {
               </div>
             </div>
 
-            <div className="row justify-content-center gutter-24">
+            <div className="row gutter-24">
               {teamMembers.map((member) => (
-                <div
-                  key={member.slug}
-                  className="col-lg-4 col-md-6 col-sm-8 mb-30"
-                >
-                  <div
-                    className="team__item-two shine-animate-item h-100"
-                    style={{ display: 'flex', flexDirection: 'column' }}
-                  >
-                    <div className="team__thumb-two shine-animate">
-                      <img
-                        src={member.image || '/placeholder.svg'}
-                        alt={member.name}
-                        style={{ objectPosition: 'center 15%' }}
-                      />
-                    </div>
-                    <div className="team__content-two">
-                      <h4 className="title">{member.name}</h4>
-                      <span className="member-dept">{member.group}</span>
-                      <span className="member-role">{member.title}</span>
-                      <p className="member-credentials">{member.credentials}</p>
-                      <p className="member-blurb">{member.blurb}</p>
+                <div key={member.slug} className="col-lg-4 col-md-6 mb-30">
+                  <div style={cardStyle}>
+                    <img
+                      src={member.image || '/placeholder.svg'}
+                      alt={member.name}
+                      style={imgStyle}
+                    />
+                    <div style={bodyStyle}>
+                      <span style={deptStyle}>{member.group}</span>
+                      <h4 style={nameStyle}>{member.name}</h4>
+                      <span style={roleStyle}>{member.title}</span>
+                      <hr style={dividerStyle} />
+                      <p style={credStyle}>{member.credentials}</p>
+                      <p style={blurbStyle}>{member.blurb}</p>
                     </div>
                     <TeamContactLinks member={member} />
                   </div>
@@ -184,9 +261,9 @@ export default function AboutTeamPage() {
               ))}
             </div>
 
-            <div className="row justify-content-center mt-30">
+            <div className="row justify-content-center mt-50">
               <div className="col-lg-8 text-center">
-                <p>
+                <p style={{ color: '#3E4073', marginBottom: '20px' }}>
                   Want to talk with our team about your tax, accounting, or
                   advisory needs?
                 </p>
@@ -195,6 +272,7 @@ export default function AboutTeamPage() {
                 </Link>
               </div>
             </div>
+
           </div>
         </section>
       </Layout>
