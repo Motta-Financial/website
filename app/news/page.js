@@ -221,23 +221,17 @@ export default function NewsOverview() {
       </div>
 
       <style jsx global>{`
+        /* ---- Page background ---- */
         .motta-news-overview {
-          background: var(--motta-charcoal, #333333);
-          min-height: 100vh;
+          background: var(--motta-cream, #f7f5f1);
         }
         .motta-news-overview__header {
           margin-bottom: 28px;
         }
-        .motta-news-overview__header .motta-eyebrow {
-          color: #8e9b79;
-        }
-        .motta-news-overview__header .motta-section-title {
-          color: var(--motta-warm, #eae6e1);
-        }
         .motta-news-overview__lead {
           font-size: 17px;
           line-height: 1.7;
-          color: rgba(234, 230, 225, 0.72);
+          color: rgba(43, 47, 36, 0.78);
           max-width: 66ch;
           margin: 0;
         }
@@ -250,42 +244,49 @@ export default function NewsOverview() {
           background: var(--motta-charcoal, #333333);
           color: var(--motta-warm, #eae6e1);
           text-decoration: none;
-          margin-bottom: 36px;
+          margin-bottom: 40px;
           transition: transform 0.22s ease, box-shadow 0.22s ease;
         }
         .motta-news-overview__featured:hover {
           transform: translateY(-3px);
-          box-shadow: 0 22px 52px -24px rgba(15, 19, 16, 0.55);
+          box-shadow: 0 22px 52px -24px rgba(15, 19, 16, 0.38);
           color: var(--motta-warm, #eae6e1);
         }
         .motta-news-overview__featured-body {
           padding: 36px 40px;
           display: flex;
-          gap: 48px;
-          align-items: flex-start;
+          gap: 0;
+          align-items: stretch;
         }
         .motta-news-overview__featured-left {
-          flex: 0 0 44%;
+          flex: 0 0 46%;
+          padding-right: 40px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
         .motta-news-overview__featured-right {
           flex: 1;
           display: flex;
           flex-direction: column;
           justify-content: center;
-          padding-left: 48px;
-          border-left: 1px solid rgba(255, 255, 255, 0.1);
+          padding-left: 40px;
+          border-left: 1px solid rgba(255, 255, 255, 0.12);
         }
         @media (max-width: 860px) {
           .motta-news-overview__featured-body {
             flex-direction: column;
-            gap: 16px;
             padding: 28px 28px 32px;
+          }
+          .motta-news-overview__featured-left {
+            padding-right: 0;
+            padding-bottom: 20px;
           }
           .motta-news-overview__featured-right {
             padding-left: 0;
             border-left: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding-top: 20px;
           }
         }
         .motta-news-overview__featured-eyebrow {
@@ -294,26 +295,26 @@ export default function NewsOverview() {
           letter-spacing: 0.16em;
           text-transform: uppercase;
           font-weight: 700;
-          color: #8e9b79;
-          margin-bottom: 12px;
+          color: var(--motta-sage-light, #8e9b79);
+          margin-bottom: 14px;
         }
         .motta-news-overview__featured-title {
-          font-size: clamp(20px, 2.4vw, 30px);
+          font-size: clamp(20px, 2.4vw, 28px);
           line-height: 1.22;
           margin: 0;
           color: inherit;
         }
         .motta-news-overview__featured-desc {
           font-size: 15px;
-          line-height: 1.7;
-          color: rgba(234, 230, 225, 0.82);
-          margin: 0 0 20px;
+          line-height: 1.72;
+          color: rgba(234, 230, 225, 0.78);
+          margin: 0 0 22px;
         }
         .motta-news-overview__featured-cta {
           font-size: 13px;
           font-weight: 600;
           letter-spacing: 0.04em;
-          color: #8e9b79;
+          color: var(--motta-sage-light, #8e9b79);
           display: inline-flex;
           align-items: center;
           gap: 8px;
@@ -325,21 +326,21 @@ export default function NewsOverview() {
           align-items: baseline;
           justify-content: space-between;
           gap: 12px;
-          margin-bottom: 14px;
+          margin-bottom: 16px;
         }
         .motta-news-overview__subhead {
-          font-size: 12px;
-          letter-spacing: 0.16em;
+          font-size: 11px;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
           font-weight: 700;
-          color: #8e9b79;
+          color: var(--motta-sage, #6b745d);
           margin: 0;
         }
         .motta-news-overview__see-all {
           font-size: 12px;
           font-weight: 600;
           letter-spacing: 0.04em;
-          color: rgba(234, 230, 225, 0.55);
+          color: rgba(43, 47, 36, 0.48);
           text-decoration: none;
           display: inline-flex;
           align-items: center;
@@ -347,7 +348,7 @@ export default function NewsOverview() {
           white-space: nowrap;
         }
         .motta-news-overview__see-all:hover {
-          color: var(--motta-warm, #eae6e1);
+          color: var(--motta-sage-deep, #4f573f);
         }
 
         /* ---- Recent grid ---- */
@@ -355,7 +356,7 @@ export default function NewsOverview() {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
           gap: 16px;
-          margin-bottom: 40px;
+          margin-bottom: 44px;
           align-items: start;
         }
         @media (max-width: 1100px) {
@@ -374,17 +375,17 @@ export default function NewsOverview() {
           flex-direction: column;
           border-radius: 13px;
           overflow: hidden;
-          background: rgba(255, 255, 255, 0.06);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          color: var(--motta-warm, #eae6e1);
+          background: #fff;
+          border: 1px solid rgba(107, 116, 93, 0.15);
+          color: var(--motta-charcoal, #333333);
           text-decoration: none;
           transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
         }
         .motta-news-overview__card:hover {
           transform: translateY(-3px);
-          border-color: rgba(142, 155, 121, 0.5);
-          box-shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.4);
-          color: var(--motta-warm, #eae6e1);
+          border-color: var(--motta-sage, #6b745d);
+          box-shadow: 0 14px 36px -18px rgba(15, 19, 16, 0.18);
+          color: var(--motta-charcoal, #333333);
         }
         .motta-news-overview__card-img {
           width: 100%;
@@ -394,7 +395,7 @@ export default function NewsOverview() {
           flex-shrink: 0;
         }
         .motta-news-overview__card-body {
-          padding: 20px 22px;
+          padding: 20px 22px 22px;
           display: flex;
           flex-direction: column;
           flex: 1;
@@ -403,7 +404,7 @@ export default function NewsOverview() {
           display: flex;
           align-items: center;
           gap: 8px;
-          margin-bottom: 8px;
+          margin-bottom: 9px;
           flex-wrap: wrap;
         }
         .motta-news-overview__card-tag {
@@ -414,55 +415,55 @@ export default function NewsOverview() {
           text-transform: uppercase;
           padding: 2px 8px;
           border-radius: 999px;
-          background: rgba(142, 155, 121, 0.18);
-          color: #b5c4a0;
-          border: 1px solid rgba(142, 155, 121, 0.28);
+          background: rgba(107, 116, 93, 0.1);
+          color: var(--motta-sage-deep, #4f573f);
+          border: 1px solid rgba(107, 116, 93, 0.2);
           white-space: nowrap;
         }
         .motta-news-overview__card-tag--press-release {
-          background: rgba(142, 155, 121, 0.18);
-          color: #b5c4a0;
-          border-color: rgba(142, 155, 121, 0.3);
+          background: rgba(79, 87, 63, 0.08);
+          color: var(--motta-sage-deep, #4f573f);
+          border-color: rgba(79, 87, 63, 0.18);
         }
         .motta-news-overview__card-tag--blog {
-          background: rgba(234, 230, 225, 0.1);
-          color: rgba(234, 230, 225, 0.7);
-          border-color: rgba(234, 230, 225, 0.16);
+          background: rgba(51, 51, 51, 0.06);
+          color: var(--motta-charcoal, #333333);
+          border-color: rgba(51, 51, 51, 0.12);
         }
         .motta-news-overview__card-tag--community {
-          background: rgba(142, 155, 121, 0.18);
-          color: #b5c4a0;
-          border-color: rgba(142, 155, 121, 0.3);
+          background: rgba(107, 116, 93, 0.1);
+          color: var(--motta-sage-deep, #4f573f);
+          border-color: rgba(107, 116, 93, 0.2);
         }
         .motta-news-overview__card-tag--media {
-          background: rgba(234, 230, 225, 0.08);
-          color: rgba(234, 230, 225, 0.6);
-          border-color: rgba(234, 230, 225, 0.14);
+          background: rgba(107, 116, 93, 0.07);
+          color: var(--motta-sage, #6b745d);
+          border-color: rgba(107, 116, 93, 0.14);
         }
         .motta-news-overview__card-date {
           font-size: 11px;
-          letter-spacing: 0.06em;
-          color: rgba(234, 230, 225, 0.38);
+          letter-spacing: 0.04em;
+          color: rgba(43, 47, 36, 0.42);
           font-weight: 500;
         }
         .motta-news-overview__card-title {
-          font-size: 17px;
-          line-height: 1.3;
-          margin: 0 0 7px;
-          color: var(--motta-warm, #eae6e1);
+          font-size: 16px;
+          line-height: 1.32;
+          margin: 0 0 8px;
+          color: var(--motta-charcoal, #333333);
         }
         .motta-news-overview__card-desc {
           font-size: 13.5px;
-          line-height: 1.6;
-          color: rgba(234, 230, 225, 0.62);
-          margin: 0 0 10px;
+          line-height: 1.62;
+          color: rgba(43, 47, 36, 0.7);
+          margin: 0 0 14px;
           flex: 1;
         }
         .motta-news-overview__card-cta {
           font-size: 12px;
           font-weight: 600;
           letter-spacing: 0.04em;
-          color: #8e9b79;
+          color: var(--motta-sage-deep, #4f573f);
           display: inline-flex;
           align-items: center;
           gap: 6px;
@@ -474,7 +475,7 @@ export default function NewsOverview() {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 14px;
-          margin: 14px 0 36px;
+          margin: 14px 0 40px;
         }
         @media (max-width: 1100px) {
           .motta-news-overview__sections {
@@ -493,18 +494,18 @@ export default function NewsOverview() {
           gap: 12px;
           padding: 20px;
           border-radius: 13px;
-          background: rgba(255, 255, 255, 0.06);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          color: var(--motta-warm, #eae6e1);
+          background: #fff;
+          border: 1px solid rgba(107, 116, 93, 0.15);
+          color: var(--motta-charcoal, #333333);
           text-decoration: none;
           transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
           min-height: 180px;
         }
         .motta-news-overview__section-card:hover {
           transform: translateY(-3px);
-          border-color: rgba(142, 155, 121, 0.5);
-          box-shadow: 0 14px 38px -18px rgba(0, 0, 0, 0.4);
-          color: var(--motta-warm, #eae6e1);
+          border-color: var(--motta-sage, #6b745d);
+          box-shadow: 0 12px 32px -16px rgba(15, 19, 16, 0.16);
+          color: var(--motta-charcoal, #333333);
         }
         .motta-news-overview__section-card-inner {
           display: flex;
@@ -515,7 +516,7 @@ export default function NewsOverview() {
           font-weight: 700;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: #8e9b79;
+          color: var(--motta-sage, #6b745d);
           margin-bottom: 6px;
           display: block;
         }
@@ -523,12 +524,12 @@ export default function NewsOverview() {
           font-size: 16px;
           line-height: 1.3;
           margin: 0 0 6px;
-          color: var(--motta-warm, #eae6e1);
+          color: var(--motta-charcoal, #333333);
         }
         .motta-news-overview__section-desc {
           font-size: 12.5px;
           line-height: 1.55;
-          color: rgba(234, 230, 225, 0.58);
+          color: rgba(43, 47, 36, 0.65);
           margin: 0;
         }
         .motta-news-overview__section-footer {
@@ -537,18 +538,18 @@ export default function NewsOverview() {
           justify-content: space-between;
           gap: 8px;
           padding-top: 10px;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          border-top: 1px solid rgba(107, 116, 93, 0.14);
         }
         .motta-news-overview__section-count {
           font-size: 11px;
-          color: rgba(234, 230, 225, 0.38);
+          color: rgba(43, 47, 36, 0.42);
           font-weight: 500;
         }
         .motta-news-overview__section-cta {
           font-size: 12px;
           font-weight: 600;
           letter-spacing: 0.04em;
-          color: #8e9b79;
+          color: var(--motta-sage-deep, #4f573f);
           display: inline-flex;
           align-items: center;
           gap: 6px;
@@ -560,16 +561,10 @@ export default function NewsOverview() {
           gap: 24px;
           align-items: center;
           justify-content: space-between;
-          padding: 28px 30px;
+          padding: 28px 32px;
           border-radius: 14px;
-          background: rgba(255, 255, 255, 0.06);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .motta-news-overview__cta-band .motta-section-title {
-          color: var(--motta-warm, #eae6e1);
-        }
-        .motta-news-overview__cta-band p {
-          color: rgba(234, 230, 225, 0.62) !important;
+          background: var(--motta-warm, #eae6e1);
+          border: 1px solid rgba(107, 116, 93, 0.16);
         }
         @media (max-width: 767px) {
           .motta-news-overview__cta-band {
