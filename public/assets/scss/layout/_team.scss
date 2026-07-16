@@ -214,34 +214,46 @@
     &__content {
         &-two {
             text-align: center;
+            padding: 20px 20px 10px;
             & .title {
-                font-size: 24px;
-                font-weight: var(--tg-fw-semi-bold);
-                margin-bottom: 8px;
-            }
-            & span {
-                display: block;
-                line-height: 1;
                 font-family: var(--tg-heading-font-family);
-                font-size: 11px;
-                font-weight: 700;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                color: var(--tg-theme-primary);
+                font-size: 20px;
+                font-weight: var(--tg-fw-semi-bold);
+                color: var(--tg-heading-color);
                 margin-bottom: 6px;
             }
-            & .member-title {
+            & .member-department {
+                display: block;
                 font-family: var(--tg-heading-font-family);
-                font-size: 15px;
+                font-size: 10px;
+                font-weight: var(--tg-fw-bold);
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--tg-theme-primary);
+                margin-bottom: 4px;
+            }
+            & .member-role {
+                display: block;
+                font-family: var(--tg-body-font-family);
+                font-size: 14px;
                 font-weight: var(--tg-fw-medium);
-                color: var(--tg-heading-color);
+                color: var(--tg-body-color);
                 margin-bottom: 10px;
+                line-height: 1.4;
             }
             & .member-credentials {
                 font-family: var(--tg-body-font-family);
-                font-size: 13px;
+                font-size: 12px;
                 color: var(--tg-color-gray-4);
-                margin-bottom: 12px;
+                margin-bottom: 14px;
+                line-height: 1.5;
+            }
+            & .member-blurb {
+                font-family: var(--tg-body-font-family);
+                font-size: 14px;
+                color: var(--tg-body-color);
+                line-height: 1.7;
+                margin-bottom: 0;
             }
         }
         &-three {
