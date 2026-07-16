@@ -12,44 +12,47 @@ export default function NewsList({ eyebrow, title, lead, items }) {
       <p className="motta-news-list__lead">{lead}</p>
 
       <div className="motta-news-list__items">
-        {items.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`motta-news-list__card${
-              item.image ? '' : ' motta-news-list__card--text'
-            }`}
-          >
-            {item.image ? (
-              <div
-                className={`motta-news-list__card-img${item.imageBg ? ' motta-news-list__card-img--logo' : ''}`}
-                style={item.imageBg ? { background: item.imageBg } : undefined}
-              >
-                <img
-                  src={item.image}
-                  alt={item.title || ''}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  style={
-                    item.imageBg
-                      ? { maxWidth: '70%', maxHeight: 100, objectFit: 'contain' }
-                      : { objectPosition: item.imagePosition || 'center top' }
-                  }
-                />
+        {items.map((item, i) => (
+          <>
+            {i > 0 && <hr key={`sep-${item.href}`} className="motta-news-list__sep" />}
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`motta-news-list__card${
+                item.image ? '' : ' motta-news-list__card--text'
+              }`}
+            >
+              {item.image ? (
+                <div
+                  className={`motta-news-list__card-img${item.imageBg ? ' motta-news-list__card-img--logo' : ''}`}
+                  style={item.imageBg ? { background: item.imageBg } : undefined}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title || ''}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    style={
+                      item.imageBg
+                        ? { maxWidth: '70%', maxHeight: 100, objectFit: 'contain' }
+                        : { objectPosition: item.imagePosition || 'center top' }
+                    }
+                  />
+                </div>
+              ) : null}
+              <div className="motta-news-list__card-body">
+                <span className="motta-news-list__card-eyebrow">
+                  {item.tag} {item.date ? <>&middot; {item.date}</> : null}
+                </span>
+                <h3 className="motta-news-list__card-title">{item.title}</h3>
+                <p className="motta-news-list__card-desc">{item.desc}</p>
+                <span className="motta-news-list__card-cta">
+                  Read more <i className="flaticon-right-arrow" />
+                </span>
               </div>
-            ) : null}
-            <div className="motta-news-list__card-body">
-              <span className="motta-news-list__card-eyebrow">
-                {item.tag} {item.date ? <>&middot; {item.date}</> : null}
-              </span>
-              <h3 className="motta-news-list__card-title">{item.title}</h3>
-              <p className="motta-news-list__card-desc">{item.desc}</p>
-              <span className="motta-news-list__card-cta">
-                Read more <i className="flaticon-right-arrow" />
-              </span>
-            </div>
-          </Link>
+            </Link>
+          </>
         ))}
       </div>
 
@@ -62,11 +65,14 @@ export default function NewsList({ eyebrow, title, lead, items }) {
           margin: 0;
         }
         .motta-news-list__items {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 0;
-          border-top: 1px solid rgba(107, 116, 93, 0.26);
+          display: flex;
+          flex-direction: column;
           margin-top: 28px;
+        }
+        .motta-news-list__sep {
+          border: none;
+          border-top: 1px solid rgba(107, 116, 93, 0.28);
+          margin: 36px 0 0;
         }
         .motta-news-list__card {
           display: grid;
@@ -76,18 +82,10 @@ export default function NewsList({ eyebrow, title, lead, items }) {
           overflow: visible;
           background: transparent;
           border: none;
-          border-bottom: 1px solid rgba(107, 116, 93, 0.26);
           color: var(--motta-charcoal, #2b2f24);
           text-decoration: none;
-          padding: 40px 0;
+          padding: 36px 0 0;
           transition: color 0.2s ease;
-        }
-        .motta-news-list__card:first-child {
-          padding-top: 36px;
-        }
-        .motta-news-list__card:last-child {
-          border-bottom: 1px solid rgba(107, 116, 93, 0.26);
-          padding-bottom: 40px;
         }
         .motta-news-list__card:hover {
           transform: none;

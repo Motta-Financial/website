@@ -50,7 +50,9 @@ export default function CommunityOverview() {
       </p>
 
       <div className="motta-community__list">
-        {COMMUNITY_ITEMS.map((item) => (
+        {COMMUNITY_ITEMS.map((item, i) => (
+          <>
+            {i > 0 && <hr key={`sep-${item.href}`} className="motta-community__sep" />}
           <Link key={item.href} href={item.href} className="motta-community__card">
             {item.image && (
               <div
@@ -82,6 +84,7 @@ export default function CommunityOverview() {
               </span>
             </div>
           </Link>
+          </>
         ))}
       </div>
 
@@ -111,12 +114,15 @@ export default function CommunityOverview() {
           margin: 0;
         }
         .motta-community__list {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 0;
-          border-top: 1px solid rgba(107, 116, 93, 0.26);
+          display: flex;
+          flex-direction: column;
           margin-top: 28px;
           margin-bottom: 40px;
+        }
+        .motta-community__sep {
+          border: none;
+          border-top: 1px solid rgba(107, 116, 93, 0.28);
+          margin: 36px 0 0;
         }
         .motta-community__card {
           display: flex;
@@ -125,18 +131,10 @@ export default function CommunityOverview() {
           overflow: visible;
           background: transparent;
           border: none;
-          border-bottom: 1px solid rgba(107, 116, 93, 0.26);
           color: var(--motta-charcoal, #2b2f24);
           text-decoration: none;
-          padding: 40px 0;
+          padding: 36px 0 0;
           transition: color 0.2s ease;
-        }
-        .motta-community__card:first-child {
-          padding-top: 36px;
-        }
-        .motta-community__card:last-child {
-          border-bottom: 1px solid rgba(107, 116, 93, 0.26);
-          padding-bottom: 40px;
         }
         .motta-community__card:hover {
           color: var(--motta-charcoal, #2b2f24);
