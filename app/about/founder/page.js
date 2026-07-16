@@ -20,9 +20,9 @@ export default function FounderPage() {
       {/* === Founder Story === */}
       <section className="motta-founder-story">
         <div className="container">
-          <div className="row motta-founder-story__row">
+          <div className="row justify-content-center motta-founder-story__row">
             {/* Left column: photo + connect box stacked */}
-            <div className="col-lg-4 offset-lg-1 motta-founder-story__left">
+            <div className="col-lg-4 motta-founder-story__left">
               <div className="motta-founder-story__media">
                 <img
                   src="/assets/img/about/dat-le-founder.jpg"
@@ -86,7 +86,7 @@ export default function FounderPage() {
               </div>
             </div>
             {/* Right column: bio content */}
-            <div className="col-lg-6">
+            <div className="col-lg-5">
               <div className="motta-founder-story__content">
                 <span className="motta-eyebrow">Founder &amp; Managing Partner</span>
                 <h1 className="motta-founder-story__name">Dat Le, CPA</h1>
