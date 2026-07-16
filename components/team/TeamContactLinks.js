@@ -68,7 +68,7 @@ const calBtnStyle = {
   borderRadius: '6px',
   background: '#6B745D',
   color: '#FFFFFF',
-  fontFamily: 'Outfit, sans-serif',
+  fontFamily: 'var(--tg-heading-font-family)',
   fontSize: '13px',
   fontWeight: 500,
   textDecoration: 'none',

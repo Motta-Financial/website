@@ -155,7 +155,7 @@ const bodyStyle = {
 };
 
 const deptStyle = {
-  fontFamily: 'Outfit, sans-serif',
+  fontFamily: 'var(--tg-heading-font-family)',
   fontSize: '10px',
   fontWeight: 700,
   letterSpacing: '0.14em',
@@ -166,7 +166,7 @@ const deptStyle = {
 };
 
 const nameStyle = {
-  fontFamily: 'Outfit, sans-serif',
+  fontFamily: 'var(--tg-heading-font-family)',
   fontSize: '20px',
   fontWeight: 600,
   color: '#1A1A1A',
@@ -175,7 +175,7 @@ const nameStyle = {
 };
 
 const roleStyle = {
-  fontFamily: 'Outfit, sans-serif',
+  fontFamily: 'var(--tg-heading-font-family)',
   fontSize: '14px',
   fontWeight: 400,
   color: '#5A5F4E',
@@ -192,7 +192,7 @@ const dividerStyle = {
 };
 
 const credStyle = {
-  fontFamily: 'Inter, sans-serif',
+  fontFamily: 'var(--tg-body-font-family)',
   fontSize: '11.5px',
   fontWeight: 500,
   color: '#9B9D92',
@@ -202,7 +202,7 @@ const credStyle = {
 };
 
 const blurbStyle = {
-  fontFamily: 'Inter, sans-serif',
+  fontFamily: 'var(--tg-body-font-family)',
   fontSize: '13.5px',
   fontWeight: 400,
   color: '#4A4843',
@@ -228,7 +228,7 @@ export default function AboutTeamPage() {
                 <div className="section-title text-center mb-40 tg-heading-subheading animation-style3">
                   <span className="sub-title">OUR TEAM</span>
                   <h2 className="title tg-element-title">Meet Our Team</h2>
-                  <p className="mt-3" style={{ fontFamily: 'Inter, sans-serif', fontSize: '15px', color: '#5A5F4E', whiteSpace: 'nowrap' }}>
+                  <p className="mt-3" style={{ fontFamily: 'var(--tg-body-font-family)', fontSize: '15px', color: '#5A5F4E', whiteSpace: 'nowrap' }}>
                     The partners, advisors, and associates leading Motta Financial&apos;s tax, accounting, advisory, and client experience practices — across our Boston and Las Vegas offices.
                   </p>
                 </div>
@@ -260,7 +260,7 @@ export default function AboutTeamPage() {
 
             <div className="row justify-content-center mt-50">
               <div className="col-lg-8 text-center">
-                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '15px', color: '#5A5F4E', marginBottom: '24px' }}>
+                <p style={{ fontFamily: 'var(--tg-body-font-family)', fontSize: '15px', color: '#5A5F4E', marginBottom: '24px' }}>
                   Want to talk with our team about your tax, accounting, or advisory needs?
                 </p>
                 <Link href="/contact" className="btn">
