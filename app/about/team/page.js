@@ -220,19 +220,16 @@ export default function AboutTeamPage() {
         breadcrumbTitle="Meet Our Team"
         breadcrumbEyebrow="The Team / Tech-forward CPAs"
       >
-        <section className="team__area-two pt-120 pb-90">
+        <section className="team__area-two pt-60 pb-90">
           <div className="container">
 
             <div className="row justify-content-center">
-              <div className="col-xl-7 col-lg-9">
-                <div className="section-title text-center mb-60 tg-heading-subheading animation-style3">
+              <div className="col-12">
+                <div className="section-title text-center mb-50 tg-heading-subheading animation-style3">
                   <span className="sub-title">OUR TEAM</span>
                   <h2 className="title tg-element-title">Meet Our Team</h2>
-                  <p className="mt-3">
-                    The partners, advisors, and associates leading Motta
-                    Financial&apos;s tax, accounting, advisory, and client
-                    experience practices — across our Boston and Las Vegas
-                    offices.
+                  <p className="mt-3" style={{ fontFamily: 'Inter, sans-serif', fontSize: '15px', color: '#5A5F4E', whiteSpace: 'nowrap' }}>
+                    The partners, advisors, and associates leading Motta Financial&apos;s tax, accounting, advisory, and client experience practices — across our Boston and Las Vegas offices.
                   </p>
                 </div>
               </div>
@@ -263,9 +260,8 @@ export default function AboutTeamPage() {
 
             <div className="row justify-content-center mt-50">
               <div className="col-lg-8 text-center">
-                <p style={{ color: '#3E4073', marginBottom: '20px' }}>
-                  Want to talk with our team about your tax, accounting, or
-                  advisory needs?
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '15px', color: '#5A5F4E', marginBottom: '24px' }}>
+                  Want to talk with our team about your tax, accounting, or advisory needs?
                 </p>
                 <Link href="/contact" className="btn">
                   Contact Our Team
