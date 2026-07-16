@@ -18,6 +18,7 @@ import Header5 from './header/Header5';
 import TopBanner from '../elements/TopBanner';
 import AlfredCompanion from '../elements/AlfredCompanion';
 import IntakeProvider from '../intake/IntakeProvider';
+import IntakeFloatingButton from '../intake/IntakeFloatingButton';
 
 export const metadata = {
   title: 'Motta Financial',
@@ -165,6 +166,7 @@ export default function Layout({
 
       <BackToTop />
       <AlfredCompanion />
+      <IntakeFloatingButton />
     </IntakeProvider>
   );
 }
