@@ -91,32 +91,14 @@ export default function FounderPage() {
                 <span className="motta-eyebrow">Founder &amp; Managing Partner</span>
                 <h1 className="motta-founder-story__name">Dat Le, CPA</h1>
 
-                {/* Intro pull quote */}
-                <p className="motta-founder-story__intro">
-                  Every client dollar should go toward creating value, not administrative work.
-                </p>
-
-                {/* Stats row */}
-                <div className="motta-founder-story__stats">
-                  <div className="motta-founder-story__stat">
-                    <span className="motta-founder-story__stat-num">600+</span>
-                    <span className="motta-founder-story__stat-label">Tax engagements/year</span>
-                  </div>
-                  <div className="motta-founder-story__stat">
-                    <span className="motta-founder-story__stat-num">9</span>
-                    <span className="motta-founder-story__stat-label">Team members</span>
-                  </div>
-                  <div className="motta-founder-story__stat">
-                    <span className="motta-founder-story__stat-num">80%</span>
-                    <span className="motta-founder-story__stat-label">Less admin time</span>
-                  </div>
-                </div>
-
                 {/* Career */}
                 <div className="motta-founder-story__section">
                   <h3 className="motta-founder-story__section-title">Career</h3>
                   <p>
-                    Started at Deloitte, then held leadership roles across public accounting, consulting, and corporate finance — founding Motta Financial in 2023 with one goal: redesign how accounting gets done, combining AI, automation, and elite tax expertise.
+                    Dat Le is the Founder of Motta Financial, an AI-powered CPA and advisory firm built on one core philosophy: every client dollar should go toward creating value, not administrative work. After beginning his career at Deloitte, Dat held leadership roles across public accounting, technical consulting, and corporate finance before founding Motta Financial in 2023. Rather than building another traditional accounting firm, he set out to redesign the operating model itself: combining automation, artificial intelligence, and elite tax expertise to deliver a faster, more transparent, and more strategic client experience.
+                  </p>
+                  <p>
+                    Under Dat&rsquo;s leadership, Motta Financial has grown from a solo practice into a nine-person firm serving more than 600 tax engagements while maintaining a deliberately lean operating model. By integrating ProConnect Tax, proprietary AI workflows, and ALFRED (Motta&rsquo;s internal AI platform), the firm has reduced administrative preparation time by more than 80%, allowing professionals to spend more time where they create the greatest value: planning, research, advisory, and client relationships.
                   </p>
                 </div>
 
@@ -124,7 +106,7 @@ export default function FounderPage() {
                 <div className="motta-founder-story__section">
                   <h3 className="motta-founder-story__section-title">Philosophy</h3>
                   <p>
-                    Accountants don&rsquo;t create wealth — they protect it. Clients play offense. Motta plays defense.
+                    <em>Dat believes accountants don&rsquo;t create wealth, they protect it.</em> His philosophy is that business owners play offense by building companies and generating income, while great advisors play defense by preserving that wealth through thoughtful tax planning, financial strategy, and disciplined execution. This belief drives every workflow, every technology investment, and every client relationship at Motta Financial.
                   </p>
                 </div>
 
@@ -132,7 +114,7 @@ export default function FounderPage() {
                 <div className="motta-founder-story__section">
                   <h3 className="motta-founder-story__section-title">Beyond the office</h3>
                   <p>
-                    Adjunct professor at Suffolk University, founder of the Le Family Scholarship, and a firm believer that AI will reshape professional services. Enjoys golf, Boston sports, and time with his dog Brody.
+                    In addition to leading Motta Financial, Dat serves as an adjunct professor at Suffolk University, where he teaches accounting and mentors future professionals. He also established the Le Family Scholarship to help create opportunities for the next generation of business leaders. Outside the office, Dat enjoys golf, following Boston sports, spending time with his dog Brody, and exploring how artificial intelligence will reshape the future of professional services.
                   </p>
                 </div>
               </div>
@@ -215,50 +197,6 @@ export default function FounderPage() {
           font-weight: 600;
           color: var(--motta-charcoal, #2b2f24);
           margin-bottom: 16px;
-        }
-        .motta-founder-story__intro {
-          font-size: 18px;
-          font-style: italic;
-          font-weight: 500;
-          line-height: 1.55;
-          color: var(--motta-sage-deep, #6b745d);
-          border-left: 3px solid var(--motta-sage, #8e9b79);
-          padding-left: 16px;
-          margin: 0 0 28px;
-        }
-        .motta-founder-story__stats {
-          display: flex;
-          gap: 0;
-          margin: 0 0 32px;
-          border: 1px solid rgba(142, 155, 121, 0.25);
-          border-radius: 12px;
-          overflow: hidden;
-        }
-        .motta-founder-story__stat {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 18px 12px;
-          border-right: 1px solid rgba(142, 155, 121, 0.25);
-          background: rgba(142, 155, 121, 0.06);
-        }
-        .motta-founder-story__stat:last-child {
-          border-right: none;
-        }
-        .motta-founder-story__stat-num {
-          font-size: 26px;
-          font-weight: 700;
-          color: var(--motta-charcoal, #2b2f24);
-          line-height: 1;
-          margin-bottom: 4px;
-        }
-        .motta-founder-story__stat-label {
-          font-size: 11px;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          color: var(--motta-sage-deep, #6b745d);
-          text-align: center;
         }
         .motta-founder-story__section {
           margin-bottom: 20px;
