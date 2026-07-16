@@ -332,6 +332,8 @@ export default function NewsOverview() {
           justify-content: space-between;
           gap: 12px;
           margin-bottom: 16px;
+          padding-top: 36px;
+          border-top: 1px solid rgba(107, 116, 93, 0.26);
         }
         .motta-news-overview__subhead {
           font-size: 11px;
