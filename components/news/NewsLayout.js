@@ -39,7 +39,7 @@ export default function NewsLayout({ children }) {
     <section className="motta-news-shell">
       <div className="container">
         <div className="row">
-          <aside className="col-lg-2">
+          <aside className="col-lg-3">
             <div className="services__sidebar">
               <div className="sidebar__widget sidebar__widget-two">
                 <div className="sidebar__cat-list-two">
@@ -73,7 +73,7 @@ export default function NewsLayout({ children }) {
               </div>
             </div>
           </aside>
-          <div className="col-lg-10">
+          <div className="col-lg-9">
             <div className="motta-news-content">{children}</div>
           </div>
         </div>
@@ -95,8 +95,8 @@ export default function NewsLayout({ children }) {
           }
         }
         .motta-news-content {
-          padding: 52px 56px 64px;
-          border-radius: 28px;
+          padding: 40px 44px 52px;
+          border-radius: 24px;
           background: #fff;
           border: 1px solid rgba(107, 116, 93, 0.13);
           box-shadow: 0 20px 56px -32px rgba(15, 19, 16, 0.22);
