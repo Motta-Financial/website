@@ -222,8 +222,26 @@
             & span {
                 display: block;
                 line-height: 1;
+                font-family: var(--tg-heading-font-family);
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
                 color: var(--tg-theme-primary);
-                margin-bottom: 20px;
+                margin-bottom: 6px;
+            }
+            & .member-title {
+                font-family: var(--tg-heading-font-family);
+                font-size: 15px;
+                font-weight: var(--tg-fw-medium);
+                color: var(--tg-heading-color);
+                margin-bottom: 10px;
+            }
+            & .member-credentials {
+                font-family: var(--tg-body-font-family);
+                font-size: 13px;
+                color: var(--tg-color-gray-4);
+                margin-bottom: 12px;
             }
         }
         &-three {
