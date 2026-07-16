@@ -10,7 +10,6 @@ const FEATURED = {
     'How Motta Financial Built a Scalable Tax Practice with Intuit ProConnect Tax',
   desc:
     'Intuit featured Motta Financial in an official ProConnect Tax case study — the story of a firm built from day one on automation, a Books-to-Tax workflow, and ALFRED Ai, with a relentless focus on putting client dollars toward value, not admin.',
-  image: '/assets/img/news/proconnect-case-study.png',
 };
 
 const RECENT = [
@@ -123,21 +122,19 @@ export default function NewsOverview() {
 
       {/* Featured story */}
       <Link href={FEATURED.href} className="motta-news-overview__featured">
-        <div
-          className="motta-news-overview__featured-img"
-          style={{ backgroundImage: `url(${FEATURED.image})` }}
-          role="img"
-          aria-label={FEATURED.title}
-        />
         <div className="motta-news-overview__featured-body">
-          <span className="motta-news-overview__featured-eyebrow">
-            {FEATURED.eyebrow} &middot; {FEATURED.date}
-          </span>
-          <h2 className="motta-news-overview__featured-title">{FEATURED.title}</h2>
-          <p className="motta-news-overview__featured-desc">{FEATURED.desc}</p>
-          <span className="motta-news-overview__featured-cta">
-            Read the announcement <i className="flaticon-right-arrow" />
-          </span>
+          <div className="motta-news-overview__featured-left">
+            <span className="motta-news-overview__featured-eyebrow">
+              {FEATURED.eyebrow} &middot; {FEATURED.date}
+            </span>
+            <h2 className="motta-news-overview__featured-title">{FEATURED.title}</h2>
+          </div>
+          <div className="motta-news-overview__featured-right">
+            <p className="motta-news-overview__featured-desc">{FEATURED.desc}</p>
+            <span className="motta-news-overview__featured-cta">
+              Read the announcement <i className="flaticon-right-arrow" />
+            </span>
+          </div>
         </div>
       </Link>
 
@@ -237,8 +234,7 @@ export default function NewsOverview() {
 
         /* ---- Featured ---- */
         .motta-news-overview__featured {
-          display: flex;
-          flex-direction: column;
+          display: block;
           border-radius: 16px;
           overflow: hidden;
           background: var(--motta-charcoal, #333333);
@@ -252,20 +248,35 @@ export default function NewsOverview() {
           box-shadow: 0 22px 52px -24px rgba(15, 19, 16, 0.55);
           color: var(--motta-warm, #eae6e1);
         }
-        .motta-news-overview__featured-img {
-          width: 100%;
-          aspect-ratio: 16 / 7;
-          background-size: cover;
-          background-position: center center;
-          flex-shrink: 0;
-        }
-        @media (max-width: 575px) {
-          .motta-news-overview__featured-img {
-            aspect-ratio: 3 / 2;
-          }
-        }
         .motta-news-overview__featured-body {
-          padding: 28px 32px 32px;
+          padding: 36px 40px;
+          display: flex;
+          gap: 48px;
+          align-items: flex-start;
+        }
+        .motta-news-overview__featured-left {
+          flex: 0 0 44%;
+        }
+        .motta-news-overview__featured-right {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding-left: 48px;
+          border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        @media (max-width: 860px) {
+          .motta-news-overview__featured-body {
+            flex-direction: column;
+            gap: 16px;
+            padding: 28px 28px 32px;
+          }
+          .motta-news-overview__featured-right {
+            padding-left: 0;
+            border-left: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 16px;
+          }
         }
         .motta-news-overview__featured-eyebrow {
           display: block;
@@ -274,20 +285,19 @@ export default function NewsOverview() {
           text-transform: uppercase;
           font-weight: 700;
           color: #8e9b79;
-          margin-bottom: 10px;
+          margin-bottom: 12px;
         }
         .motta-news-overview__featured-title {
-          font-size: clamp(20px, 2.4vw, 28px);
+          font-size: clamp(20px, 2.4vw, 30px);
           line-height: 1.22;
-          margin: 0 0 10px;
+          margin: 0;
           color: inherit;
         }
         .motta-news-overview__featured-desc {
           font-size: 15px;
           line-height: 1.7;
           color: rgba(234, 230, 225, 0.82);
-          margin: 0 0 16px;
-          max-width: 68ch;
+          margin: 0 0 20px;
         }
         .motta-news-overview__featured-cta {
           font-size: 13px;
