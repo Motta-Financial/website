@@ -220,12 +220,12 @@ export default function AboutTeamPage() {
         breadcrumbTitle="Meet Our Team"
         breadcrumbEyebrow="The Team / Tech-forward CPAs"
       >
-        <section className="team__area-two pt-60 pb-90">
+        <section className="team__area-two pb-90" style={{ paddingTop: '30px' }}>
           <div className="container">
 
             <div className="row justify-content-center">
               <div className="col-12">
-                <div className="section-title text-center mb-50 tg-heading-subheading animation-style3">
+                <div className="section-title text-center mb-40 tg-heading-subheading animation-style3">
                   <span className="sub-title">OUR TEAM</span>
                   <h2 className="title tg-element-title">Meet Our Team</h2>
                   <p className="mt-3" style={{ fontFamily: 'Inter, sans-serif', fontSize: '15px', color: '#5A5F4E', whiteSpace: 'nowrap' }}>
