@@ -224,9 +224,9 @@ export default function NewsOverview() {
         /* ---- Page background ---- */
         .motta-news-overview {
           background: var(--motta-cream, #f7f5f1);
-          border-radius: 20px;
-          margin: -52px -56px 0 -56px;
-          padding: 52px 56px 0;
+          border-radius: 24px;
+          margin: -52px -56px -64px -56px;
+          padding: 52px 56px 64px;
         }
         .motta-news-overview__header {
           margin-bottom: 28px;
