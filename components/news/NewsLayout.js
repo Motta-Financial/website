@@ -95,15 +95,15 @@ export default function NewsLayout({ children }) {
           }
         }
         .motta-news-content {
-          padding: 48px 48px 56px;
-          border-radius: 18px;
+          padding: 40px 44px 52px;
+          border-radius: 24px;
           background: #fff;
-          border: 1px solid rgba(107, 116, 93, 0.14);
-          box-shadow: 0 24px 60px -36px rgba(15, 19, 16, 0.3);
+          border: 1px solid rgba(107, 116, 93, 0.13);
+          box-shadow: 0 20px 56px -32px rgba(15, 19, 16, 0.22);
         }
         @media (max-width: 767px) {
           .motta-news-content {
-            padding: 32px 22px 40px;
+            padding: 32px 24px 44px;
             border-radius: 14px;
           }
         }

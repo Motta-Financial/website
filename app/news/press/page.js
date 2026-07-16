@@ -5,12 +5,12 @@ import NewsList from '@/components/news/NewsList';
 const ITEMS = [
   {
     href: '/news/press/proconnect-case-study',
-    tag: 'Intuit ProConnect Case Study',
-    date: 'Featured by Intuit',
+    tag: 'Featured In',
+    date: 'Intuit ProConnect Tax',
     title:
-      'How Motta Financial Built a Scalable Tax Practice with Intuit ProConnect Tax',
+      'Motta Financial featured in Intuit\u2019s ProConnect Tax case study',
     desc:
-      'Intuit featured Motta Financial in an official ProConnect Tax case study \u2014 the story of a firm built from day one on automation, a Books-to-Tax workflow, and ALFRED Ai, with a relentless focus on client value.',
+      'Intuit selected Motta Financial as a ProConnect Tax case study, spotlighting how the firm paired automation and ALFRED Ai to build a scalable, low-overhead tax practice from day one.',
   },
   {
     href: '/news/press/ja-youth-summit-2026',
