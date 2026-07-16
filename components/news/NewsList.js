@@ -64,7 +64,7 @@ export default function NewsList({ eyebrow, title, lead, items }) {
         .motta-news-list__items {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 18px;
+          gap: 0;
         }
         .motta-news-list__card {
           display: grid;
@@ -77,14 +77,15 @@ export default function NewsList({ eyebrow, title, lead, items }) {
           border-bottom: 1px solid rgba(107, 116, 93, 0.16);
           color: var(--motta-charcoal, #2b2f24);
           text-decoration: none;
-          padding: 24px 0;
+          padding: 40px 0;
           transition: border-color 0.2s ease;
         }
         .motta-news-list__card:first-child {
-          padding-top: 8px;
+          padding-top: 0;
         }
         .motta-news-list__card:last-child {
           border-bottom: none;
+          padding-bottom: 0;
         }
         .motta-news-list__card:hover {
           transform: none;
@@ -134,18 +135,21 @@ export default function NewsList({ eyebrow, title, lead, items }) {
           text-transform: uppercase;
           color: var(--motta-sage-deep, #6b745d);
           font-weight: 700;
+          margin-bottom: 10px;
+          display: block;
         }
         .motta-news-list__card-title {
           font-size: 22px;
           line-height: 1.25;
-          margin: 8px 0 8px;
+          margin: 0 0 12px;
           color: var(--motta-charcoal, #2b2f24);
         }
         .motta-news-list__card-desc {
-          font-size: 14.5px;
-          line-height: 1.65;
-          color: rgba(43, 47, 36, 0.8);
-          margin: 0 0 10px;
+          font-size: 15px;
+          line-height: 1.7;
+          color: rgba(43, 47, 36, 0.72);
+          margin: 0 0 18px;
+          max-width: 72ch;
         }
         .motta-news-list__card-cta {
           font-size: 13px;
