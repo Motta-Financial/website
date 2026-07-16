@@ -172,11 +172,47 @@ export default function AboutTeamPage() {
                       />
                     </div>
                     <div className="team__content-two">
+                      {/* Name — Outfit, deep navy */}
                       <h4 className="title">{member.name}</h4>
+
+                      {/* Department — gold, uppercase, Outfit */}
                       <span className="member-department">{member.group}</span>
+
+                      {/* Role — Outfit, secondary navy */}
                       <span className="member-role">{member.title}</span>
-                      <p className="member-credentials">{member.credentials}</p>
-                      <p className="member-blurb">{member.blurb}</p>
+
+                      {/* Credentials — warm amber pill */}
+                      <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+                        <span style={{
+                          display: 'inline-block',
+                          fontFamily: 'var(--tg-body-font-family)',
+                          fontSize: '11px',
+                          fontStyle: 'italic',
+                          fontWeight: 500,
+                          color: '#7A5C10',
+                          background: '#FEF6E6',
+                          border: '1px solid rgba(247,164,0,0.4)',
+                          borderRadius: '20px',
+                          padding: '4px 13px',
+                          lineHeight: 1.5,
+                        }}>
+                          {member.credentials}
+                        </span>
+                      </div>
+
+                      {/* Blurb — Inter, muted gray, left-aligned, top border */}
+                      <p style={{
+                        fontFamily: 'var(--tg-body-font-family)',
+                        fontSize: '13.5px',
+                        color: 'var(--tg-color-gray-4)',
+                        lineHeight: 1.75,
+                        marginBottom: 0,
+                        borderTop: '1px solid var(--tg-border-2)',
+                        paddingTop: '14px',
+                        textAlign: 'left',
+                      }}>
+                        {member.blurb}
+                      </p>
                     </div>
                     <TeamContactLinks member={member} />
                   </div>

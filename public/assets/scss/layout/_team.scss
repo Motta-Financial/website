@@ -215,45 +215,68 @@
         &-two {
             text-align: center;
             padding: 20px 20px 10px;
+
+            // Full name — Outfit, deep navy
             & .title {
                 font-family: var(--tg-heading-font-family);
                 font-size: 20px;
                 font-weight: var(--tg-fw-semi-bold);
                 color: var(--tg-heading-color);
-                margin-bottom: 6px;
+                margin-bottom: 5px;
             }
+
+            // Department — gold, tight caps (e.g. "TAX")
             & .member-department {
                 display: block;
                 font-family: var(--tg-heading-font-family);
                 font-size: 10px;
                 font-weight: var(--tg-fw-bold);
-                letter-spacing: 0.12em;
+                letter-spacing: 0.14em;
                 text-transform: uppercase;
                 color: var(--tg-theme-primary);
-                margin-bottom: 4px;
+                margin-bottom: 6px;
             }
+
+            // Role/title — Outfit, secondary navy, slightly smaller than name
             & .member-role {
                 display: block;
-                font-family: var(--tg-body-font-family);
+                font-family: var(--tg-heading-font-family);
                 font-size: 14px;
                 font-weight: var(--tg-fw-medium);
-                color: var(--tg-body-color);
-                margin-bottom: 10px;
+                color: var(--tg-theme-secondary);
+                margin-bottom: 14px;
                 line-height: 1.4;
             }
+
+            // Credentials — warm pill, centered
+            & .member-credentials-wrap {
+                text-align: center;
+                margin-bottom: 16px;
+            }
             & .member-credentials {
+                display: inline-block;
                 font-family: var(--tg-body-font-family);
-                font-size: 12px;
-                color: var(--tg-color-gray-4);
-                margin-bottom: 14px;
+                font-size: 11px;
+                font-style: italic;
+                font-weight: var(--tg-fw-medium);
+                color: #7A5C10;
+                background: var(--tg-color-yellow-light);
+                border: 1px solid rgba(247, 164, 0, 0.35);
+                @include border-radius(20px);
+                padding: 5px 14px;
                 line-height: 1.5;
             }
+
+            // Blurb — Inter, warm muted body, clearly separated
             & .member-blurb {
                 font-family: var(--tg-body-font-family);
-                font-size: 14px;
-                color: var(--tg-body-color);
-                line-height: 1.7;
+                font-size: 13.5px;
+                color: var(--tg-color-gray-4);
+                line-height: 1.75;
                 margin-bottom: 0;
+                border-top: 1px solid var(--tg-border-2);
+                padding-top: 14px;
+                text-align: left;
             }
         }
         &-three {
