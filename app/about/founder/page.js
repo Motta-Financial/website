@@ -199,8 +199,8 @@ export default function FounderPage() {
           margin-bottom: 16px;
         }
         .motta-founder-story__section {
-          margin-bottom: 20px;
-          padding-bottom: 20px;
+          margin-bottom: 14px;
+          padding-bottom: 14px;
           border-bottom: 1px solid rgba(142, 155, 121, 0.18);
         }
         .motta-founder-story__section:last-child {
@@ -213,14 +213,17 @@ export default function FounderPage() {
           letter-spacing: 0.18em;
           text-transform: uppercase;
           color: var(--motta-sage-deep, #6b745d);
-          margin: 0 0 8px;
+          margin: 0 0 6px;
           font-weight: 600;
         }
         .motta-founder-story__content p {
           font-size: 15px;
-          line-height: 1.7;
+          line-height: 1.55;
           color: rgba(43, 47, 36, 0.82);
-          margin: 0;
+          margin: 0 0 8px;
+        }
+        .motta-founder-story__content p:last-child {
+          margin-bottom: 0;
         }
 
         .motta-founder-connect {
