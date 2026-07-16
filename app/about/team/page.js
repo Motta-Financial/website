@@ -169,7 +169,7 @@ const nameStyle = {
   fontFamily: 'Outfit, sans-serif',
   fontSize: '20px',
   fontWeight: 600,
-  color: '#14176C',
+  color: '#1A1A1A',
   marginBottom: '4px',
   lineHeight: 1.2,
 };
@@ -186,8 +186,8 @@ const roleStyle = {
 
 const dividerStyle = {
   height: '1px',
-  background: '#E8E6E1',
-  margin: '0 0 16px',
+  background: '#E2DDD6',
+  margin: '0 0 14px',
   border: 'none',
 };
 
@@ -205,7 +205,7 @@ const blurbStyle = {
   fontFamily: 'Inter, sans-serif',
   fontSize: '13.5px',
   fontWeight: 400,
-  color: '#3E4073',
+  color: '#4A4843',
   lineHeight: 1.75,
   marginBottom: 0,
   flexGrow: 1,

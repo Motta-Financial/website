@@ -36,15 +36,56 @@ function CalendarIcon() {
   );
 }
 
+const rowStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '8px',
+  padding: '16px 24px 20px',
+  borderTop: '1px solid #E2DDD6',
+  marginTop: 'auto',
+};
+
+const iconBtnStyle = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '36px',
+  height: '36px',
+  borderRadius: '50%',
+  border: '1.5px solid #D6D2CB',
+  background: 'transparent',
+  color: '#4A4843',
+  textDecoration: 'none',
+  flexShrink: 0,
+  transition: 'border-color 0.2s, color 0.2s',
+};
+
+const calBtnStyle = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '6px',
+  padding: '8px 16px',
+  borderRadius: '6px',
+  background: '#6B745D',
+  color: '#FFFFFF',
+  fontFamily: 'Outfit, sans-serif',
+  fontSize: '13px',
+  fontWeight: 500,
+  textDecoration: 'none',
+  letterSpacing: '0.01em',
+  marginLeft: 'auto',
+  flexShrink: 0,
+};
+
 export default function TeamContactLinks({ member }) {
   const { email, linkedin, calendly, name } = member || {};
   if (!email && !linkedin && !calendly) return null;
 
   return (
-    <div className="motta-team-contact">
+    <div style={rowStyle}>
       {email && (
         <a
-          className="motta-team-contact__icon"
+          style={iconBtnStyle}
           href={`mailto:${email}`}
           title={email}
           aria-label={`Email ${name}`}
@@ -54,7 +95,7 @@ export default function TeamContactLinks({ member }) {
       )}
       {linkedin && (
         <a
-          className="motta-team-contact__icon"
+          style={iconBtnStyle}
           href={linkedin}
           target="_blank"
           rel="noopener noreferrer"
@@ -65,7 +106,7 @@ export default function TeamContactLinks({ member }) {
       )}
       {calendly && (
         <a
-          className="motta-team-contact__cal"
+          style={calBtnStyle}
           href={calendly}
           target="_blank"
           rel="noopener noreferrer"
