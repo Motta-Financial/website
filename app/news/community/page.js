@@ -49,27 +49,13 @@ export default function CommunityOverview() {
         people and small businesses build something that lasts.
       </p>
 
-      <h3 className="motta-community__subhead">Programs We Sponsor</h3>
       <div className="motta-community__list">
         {COMMUNITY_ITEMS.map((item) => (
           <Link key={item.href} href={item.href} className="motta-community__card">
-            {item.imageBg ? (
+            {item.image && (
               <div
-                className="motta-community__card-img"
-                style={{ background: item.imageBg }}
-              >
-                <img
-                  src={item.image}
-                  alt={`${item.org} logo`}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                />
-              </div>
-            ) : (
-              <div
-                className="motta-community__card-img--photo"
-                style={{ height: 380, overflow: 'hidden', flexShrink: 0 }}
+                className={`motta-community__card-img${item.imageBg ? ' motta-community__card-img--logo' : ''}`}
+                style={item.imageBg ? { background: item.imageBg } : undefined}
               >
                 <img
                   src={item.image}
@@ -77,13 +63,11 @@ export default function CommunityOverview() {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    objectPosition: item.imagePosition || 'center 15%',
-                    display: 'block',
-                  }}
+                  style={
+                    item.imageBg
+                      ? { maxWidth: '70%', maxHeight: 100, objectFit: 'contain' }
+                      : { objectPosition: item.imagePosition || 'center top' }
+                  }
                 />
               </div>
             )}
@@ -124,59 +108,76 @@ export default function CommunityOverview() {
           line-height: 1.7;
           color: rgba(43, 47, 36, 0.85);
           max-width: 65ch;
-          margin: 0 0 32px;
-        }
-        .motta-community__subhead {
-          font-size: 14px;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          font-weight: 700;
-          color: var(--motta-sage-deep, #6b745d);
-          margin: 0 0 14px;
+          margin: 0;
         }
         .motta-community__list {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 18px;
+          gap: 0;
+          border-top: 1px solid rgba(107, 116, 93, 0.26);
+          margin-top: 28px;
           margin-bottom: 40px;
         }
         .motta-community__card {
           display: flex;
           flex-direction: column;
-          border-radius: 14px;
-          overflow: hidden;
-          background: var(--motta-cream-50, #fbf8f2);
-          border: 1px solid rgba(107, 116, 93, 0.16);
+          border-radius: 0;
+          overflow: visible;
+          background: transparent;
+          border: none;
+          border-bottom: 1px solid rgba(107, 116, 93, 0.26);
           color: var(--motta-charcoal, #2b2f24);
           text-decoration: none;
-          transition: transform 0.2s ease, border-color 0.2s ease,
-            box-shadow 0.2s ease;
+          padding: 40px 0;
+          transition: color 0.2s ease;
+        }
+        .motta-community__card:first-child {
+          padding-top: 36px;
+        }
+        .motta-community__card:last-child {
+          border-bottom: 1px solid rgba(107, 116, 93, 0.26);
+          padding-bottom: 40px;
         }
         .motta-community__card:hover {
-          transform: translateY(-3px);
-          border-color: var(--motta-sage, #8e9b79);
-          box-shadow: 0 16px 40px -22px rgba(15, 19, 16, 0.28);
           color: var(--motta-charcoal, #2b2f24);
         }
         .motta-community__card-img {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 22px;
-          min-height: 160px;
+          overflow: hidden;
+          border-radius: 16px;
+          margin-bottom: 16px;
+          width: 100%;
+          height: 260px;
           flex-shrink: 0;
         }
         .motta-community__card-img img {
-          max-width: 80%;
-          max-height: 110px;
-          height: auto;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
           display: block;
+          border-radius: 16px;
+        }
+        .motta-community__card-img--logo {
+          height: 120px;
+          padding: 20px;
+          background: var(--motta-cream-50, #fbf8f2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 16px;
+        }
+        .motta-community__card-img--logo img {
+          height: auto;
+          width: auto;
+          max-width: 70%;
+          max-height: 80px;
+          object-fit: contain;
+          border-radius: 0;
         }
         .motta-community__card-body {
-          padding: 22px 24px;
+          padding: 0;
           display: flex;
           flex-direction: column;
-          justify-content: center;
         }
         .motta-community__card-eyebrow {
           font-size: 11px;
@@ -184,17 +185,21 @@ export default function CommunityOverview() {
           text-transform: uppercase;
           color: var(--motta-sage-deep, #6b745d);
           font-weight: 700;
+          margin-bottom: 10px;
+          display: block;
         }
         .motta-community__card-title {
           font-size: 22px;
-          margin: 8px 0 8px;
+          line-height: 1.25;
+          margin: 0 0 12px;
           color: var(--motta-charcoal, #2b2f24);
         }
         .motta-community__card-desc {
-          font-size: 14.5px;
-          line-height: 1.65;
-          color: rgba(43, 47, 36, 0.8);
-          margin: 0 0 10px;
+          font-size: 15px;
+          line-height: 1.7;
+          color: rgba(43, 47, 36, 0.72);
+          margin: 0;
+          max-width: 72ch;
         }
         .motta-community__card-cta {
           font-size: 13px;
@@ -204,6 +209,7 @@ export default function CommunityOverview() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
+          margin-top: 20px;
         }
         .motta-community__cta-band {
           display: flex;
