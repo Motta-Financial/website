@@ -22,7 +22,7 @@ export default function FounderPage() {
         <div className="container">
           <div className="row motta-founder-story__row">
             {/* Left column: photo + connect box stacked */}
-            <div className="col-lg-5 motta-founder-story__left">
+            <div className="col-lg-4 motta-founder-story__left">
               <div className="motta-founder-story__media">
                 <img
                   src="/assets/img/about/dat-le-founder.jpg"
@@ -86,7 +86,7 @@ export default function FounderPage() {
               </div>
             </div>
             {/* Right column: bio content */}
-            <div className="col-lg-7">
+            <div className="col-lg-8">
               <div className="motta-founder-story__content">
                 <span className="motta-eyebrow">Founder &amp; Managing Partner</span>
                 <h1 className="motta-founder-story__name">Dat Le, CPA</h1>
@@ -145,14 +145,13 @@ export default function FounderPage() {
           overflow: hidden;
           box-shadow: 0 30px 60px -25px rgba(15, 19, 16, 0.35);
           width: 100%;
-          max-height: 420px;
         }
         .motta-founder-story__media img {
           width: 100%;
-          height: 420px;
+          height: 520px;
           display: block;
           object-fit: cover;
-          object-position: center 15%;
+          object-position: center 10%;
         }
         .motta-founder-story__content {
           max-width: 600px;
