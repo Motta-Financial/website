@@ -122,7 +122,7 @@ export default function CommunityOverview() {
         .motta-community__sep {
           border: none;
           border-top: 1px solid rgba(107, 116, 93, 0.28);
-          margin: 36px 0 0;
+          margin: 18px 0 0;
         }
         .motta-community__card {
           display: flex;
@@ -133,7 +133,7 @@ export default function CommunityOverview() {
           border: none;
           color: var(--motta-charcoal, #2b2f24);
           text-decoration: none;
-          padding: 36px 0 0;
+          padding: 44px 0 0;
           transition: color 0.2s ease;
         }
         .motta-community__card:hover {
