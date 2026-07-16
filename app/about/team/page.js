@@ -172,7 +172,12 @@ export default function AboutTeamPage() {
                       />
                     </div>
                     <div className="team__content-two">
-                      <h4 className="title">{member.name}</h4>
+                      <h4
+                        className="title"
+                        style={{ fontFamily: 'var(--tg-heading-font-family)' }}
+                      >
+                        {member.name}
+                      </h4>
                       <span
                         style={{
                           display: 'block',
@@ -180,24 +185,40 @@ export default function AboutTeamPage() {
                           fontWeight: 700,
                           letterSpacing: '0.1em',
                           textTransform: 'uppercase',
+                          fontFamily: 'var(--tg-heading-font-family)',
                           color: 'var(--tg-theme-primary)',
                           marginBottom: '4px',
                         }}
                       >
                         {member.group}
                       </span>
-                      <span>{member.title}</span>
+                      <span
+                        style={{
+                          fontFamily: 'var(--tg-heading-font-family)',
+                          color: 'var(--tg-theme-secondary)',
+                          fontWeight: 500,
+                        }}
+                      >
+                        {member.title}
+                      </span>
                       <p
                         style={{
                           fontSize: '13px',
-                          color: 'var(--motta-sage, #6B745D)',
+                          fontFamily: 'var(--tg-body-font-family)',
+                          color: 'var(--tg-color-gray-4)',
                           marginTop: '6px',
                           marginBottom: '12px',
                         }}
                       >
                         {member.credentials}
                       </p>
-                      <p style={{ fontSize: '14px', lineHeight: 1.6 }}>
+                      <p
+                        style={{
+                          fontSize: '14px',
+                          lineHeight: 1.6,
+                          fontFamily: 'var(--tg-body-font-family)',
+                        }}
+                      >
                         {member.blurb}
                       </p>
                     </div>
