@@ -60,7 +60,7 @@ const APPEARANCES = [
 
 export default function MediaPage() {
   return (
-    <article className="motta-media">
+      <article className="motta-media motta-news-section-bg">
       <header className="motta-media__head">
         <span className="motta-eyebrow">Podcasts, Press &amp; Features</span>
         <h1 className="motta-media__title">Motta in the Media</h1>

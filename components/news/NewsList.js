@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function NewsList({ eyebrow, title, lead, items }) {
   return (
-    <article className="motta-news-list">
+    <article className="motta-news-list motta-news-section-bg">
       <span className="motta-eyebrow">{eyebrow}</span>
       <h1 className="motta-section-title" style={{ marginBottom: 16 }}>
         {title}

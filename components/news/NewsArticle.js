@@ -16,7 +16,7 @@ export default function NewsArticle({
   children,
 }) {
   return (
-    <article className="motta-news-article">
+    <article className="motta-news-article motta-news-section-bg">
       <div className="motta-news-article__meta-row">
         <Link href={backHref} className="motta-news-article__back">
           <i className="flaticon-left-arrow" /> {backLabel}
