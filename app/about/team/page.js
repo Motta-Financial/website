@@ -128,15 +128,6 @@ const teamMembers = [
   },
 ];
 
-// Display order for the service-line sections on the team page.
-const TEAM_GROUP_ORDER = [
-  'Firm Leadership',
-  'Tax',
-  'Accounting',
-  'Business Advisory',
-  'Client Operations',
-];
-
 export default function AboutTeamPage() {
   return (
     <>
@@ -152,9 +143,7 @@ export default function AboutTeamPage() {
               <div className="col-xl-7 col-lg-9">
                 <div className="section-title text-center mb-50 tg-heading-subheading animation-style3">
                   <span className="sub-title">OUR TEAM</span>
-                  <h2 className="title tg-element-title">
-                    Meet Our Team
-                  </h2>
+                  <h2 className="title tg-element-title">Meet Our Team</h2>
                   <p className="mt-3">
                     The partners, advisors, and associates leading Motta
                     Financial&apos;s tax, accounting, advisory, and client
@@ -164,58 +153,59 @@ export default function AboutTeamPage() {
                 </div>
               </div>
             </div>
-            {TEAM_GROUP_ORDER.map((groupName) => {
-              const members = teamMembers.filter((m) => m.group === groupName);
-              if (members.length === 0) return null;
-              return (
-                <div key={groupName} className="motta-team-group mb-50">
-                  <div className="motta-team-group__head">
-                    <span className="motta-team-group__line" />
-                    <h3 className="motta-team-group__title">{groupName}</h3>
-                    <span className="motta-team-group__line" />
-                  </div>
-                  <div className="row justify-content-center gutter-24">
-                    {members.map((member) => (
-                      <div
-                        key={member.slug}
-                        className="col-lg-4 col-md-6 col-sm-8 mb-30"
+
+            <div className="row justify-content-center gutter-24">
+              {teamMembers.map((member) => (
+                <div
+                  key={member.slug}
+                  className="col-lg-4 col-md-6 col-sm-8 mb-30"
+                >
+                  <div
+                    className="team__item-two shine-animate-item h-100"
+                    style={{ display: 'flex', flexDirection: 'column' }}
+                  >
+                    <div className="team__thumb-two shine-animate">
+                      <img
+                        src={member.image || '/placeholder.svg'}
+                        alt={member.name}
+                        style={{ objectPosition: 'center 15%' }}
+                      />
+                    </div>
+                    <div className="team__content-two">
+                      <h4 className="title">{member.name}</h4>
+                      <span
+                        style={{
+                          display: 'block',
+                          fontSize: '11px',
+                          fontWeight: 700,
+                          letterSpacing: '0.1em',
+                          textTransform: 'uppercase',
+                          color: 'var(--tg-theme-primary)',
+                          marginBottom: '4px',
+                        }}
                       >
-                        <div
-                          className="team__item-two shine-animate-item h-100"
-                          style={{ display: 'flex', flexDirection: 'column' }}
-                        >
-                          <div className="team__thumb-two shine-animate">
-                            <img
-                              src={member.image || '/placeholder.svg'}
-                              alt={member.name}
-                              style={{ objectPosition: 'center 15%' }}
-                            />
-                          </div>
-                          <div className="team__content-two">
-                            <h4 className="title">{member.name}</h4>
-                            <span>{member.title}</span>
-                            <p
-                              style={{
-                                fontSize: '13px',
-                                color: 'var(--motta-sage, #6B745D)',
-                                marginTop: '6px',
-                                marginBottom: '12px',
-                              }}
-                            >
-                              {member.credentials}
-                            </p>
-                            <p style={{ fontSize: '14px', lineHeight: 1.6 }}>
-                              {member.blurb}
-                            </p>
-                          </div>
-                          <TeamContactLinks member={member} />
-                        </div>
-                      </div>
-                    ))}
+                        {member.group}
+                      </span>
+                      <span>{member.title}</span>
+                      <p
+                        style={{
+                          fontSize: '13px',
+                          color: 'var(--motta-sage, #6B745D)',
+                          marginTop: '6px',
+                          marginBottom: '12px',
+                        }}
+                      >
+                        {member.credentials}
+                      </p>
+                      <p style={{ fontSize: '14px', lineHeight: 1.6 }}>
+                        {member.blurb}
+                      </p>
+                    </div>
+                    <TeamContactLinks member={member} />
                   </div>
                 </div>
-              );
-            })}
+              ))}
+            </div>
 
             <div className="row justify-content-center mt-30">
               <div className="col-lg-8 text-center">
