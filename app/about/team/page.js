@@ -173,6 +173,7 @@ export default function AboutTeamPage() {
                     </div>
                     <div className="team__content-two">
                       <h4 className="title">{member.name}</h4>
+                      <span className="member-dept">{member.group}</span>
                       <span className="member-role">{member.title}</span>
                       <p className="member-credentials">{member.credentials}</p>
                       <p className="member-blurb">{member.blurb}</p>
