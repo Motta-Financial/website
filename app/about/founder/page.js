@@ -164,6 +164,7 @@ export default function FounderPage() {
         }
         .motta-founder-story__content {
           max-width: 72ch;
+          margin-top: -30px;
         }
         .motta-founder-story__name {
           font-size: clamp(36px, 4.5vw, 56px);
