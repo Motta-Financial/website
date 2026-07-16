@@ -5,32 +5,34 @@ import Image from 'next/image';
 
 export default function ProConnectCaseStudy() {
   return (
-    <div className="motta-featured-in-wrap">
-      <div className="motta-featured-in-meta">
-        <Link href="/news/press" className="motta-featured-in-back">
+    <div className="fi-wrap">
+      {/* Breadcrumb */}
+      <div className="fi-breadcrumb">
+        <Link href="/news/press" className="fi-back">
           <i className="flaticon-left-arrow" /> All Press Releases
         </Link>
-        <span className="motta-featured-in-tag">Press</span>
+        <span className="fi-tag">Press</span>
       </div>
 
-      <div className="motta-featured-in-card">
-        <div className="motta-featured-in-label">Featured In</div>
+      {/* Open layout — no wrapping card */}
+      <div className="fi-body">
+        <div className="fi-label">Featured In</div>
 
-        <div className="motta-featured-in-logo">
+        <div className="fi-logo">
           <Image
             src="/assets/img/partners/intuit-proconnect-logo.png"
             alt="Intuit ProConnect"
-            width={160}
-            height={40}
+            width={152}
+            height={38}
             style={{ objectFit: 'contain', objectPosition: 'left center' }}
           />
         </div>
 
-        <h2 className="motta-featured-in-headline">
+        <h2 className="fi-headline">
           Motta Financial featured in Intuit&rsquo;s ProConnect Tax case study
         </h2>
 
-        <p className="motta-featured-in-context">
+        <p className="fi-context">
           Intuit selected Motta Financial as a ProConnect Tax case study, spotlighting
           how the firm paired automation and ALFRED Ai to build a scalable, low-overhead
           tax practice from day one.
@@ -40,103 +42,109 @@ export default function ProConnectCaseStudy() {
           href="https://accountants.intuit.com/taxprocenter/practice-management/motta-financial-case-study/"
           target="_blank"
           rel="noopener noreferrer"
-          className="motta-featured-in-cta"
+          className="fi-cta"
         >
           Read the full case study &rarr;
         </a>
       </div>
 
       <style jsx>{`
-        .motta-featured-in-wrap {
-          max-width: 680px;
+        .fi-wrap {
+          max-width: 640px;
           padding: 48px 24px 80px;
         }
-        .motta-featured-in-meta {
+
+        /* ── Breadcrumb ─────────────────────────── */
+        .fi-breadcrumb {
           display: flex;
           align-items: center;
           gap: 12px;
-          flex-wrap: wrap;
-          margin-bottom: 32px;
+          margin-bottom: 40px;
         }
-        .motta-featured-in-back {
+        .fi-back {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          font-size: 12px;
-          font-weight: 600;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          color: var(--motta-sage-deep, #6b745d);
-          text-decoration: none;
-        }
-        .motta-featured-in-back:hover {
-          color: var(--motta-charcoal, #2b2f24);
-        }
-        .motta-featured-in-tag {
-          display: inline-flex;
-          align-items: center;
           font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.09em;
+          text-transform: uppercase;
+          color: var(--motta-sage, #6b745d);
+          text-decoration: none;
+          transition: color 0.15s ease;
+        }
+        .fi-back:hover {
+          color: var(--motta-charcoal, #333333);
+        }
+        .fi-tag {
+          font-size: 10px;
           font-weight: 700;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: var(--motta-sage-deep, #6b745d);
-          background: rgba(142, 155, 121, 0.12);
-          border: 1px solid rgba(142, 155, 121, 0.28);
+          color: var(--motta-sage, #6b745d);
+          border: 1px solid rgba(107, 116, 93, 0.35);
           border-radius: 999px;
-          padding: 3px 10px;
+          padding: 2px 9px;
         }
-        .motta-featured-in-card {
-          border: 1.5px solid rgba(142, 155, 121, 0.35);
-          border-radius: 16px;
-          padding: 32px 36px;
-          background: var(--motta-cream-50, #fbf8f2);
+
+        /* ── Open body — left accent rule ──────── */
+        .fi-body {
+          border-left: 3px solid var(--motta-sage, #6b745d);
+          padding-left: 28px;
         }
-        .motta-featured-in-label {
+
+        .fi-label {
           font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 0.14em;
+          font-weight: 800;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: var(--motta-sage-deep, #6b745d);
-          margin-bottom: 16px;
+          color: var(--motta-sage, #6b745d);
+          margin-bottom: 14px;
         }
-        .motta-featured-in-logo {
-          margin-bottom: 24px;
-          opacity: 0.85;
+
+        .fi-logo {
+          margin-bottom: 20px;
+          opacity: 0.9;
         }
-        .motta-featured-in-headline {
-          font-size: clamp(18px, 2.4vw, 22px);
+
+        .fi-headline {
+          font-size: clamp(19px, 2.4vw, 23px);
           font-weight: 700;
           line-height: 1.3;
-          color: var(--motta-charcoal, #2b2f24);
+          color: var(--motta-charcoal, #333333);
+          letter-spacing: -0.015em;
           margin: 0 0 12px;
-          letter-spacing: -0.01em;
           text-wrap: balance;
         }
-        .motta-featured-in-context {
+
+        .fi-context {
           font-size: 15px;
-          line-height: 1.65;
-          color: rgba(43, 47, 36, 0.72);
+          line-height: 1.7;
+          color: rgba(51, 51, 51, 0.65);
           margin: 0 0 28px;
-          max-width: 55ch;
+          max-width: 52ch;
         }
-        .motta-featured-in-cta {
+
+        /* Sage-filled pill — matches motta-button style */
+        .fi-cta {
           display: inline-flex;
           align-items: center;
-          gap: 4px;
-          font-size: 14px;
+          gap: 6px;
+          font-size: 13px;
           font-weight: 700;
-          letter-spacing: 0.02em;
-          color: var(--motta-charcoal, #2b2f24);
-          border: 1.5px solid rgba(43, 47, 36, 0.25);
-          border-radius: 8px;
-          padding: 10px 20px;
-          text-decoration: none;
-          transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
-        }
-        .motta-featured-in-cta:hover {
-          background: var(--motta-charcoal, #2b2f24);
-          border-color: var(--motta-charcoal, #2b2f24);
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
           color: #fff;
+          background: var(--motta-sage, #6b745d);
+          border: none;
+          border-radius: 999px;
+          padding: 11px 24px;
+          text-decoration: none;
+          transition: background 0.18s ease, transform 0.15s ease;
+        }
+        .fi-cta:hover {
+          background: var(--motta-sage-deep, #4f573f);
+          transform: translateY(-1px);
         }
       `}</style>
     </div>
