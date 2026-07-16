@@ -13,6 +13,7 @@ const teamMembers = [
     slug: 'dat-le',
     name: 'Dat Le, CPA',
     title: 'Managing Partner & Founder',
+    department: 'Leadership',
     credentials: 'CPA · Suffolk Adjunct Professor · Boston · Las Vegas',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Portrait%20%28Headshot%29%20-%20Dat%20Le%20%5BWM%5D-kVzKTBVlGdBFKtNQtGCsPYvs3UAxYw.jpg',
@@ -26,6 +27,7 @@ const teamMembers = [
     slug: 'terry-song',
     name: 'Terry Song, CPA',
     title: 'Director, Tax Advisory',
+    department: 'Tax Advisory',
     credentials: 'CPA · 10+ Years Experience · Boston',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Terry%20Song.png-IEMyP44Vgb8Idx1fPdxCC2qbVjiPpW.jpeg',
@@ -38,6 +40,7 @@ const teamMembers = [
     slug: 'amy-sparaco',
     name: 'Amy Sparaco',
     title: 'Manager, Accounting Advisory',
+    department: 'Accounting Advisory',
     credentials: 'Technical Accounting Lead · AI Business Transformation Certified',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Amy%20Sparaco-thMF9RPQsNKnzXdBn7bBp6qqnu74rt.jpg',
@@ -51,6 +54,7 @@ const teamMembers = [
     slug: 'caleb-long',
     name: 'Caleb Long',
     title: 'Director, Corporate Development & M&A',
+    department: 'Corporate Development & M&A',
     credentials: 'Strategic Finance · M&A · Business Transformation',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Caleb%20Long-gj3veS3Ddc1lHawERIs0UQHSFk3wDX.jpg',
@@ -60,23 +64,12 @@ const teamMembers = [
     linkedin: 'https://www.linkedin.com/in/caleb-long/',
     calendly: 'https://calendly.com/caleb-long-mottafinancial',
   },
-  {
-    slug: 'micaela-palacios',
-    name: 'Micaela Palacios',
-    title: 'Associate, Tax Advisory',
-    credentials: 'CPA Eligible · Suffolk University · Bilingual EN / ES',
-    image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Micaela%20Palacios-66rSwUgEL32LdNFmli6cwtTfzysmOs.jpg',
-    blurb:
-      "Micaela focuses on individual tax preparation, year-round planning, and equity compensation strategy for employees navigating RSUs, ISOs, and ESPPs. A Suffolk Sawyer Honors graduate (3.95 GPA, Beta Alpha Psi), she serves Motta's multilingual client community in English and Spanish.",
-    email: 'Micaela.Palacios@MottaFinancial.com',
-    linkedin: 'https://www.linkedin.com/in/micaela-palacios-v16/',
-    calendly: 'https://calendly.com/micaela-palacios-mottafinancial',
-  },
+
   {
     slug: 'julian-jacobson',
     name: 'Julian Jacobson',
     title: 'Associate, Client Operations',
+    department: 'Client Operations',
     credentials: 'Client Onboarding · Proposals & Billing · Workflow Coordination',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Julian%20Jacobson-pV0TqUNQjGRcjZeurX7MCTny9ac5Gs.jpg',
@@ -89,6 +82,7 @@ const teamMembers = [
     slug: 'justin-bestel',
     name: 'Justin Bestel, CPA',
     title: 'Senior Accounting Consultant',
+    department: 'Accounting Advisory',
     credentials: 'CPA · Multi-Industry · Financial Services · Healthcare · Manufacturing',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Justin%20Bestel-NFYsWXGsvPNVcBDfDrnRighvOzAsbw.jpg',
     blurb:
@@ -99,6 +93,7 @@ const teamMembers = [
     slug: 'andrew-gianares',
     name: 'Andrew Gianares',
     title: 'Accounting Advisory Senior',
+    department: 'Accounting Advisory',
     credentials: 'Bookkeeping · Payroll · Working Capital Management',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Andrew%20Gianares-1LBQBMRYrxTw8SGVVYLTUN4FeX7UU2.jpg',
@@ -112,6 +107,7 @@ const teamMembers = [
     slug: 'samprina-zekio',
     name: 'Samprina Zekio',
     title: 'Team Member',
+    department: 'Client Operations',
     credentials: 'Full profile coming soon',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Samprina%20Zekio-GTqi19ZdKp1732WGzF5s5YFygrWUz9.jpg',
@@ -151,8 +147,6 @@ export default function Team() {
 
             <div className="row justify-content-center gutter-24">
               {teamMembers.map((member) => {
-                // Card body WITHOUT the contact row — this is what gets
-                // wrapped in <Link> for members with a detail page.
                 const cardBody = (
                   <>
                     <div className="team__thumb-two shine-animate">
@@ -169,13 +163,41 @@ export default function Team() {
                     </div>
                     <div className="team__content-two">
                       <h4 className="title">{member.name}</h4>
-                      <span>{member.title}</span>
+                      {/* Department sub-header */}
+                      <span
+                        style={{
+                          display: 'block',
+                          fontSize: '11px',
+                          fontWeight: 700,
+                          letterSpacing: '0.12em',
+                          textTransform: 'uppercase',
+                          color: 'var(--tg-theme-primary)',
+                          marginBottom: '4px',
+                          lineHeight: 1,
+                        }}
+                      >
+                        {member.department}
+                      </span>
+                      {/* Role / title */}
+                      <span
+                        style={{
+                          display: 'block',
+                          fontSize: '14px',
+                          fontWeight: 500,
+                          color: 'var(--tg-body-color)',
+                          marginBottom: '10px',
+                          lineHeight: 1.3,
+                        }}
+                      >
+                        {member.title}
+                      </span>
                       <p
                         style={{
                           fontSize: '13px',
-                          color: 'var(--motta-sage, #6B745D)',
-                          marginTop: '6px',
+                          color: 'var(--tg-color-gray-4)',
+                          marginTop: '0',
                           marginBottom: '12px',
+                          lineHeight: 1.5,
                         }}
                       >
                         {member.credentials}
@@ -206,8 +228,6 @@ export default function Team() {
                       ) : (
                         cardBody
                       )}
-                      {/* Rendered OUTSIDE the Link so the mailto/LinkedIn/
-                          Calendly anchors never nest inside the card link. */}
                       <TeamContactLinks member={member} />
                     </div>
                   </div>

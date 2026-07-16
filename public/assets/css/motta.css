@@ -509,12 +509,12 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  padding: 130px 0 100px;
+  padding: 130px 0 40px;
   color: var(--motta-warm);
   border-bottom: 1px solid rgba(142, 155, 121, 0.25);
 }
 @media (max-width: 767px) {
-  .motta-breadcrumb { padding: 90px 0 70px; }
+  .motta-breadcrumb { padding: 90px 0 30px; }
 }
 .motta-breadcrumb__photo {
   position: absolute;

@@ -214,16 +214,61 @@
     &__content {
         &-two {
             text-align: center;
+            padding: 22px 24px 12px;
+
+            // Name — Outfit bold, deep navy
             & .title {
-                font-size: 24px;
+                font-family: var(--tg-heading-font-family);
+                font-size: 22px;
                 font-weight: var(--tg-fw-semi-bold);
-                margin-bottom: 8px;
+                color: var(--tg-heading-color);
+                margin-bottom: 4px;
+                line-height: 1.2;
             }
-            & span {
+
+            // Department — small olive/sage uppercase label
+            & .member-dept {
                 display: block;
-                line-height: 1;
-                color: var(--tg-theme-primary);
-                margin-bottom: 20px;
+                font-family: var(--tg-heading-font-family);
+                font-size: 10px;
+                font-weight: var(--tg-fw-bold);
+                letter-spacing: 0.13em;
+                text-transform: uppercase;
+                color: #6B745D !important;
+                margin-bottom: 4px;
+            }
+
+            // Job title — Outfit, muted navy, medium
+            & .member-role {
+                display: block !important;
+                font-family: var(--tg-heading-font-family) !important;
+                font-size: 14.5px !important;
+                font-weight: var(--tg-fw-medium) !important;
+                color: var(--tg-body-color) !important;
+                margin-bottom: 12px !important;
+                line-height: 1.35 !important;
+            }
+
+            // Credentials — Inter, distinctly smaller, warm stone
+            & .member-credentials {
+                display: block;
+                font-family: var(--tg-body-font-family);
+                font-size: 11.5px;
+                font-weight: var(--tg-fw-regular);
+                color: #A09D94;
+                margin-bottom: 16px;
+                line-height: 1.5;
+            }
+
+            // Bio — Inter, comfortable body copy
+            & .member-blurb {
+                font-family: var(--tg-body-font-family);
+                font-size: 13.5px;
+                font-weight: var(--tg-fw-regular);
+                color: var(--tg-body-color);
+                line-height: 1.78;
+                margin-bottom: 0;
+                text-align: center;
             }
         }
         &-three {

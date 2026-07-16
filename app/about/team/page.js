@@ -128,14 +128,88 @@ const teamMembers = [
   },
 ];
 
-// Display order for the service-line sections on the team page.
-const TEAM_GROUP_ORDER = [
-  'Firm Leadership',
-  'Tax',
-  'Accounting',
-  'Business Advisory',
-  'Client Operations',
-];
+const cardStyle = {
+  background: '#FFFFFF',
+  borderRadius: '12px',
+  overflow: 'hidden',
+  boxShadow: '0 2px 12px rgba(20,23,108,0.07)',
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
+  border: '1px solid #EBEBEA',
+};
+
+const imgStyle = {
+  width: '100%',
+  aspectRatio: '4/3',
+  objectFit: 'cover',
+  objectPosition: 'center 15%',
+  display: 'block',
+};
+
+const bodyStyle = {
+  padding: '28px 28px 20px',
+  display: 'flex',
+  flexDirection: 'column',
+  flexGrow: 1,
+};
+
+const deptStyle = {
+  fontFamily: 'var(--tg-heading-font-family)',
+  fontSize: '10px',
+  fontWeight: 700,
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase',
+  color: '#6B745D',
+  marginBottom: '6px',
+  display: 'block',
+};
+
+const nameStyle = {
+  fontFamily: 'var(--tg-heading-font-family)',
+  fontSize: '20px',
+  fontWeight: 600,
+  color: '#1A1A1A',
+  marginBottom: '4px',
+  lineHeight: 1.2,
+};
+
+const roleStyle = {
+  fontFamily: 'var(--tg-heading-font-family)',
+  fontSize: '14px',
+  fontWeight: 400,
+  color: '#5A5F4E',
+  marginBottom: '16px',
+  display: 'block',
+  lineHeight: 1.4,
+};
+
+const dividerStyle = {
+  height: '1px',
+  background: '#E2DDD6',
+  margin: '0 0 14px',
+  border: 'none',
+};
+
+const credStyle = {
+  fontFamily: 'var(--tg-body-font-family)',
+  fontSize: '11.5px',
+  fontWeight: 500,
+  color: '#9B9D92',
+  marginBottom: '14px',
+  lineHeight: 1.5,
+  letterSpacing: '0.01em',
+};
+
+const blurbStyle = {
+  fontFamily: 'var(--tg-body-font-family)',
+  fontSize: '13.5px',
+  fontWeight: 400,
+  color: '#4A4843',
+  lineHeight: 1.75,
+  marginBottom: 0,
+  flexGrow: 1,
+};
 
 export default function AboutTeamPage() {
   return (
@@ -146,88 +220,55 @@ export default function AboutTeamPage() {
         breadcrumbTitle="Meet Our Team"
         breadcrumbEyebrow="The Team / Tech-forward CPAs"
       >
-        <section className="team__area-two pt-120 pb-90">
+        <section className="team__area-two pb-90" style={{ paddingTop: '30px' }}>
           <div className="container">
+
             <div className="row justify-content-center">
-              <div className="col-xl-7 col-lg-9">
-                <div className="section-title text-center mb-50 tg-heading-subheading animation-style3">
+              <div className="col-12">
+                <div className="section-title text-center mb-40 tg-heading-subheading animation-style3">
                   <span className="sub-title">OUR TEAM</span>
-                  <h2 className="title tg-element-title">
-                    Meet Our Team
-                  </h2>
-                  <p className="mt-3">
-                    The partners, advisors, and associates leading Motta
-                    Financial&apos;s tax, accounting, advisory, and client
-                    experience practices — across our Boston and Las Vegas
-                    offices.
+                  <h2 className="title tg-element-title">Meet Our Team</h2>
+                  <p className="mt-3" style={{ fontFamily: 'var(--tg-body-font-family)', fontSize: '15px', color: '#5A5F4E', whiteSpace: 'nowrap' }}>
+                    The partners, advisors, and associates leading Motta Financial&apos;s tax, accounting, advisory, and client experience practices — across our Boston and Las Vegas offices.
                   </p>
                 </div>
               </div>
             </div>
-            {TEAM_GROUP_ORDER.map((groupName) => {
-              const members = teamMembers.filter((m) => m.group === groupName);
-              if (members.length === 0) return null;
-              return (
-                <div key={groupName} className="motta-team-group mb-50">
-                  <div className="motta-team-group__head">
-                    <span className="motta-team-group__line" />
-                    <h3 className="motta-team-group__title">{groupName}</h3>
-                    <span className="motta-team-group__line" />
-                  </div>
-                  <div className="row justify-content-center gutter-24">
-                    {members.map((member) => (
-                      <div
-                        key={member.slug}
-                        className="col-lg-4 col-md-6 col-sm-8 mb-30"
-                      >
-                        <div
-                          className="team__item-two shine-animate-item h-100"
-                          style={{ display: 'flex', flexDirection: 'column' }}
-                        >
-                          <div className="team__thumb-two shine-animate">
-                            <img
-                              src={member.image || '/placeholder.svg'}
-                              alt={member.name}
-                              style={{ objectPosition: 'center 15%' }}
-                            />
-                          </div>
-                          <div className="team__content-two">
-                            <h4 className="title">{member.name}</h4>
-                            <span>{member.title}</span>
-                            <p
-                              style={{
-                                fontSize: '13px',
-                                color: 'var(--motta-sage, #6B745D)',
-                                marginTop: '6px',
-                                marginBottom: '12px',
-                              }}
-                            >
-                              {member.credentials}
-                            </p>
-                            <p style={{ fontSize: '14px', lineHeight: 1.6 }}>
-                              {member.blurb}
-                            </p>
-                          </div>
-                          <TeamContactLinks member={member} />
-                        </div>
-                      </div>
-                    ))}
+
+            <div className="row gutter-24">
+              {teamMembers.map((member) => (
+                <div key={member.slug} className="col-lg-4 col-md-6 mb-30">
+                  <div style={cardStyle}>
+                    <img
+                      src={member.image || '/placeholder.svg'}
+                      alt={member.name}
+                      style={imgStyle}
+                    />
+                    <div style={bodyStyle}>
+                      <span style={deptStyle}>{member.group}</span>
+                      <h4 style={nameStyle}>{member.name}</h4>
+                      <span style={roleStyle}>{member.title}</span>
+                      <hr style={dividerStyle} />
+                      <p style={credStyle}>{member.credentials}</p>
+                      <p style={blurbStyle}>{member.blurb}</p>
+                    </div>
+                    <TeamContactLinks member={member} />
                   </div>
                 </div>
-              );
-            })}
+              ))}
+            </div>
 
-            <div className="row justify-content-center mt-30">
+            <div className="row justify-content-center mt-50">
               <div className="col-lg-8 text-center">
-                <p>
-                  Want to talk with our team about your tax, accounting, or
-                  advisory needs?
+                <p style={{ fontFamily: 'var(--tg-body-font-family)', fontSize: '15px', color: '#5A5F4E', marginBottom: '24px' }}>
+                  Want to talk with our team about your tax, accounting, or advisory needs?
                 </p>
                 <Link href="/contact" className="btn">
                   Contact Our Team
                 </Link>
               </div>
             </div>
+
           </div>
         </section>
       </Layout>
