@@ -35,6 +35,7 @@ const teamMembers = [
       "Terry leads Motta's tax advisory practice as the senior point of contact for complex engagements — high-net-worth individuals, family offices, and closely-held businesses. He is known for translating intricate tax positions into clear client guidance and for a research-first standard that ensures every position is supported by authoritative tax law.",
     email: 'Terry.Song@MottaFinancial.com',
     linkedin: 'https://www.linkedin.com/in/terry-song-3332a970/',
+    calendly: 'https://calendly.com/terry-song-mottafinancial',
   },
   {
     slug: 'amy-sparaco',
@@ -77,6 +78,7 @@ const teamMembers = [
       "Julian is Motta's Client Operations Associate, the operational bridge between clients and the internal team. He keeps proposals, onboarding, billing, and workflow visibility moving across the firm — owning engagement letters and invoicing through Ignition, deadline and follow-up tracking in Karbon, and the day-to-day communication that keeps every engagement responsive. His background spans operations and partnership roles at WWE, the Santa Cruz Warriors, and SponsorUnited.",
     email: 'Julian.Jacobson@MottaFinancial.com',
     linkedin: 'https://www.linkedin.com/in/julianjacobson5/',
+    calendly: 'https://calendly.com/julian-jacobson-mottafinancial',
   },
   {
     slug: 'justin-bestel',
