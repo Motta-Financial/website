@@ -99,7 +99,6 @@ const TEAM_MEMBERS = [
   { name: 'Amy Sparaco', calendly: 'https://calendly.com/amy-sparaco-mottafinancial' },
   { name: 'Andrew Gianares', calendly: 'https://calendly.com/andrew-gianares-mottafinancial' },
   { name: 'Terry Song', calendly: 'https://calendly.com/terry-song-mottafinancial' },
-  { name: 'Micaela Palacios', calendly: 'https://calendly.com/micaela-palacios-mottafinancial' },
 ];
 
 const NO_PREFERENCE = 'No preference — match me with a teammate';
