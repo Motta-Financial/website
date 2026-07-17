@@ -31,7 +31,7 @@ const teamMembers = [
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Terry%20Song.png-IEMyP44Vgb8Idx1fPdxCC2qbVjiPpW.jpeg',
     blurb:
-      "Terry leads Motta's tax advisory practice as the senior point of contact for complex engagements — high-net-worth individuals, family offices, and closely-held businesses. He is known for translating intricate positions into clear client guidance and for a research-first standard that ensures every position is supported by authoritative tax law.",
+      "Terry leads Motta's tax advisory practice as the senior point of contact for complex engagements with high-net-worth individuals, family offices, and closely-held businesses. He is known for translating intricate positions into clear client guidance and for a research-first standard that ensures every position is supported by authoritative tax law.",
     email: 'Terry.Song@MottaFinancial.com',
     linkedin: 'https://www.linkedin.com/in/terry-song-3332a970/',
     calendly: 'https://calendly.com/terry-song-mottafinancial',
@@ -45,7 +45,7 @@ const teamMembers = [
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Amy%20Sparaco-thMF9RPQsNKnzXdBn7bBp6qqnu74rt.jpg',
     blurb:
-      "Amy leads Motta's accounting advisory practice, overseeing every client engagement from monthly bookkeeping through Fractional CFO services. She pairs world-class technical accounting with Motta certification in AI Business Transformation — delivering GAAP-compliant work product with intelligent AI integrated directly into client operations.",
+      "Amy leads Motta's accounting advisory practice, overseeing every client engagement from monthly bookkeeping through Fractional CFO services. She pairs world-class technical accounting with Motta certification in AI Business Transformation, delivering GAAP-compliant work product with intelligent AI integrated directly into client operations.",
     email: 'Amy.Sparaco@MottaFinancial.com',
     linkedin: 'https://www.linkedin.com/in/amysparaco/',
     calendly: 'https://calendly.com/amy-sparaco-mottafinancial',
@@ -59,7 +59,7 @@ const teamMembers = [
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Caleb%20Long-gj3veS3Ddc1lHawERIs0UQHSFk3wDX.jpg',
     blurb:
-      "Caleb leads Motta's corporate development and M&A practice, advising business owners and platform investors on acquisitions, capital decisions, and post-close integration. He brings 7+ years of in-house strategic finance and corporate development experience — sourcing, modeling, and executing transactions across the lower-middle market through institutional-backed platforms.",
+      "Caleb leads Motta's corporate development and M&A practice, advising business owners and platform investors on acquisitions, capital decisions, and post-close integration. He brings 7+ years of in-house strategic finance and corporate development experience sourcing, modeling, and executing transactions across the lower-middle market through institutional-backed platforms.",
     email: 'Caleb.Long@MottaFinancial.com',
     linkedin: 'https://www.linkedin.com/in/caleb-long/',
     calendly: 'https://calendly.com/caleb-long-mottafinancial',
@@ -74,7 +74,7 @@ const teamMembers = [
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Julian%20Jacobson-pV0TqUNQjGRcjZeurX7MCTny9ac5Gs.jpg',
     blurb:
-      "Julian is Motta's Client Operations Associate, the operational bridge between clients and the internal team. He keeps proposals, onboarding, billing, and workflow visibility moving across the firm — owning engagement letters and invoicing through Ignition, deadline and follow-up tracking in Karbon, and the day-to-day communication that keeps every engagement responsive. His background spans operations and partnership roles at WWE, the Santa Cruz Warriors, and SponsorUnited.",
+      "Julian is Motta's Client Operations Associate, the operational bridge between clients and the internal team. He keeps proposals, onboarding, billing, and workflow visibility moving across the firm, owning engagement letters and invoicing through Ignition, deadline and follow-up tracking in Karbon, and the day-to-day communication that keeps every engagement responsive. His background spans operations and partnership roles at WWE, the Santa Cruz Warriors, and SponsorUnited.",
     email: 'Julian.Jacobson@MottaFinancial.com',
     linkedin: 'https://www.linkedin.com/in/julianjacobson5/',
     calendly: 'https://calendly.com/julian-jacobson-mottafinancial',
@@ -88,7 +88,7 @@ const teamMembers = [
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Andrew%20Gianares-1LBQBMRYrxTw8SGVVYLTUN4FeX7UU2.jpg',
     blurb:
-      "Andrew anchors Motta's accounting team, keeping clients' books accurate and their cash flow under control. He owns the day-to-day financial operations businesses depend on — bookkeeping, payroll, and working capital management across accounts receivable, accounts payable, and vendor relationships. Fluent across every major accounting and payroll platform, he brings multi-industry experience and understands not just the mechanics of the close, but the reporting and compliance filings each business is responsible for.",
+      "Andrew anchors Motta's accounting team, keeping clients' books accurate and their cash flow under control. He owns the day-to-day financial operations businesses depend on, including bookkeeping, payroll, and working capital management across accounts receivable, accounts payable, and vendor relationships. Fluent across every major accounting and payroll platform, he brings multi-industry experience and understands not just the mechanics of the close, but the reporting and compliance filings each business is responsible for.",
     email: 'Andrew.Gianares@MottaFinancial.com',
     linkedin: 'https://www.linkedin.com/in/andrew-gianares-33967b172/',
     calendly: 'https://calendly.com/andrew-gianares-mottafinancial',
@@ -101,7 +101,7 @@ const teamMembers = [
     credentials: 'CPA · Multi-Industry · Financial Services · Healthcare · Manufacturing',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Justin%20Bestel-NFYsWXGsvPNVcBDfDrnRighvOzAsbw.jpg',
     blurb:
-      "Justin is a senior-level accounting and finance consultant with a track record across financial services, healthcare, manufacturing, and public accounting. He brings hands-on expertise in month-end close, financial statement preparation, cash flow forecasting, budgeting, and ERP implementation — and a proven ability to step into complex environments and add immediate value. A CPA and University of Minnesota Duluth graduate, Justin also leads process improvement initiatives and has supported companies preparing for public offerings.",
+      "Justin is a senior-level accounting and finance consultant with a track record across financial services, healthcare, manufacturing, and public accounting. He brings hands-on expertise in month-end close, financial statement preparation, cash flow forecasting, budgeting, and ERP implementation, and a proven ability to step into complex environments and add immediate value. A CPA and University of Minnesota Duluth graduate, Justin also leads process improvement initiatives and has supported companies preparing for public offerings.",
     email: 'Justin.Bestel@MottaFinancial.com',
   },
   {
