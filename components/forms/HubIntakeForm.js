@@ -94,10 +94,11 @@ const STATES = [
 // prospect's name + email prefilled.
 const TEAM_MEMBERS = [
   { name: 'Dat Le', calendly: 'https://calendly.com/dat-le-motta' },
+  { name: 'Julian Jacobson', calendly: 'https://calendly.com/julian-jacobson-mottafinancial' },
   { name: 'Caleb Long', calendly: 'https://calendly.com/caleb-long-mottafinancial' },
   { name: 'Amy Sparaco', calendly: 'https://calendly.com/amy-sparaco-mottafinancial' },
   { name: 'Andrew Gianares', calendly: 'https://calendly.com/andrew-gianares-mottafinancial' },
-  { name: 'Micaela Palacios', calendly: 'https://calendly.com/micaela-palacios-mottafinancial' },
+  { name: 'Terry Song', calendly: 'https://calendly.com/terry-song-mottafinancial' },
 ];
 
 const NO_PREFERENCE = 'No preference — match me with a teammate';
