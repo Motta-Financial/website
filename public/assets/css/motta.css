@@ -927,7 +927,7 @@
   width: 100%;
   height: auto;
   display: block;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 .motta-about-story__tint {
@@ -1321,8 +1321,7 @@
 /* --- Final CTA --- */
 .motta-about-cta {
   padding: 90px 0;
-  background:
-    linear-gradient(135deg, var(--motta-sage-deep, #6b745d) 0%, #4f5742 100%);
+  background: linear-gradient(180deg, #1a2117 0%, #2e3829 100%);
   color: var(--motta-warm, #f4f1eb);
 }
 .motta-about-cta__inner {
