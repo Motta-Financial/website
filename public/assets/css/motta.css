@@ -1469,10 +1469,10 @@ main select:focus {
    Applied across all sidebar lists: Services, News, Partnerships. */
 .sidebar__cat-list-two .list-wrap li a,
 .sidebar__cat-list .list-wrap li a {
-  background: var(--motta-warm, #EAE6E1);
-  border: 1px solid rgba(107, 116, 93, 0.22);
+  background: var(--motta-warm, #EAE6E1) !important;
+  border: 1px solid rgba(107, 116, 93, 0.22) !important;
   border-radius: 10px;
-  color: var(--motta-charcoal, #333333);
+  color: var(--motta-charcoal, #333333) !important;
   font-size: 16px;
   font-weight: 500;
   transition: background 0.2s ease, color 0.2s ease,
