@@ -342,24 +342,25 @@
   margin-bottom: 22px;
 }
 
-/* Shared pill base */
+/* Shared pill base — !important needed to beat main.css same-specificity rules */
 .slider__content .alfred-mark,
 .slider__content .sub-title {
   box-sizing: border-box;
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
   height: 36px;
-  padding: 0 16px;
-  border-radius: 999px;
-  background: rgba(79, 87, 63, 0.72);
-  border: 1px solid rgba(142, 155, 121, 0.65);
-  color: var(--motta-warm, #EAE6E1);
-  font-size: 11px;
+  padding: 0 16px !important;
+  border-radius: 999px !important;
+  background: rgba(79, 87, 63, 0.72) !important;
+  border: 1px solid rgba(142, 155, 121, 0.65) !important;
+  color: var(--motta-warm, #EAE6E1) !important;
+  font-size: 11px !important;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  line-height: 1;
-  margin: 0;
+  line-height: 1 !important;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
