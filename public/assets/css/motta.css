@@ -1471,11 +1471,12 @@ main select:focus {
 .sidebar__cat-list-two .list-wrap li a,
 .sidebar__cat-list .list-wrap li a {
   background: var(--motta-warm, #EAE6E1) !important;
-  border: 1px solid rgba(107, 116, 93, 0.22) !important;
-  border-radius: 10px;
-  color: var(--motta-charcoal, #333333) !important;
+  border: 1px solid rgba(107, 116, 93, 0.2) !important;
+  border-radius: 16px !important;
+  color: var(--motta-charcoal, #2b2f24) !important;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
+  box-shadow: 0 2px 8px -4px rgba(15, 19, 16, 0.08);
   transition: background 0.2s ease, color 0.2s ease,
               border-color 0.2s ease, transform 0.2s ease,
               box-shadow 0.2s ease;
