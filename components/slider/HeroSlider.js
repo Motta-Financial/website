@@ -66,7 +66,7 @@ export default function HeroSlider() {
               <div className="col-lg-7">
                 <div className="slider__content">
                   <div className="slider__pill-row">
-                    <span className="alfred-mark">Featured by Intuit</span>
+                    <span className="sub-title">Featured by Intuit</span>
                     <span className="sub-title">ProConnect Tax Case Study</span>
                   </div>
                   <h2 className="title">
