@@ -126,7 +126,7 @@ export default function MediaPage() {
               <p className="motta-media__summary">{item.summary}</p>
               <div className="motta-media__actions">
                 <a
-                  className="motta-button motta-button--solid"
+                  className="motta-media__platform motta-media__platform--primary"
                   href={item.listenUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -261,23 +261,42 @@ export default function MediaPage() {
         .motta-media__actions {
           display: flex;
           flex-wrap: wrap;
+          align-items: center;
           gap: 10px;
           margin-top: 8px;
         }
         .motta-media__platform {
-          appearance: none;
+          display: inline-flex;
+          align-items: center;
           font-size: 12.5px;
-          font-weight: 600;
-          letter-spacing: 0.04em;
+          font-weight: 700;
+          letter-spacing: 0.05em;
           text-transform: uppercase;
-          padding: 9px 14px;
-          border: 1px solid rgba(107, 116, 93, 0.32);
+          padding: 9px 16px;
+          border: 1.5px solid rgba(107, 116, 93, 0.32);
           border-radius: 999px;
           color: var(--motta-charcoal, #2b2f24);
           text-decoration: none;
+          transition: background 0.18s ease, border-color 0.18s ease,
+                      color 0.18s ease, transform 0.18s ease;
+          white-space: nowrap;
         }
         .motta-media__platform:hover {
-          border-color: var(--motta-sage-deep, #6b745d);
+          background: var(--motta-sage, #6b745d);
+          border-color: var(--motta-sage, #6b745d);
+          color: #fff;
+          transform: translateY(-1px);
+        }
+        /* Primary CTA — same pill shape but filled sage */
+        .motta-media__platform--primary {
+          background: var(--motta-sage-deep, #4f573f);
+          border-color: var(--motta-sage-deep, #4f573f);
+          color: #fff;
+        }
+        .motta-media__platform--primary:hover {
+          background: var(--motta-charcoal, #2b2f24);
+          border-color: var(--motta-charcoal, #2b2f24);
+          color: #fff;
         }
         .motta-media__placeholder {
           margin: 10px 0 0;

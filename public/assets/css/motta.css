@@ -1485,26 +1485,26 @@ main select:focus {
 }
 .sidebar__cat-list-two .list-wrap li a:hover,
 .sidebar__cat-list .list-wrap li a:hover {
-  background: var(--motta-sage, #6B745D);
-  border-color: var(--motta-sage, #6B745D);
-  color: var(--motta-white, #FFFFFF);
+  background: var(--motta-sage, #6B745D) !important;
+  border-color: var(--motta-sage, #6B745D) !important;
+  color: var(--motta-white, #FFFFFF) !important;
   transform: translateY(-1px);
   box-shadow: 0 14px 28px -18px rgba(15, 19, 16, 0.35);
 }
 .sidebar__cat-list-two .list-wrap li a:hover i,
 .sidebar__cat-list .list-wrap li a:hover i {
-  color: var(--motta-white, #FFFFFF);
+  color: var(--motta-white, #FFFFFF) !important;
 }
 /* Active page — persistent dark-sage filled card so the current section is obvious. */
 .sidebar__cat-list-two .list-wrap li a.is-active,
 .sidebar__cat-list .list-wrap li a.is-active {
-  background: var(--motta-sage-deep, #4F573F);
-  border-color: var(--motta-sage-deep, #4F573F);
-  color: var(--motta-white, #FFFFFF);
+  background: var(--motta-sage-deep, #4F573F) !important;
+  border-color: var(--motta-sage-deep, #4F573F) !important;
+  color: var(--motta-white, #FFFFFF) !important;
 }
 .sidebar__cat-list-two .list-wrap li a.is-active i,
 .sidebar__cat-list .list-wrap li a.is-active i {
-  color: var(--motta-white, #FFFFFF);
+  color: var(--motta-white, #FFFFFF) !important;
 }
 
 /* Sidebar widget heading underline — match the sage accent
