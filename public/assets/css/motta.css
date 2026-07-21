@@ -2958,36 +2958,15 @@ button.motta-cta.btn:hover {
   display: none;
 }
 
-/* Layout: a uniform 3-column grid so every card is the same width and the
-   leftover two on the second row align left (instead of stretching to 50%
-   each). Also tightens padding/type so the section is far more compact. */
+/* Layout: 2x2 symmetric grid for 4 cards */
 .services__bg-three .cards-container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 22px;
   margin: 0;
 }
-/* Each card spans 2 of the 6 columns = 3 per row. The last two cards are
-   offset by one column each so they sit centered under the top row instead
-   of left-aligned with an empty slot on the right. */
 .services__bg-three .card-wrapper {
-  grid-column: span 2;
-}
-.services__bg-three .card-wrapper:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-.services__bg-three .card-wrapper:nth-child(5) {
-  grid-column: 4 / span 2;
-}
-@media (max-width: 991px) {
-  .services__bg-three .cards-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .services__bg-three .card-wrapper,
-  .services__bg-three .card-wrapper:nth-child(4),
-  .services__bg-three .card-wrapper:nth-child(5) {
-    grid-column: auto;
-  }
+  grid-column: auto;
 }
 @media (max-width: 575px) {
   .services__bg-three .cards-container {
