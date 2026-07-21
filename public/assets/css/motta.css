@@ -3007,17 +3007,8 @@ button.motta-cta.btn:hover {
   border-radius: 14px;
   margin-bottom: 0;
 }
-/* Compact icon + heading row */
-.services__bg-three .services__icon-three {
-  width: 48px;
-  height: 48px;
-  line-height: 48px;
-  border-radius: 12px;
-  font-size: 22px;
-}
 .services__bg-three .services__item-top {
-  align-items: center;
-  gap: 14px;
+  display: block;
   margin-bottom: 14px;
 }
 .services__bg-three .services__item-top-title .title {
@@ -3103,29 +3094,8 @@ button.motta-cta.btn:hover {
   height: 100%;
 }
 .motta-services-overview .services__item-top {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  display: block;
   margin-bottom: 16px;
-}
-/* Sage icon badge with cream glyph (matches the brand icons elsewhere) */
-.motta-services-overview .services__icon-three {
-  flex: 0 0 auto;
-  width: 54px;
-  height: 54px;
-  line-height: 54px;
-  text-align: center;
-  border-radius: 14px;
-  background: var(--motta-sage, #6b745d);
-  border-color: var(--motta-sage, #6b745d);
-  color: var(--motta-cream-100, #f4f1eb);
-  font-size: 24px;
-}
-.motta-services-overview .services__icon-three i {
-  color: var(--motta-cream-100, #f4f1eb);
-}
-.motta-services-overview .services__icon-three::before {
-  display: none;
 }
 .motta-services-overview .services__item-top-title .title {
   margin: 0;
