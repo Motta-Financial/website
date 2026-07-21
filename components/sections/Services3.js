@@ -49,13 +49,13 @@ export default function Services3() {
                   <div className="services__item-top">
                     <div className="services__item-top-title">
                       <h2 className="title">
-                        <Link href={s.href}>{s.title}</Link>
+                        <Link href={`${s.href}#content`}>{s.title}</Link>
                       </h2>
                     </div>
                   </div>
                   <div className="services__content-three">
                     <p>{s.desc}</p>
-                    <Link href={s.href} className="btn btn-two">
+                    <Link href={`${s.href}#content`} className="btn btn-two">
                       Read More
                     </Link>
                   </div>

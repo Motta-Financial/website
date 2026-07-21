@@ -74,7 +74,7 @@ export default function ServiceDetailLayout({
   heroImage,
 }) {
   return (
-    <section className="services__details-area">
+    <section id="content" className="services__details-area">
       <div className="container">
         <div className="services__details-wrap">
           <div className="row">
