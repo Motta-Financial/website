@@ -23,13 +23,8 @@ import { useRouter } from 'next/navigation';
  */
 const INTAKE_URL = '/intake';
 
-function buildHref(source) {
-  if (!source) return INTAKE_URL;
-  // Pass the originating surface through as a UTM tag for analytics.
-  // The intake route ignores unknown params, so this is harmless.
-  return `${INTAKE_URL}?utm_source=motta-website&utm_content=${encodeURIComponent(
-    source
-  )}`;
+function buildHref() {
+  return INTAKE_URL;
 }
 
 export default function IntakeButton({
@@ -42,7 +37,7 @@ export default function IntakeButton({
   ...rest
 }) {
   const router = useRouter();
-  const href = buildHref(source);
+  const href = buildHref();
 
   const open = (e) => {
     // Allow modifier-clicks on anchors to fall through to native
