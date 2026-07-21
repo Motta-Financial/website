@@ -234,8 +234,9 @@ export default function AboutTeamPage() {
             <div className="row justify-content-center">
               <div className="col-12">
                 <div className="section-title text-center mb-40 tg-heading-subheading animation-style3">
-                  <span className="sub-title" style={{ color: 'var(--tg-theme-primary)', fontWeight: '700', letterSpacing: '0.08em', fontSize: '13px' }}>The Ones Who Get It Done</span>
-                  <p className="mt-3 mx-auto" style={{ fontFamily: 'var(--tg-body-font-family)', fontSize: '16px', color: '#5A5F4E', maxWidth: '600px', lineHeight: '1.7' }}>
+                  <span className="sub-title">OUR TEAM</span>
+                  <h2 className="title tg-element-title" style={{ color: 'var(--tg-theme-primary)' }}>The Ones Who Get It Done</h2>
+                  <p className="mt-3 mx-auto" style={{ fontFamily: 'var(--tg-body-font-family)', fontSize: '16px', color: '#5A5F4E', maxWidth: '560px', lineHeight: '1.7' }}>
                     The partners, advisors, and associates leading Motta Financial&apos;s tax, accounting, advisory, and client experience practices — across our Boston and Las Vegas offices.
                   </p>
                 </div>
