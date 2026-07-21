@@ -15,7 +15,11 @@ export default function ScrollToContent({ offset = 80 }) {
     if (!el) return;
 
     const y = el.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top: y, behavior: 'instant' });
+    // Small delay lets the page fully paint before scrolling so it animates
+    // smoothly rather than snapping instantly.
+    setTimeout(() => {
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }, 100);
   }, [pathname, offset]);
 
   return null;
