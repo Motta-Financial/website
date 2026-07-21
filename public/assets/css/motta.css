@@ -3022,10 +3022,20 @@ button.motta-cta.btn:hover {
   line-height: 1.55;
   margin-bottom: 16px;
 }
-/* Smaller, lighter Read More control */
-.services__bg-three .services__content-three .btn-two {
-  padding: 8px 18px;
+/* Read More pill — sage green for visibility */
+.services__bg-three .services__content-three .btn-two,
+.motta-services-overview .services__content-three .btn-two {
+  padding: 8px 20px;
   font-size: 13px;
+  background: var(--tg-theme-primary);
+  color: #f4f1eb;
+  border-color: var(--tg-theme-primary);
+}
+.services__bg-three .services__content-three .btn-two:hover,
+.motta-services-overview .services__content-three .btn-two:hover {
+  background: var(--tg-color-dark);
+  border-color: var(--tg-color-dark);
+  color: #f4f1eb;
 }
 
 /* ===== /services overview page =====
