@@ -53,9 +53,6 @@ export default function Services3() {
               <div className="col card-wrapper" key={s.title}>
                 <div className="services__item-three">
                   <div className="services__item-top">
-                    <div className="services__icon-three">
-                      <i className={s.icon} />
-                    </div>
                     <div className="services__item-top-title">
                       <h2 className="title">
                         <Link href={s.href}>{s.title}</Link>

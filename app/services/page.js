@@ -106,9 +106,6 @@ export default function Services() {
               <div className="col-lg-6 col-md-6 mb-30" key={cat.title}>
                 <div className="services__item-three h-100">
                   <div className="services__item-top">
-                    <div className="services__icon-three">
-                      <i className={cat.icon} />
-                    </div>
                     <div className="services__item-top-title">
                       <h2 className="title">
                         <Link href={cat.href}>{cat.title}</Link>
