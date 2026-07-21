@@ -4,13 +4,13 @@ const SERVICES = [
   {
     icon: 'flaticon-profit',
     title: 'Tax Planning & Preparation',
-    href: '/services/tax-planning',
+    href: '/services/tax',
     desc: 'Year-round tax strategy and stress-free filing for individuals, families, and business owners. ALFRED Ai drafts your return in minutes so your CPA can focus on saving you money.',
   },
   {
     icon: 'flaticon-target',
     title: 'Tax Advisory',
-    href: '/services/tax-planning',
+    href: '/services/tax',
     desc: 'Practical advice for the moments that matter: starting a business, picking the right entity, navigating stock options (RSUs, ISOs, ESPPs), buying real estate, or operating across state lines.',
   },
   {
