@@ -20,6 +20,7 @@ const teamMembers = [
     blurb:
       "Dat Le is the Founder and Managing Partner of Motta Financial, leading the firm's strategic direction across tax, accounting, and advisory services from offices in Boston and Las Vegas. A two-time Suffolk University graduate, Dat built his foundation as a top-rated Audit Senior at Deloitte & Touche before deepening his technical skills through senior consulting and controller roles supporting IPOs, SPAC transactions, and complex revenue recognition.",
     email: 'Dat.Le@MottaFinancial.com',
+    linkedin: 'https://www.linkedin.com/in/dat-le-cpa-589b451b/',
     calendly: 'https://calendly.com/dat-le-motta',
   },
   {
@@ -103,6 +104,7 @@ const teamMembers = [
     blurb:
       "Justin is a senior-level accounting and finance consultant with a track record across financial services, healthcare, manufacturing, and public accounting. He brings hands-on expertise in month-end close, financial statement preparation, cash flow forecasting, budgeting, and ERP implementation, and a proven ability to step into complex environments and add immediate value. A CPA and University of Minnesota Duluth graduate, Justin also leads process improvement initiatives and has supported companies preparing for public offerings.",
     email: 'Justin.Bestel@MottaFinancial.com',
+    linkedin: 'https://www.linkedin.com/in/justin-bestel-33652013/',
   },
   {
     slug: 'shinika-shelley',
@@ -114,6 +116,8 @@ const teamMembers = [
     blurb:
       "Shinika is a senior accounting professional with nineteen years of experience delivering full-cycle accounting, financial reporting, and advisory services across healthcare, SaaS, B2B, entertainment, and real estate. She has served in Controller and Fractional CFO capacities — leading month-end close, cash flow strategy, multi-entity reporting, and client advisory for businesses ranging from dental investment portfolios to entertainment industry clients. Known for her precision, process improvement instincts, and ability to manage complex multi-client engagements, Shinika is also the founder of Last Stop Consulting LLC.",
     email: 'Shinika.Shelley@MottaFinancial.com',
+    linkedin: 'https://www.linkedin.com/in/shinika-shelley-367385116/',
+    calendly: 'https://calendly.com/shinika-shelley-mottafinancial',
   },
   {
     slug: 'samprina-zekio',
@@ -127,6 +131,8 @@ const teamMembers = [
       "Samprina leads backend development for ALFRED Ai through the Suffolk University SEED Program, reporting to Dat Le, CPA. She designs the infrastructure, API workflows, and automation behind ALFRED Ai, the Supabase-powered Motta Hub, and Project Alpha — Motta's ProConnect integration, where she owns OAuth, data sync, and tax-return status tracking. A full-stack builder working across Supabase, PostgreSQL, Vercel, JavaScript, and Python, she is pursuing a B.S. in Business Analytics & Information Systems and Cybersecurity with a 4.0 GPA and speaks four languages.",
     email: 'Samprina.Zekio@MottaFinancial.com',
     linkedin: 'https://www.linkedin.com/in/samprina-zekio/',
+    github: 'https://github.com/samprinazekio',
+    calendly: 'https://calendly.com/samprinazekio',
   },
 ];
 
@@ -228,10 +234,9 @@ export default function AboutTeamPage() {
             <div className="row justify-content-center">
               <div className="col-12">
                 <div className="section-title text-center mb-40 tg-heading-subheading animation-style3">
-                  <span className="sub-title">OUR TEAM</span>
-                  <h2 className="title tg-element-title">Meet Our Team</h2>
-                  <p className="mt-3" style={{ fontFamily: 'var(--tg-body-font-family)', fontSize: '15px', color: '#5A5F4E', whiteSpace: 'nowrap' }}>
-                    The partners, advisors, and associates leading Motta Financial&apos;s tax, accounting, advisory, and client experience practices — across our Boston and Las Vegas offices.
+                  <h2 className="title tg-element-title">The Ones Who Get It Done</h2>
+                  <p className="mt-3 mx-auto" style={{ fontFamily: 'var(--tg-body-font-family)', fontSize: '16px', color: '#5A5F4E', maxWidth: '860px', lineHeight: '1.8' }}>
+                    The partners, advisors, and associates leading Motta Financial&apos;s tax, accounting, advisory, and client experience practices, across our Boston and Las Vegas offices.
                   </p>
                 </div>
               </div>

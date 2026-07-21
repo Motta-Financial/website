@@ -25,12 +25,6 @@ const SERVICES = [
     href: '/services/business-ai-transformation',
     desc: 'Our AI-certified team rebuilds the way your business runs — replacing manual work with smart automation so your people focus on the things that actually grow the company.',
   },
-  {
-    icon: 'flaticon-piggy-bank',
-    title: 'Financial Planning',
-    href: '/services/financial-planning',
-    desc: 'A single plan that ties together your taxes, investments, retirement, and estate — led by a CFP through Motta Wealth Management.',
-  },
 ];
 
 export default function Services3() {
@@ -43,7 +37,7 @@ export default function Services3() {
               <div className="section-title mb-50">
                 <span className="sub-title">What we deliver</span>
                 <h2 className="title">
-                  Five practice areas, one team that talks to each other.
+                  Four practice areas, one team that talks to each other.
                 </h2>
               </div>
             </div>
@@ -53,9 +47,6 @@ export default function Services3() {
               <div className="col card-wrapper" key={s.title}>
                 <div className="services__item-three">
                   <div className="services__item-top">
-                    <div className="services__icon-three">
-                      <i className={s.icon} />
-                    </div>
                     <div className="services__item-top-title">
                       <h2 className="title">
                         <Link href={s.href}>{s.title}</Link>

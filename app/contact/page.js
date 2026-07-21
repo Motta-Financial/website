@@ -66,9 +66,6 @@ export default function Contact() {
                       </div>
                     </li>
                     <li>
-                      <div className="icon">
-                        <i className="flaticon-phone-call" />
-                      </div>
                       <div className="content">
                         <h4 className="title">Client portal</h4>
                         <a
