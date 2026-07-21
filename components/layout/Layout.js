@@ -28,6 +28,7 @@ export default function Layout({
   footerStyle,
   headTitle,
   breadcrumbTitle,
+  breadcrumbCrumbLabel,
   breadcrumbEyebrow,
   breadcrumbTagline,
   breadcrumbImage,
@@ -143,11 +144,12 @@ export default function Layout({
 
       <main className="fix">
         {breadcrumbTitle && (
-          <Breadcrumb
-            breadcrumbTitle={breadcrumbTitle}
-            eyebrow={breadcrumbEyebrow}
-            tagline={breadcrumbTagline}
-            backgroundImage={breadcrumbImage}
+        <Breadcrumb
+          breadcrumbTitle={breadcrumbTitle}
+          crumbLabel={breadcrumbCrumbLabel}
+          eyebrow={breadcrumbEyebrow}
+          tagline={breadcrumbTagline}
+          backgroundImage={breadcrumbImage}
             backHref={breadcrumbBackHref}
             backLabel={breadcrumbBackLabel}
           />

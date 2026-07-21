@@ -225,7 +225,8 @@ export default function AboutTeamPage() {
       <Layout
         headerStyle={5}
         footerStyle={1}
-        breadcrumbTitle="Meet Our Team"
+        breadcrumbTitle="The Ones Who Get It Done"
+        breadcrumbCrumbLabel="Team"
         breadcrumbEyebrow="The Team / Tech-forward CPAs"
       >
         <section className="team__area-two pb-90" style={{ paddingTop: '30px' }}>
@@ -234,8 +235,7 @@ export default function AboutTeamPage() {
             <div className="row justify-content-center">
               <div className="col-12">
                 <div className="section-title text-center mb-40 tg-heading-subheading animation-style3">
-                  <span className="sub-title">OUR TEAM</span>
-                  <h2 className="title tg-element-title">Meet Our Team</h2>
+                  <span className="sub-title">MOTTA FINANCIAL</span>
                   <p className="mt-3" style={{ fontFamily: 'var(--tg-body-font-family)', fontSize: '15px', color: '#5A5F4E', whiteSpace: 'nowrap' }}>
                     The partners, advisors, and associates leading Motta Financial&apos;s tax, accounting, advisory, and client experience practices — across our Boston and Las Vegas offices.
                   </p>

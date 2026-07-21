@@ -9,6 +9,7 @@ import Link from 'next/link';
  */
 export default function Breadcrumb({
   breadcrumbTitle,
+  crumbLabel,
   eyebrow,
   tagline,
   backgroundImage,
@@ -52,7 +53,7 @@ export default function Breadcrumb({
                 <div className="motta-breadcrumb__crumbs">
                   <Link href={backHref} className="motta-breadcrumb__crumb-link">{backLabel}</Link>
                   <span className="motta-breadcrumb__crumb-sep" aria-hidden="true">/</span>
-                  <span className="motta-breadcrumb__crumb-current" aria-current="page">{breadcrumbTitle}</span>
+                  <span className="motta-breadcrumb__crumb-current" aria-current="page">{crumbLabel || breadcrumbTitle}</span>
                 </div>
               </nav>
             </div>
