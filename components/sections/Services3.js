@@ -4,13 +4,13 @@ const SERVICES = [
   {
     icon: 'flaticon-profit',
     title: 'Tax Planning & Preparation',
-    href: '/services/tax-planning',
+    href: '/services/tax',
     desc: 'Year-round tax strategy and stress-free filing for individuals, families, and business owners. ALFRED Ai drafts your return in minutes so your CPA can focus on saving you money.',
   },
   {
     icon: 'flaticon-target',
     title: 'Tax Advisory',
-    href: '/services/tax-planning',
+    href: '/services/tax',
     desc: 'Practical advice for the moments that matter: starting a business, picking the right entity, navigating stock options (RSUs, ISOs, ESPPs), buying real estate, or operating across state lines.',
   },
   {
@@ -49,13 +49,13 @@ export default function Services3() {
                   <div className="services__item-top">
                     <div className="services__item-top-title">
                       <h2 className="title">
-                        <Link href={s.href}>{s.title}</Link>
+                        <Link href={`${s.href}#content`}>{s.title}</Link>
                       </h2>
                     </div>
                   </div>
                   <div className="services__content-three">
                     <p>{s.desc}</p>
-                    <Link href={s.href} className="btn btn-two">
+                    <Link href={`${s.href}#content`} className="btn btn-two">
                       Read More
                     </Link>
                   </div>

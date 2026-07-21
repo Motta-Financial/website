@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import IntakeButton from '@/components/intake/IntakeButton';
+import ScrollToContent from '@/components/utils/ScrollToContent';
 
 /**
  * Other Services, organized by the firm's four core practice areas:
@@ -74,7 +75,9 @@ export default function ServiceDetailLayout({
   heroImage,
 }) {
   return (
-    <section className="services__details-area">
+    <>
+    <ScrollToContent offset={90} />
+    <section id="content" className="services__details-area">
       <div className="container">
         <div className="services__details-wrap">
           <div className="row">
@@ -202,5 +205,6 @@ export default function ServiceDetailLayout({
         </div>
       </div>
     </section>
+    </>
   );
 }
