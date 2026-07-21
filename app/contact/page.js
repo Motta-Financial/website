@@ -65,18 +65,7 @@ export default function Contact() {
                         <a href="tel:+17025146055">(702) 514&#8209;6055</a>
                       </div>
                     </li>
-                    <li>
-                      <div className="content">
-                        <h4 className="title">Client portal</h4>
-                        <a
-                          href="https://hub.motta.cpa/login"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          hub.motta.cpa
-                        </a>
-                      </div>
-                    </li>
+
                   </ul>
                 </div>
 
