@@ -31,15 +31,8 @@ export default function IntakeCallout() {
               </div>
             </div>
           </div>
-          <div className="col-lg-5">
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-start',
-                gap: 14,
-              }}
-            >
+            <div className="col-lg-5">
+            <div className="slider__btn-row">
               <IntakeButton className="btn" source="callout">
                 Boot up an engagement
               </IntakeButton>

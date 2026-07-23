@@ -22,14 +22,7 @@ export default function Callback2() {
               </div>
             </div>
             <div className="col-xl-6 col-lg-7">
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  gap: 14,
-                }}
-              >
+              <div className="slider__btn-row">
                 <IntakeButton className="btn" source="callback">
                   Boot up an engagement
                 </IntakeButton>

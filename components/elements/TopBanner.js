@@ -49,7 +49,7 @@ export default function TopBanner() {
   };
 
   useEffect(() => {
-    timerRef.current = setInterval(advance, 5500);
+    timerRef.current = setInterval(advance, 9000);
     return () => clearInterval(timerRef.current);
   }, [index]);
 
@@ -125,19 +125,7 @@ export default function TopBanner() {
           </span>
         </div>
 
-        <div className="motta-topbanner__dots" role="tablist" aria-label="Announcement selector">
-          {MESSAGES.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              className="motta-topbanner__dot"
-              data-active={i === index}
-              aria-label={`Show announcement ${i + 1}`}
-              aria-selected={i === index}
-              onClick={() => goTo(i)}
-            />
-          ))}
-        </div>
+
       </div>
     </div>
   );

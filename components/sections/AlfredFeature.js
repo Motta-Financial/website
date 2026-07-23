@@ -112,117 +112,28 @@ export default function AlfredFeature() {
           </div>
         </div>
 
-        <div className="row" style={{ rowGap: 24 }}>
+        <div className="row" style={{ rowGap: 14 }}>
           {CAPABILITIES.map((c) => (
             <div className="col-lg-4 col-md-6" key={c.title}>
-              <div
-                style={{
-                  height: '100%',
-                  padding: '32px 28px',
-                  background: 'rgba(234, 230, 225, 0.04)',
-                  border: '1px solid rgba(142, 155, 121, 0.22)',
-                  borderRadius: 14,
-                  backdropFilter: 'blur(6px)',
-                  transition: 'transform 0.25s ease, border-color 0.25s ease',
-                }}
-              >
-                <div
-                  style={{
-                    width: 48,
-                    height: 48,
-                    borderRadius: 12,
-                    background:
-                      'linear-gradient(135deg, var(--motta-alfred), var(--motta-alfred-glow))',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'var(--motta-white)',
-                    fontSize: 20,
-                    marginBottom: 18,
-                  }}
-                >
+              <div className="motta-alfred-card">
+                <div className="motta-alfred-card__icon">
                   <i className={c.icon} />
                 </div>
-                <h4
-                  style={{
-                    color: 'var(--motta-white)',
-                    fontSize: 19,
-                    fontWeight: 600,
-                    marginBottom: 10,
-                  }}
-                >
-                  {c.title}
-                </h4>
-                <p
-                  style={{
-                    color: 'rgba(234, 230, 225, 0.72)',
-                    fontSize: 14.5,
-                    lineHeight: 1.6,
-                    margin: 0,
-                  }}
-                >
-                  {c.desc}
-                </p>
+                <h4 className="motta-alfred-card__title">{c.title}</h4>
+                <p className="motta-alfred-card__body">{c.desc}</p>
               </div>
             </div>
           ))}
 
           <div className="col-lg-4 col-md-6">
-            <div
-              style={{
-                height: '100%',
-                padding: '32px 28px',
-                background:
-                  'linear-gradient(135deg, rgba(107,116,93,0.45), rgba(142,155,121,0.22))',
-                border: '1px solid rgba(142, 155, 121, 0.5)',
-                borderRadius: 14,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}
-            >
-              <div>
-                <span
-                  style={{
-                    display: 'inline-block',
-                    fontSize: 11,
-                    fontWeight: 700,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: 'var(--motta-alfred-glow)',
-                    marginBottom: 14,
-                  }}
-                >
-                  Strategic differentiator
-                </span>
-                <h4
-                  style={{
-                    color: 'var(--motta-white)',
-                    fontSize: 19,
-                    fontWeight: 600,
-                    marginBottom: 10,
-                  }}
-                >
-                  Tax returns, drafted in minutes
-                </h4>
-                <p
-                  style={{
-                    color: 'rgba(234, 230, 225, 0.78)',
-                    fontSize: 14.5,
-                    lineHeight: 1.6,
-                  }}
-                >
-                  Motta has partner-grade access to Intuit ProConnect&apos;s
-                  API, which lets ALFRED Ai prepare your return in minutes.
-                  That means a faster turnaround for you and more time for
-                  your CPA to spend looking for ways to save you money.
-                </p>
-              </div>
-              <Link
-                href="/alfred"
-                className="btn"
-                style={{ marginTop: 18, alignSelf: 'flex-start' }}
-              >
+            <div className="motta-alfred-card motta-alfred-card--cta">
+              <span className="motta-alfred-card__label">Strategic differentiator</span>
+              <h4 className="motta-alfred-card__title">Tax returns, drafted in minutes</h4>
+              <p className="motta-alfred-card__body">
+                Motta has partner-grade access to Intuit ProConnect&apos;s API, which lets ALFRED Ai
+                prepare your return in minutes. Faster turnaround for you, more planning time for your CPA.
+              </p>
+              <Link href="/alfred" className="btn" style={{ marginTop: 14, alignSelf: 'flex-start' }}>
                 Learn More
               </Link>
             </div>

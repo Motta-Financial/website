@@ -126,7 +126,7 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  animation: motta-marquee 22s linear infinite;
+  animation: motta-marquee 38s linear infinite;
 }
 /* Pause on hover / focus (desktop) */
 .motta-topbanner:hover .motta-topbanner__scroll-inner,
@@ -419,6 +419,83 @@
   white-space: nowrap;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+}
+
+/* ===== ALFRED Feature Cards ===== */
+.motta-alfred-card {
+  height: 100%;
+  padding: 18px 16px;
+  background: rgba(234, 230, 225, 0.04);
+  border: 1px solid rgba(142, 155, 121, 0.22);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s ease;
+}
+.motta-alfred-card--cta {
+  background: linear-gradient(135deg, rgba(107,116,93,0.45), rgba(142,155,121,0.22));
+  border-color: rgba(142, 155, 121, 0.5);
+}
+.motta-alfred-card__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--motta-alfred), var(--motta-alfred-glow));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--motta-white);
+  font-size: 16px;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+.motta-alfred-card__label {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--motta-alfred-glow);
+  margin-bottom: 10px;
+}
+.motta-alfred-card__title {
+  color: var(--motta-white);
+  font-size: 15px !important;
+  font-weight: 600;
+  margin-bottom: 8px !important;
+  line-height: 1.3;
+}
+.motta-alfred-card__body {
+  color: rgba(234, 230, 225, 0.72);
+  font-size: 12.5px !important;
+  line-height: 1.55;
+  margin: 0 !important;
+}
+
+/* Global btn row — reusable outside .slider__content */
+.slider__btn-row {
+  display: flex !important;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+.slider__btn-row .btn,
+.slider__btn-row button.btn {
+  flex: 1 1 0 !important;
+  width: auto !important;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  justify-content: center;
+  display: inline-flex !important;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
 }
 
 /* CTA button row — side-by-side on all screen sizes */
@@ -3278,6 +3355,34 @@ body.motta-intake-open {
 }
 
 /* Top banner mobile handled in the banner block above */
+
+/* Call-back section button row — compact side-by-side on mobile */
+@media (max-width: 991.98px) {
+  .call-back-area .slider__btn-row,
+  .call-back-area-two .slider__btn-row {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .call-back-area .slider__btn-row .btn,
+  .call-back-area-two .slider__btn-row .btn,
+  .call-back-area .slider__btn-row button.btn,
+  .call-back-area-two .slider__btn-row button.btn {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    font-size: 12px !important;
+    padding: 10px 12px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px !important;
+  }
+}
 
 /* ----------------------------------------------------------
    4. Hero slider — readable on 390px
