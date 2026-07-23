@@ -3016,6 +3016,43 @@ button.btn {
   border-radius: 999px !important;
 }
 
+/* Remove click/press animation on all buttons — no translateY dip */
+.btn:active,
+.btn:focus:active,
+.border-btn:active {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Pill button text — never let it overflow the capsule */
+.btn,
+.border-btn {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Slider blob — the ::after pseudo on .slider__single bleeds on mobile */
+.slider__single {
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .slider__single::after {
+    display: none !important;
+  }
+}
+
+/* Pill font-size on very small screens so text stays inside */
+@media (max-width: 400px) {
+  .btn,
+  .border-btn {
+    font-size: 11px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
 /* Book a Demo form sat on a dark section but its placeholder text rendered
    near-black and was unreadable. Give placeholders a visible muted cream. */
 #demo input::placeholder,
