@@ -3715,17 +3715,74 @@ body.motta-intake-open {
 @media (max-width: 575px) {
   /* Section sub-titles / eyebrows */
   .section-title .sub-title {
-    font-size: 12px !important;
-    letter-spacing: 0.12em !important;
+    font-size: 11px !important;
+    letter-spacing: 0.10em !important;
   }
-  /* Slightly tighter section heading on 575 */
-  .section-title .title {
-    font-size: clamp(24px, 7.5vw, 36px) !important;
+  /* All section headings — readable but not room-filling */
+  .section-title .title,
+  .section-title h2.title,
+  .section-title h3.title {
+    font-size: clamp(20px, 6vw, 28px) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 12px !important;
+  }
+  /* Body copy under section titles */
+  .section-title p,
+  .about__content-two > p,
+  .about__content-three > p,
+  .call-back-content p {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+  /* About bullet list — shrink text + icon circles */
+  .about__list-box .list-wrap li {
+    font-size: 13px !important;
+    font-weight: 500;
+    gap: 8px !important;
+    margin-bottom: 7px !important;
+  }
+  .about__list-box .list-wrap li i {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 10px !important;
+    flex: 0 0 18px !important;
+    transform: translateY(1px) !important;
+  }
+  /* ALFRED feature section heading + intro para */
+  .alfred-feature-area .section-title .title,
+  .alfred-feature-area h2.title {
+    font-size: clamp(20px, 6vw, 28px) !important;
+    line-height: 1.2 !important;
+  }
+  .alfred-feature-area > .container > .row > div > p,
+  .alfred-feature-area .col-lg-8 p {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+  /* Callback section — compact heading + body */
+  .call-back-area .section-title .title,
+  .call-back-area h2.title {
+    font-size: clamp(20px, 6vw, 26px) !important;
+    line-height: 1.2 !important;
+  }
+  .call-back-area {
+    padding: 52px 0 48px !important;
+  }
+  /* Callback buttons — ensure no left-edge clipping */
+  .call-back-area .col-lg-5,
+  .call-back-area-two .col-lg-5 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  /* Team photo — tighter on very small screens */
+  .about__img-wrap-two > img,
+  .about__img-wrap img {
+    max-height: 150px !important;
   }
   /* Ensure Bootstrap containers don't get too wide a gutter */
   .container {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 }
 
