@@ -43,12 +43,14 @@ export default function HeroSlider() {
                     pairs hands-on tax and accounting advice with our own AI platform — so your
                     CPA spends time on you and your goals, not on paperwork.
                   </p>
-                  <IntakeButton className="btn mr-10" source="hero">
-                    Boot up an engagement
-                  </IntakeButton>
-                  <Link href="/services" className="btn border-btn">
-                    Explore Services
-                  </Link>
+                  <div className="slider__btn-row">
+                    <IntakeButton className="btn" source="hero">
+                      Boot up an engagement
+                    </IntakeButton>
+                    <Link href="/services" className="btn border-btn">
+                      Explore Services
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -78,12 +80,14 @@ export default function HeroSlider() {
                     workflow, and ALFRED Ai, with a relentless focus on putting client dollars
                     toward value, not paperwork.
                   </p>
-                  <Link href="/news/press/proconnect-case-study" className="btn mr-10">
-                    Read the case study
-                  </Link>
-                  <Link href="/alfred" className="btn border-btn">
-                    Meet ALFRED Ai
-                  </Link>
+                  <div className="slider__btn-row">
+                    <Link href="/news/press/proconnect-case-study" className="btn">
+                      Read the case study
+                    </Link>
+                    <Link href="/alfred" className="btn border-btn">
+                      Meet ALFRED Ai
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -112,12 +116,14 @@ export default function HeroSlider() {
                     ALFRED Ai prepare your return in minutes. That means a faster turnaround
                     for you and more time for your CPA to focus on saving you money.
                   </p>
-                  <Link href="/about" className="btn mr-10">
-                    How ALFRED Works
-                  </Link>
-                  <Link href="/services/tax-planning" className="btn border-btn">
-                    Tax Services
-                  </Link>
+                  <div className="slider__btn-row">
+                    <Link href="/about" className="btn">
+                      How ALFRED Works
+                    </Link>
+                    <Link href="/services/tax-planning" className="btn border-btn">
+                      Tax Services
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -146,12 +152,14 @@ export default function HeroSlider() {
                     anything good go to waste. It&apos;s how we run our firm and how we look
                     after every individual, business owner, and non-profit we work with.
                   </p>
-                  <Link href="/about" className="btn mr-10">
-                    About Motta
-                  </Link>
-                  <Link href="/about/team" className="btn border-btn">
-                    Meet the Team
-                  </Link>
+                  <div className="slider__btn-row">
+                    <Link href="/about" className="btn">
+                      About Motta
+                    </Link>
+                    <Link href="/about/team" className="btn border-btn">
+                      Meet the Team
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
