@@ -1,18 +1,18 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AlfredLogo from './AlfredLogo';
 
 const MESSAGES = [
   {
     pill: 'ALFRED Ai',
-    text: 'Routine tax prep, drafted in minutes — so our CPAs can spend their time on planning, not data entry. Powered by ALFRED, our proprietary AI.',
+    text: 'Routine tax prep, drafted in minutes — so our CPAs can spend their time on planning, not data entry.',
     cta: 'See how it works →',
     href: '/about',
   },
   {
     pill: 'Featured by Intuit',
-    text: 'Intuit featured Motta in an official ProConnect Tax case study on how we built a scalable practice with automation and ALFRED Ai.',
+    text: 'Intuit featured Motta in an official ProConnect Tax case study on how we built a scalable practice with automation.',
     cta: 'Read the case study →',
     href: '/news/press/proconnect-case-study',
   },
@@ -28,40 +28,57 @@ const MESSAGES = [
 
 export default function TopBanner() {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [animating, setAnimating] = useState(false);
+  const timerRef = useRef(null);
+
+  const advance = () => {
+    setAnimating(true);
+    setTimeout(() => {
+      setIndex((i) => (i + 1) % MESSAGES.length);
+      setAnimating(false);
+    }, 400); // matches CSS slide-out duration
+  };
+
+  const goTo = (i) => {
+    if (i === index) return;
+    setAnimating(true);
+    setTimeout(() => {
+      setIndex(i);
+      setAnimating(false);
+    }, 400);
+  };
 
   useEffect(() => {
-    if (paused) return;
-    const id = setInterval(() => {
-      setIndex((i) => (i + 1) % MESSAGES.length);
-    }, 6000);
-    return () => clearInterval(id);
-  }, [paused]);
+    timerRef.current = setInterval(advance, 5500);
+    return () => clearInterval(timerRef.current);
+  }, [index]);
 
   const msg = MESSAGES[index];
 
   return (
     <div
       className="motta-topbanner"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      onMouseEnter={() => clearInterval(timerRef.current)}
+      onMouseLeave={() => {
+        timerRef.current = setInterval(advance, 5500);
+      }}
       role="region"
       aria-label="Site announcements"
     >
       <div className="motta-topbanner__inner">
-        <div key={index} className="motta-topbanner__track motta-topbanner__fade">
+        <div className={`motta-topbanner__track${animating ? ' motta-topbanner--slide-out' : ' motta-topbanner--slide-in'}`}>
+
           <span className="motta-topbanner__pill">
             {msg.pill === 'ALFRED Ai' ? (
-              <AlfredLogo size={16} className="alfred-logo--invert motta-topbanner__pill-logo" />
+              <AlfredLogo size={12} className="alfred-logo--invert motta-topbanner__pill-logo" />
             ) : null}
             {msg.pill}
           </span>
-          <span
-            className="motta-topbanner__msg"
-            dangerouslySetInnerHTML={{
-              __html: `${msg.text}`,
-            }}
-          />
+
+          <span className="motta-topbanner__msg">
+            {msg.text}
+          </span>
+
           {msg.intake ? (
             <a
               href="#intake"
@@ -83,6 +100,7 @@ export default function TopBanner() {
             </Link>
           )}
         </div>
+
         <div className="motta-topbanner__dots" role="tablist" aria-label="Announcement selector">
           {MESSAGES.map((_, i) => (
             <button
@@ -92,7 +110,7 @@ export default function TopBanner() {
               data-active={i === index}
               aria-label={`Show announcement ${i + 1}`}
               aria-selected={i === index}
-              onClick={() => setIndex(i)}
+              onClick={() => goTo(i)}
             />
           ))}
         </div>

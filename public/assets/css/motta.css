@@ -31,91 +31,119 @@
 }
 
 /* ===== Top promo banner ===== */
+/* ===== Top announcement ticker — single thin row, smooth slide ===== */
 .motta-topbanner {
   position: relative;
   background: linear-gradient(90deg, var(--motta-charcoal) 0%, #1f261c 50%, var(--motta-charcoal) 100%);
   color: var(--motta-warm);
   font-family: var(--tg-body-font-family);
-  font-size: 13px;
+  font-size: 11.5px;
   letter-spacing: 0.02em;
   z-index: 1001;
   border-bottom: 1px solid rgba(234, 230, 225, 0.08);
   overflow: hidden;
+  height: 34px; /* always exactly one row */
 }
 .motta-topbanner__inner {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 38px;
-  padding: 8px 56px;
-  text-align: center;
+  height: 34px;
+  padding: 0 44px;
   position: relative;
+  overflow: hidden;
 }
+/* The scrolling track — holds pill + text + cta in one line */
 .motta-topbanner__track {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
 }
+/* Slide-in: text slides in from the right */
+@keyframes motta-slide-in {
+  0%   { opacity: 0; transform: translateX(24px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+/* Slide-out: text slides out to the left */
+@keyframes motta-slide-out {
+  0%   { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(-24px); }
+}
+.motta-topbanner--slide-in {
+  animation: motta-slide-in 0.42s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.motta-topbanner--slide-out {
+  animation: motta-slide-out 0.38s cubic-bezier(0.55, 0, 0.45, 1) both;
+}
+
+/* Pill badge */
 .motta-topbanner__pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 2px 10px;
+  gap: 5px;
+  padding: 1px 8px;
   border-radius: 999px;
-  background: rgba(142, 155, 121, 0.15);
+  background: rgba(142, 155, 121, 0.18);
   color: var(--motta-alfred-halo);
-  font-weight: 600;
-  font-size: 11px;
+  font-weight: 700;
+  font-size: 9px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border: 1px solid rgba(142, 155, 121, 0.35);
+  letter-spacing: 0.1em;
+  border: 1px solid rgba(142, 155, 121, 0.4);
+  flex-shrink: 0;
 }
 .motta-topbanner__pill::before {
   content: "";
-  width: 6px; height: 6px;
+  width: 5px; height: 5px;
   border-radius: 50%;
   background: var(--motta-alfred-glow);
-  box-shadow: 0 0 8px var(--motta-alfred-glow);
+  box-shadow: 0 0 6px var(--motta-alfred-glow);
   animation: motta-pulse 2.4s ease-in-out infinite;
 }
 @keyframes motta-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%      { opacity: 0.4; transform: scale(0.7); }
 }
+
+/* Message text — truncate if it can't fit */
 .motta-topbanner__msg {
-  color: var(--motta-warm);
+  color: rgba(234, 230, 225, 0.88);
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.motta-topbanner__msg a,
-.motta-topbanner__msg .motta-topbanner__cta {
+
+/* CTA link */
+.motta-topbanner__cta {
   color: var(--motta-alfred-glow);
-  font-weight: 600;
-  margin-left: 6px;
+  font-weight: 700;
+  font-size: 11px;
   text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
 }
-.motta-topbanner__msg a:hover,
-.motta-topbanner__msg .motta-topbanner__cta:hover {
+.motta-topbanner__cta:hover {
   border-bottom-color: var(--motta-alfred-glow);
   color: var(--motta-alfred-glow);
 }
-.motta-topbanner__fade {
-  animation: motta-banner-fade 0.6s ease;
-}
-@keyframes motta-banner-fade {
-  0%   { opacity: 0; transform: translateY(4px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+
+/* Dot indicators */
 .motta-topbanner__dots {
   position: absolute;
-  right: 16px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   display: inline-flex;
-  gap: 5px;
+  gap: 4px;
 }
 .motta-topbanner__dot {
-  width: 5px; height: 5px;
+  width: 4px; height: 4px;
   border-radius: 50%;
   background: rgba(234, 230, 225, 0.25);
   border: 0;
@@ -125,13 +153,17 @@
 }
 .motta-topbanner__dot[data-active="true"] {
   background: var(--motta-alfred-glow);
-  transform: scale(1.3);
+  transform: scale(1.4);
 }
+
+/* Mobile — same single row, just tighter padding */
 @media (max-width: 768px) {
-  .motta-topbanner { font-size: 12px; }
-  .motta-topbanner__inner { padding: 8px 14px; }
-  .motta-topbanner__dots { display: none; }
-  .motta-topbanner__pill { display: none; }
+  .motta-topbanner { font-size: 10.5px; height: 32px; }
+  .motta-topbanner__inner { padding: 0 36px 0 10px; height: 32px; }
+  .motta-topbanner__msg { font-size: 10px; }
+  .motta-topbanner__cta { font-size: 10px; }
+  .motta-topbanner__pill { font-size: 8px; padding: 1px 6px; }
+  .motta-topbanner__dots { right: 8px; }
 }
 
 /* ===== ALFRED scroll-reactive companion icon ===== */
@@ -348,19 +380,19 @@
   box-sizing: border-box;
   display: inline-flex !important;
   align-items: center;
-  height: 36px;
-  padding: 0 16px !important;
+  height: 28px;
+  padding: 0 12px !important;
   border-radius: 999px !important;
   background: rgba(79, 87, 63, 0.72) !important;
   border: 1px solid rgba(142, 155, 121, 0.65) !important;
   color: var(--motta-warm, #EAE6E1) !important;
-  font-size: 11px !important;
+  font-size: 9.5px !important;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   line-height: 1 !important;
   margin: 0 !important;
-  margin-bottom: 0 !important;
+  white-space: nowrap;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
@@ -2976,9 +3008,38 @@ button.motta-cta.btn:hover {
 .services__bg-three .card-wrapper {
   grid-column: auto;
 }
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .services__bg-three .cards-container {
     grid-template-columns: 1fr;
+    gap: 14px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100%;
+  }
+  /* Bootstrap .col applies width: auto / flex-shrink which fights CSS grid.
+     Force grid items to fill their track. */
+  .services__bg-three .card-wrapper {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+  .services__area-three.services__bg-three {
+    overflow: hidden;
+  }
+  .services__bg-three .services__item-three {
+    padding: 18px 16px 16px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .services__bg-three .services__item-top-title .title {
+    font-size: 15px !important;
+  }
+  .services__bg-three .services__content-three p {
+    font-size: 12.5px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 12px !important;
   }
 }
 .services__bg-three .card-wrapper {
@@ -3192,46 +3253,7 @@ body.motta-intake-open {
   font-size: 13px !important;
 }
 
-/* ----------------------------------------------------------
-   3. Top banner — stack pill + msg + cta vertically on mobile
-      so no awkward horizontal overflow
-   ---------------------------------------------------------- */
-@media (max-width: 768px) {
-  .motta-topbanner__inner {
-    padding: 10px 16px;
-    flex-direction: column;
-    gap: 4px;
-    text-align: center;
-  }
-  .motta-topbanner__track {
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    width: 100%;
-  }
-  .motta-topbanner__pill {
-    display: inline-flex; /* re-show on mobile — we hide only the logo inside */
-    font-size: 10px;
-  }
-  .motta-topbanner__pill-logo {
-    display: none; /* hide the tiny logo mark so pill stays compact */
-  }
-  .motta-topbanner__msg {
-    font-size: 12px;
-    line-height: 1.5;
-  }
-  .motta-topbanner__cta {
-    font-size: 12px;
-    font-weight: 700;
-    margin-left: 0;
-  }
-  .motta-topbanner__dots {
-    position: static;
-    transform: none;
-    margin-top: 6px;
-    display: inline-flex;
-  }
-}
+/* Top banner mobile handled in the banner block above */
 
 /* ----------------------------------------------------------
    4. Hero slider — readable on 390px
@@ -3258,36 +3280,65 @@ body.motta-intake-open {
     line-height: 1.6 !important;
     margin-bottom: 20px !important;
   }
-  /* Pills — side-by-side, compact; allow wrap only if both truly don't fit */
+  /* Pills — side-by-side, compact */
   .slider__content .slider__pill-row {
     flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 16px;
+    gap: 5px;
+    margin-bottom: 12px;
   }
   .slider__content .alfred-mark,
   .slider__content .sub-title {
-    font-size: 9px !important;
-    padding: 0 10px !important;
-    height: 28px;
+    font-size: 8px !important;
+    padding: 0 8px !important;
+    height: 24px;
     letter-spacing: 0.08em;
-    white-space: nowrap;
-    flex-shrink: 1;
-    min-width: 0;
   }
   /* CTA button row — compact on mobile */
   .slider__content .slider__btn-row {
-    gap: 8px;
+    gap: 7px;
   }
   .slider__content .slider__btn-row .btn {
     flex: 1 1 0;
     min-width: 0;
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-    min-height: 44px;
-    font-size: 13px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    min-height: 40px;
+    font-size: 12px !important;
     text-align: center;
     justify-content: center;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  /* Service cards — tighter on mobile */
+  .motta-service-card {
+    padding: 18px 16px !important;
+    gap: 7px !important;
+  }
+  .motta-service-card__title {
+    font-size: 15px !important;
+  }
+  .motta-service-card p {
+    font-size: 12.5px !important;
+    line-height: 1.5 !important;
+  }
+  .motta-service-card__icon {
+    font-size: 24px !important;
+    margin-bottom: 2px !important;
+  }
+  .motta-about-services {
+    padding: 52px 0 !important;
+  }
+  .motta-about-services__head {
+    margin-bottom: 28px !important;
+  }
+  /* About photo — don't let it dominate the screen */
+  .about__img-wrap-two > img,
+  .about__img-wrap img {
+    max-height: 260px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
   }
   /* Darken the hero overlay a little more so text pops */
   .slider__single::before {
