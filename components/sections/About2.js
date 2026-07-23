@@ -9,19 +9,7 @@ export default function About2() {
       >
         <div className="container">
           <div className="row align-items-center justify-content-center">
-            <div className="col-lg-6 col-md-8">
-              <div className="about__img-wrap-two">
-                <img src="/assets/img/images/inner_about01.jpg" alt="" />
-                <div className="shape">
-                  <img
-                    src="/assets/img/images/h2_about_img_shape.png"
-                    alt=""
-                    className="alltuchtopdown"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
+            <div className="col-lg-8 col-xl-7 mx-auto">
               <div className="about__content-two">
                 <div className="section-title mb-20 tg-heading-subheading animation-style3">
                   <span className="sub-title">About Motta Financial</span>

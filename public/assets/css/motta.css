@@ -3761,18 +3761,29 @@ body.motta-intake-open {
   }
   /* Callback section — compact heading + body */
   .call-back-area .section-title .title,
-  .call-back-area h2.title {
-    font-size: clamp(20px, 6vw, 26px) !important;
-    line-height: 1.2 !important;
+  .call-back-area .call-back-content .title,
+  .call-back-area h2.title,
+  .call-back-area .white-title .title {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 10px !important;
+  }
+  .call-back-area .call-back-content p,
+  .call-back-content p {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0 !important;
   }
   .call-back-area {
-    padding: 52px 0 48px !important;
+    padding: 40px 0 36px !important;
+    overflow: visible !important;
   }
   /* Callback buttons — ensure no left-edge clipping */
   .call-back-area .col-lg-5,
   .call-back-area-two .col-lg-5 {
     padding-left: 15px !important;
     padding-right: 15px !important;
+    margin-top: 16px !important;
   }
   /* Team photo — tighter on very small screens */
   .about__img-wrap-two > img,

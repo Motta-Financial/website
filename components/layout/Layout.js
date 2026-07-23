@@ -16,6 +16,7 @@ import Header3 from './header/Header3';
 import Header4 from './header/Header4';
 import Header5 from './header/Header5';
 import TopBanner from '../elements/TopBanner';
+import AlfredCompanion from '../elements/AlfredCompanion';
 import IntakeProvider from '../intake/IntakeProvider';
 
 export const metadata = {
@@ -171,6 +172,7 @@ export default function Layout({
       {footerStyle == 5 ? <Footer5 /> : null}
 
       <BackToTop />
+      <AlfredCompanion />
     </IntakeProvider>
   );
 }
