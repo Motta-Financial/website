@@ -126,7 +126,7 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  animation: motta-marquee 38s linear infinite;
+  animation: motta-marquee 28s linear infinite;
 }
 /* Pause on hover / focus (desktop) */
 .motta-topbanner:hover .motta-topbanner__scroll-inner,
@@ -480,7 +480,7 @@
   flex-wrap: nowrap;
   align-items: center;
   gap: 10px;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
 }
 .slider__btn-row .btn,
@@ -489,13 +489,12 @@
   width: auto !important;
   min-width: 0;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: visible !important;
   text-align: center;
   justify-content: center;
   display: inline-flex !important;
-  padding-left: 14px !important;
-  padding-right: 14px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
 }
 
 /* CTA button row — side-by-side on all screen sizes */
@@ -3372,15 +3371,14 @@ body.motta-intake-open {
     flex: 1 1 0 !important;
     width: auto !important;
     min-width: 0 !important;
-    font-size: 12px !important;
-    padding: 10px 12px !important;
+    font-size: 11.5px !important;
+    padding: 10px 10px !important;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible !important;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    min-height: 42px !important;
+    min-height: 40px !important;
   }
 }
 
@@ -3464,7 +3462,7 @@ body.motta-intake-open {
   /* About photo — don't let it dominate the screen */
   .about__img-wrap-two > img,
   .about__img-wrap img {
-    max-height: 260px;
+    max-height: 180px;
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
@@ -3592,11 +3590,60 @@ body.motta-intake-open {
   }
   /* Give footer widgets more breathing room in mobile stacked layout */
   .footer-top .footer-widget {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
   .footer-top .col-xl-3:last-child .footer-widget,
   .footer-top .col-lg-4:last-child .footer-widget {
     margin-bottom: 0;
+  }
+
+  /* Footer — compact text on mobile */
+  .fw-title {
+    font-size: 13px !important;
+    margin-bottom: 12px !important;
+    padding-bottom: 10px !important;
+  }
+  .footer-info-list .list-wrap li {
+    gap: 8px !important;
+    margin-bottom: 10px !important;
+  }
+  .footer-info-list .list-wrap li .icon {
+    font-size: 14px !important;
+    margin-top: 1px;
+  }
+  .footer-info-list .list-wrap li a,
+  .footer-info-list .list-wrap li .content p,
+  .footer-info-list .list-wrap li .content {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+  .footer-link-list .list-wrap li {
+    margin-bottom: 6px !important;
+  }
+  .footer-link-list .list-wrap li a,
+  .footer-link-list .list-wrap li button {
+    font-size: 12px !important;
+  }
+  .footer-content p {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+  }
+  .fw-logo {
+    margin-bottom: 12px !important;
+  }
+  .fw-logo img {
+    max-height: 36px !important;
+  }
+  .footer-social p {
+    font-size: 11px !important;
+    margin-bottom: 4px !important;
+  }
+  .copyright-text p,
+  .footer-bottom a {
+    font-size: 11px !important;
+  }
+  .footer-bottom .col-lg-6.text-lg-end > ul {
+    gap: 0 14px !important;
   }
 }
 
