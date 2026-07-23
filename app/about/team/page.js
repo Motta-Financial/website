@@ -105,6 +105,7 @@ const teamMembers = [
       "Justin is a senior-level accounting and finance consultant with a track record across financial services, healthcare, manufacturing, and public accounting. He brings hands-on expertise in month-end close, financial statement preparation, cash flow forecasting, budgeting, and ERP implementation, and a proven ability to step into complex environments and add immediate value. A CPA and University of Minnesota Duluth graduate, Justin also leads process improvement initiatives and has supported companies preparing for public offerings.",
     email: 'Justin.Bestel@MottaFinancial.com',
     linkedin: 'https://www.linkedin.com/in/justin-bestel-33652013/',
+    calendly: 'https://calendly.com/justin-bestel',
   },
   {
     slug: 'shinika-shelley',
