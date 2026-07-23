@@ -21,6 +21,7 @@ export default function MobileMenu() {
           <Link href="/">Home</Link>
         </li>
 
+        {/* About Us — full parity with desktop */}
         <li className="menu-item-has-children">
           <Link href="/about">About Us</Link>
           <ul
@@ -31,19 +32,27 @@ export default function MobileMenu() {
               <Link href="/about">About Motta</Link>
             </li>
             <li>
+              <Link href="/about/founder">Meet Our Founder</Link>
+            </li>
+            <li>
               <Link href="/about/team">Meet Our Team</Link>
+            </li>
+            <li>
+              <Link href="/alfred">ALFRED Ai</Link>
+            </li>
+            <li>
+              <Link href="/partnerships">Partnerships</Link>
             </li>
           </ul>
           <div
-            className={
-              isActive.key === 2 ? 'dropdown-btn open' : 'dropdown-btn'
-            }
+            className={isActive.key === 2 ? 'dropdown-btn open' : 'dropdown-btn'}
             onClick={() => handleToggle(2)}
           >
             <span className="plus-line" />
           </div>
         </li>
 
+        {/* Services — matching desktop top-level categories */}
         <li className="menu-item-has-children">
           <Link href="/services">Services</Link>
           <ul
@@ -51,30 +60,16 @@ export default function MobileMenu() {
             style={{ display: isActive.key === 3 ? 'block' : 'none' }}
           >
             <li>
-              <Link href="/services/tax-planning">
-                Tax Planning &amp; Preparation
-              </Link>
-            </li>
-            <li>
-              <Link href="/services/tax/small-business">
-                Small Business Tax Advisory
-              </Link>
-            </li>
-            <li>
-              <Link href="/services/tax/s-corp">
-                S-Corp Elections &amp; Compliance
-              </Link>
+              <Link href="/services/tax">Tax</Link>
             </li>
             <li>
               <Link href="/services/accounting">Accounting</Link>
             </li>
             <li>
-              <Link href="/services/accounting/forensic-accounting">
-                Forensic Accounting
-              </Link>
+              <Link href="/services/ma">Mergers &amp; Acquisitions</Link>
             </li>
             <li>
-              <Link href="/services/ma">Mergers &amp; Acquisitions</Link>
+              <Link href="/services/business-advisory">Business Advisory</Link>
             </li>
             <li>
               <Link href="/services/saas-tech-advisory">
@@ -82,49 +77,59 @@ export default function MobileMenu() {
               </Link>
             </li>
             <li>
-              <Link href="/services/business-entity-structuring">
-                Business Entity Setup
-              </Link>
-            </li>
-            <li>
-              <Link href="/services/financial-planning">
-                Financial Planning
-              </Link>
-            </li>
-            <li>
-              <Link href="/services/business-ai-transformation">
-                Business AI Transformation
-              </Link>
-            </li>
-            <li>
-              <Link href="/services/management-consulting">
-                Management Consulting
-              </Link>
-            </li>
-            <li>
-              <Link href="/services/financial-statement-analysis">
-                Financial Statement Analysis
-              </Link>
+              <Link href="/services/wealth-management">Wealth Management</Link>
             </li>
             <li>
               <Link href="/resources">Resources</Link>
             </li>
           </ul>
           <div
-            className={
-              isActive.key === 3 ? 'dropdown-btn open' : 'dropdown-btn'
-            }
+            className={isActive.key === 3 ? 'dropdown-btn open' : 'dropdown-btn'}
             onClick={() => handleToggle(3)}
           >
             <span className="plus-line" />
           </div>
         </li>
 
-        <li>
-          <IntakeButton className="motta-intake-link" source="mobile-nav">Become a Client</IntakeButton>
+        {/* News — new, not previously in mobile menu */}
+        <li className="menu-item-has-children">
+          <Link href="/news">News</Link>
+          <ul
+            className="sub-menu"
+            style={{ display: isActive.key === 4 ? 'block' : 'none' }}
+          >
+            <li>
+              <Link href="/news">All News</Link>
+            </li>
+            <li>
+              <Link href="/news/press">Press Releases</Link>
+            </li>
+            <li>
+              <Link href="/news/blog">Blog</Link>
+            </li>
+            <li>
+              <Link href="/news/community">In the Community</Link>
+            </li>
+            <li>
+              <Link href="/news/media">Media</Link>
+            </li>
+          </ul>
+          <div
+            className={isActive.key === 4 ? 'dropdown-btn open' : 'dropdown-btn'}
+            onClick={() => handleToggle(4)}
+          >
+            <span className="plus-line" />
+          </div>
         </li>
+
         <li>
           <Link href="/contact">Contact</Link>
+        </li>
+
+        <li>
+          <IntakeButton className="motta-intake-link" source="mobile-nav">
+            Become a Client
+          </IntakeButton>
         </li>
       </ul>
     </>

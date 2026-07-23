@@ -56,6 +56,9 @@ export default function Header5({
                     <div
                       className="mobile-nav-toggler mobile-nav-toggler-two"
                       onClick={handleMobileMenu}
+                      role="button"
+                      aria-label="Toggle navigation"
+                      aria-expanded={isMobileMenu}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -131,6 +134,11 @@ export default function Header5({
                           </li>
                           <li>
                             <a href="tel:+17025146055">(702) 514&#8209;6055</a>
+                          </li>
+                          <li style={{ marginTop: '10px' }}>
+                            <Link href="/login" className="motta-mobile-login-link">
+                              Client Portal Login
+                            </Link>
                           </li>
                         </ul>
                       </div>

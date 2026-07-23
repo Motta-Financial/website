@@ -3132,3 +3132,359 @@ button.motta-cta.btn:hover {
   }
 }
 
+/* ============================================================
+   MOBILE REFINEMENTS — comprehensive pass (390px-first)
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   1. Prevent body scrollbar-jump when mobile menu or modal
+      opens (add .modal-open / .mobile-menu-visible to body)
+   ---------------------------------------------------------- */
+body.mobile-menu-visible,
+body.motta-intake-open {
+  overflow: hidden;
+  /* Reserve the scrollbar gutter so content doesn't shift */
+  padding-right: var(--scrollbar-width, 0px);
+}
+
+/* ----------------------------------------------------------
+   2. Mobile nav drawer — full-width on small phones, better
+      inner layout, login link style
+   ---------------------------------------------------------- */
+@media (max-width: 480px) {
+  .tgmobile__menu {
+    width: 100% !important;
+    padding-right: 0 !important;
+  }
+  .tgmobile__menu-box {
+    padding-bottom: 24px;
+  }
+}
+
+/* Login link inside the drawer bottom contact block */
+.motta-mobile-login-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--motta-sage-light, #8e9b79);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(142, 155, 121, 0.35);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.motta-mobile-login-link:hover {
+  color: var(--motta-warm, #eae6e1);
+  border-bottom-color: var(--motta-warm, #eae6e1);
+}
+/* Make sure the nav search sub-heading in drawer matches */
+.tgmobile__search p {
+  font-size: 13px !important;
+}
+
+/* ----------------------------------------------------------
+   3. Top banner — stack pill + msg + cta vertically on mobile
+      so no awkward horizontal overflow
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+  .motta-topbanner__inner {
+    padding: 10px 16px;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+  .motta-topbanner__track {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+  }
+  .motta-topbanner__pill {
+    display: inline-flex; /* re-show on mobile — we hide only the logo inside */
+    font-size: 10px;
+  }
+  .motta-topbanner__pill-logo {
+    display: none; /* hide the tiny logo mark so pill stays compact */
+  }
+  .motta-topbanner__msg {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .motta-topbanner__cta {
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 0;
+  }
+  .motta-topbanner__dots {
+    position: static;
+    transform: none;
+    margin-top: 6px;
+    display: inline-flex;
+  }
+}
+
+/* ----------------------------------------------------------
+   4. Hero slider — readable on 390px
+   ---------------------------------------------------------- */
+@media (max-width: 767px) {
+  /* Give hero a proper portrait height on phones */
+  .slider__area,
+  .slider__single {
+    min-height: 560px !important;
+  }
+  /* Pull text block to normal padding */
+  .slider__single .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  /* Tighten hero typography */
+  .slider__content .title {
+    font-size: clamp(28px, 8vw, 42px) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 14px !important;
+  }
+  .slider__content p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 20px !important;
+  }
+  /* Keep pill row from overflowing */
+  .slider__content .slider__pill-row {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  /* Stack CTA buttons vertically on small screens */
+  .slider__content .tg-btn-1,
+  .slider__content .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  /* Darken the hero overlay a little more so text pops */
+  .slider__single::before {
+    background: linear-gradient(
+      160deg,
+      rgba(10, 14, 8, 0.92) 0%,
+      rgba(15, 20, 10, 0.82) 55%,
+      rgba(20, 28, 14, 0.65) 100%
+    ) !important;
+  }
+}
+
+/* ----------------------------------------------------------
+   5. Breadcrumb — ensure header doesn't overlap page title
+   ---------------------------------------------------------- */
+@media (max-width: 767px) {
+  .motta-breadcrumb {
+    padding-top: 110px;
+    padding-bottom: 28px;
+  }
+  .motta-breadcrumb__title {
+    font-size: clamp(26px, 7vw, 38px);
+  }
+  .motta-breadcrumb__tagline {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
+
+/* ----------------------------------------------------------
+   6. FABs — prevent overlap; icon-only Intake on very small
+   ---------------------------------------------------------- */
+/* Shared safe bottom offset (above the browser chrome) */
+@media (max-width: 767px) {
+  .alfred-companion {
+    right: 16px;
+    bottom: 80px;
+    width: 56px;
+    height: 56px;
+  }
+  .motta-intake-fab {
+    left: 16px;
+    bottom: 80px;
+    padding: 11px 18px;
+    font-size: 13px;
+  }
+}
+
+/* At very small widths collapse intake FAB to icon-only to prevent
+   it overlapping content in the center of the screen */
+@media (max-width: 390px) {
+  .motta-intake-fab {
+    left: 12px;
+    bottom: 76px;
+    padding: 12px;
+    gap: 0;
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    justify-content: center;
+  }
+  .motta-intake-fab__label {
+    display: none;
+  }
+  .motta-intake-fab__arrow {
+    width: 20px;
+    height: 20px;
+  }
+  .alfred-companion {
+    right: 12px;
+    bottom: 76px;
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* ----------------------------------------------------------
+   7. Section spacing — reduce oversized top/bottom padding
+      so sections don't feel like isolated islands on mobile
+   ---------------------------------------------------------- */
+@media (max-width: 767px) {
+  /* About page sections */
+  .motta-about-story        { padding: 56px 0 40px; }
+  .motta-about-philosophy   { padding: 48px 0; }
+  .motta-about-principles   { padding: 56px 0; }
+  .motta-about-difference   { padding: 56px 0; }
+  .motta-about-services     { padding: 56px 0; }
+
+  /* Stats grid: 2-up on 767px, 1-up at 575 (already set above) */
+  .motta-about-difference__head { margin-bottom: 36px; }
+
+  /* Services overview */
+  .motta-services-overview {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .motta-services-overview .motta-services-cta {
+    margin-top: 48px;
+    padding-top: 24px;
+  }
+
+  /* Generic template section padding (beats main.css) */
+  .section-pt-120  { padding-top: 60px !important; }
+  .section-pb-120  { padding-bottom: 60px !important; }
+  .section-pt-90   { padding-top: 50px !important; }
+  .section-pb-90   { padding-bottom: 50px !important; }
+}
+
+/* ----------------------------------------------------------
+   8. Footer — center copyright on mobile, fix right-side
+      links wrapping oddly
+   ---------------------------------------------------------- */
+@media (max-width: 767px) {
+  .footer-bottom .row {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+  .footer-bottom .col-lg-6.text-lg-end > ul {
+    justify-content: center !important;
+  }
+  /* Give footer widgets more breathing room in mobile stacked layout */
+  .footer-top .footer-widget {
+    margin-bottom: 32px;
+  }
+  .footer-top .col-xl-3:last-child .footer-widget,
+  .footer-top .col-lg-4:last-child .footer-widget {
+    margin-bottom: 0;
+  }
+}
+
+/* ----------------------------------------------------------
+   9. Service detail + general content pages
+   ---------------------------------------------------------- */
+@media (max-width: 767px) {
+  .services__details-thumb img {
+    aspect-ratio: 16 / 9;
+  }
+  /* Reduce column gap in feature box grid */
+  .services__details-list .row {
+    row-gap: 16px;
+  }
+  /* Make sure .motta-service-card grid goes to 1 col */
+  .motta-about-services__grid .col-md-6,
+  .motta-about-services__grid [class*="col-"] {
+    width: 100%;
+  }
+}
+
+/* ----------------------------------------------------------
+   10. Intake modal — fully covers viewport on mobile
+   ---------------------------------------------------------- */
+@media (max-width: 640px) {
+  .motta-intake-modal {
+    padding: 0;
+    align-items: flex-start;
+  }
+  .motta-intake-modal__shell {
+    border-radius: 0;
+    min-height: 100dvh;
+    min-height: 100vh;
+  }
+}
+
+/* ----------------------------------------------------------
+   11. About section — fix decorative shape bleed + extra margin
+       The ::before block (135 px sage column) and the floating
+       shape PNG push mobile layout out by 50–200 px. Hide them
+       at mobile so the image sits flush inside the container.
+   ---------------------------------------------------------- */
+@media (max-width: 767px) {
+  .about__img-wrap-two::before {
+    display: none;
+  }
+  .about__img-wrap-two .shape {
+    display: none;
+  }
+  .about__img-wrap-two {
+    padding: 0 0 24px 0 !important;
+    margin-bottom: 24px !important;
+  }
+  .about__img-wrap-two > img {
+    width: 100%;
+    border-radius: 10px;
+    border-left: 3px solid var(--motta-sage, #6b745d);
+  }
+  /* Tighten the about section vertical padding on mobile */
+  .about__area-two {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+/* ----------------------------------------------------------
+   (continued) General mobile typography & container gutters
+   ---------------------------------------------------------- */
+@media (max-width: 575px) {
+  /* Section sub-titles / eyebrows */
+  .section-title .sub-title {
+    font-size: 12px !important;
+    letter-spacing: 0.12em !important;
+  }
+  /* Slightly tighter section heading on 575 */
+  .section-title .title {
+    font-size: clamp(24px, 7.5vw, 36px) !important;
+  }
+  /* Ensure Bootstrap containers don't get too wide a gutter */
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ----------------------------------------------------------
+   12. Accessibility — visible focus rings on mobile touch targets
+   ---------------------------------------------------------- */
+.mobile-nav-toggler:focus-visible,
+.alfred-companion:focus-visible,
+.motta-intake-fab:focus-visible,
+.motta-topbanner__cta:focus-visible {
+  outline: 2px solid var(--motta-sage-light, #8e9b79);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+

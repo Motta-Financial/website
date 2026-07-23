@@ -60,6 +60,12 @@ export default function Layout({
     window.wow.init();
     Aos.init();
 
+    // Measure the scrollbar width once and expose as a CSS var so
+    // body.mobile-menu-visible / body.motta-intake-open can pad-right
+    // by the same amount and prevent layout shift.
+    const sw = window.innerWidth - document.documentElement.clientWidth;
+    document.documentElement.style.setProperty('--scrollbar-width', `${sw}px`);
+
     document.addEventListener('scroll', () => {
       const scrollCheck = window.scrollY > 100;
       if (scrollCheck !== scroll) {
