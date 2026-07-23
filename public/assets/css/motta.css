@@ -2995,11 +2995,25 @@ button.motta-cta.btn:hover {
   border-top: 1px solid rgba(107, 116, 93, 0.16);
 }
 
-/* Outlined buttons used standalone (.border-btn without .btn) had sharp
-   square corners that clashed with the pill style used everywhere else.
-   Round them to match .btn so every outlined button is a pill. */
+/* Existing client portal link in callback section */
+.motta-portal-link {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: underline;
+}
+.motta-portal-link:hover {
+  color: #fff;
+}
+
+/* Professional rounded rectangle — not a pill/blob */
+.btn,
+button.btn {
+  border-radius: 8px !important;
+}
 .border-btn {
-  border-radius: 8dvh;
+  border-radius: 8px !important;
 }
 
 /* Book a Demo form sat on a dark section but its placeholder text rendered
@@ -3789,6 +3803,35 @@ body.motta-intake-open {
   .about__img-wrap-two > img,
   .about__img-wrap img {
     max-height: 150px !important;
+  }
+
+  /* Hide decorative blob shape on mobile — it overflows and looks broken */
+  .slider__shape {
+    display: none !important;
+  }
+
+  /* Hide portal link on mobile — too cramped alongside the two buttons */
+  .motta-portal-link {
+    display: none !important;
+  }
+
+  /* Callback section — much tighter text so it doesn't fill the screen */
+  .call-back-area .section-title .title,
+  .call-back-area .call-back-content .title,
+  .call-back-area .white-title .title,
+  .call-back-area h2,
+  .call-back-area h2.title,
+  .call-back-area .tg-element-title {
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
+  }
+  .call-back-area p,
+  .call-back-content p,
+  .call-back-area .call-back-content p {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0 !important;
   }
   /* Ensure Bootstrap containers don't get too wide a gutter */
   .container {
