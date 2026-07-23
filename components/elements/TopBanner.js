@@ -67,7 +67,7 @@ export default function TopBanner() {
     >
       <div className="motta-topbanner__inner">
         <div className={`motta-topbanner__track${animating ? ' motta-topbanner--slide-out' : ' motta-topbanner--slide-in'}`}>
-
+          {/* Pill badge — fixed left, never scrolls */}
           <span className="motta-topbanner__pill">
             {msg.pill === 'ALFRED Ai' ? (
               <AlfredLogo size={12} className="alfred-logo--invert motta-topbanner__pill-logo" />
@@ -75,30 +75,54 @@ export default function TopBanner() {
             {msg.pill}
           </span>
 
-          <span className="motta-topbanner__msg">
-            {msg.text}
+          {/* Scrolling region — msg + cta marquee together */}
+          <span className="motta-topbanner__scroll-region">
+            <span className="motta-topbanner__scroll-inner" key={index}>
+              <span className="motta-topbanner__msg">{msg.text}</span>
+              {msg.intake ? (
+                <a
+                  href="#intake"
+                  className="motta-topbanner__cta"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.dispatchEvent(
+                      new CustomEvent('motta:open-intake', {
+                        detail: { source: msg.source || 'top banner' },
+                      })
+                    );
+                  }}
+                >
+                  &nbsp;&nbsp;{msg.cta}
+                </a>
+              ) : (
+                <Link href={msg.href} className="motta-topbanner__cta">
+                  &nbsp;&nbsp;{msg.cta}
+                </Link>
+              )}
+              {/* Duplicate for seamless loop */}
+              <span className="motta-topbanner__msg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{msg.text}</span>
+              {msg.intake ? (
+                <a
+                  href="#intake"
+                  className="motta-topbanner__cta"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.dispatchEvent(
+                      new CustomEvent('motta:open-intake', {
+                        detail: { source: msg.source || 'top banner' },
+                      })
+                    );
+                  }}
+                >
+                  &nbsp;&nbsp;{msg.cta}
+                </a>
+              ) : (
+                <Link href={msg.href} className="motta-topbanner__cta">
+                  &nbsp;&nbsp;{msg.cta}
+                </Link>
+              )}
+            </span>
           </span>
-
-          {msg.intake ? (
-            <a
-              href="#intake"
-              className="motta-topbanner__cta"
-              onClick={(e) => {
-                e.preventDefault();
-                window.dispatchEvent(
-                  new CustomEvent('motta:open-intake', {
-                    detail: { source: msg.source || 'top banner' },
-                  })
-                );
-              }}
-            >
-              {msg.cta}
-            </a>
-          ) : (
-            <Link href={msg.href} className="motta-topbanner__cta">
-              {msg.cta}
-            </Link>
-          )}
         </div>
 
         <div className="motta-topbanner__dots" role="tablist" aria-label="Announcement selector">

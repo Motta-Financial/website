@@ -108,13 +108,37 @@
   50%      { opacity: 0.4; transform: scale(0.7); }
 }
 
-/* Message text — truncate if it can't fit */
+/* Scrolling region — clips the marquee track */
+.motta-topbanner__scroll-region {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Inner marquee strip — animates left continuously */
+@keyframes motta-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.motta-topbanner__scroll-inner {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: motta-marquee 22s linear infinite;
+}
+/* Pause on hover / focus (desktop) */
+.motta-topbanner:hover .motta-topbanner__scroll-inner,
+.motta-topbanner:focus-within .motta-topbanner__scroll-inner {
+  animation-play-state: paused;
+}
+
+/* Message text inside the marquee */
 .motta-topbanner__msg {
   color: rgba(234, 230, 225, 0.88);
   font-size: 11px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* CTA link */
@@ -3550,6 +3574,33 @@ body.motta-intake-open {
   .container {
     padding-left: 20px !important;
     padding-right: 20px !important;
+  }
+}
+
+/* ----------------------------------------------------------
+   13. Header — slim logo + compact hamburger on mobile
+   ---------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  /* Logo: shrink from 75px to something readable but not giant */
+  .tgmenu__nav .logo img {
+    max-height: 40px !important;
+  }
+
+  /* Hamburger: smaller, no heavy box-shadow white box */
+  .tg-header__area .mobile-nav-toggler {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+  .tg-header__area .mobile-nav-toggler svg {
+    width: 15px !important;
+  }
+
+  /* Header wrap — tighter vertical padding on mobile */
+  .tgmenu__wrap {
+    padding: 6px 0 !important;
   }
 }
 
