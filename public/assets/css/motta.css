@@ -126,7 +126,7 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  animation: motta-marquee 28s linear infinite;
+  animation: motta-marquee 22s linear infinite;
 }
 /* Pause on hover / focus (desktop) */
 .motta-topbanner:hover .motta-topbanner__scroll-inner,

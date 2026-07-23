@@ -49,9 +49,9 @@ export default function TopBanner() {
   };
 
   useEffect(() => {
-    // Match the marquee CSS duration (28s) so the full sentence always
+    // Match the marquee CSS duration (22s) so the full sentence always
     // completes one pass before we swap to the next message.
-    timerRef.current = setInterval(advance, 28000);
+    timerRef.current = setInterval(advance, 22000);
     return () => clearInterval(timerRef.current);
   }, [index]);
 
@@ -62,7 +62,7 @@ export default function TopBanner() {
       className="motta-topbanner"
       onMouseEnter={() => clearInterval(timerRef.current)}
       onMouseLeave={() => {
-        timerRef.current = setInterval(advance, 28000);
+        timerRef.current = setInterval(advance, 22000);
       }}
       role="region"
       aria-label="Site announcements"
