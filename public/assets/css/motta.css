@@ -3007,13 +3007,13 @@ button.motta-cta.btn:hover {
   color: #fff;
 }
 
-/* Professional rounded rectangle — not a pill/blob */
+/* Pill-shaped buttons — consistent capsule style site-wide */
 .btn,
 button.btn {
-  border-radius: 8px !important;
+  border-radius: 999px !important;
 }
 .border-btn {
-  border-radius: 8px !important;
+  border-radius: 999px !important;
 }
 
 /* Book a Demo form sat on a dark section but its placeholder text rendered

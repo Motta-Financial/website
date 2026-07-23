@@ -55,9 +55,6 @@ export default function HeroSlider() {
               </div>
             </div>
           </div>
-          <div className="slider__shape">
-            <img src="/assets/img/slider/slider_shape01.png" alt="" />
-          </div>
         </SwiperSlide>
 
         {/* Slide 2 — Intuit case study */}
@@ -92,9 +89,6 @@ export default function HeroSlider() {
               </div>
             </div>
           </div>
-          <div className="slider__shape">
-            <img src="/assets/img/slider/slider_shape01.png" alt="" />
-          </div>
         </SwiperSlide>
 
         {/* Slide 3 — Intuit ecosystem */}
@@ -128,9 +122,6 @@ export default function HeroSlider() {
               </div>
             </div>
           </div>
-          <div className="slider__shape">
-            <img src="/assets/img/slider/slider_shape01.png" alt="" />
-          </div>
         </SwiperSlide>
 
         {/* Slide 4 — Mottainai */}
@@ -163,9 +154,6 @@ export default function HeroSlider() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="slider__shape">
-            <img src="/assets/img/slider/slider_shape01.png" alt="" />
           </div>
         </SwiperSlide>
 

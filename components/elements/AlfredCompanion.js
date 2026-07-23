@@ -62,7 +62,7 @@ export default function AlfredCompanion() {
       data-state={excited ? 'excited' : 'idle'}
       aria-label="Chat with ALFRED — Motta's AI assistant"
     >
-      <AlfredLogo size={64} glow className="alfred-companion__mark" />
+      <AlfredLogo size={36} glow className="alfred-companion__mark" />
       <span className="alfred-companion__tooltip">{tip}</span>
     </button>
   );
