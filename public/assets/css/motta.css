@@ -2847,9 +2847,13 @@ button.motta-cta.btn:hover {
   }
 }
 
-/* Footer copyright bar inherited a cool gray (--tg-color-gray-1) that
-   clashed with the warm cream page background. Let the body cream show
-   through and use a soft warm divider so the bottom matches the top. */
+/* Footer — warm cream/beige background on the entire footer (top + bottom)
+   so it reads as the same warm tone across every page. */
+.footer-area {
+  background: var(--motta-cream-100, #f4f1eb);
+}
+/* Footer copyright bar: transparent so it inherits the cream above,
+   with a subtle warm divider. */
 .footer-bottom {
   background: transparent;
   border-top: 1px solid rgba(107, 116, 93, 0.16);

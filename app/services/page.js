@@ -12,7 +12,7 @@ export const metadata = {
 const SERVICE_CATEGORIES = [
   {
     title: 'Tax',
-    href: '/services/tax',
+    href: '/services/tax-planning',
     icon: 'flaticon-profit',
     desc: 'Year-round tax planning and preparation for individuals, families, and businesses — with ALFRED Ai handling the heavy lifting so your CPA can focus on strategy.',
     services: [

@@ -66,8 +66,8 @@ export default function PartnershipsOverview() {
             back to you within two business days.
           </p>
         </div>
-        <Link href="/contact" className="btn">
-          Get in Touch
+        <Link href="/contact" className="btn motta-cta">
+          Get in Touch <i className="flaticon-arrow-button" />
         </Link>
       </div>
 

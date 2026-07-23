@@ -12,7 +12,6 @@ const SERVICE_GROUPS = [
   {
     area: 'Tax',
     items: [
-      { href: '/services/tax', label: 'Tax Services' },
       { href: '/services/tax-planning', label: 'Tax Planning & Preparation' },
       { href: '/services/tax/small-business', label: 'Small Business Tax Advisory' },
       { href: '/services/tax/s-corp', label: 'S-Corp Elections & Compliance' },

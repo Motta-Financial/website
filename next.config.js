@@ -4,8 +4,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/services/tax-planning',
-        destination: '/services/tax',
+        source: '/services/tax',
+        destination: '/services/tax-planning',
         permanent: true,
       },
     ];

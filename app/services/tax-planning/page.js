@@ -19,7 +19,7 @@ export default function TaxPlanning() {
         currentHref="/services/tax-planning"
         heroImage="/assets/img/services/tax-planning-hero.jpg"
         title="Tax Planning & Preparation"
-        lede="Most people only think about taxes once a year — and pay extra for it. Motta works with you year-round, looking at every big decision before it happens so the bill in April is the smallest one possible. ALFRED Ai handles the heavy lifting on your return so your CPA can focus on the strategy that actually saves you money."
+        lede="Great tax planning happens before you file, not during. Motta's CPAs work with you throughout the year — modeling decisions, adjusting estimated payments, and making sure every big move you make has been stress-tested for its tax impact first. ALFRED Ai handles document collection and return preparation so your advisor can spend their time on strategy."
         bullets={[
           {
             icon: 'flaticon-target',

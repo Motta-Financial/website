@@ -31,7 +31,7 @@ export default function Menu() {
           <Link href="/services">Services</Link>
           <ul className="sub-menu">
             <li>
-              <Link href="/services/tax">Tax</Link>
+              <Link href="/services/tax-planning">Tax</Link>
             </li>
             <li>
               <Link href="/services/accounting">Accounting</Link>
