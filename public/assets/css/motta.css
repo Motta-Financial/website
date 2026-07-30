@@ -496,19 +496,22 @@
   align-items: center;
   display: inline-flex !important;
   gap: 6px;
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  /* Grow vertically to fit wrapped text */
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  /* Grow vertically to fit wrapped text, but stay compact */
   height: auto !important;
-  min-height: 44px;
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
-  line-height: 1.25 !important;
+  min-height: 38px;
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  line-height: 1.2 !important;
 }
-/* Arrow glyph must never shrink or get pushed outside the capsule */
+/* Arrow glyph must never shrink or get pushed outside the capsule.
+   Kill the theme's margin-left so the arrow sits close to the label,
+   which matters most when the label wraps onto two lines. */
 .slider__btn-row .btn::after,
 .slider__btn-row button.btn::after {
   flex: 0 0 auto !important;
+  margin-left: 0 !important;
 }
 
 /* CTA button row — side-by-side on all screen sizes */
@@ -3072,16 +3075,17 @@ button.btn::before {
   .slider__btn-row .btn,
   .slider__btn-row button.btn {
     font-size: 11px !important;
-    line-height: 1.2 !important;
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-    gap: 4px;
+    line-height: 1.15 !important;
+    padding: 5px 10px !important;
+    min-height: 34px;
+    gap: 5px;
   }
-  /* Shrink the arrow so the label gets the space it needs */
+  /* Shrink the arrow and pull it in tight against the label */
   .slider__btn-row .btn::after,
   .slider__btn-row button.btn::after {
-    width: 14px !important;
-    background-size: 14px auto !important;
+    width: 13px !important;
+    background-size: 13px auto !important;
+    margin-left: 0 !important;
   }
 }
 
