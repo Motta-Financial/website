@@ -3444,33 +3444,32 @@ body.motta-intake-open {
 
 /* Top banner mobile handled in the banner block above */
 
-/* Call-back section button row — compact side-by-side on mobile */
+/* Call-back section buttons stack full-width on mobile, matching the hero,
+   so labels stay at the unified body size instead of shrinking to fit. */
 @media (max-width: 991.98px) {
   .call-back-area .slider__btn-row,
   .call-back-area-two .slider__btn-row {
-    flex-direction: row !important;
+    flex-direction: column !important;
     flex-wrap: nowrap !important;
-    gap: 8px !important;
+    gap: 10px !important;
     width: 100% !important;
-    /* Equal-height capsules regardless of label length */
     align-items: stretch !important;
   }
   .call-back-area .slider__btn-row .btn,
   .call-back-area-two .slider__btn-row .btn,
   .call-back-area .slider__btn-row button.btn,
   .call-back-area-two .slider__btn-row button.btn {
-    flex: 1 1 0 !important;
-    width: auto !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
     min-width: 0 !important;
-    font-size: 11px !important;
+    font-size: var(--motta-m-body, 15px) !important;
     letter-spacing: 0 !important;
-    padding: 8px !important;
-    overflow: hidden !important;
+    padding: 12px 18px !important;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    min-height: 40px !important;
-    gap: 3px !important;
+    min-height: 46px !important;
+    gap: 8px !important;
   }
   /* Arrow sits close to the text instead of drifting to the edge */
   .call-back-area .slider__btn-row .btn::after,
@@ -3479,8 +3478,8 @@ body.motta-intake-open {
   .call-back-area-two .slider__btn-row button.btn::after {
     flex: 0 0 auto !important;
     margin-left: 0 !important;
-    width: 13px !important;
-    background-size: 13px auto !important;
+    width: 15px !important;
+    background-size: 15px auto !important;
   }
 }
 
@@ -3522,35 +3521,33 @@ body.motta-intake-open {
     height: 24px;
     letter-spacing: 0.08em;
   }
-  /* CTA button row — compact on mobile.
-     align-items: stretch keeps both capsules the exact same height even if
-     one label wraps, so the pills never look misaligned. */
+  /* CTA buttons stack full-width on mobile so every label renders at the
+     unified body size on one line instead of being shrunk to fit two across. */
   .slider__content .slider__btn-row {
-    gap: 7px;
+    flex-direction: column !important;
     align-items: stretch !important;
+    gap: 10px !important;
+    width: 100%;
   }
   .slider__content .slider__btn-row .btn {
-    flex: 1 1 0;
+    flex: 0 0 auto !important;
+    width: 100% !important;
     min-width: 0;
-    /* 8px side padding + 11px text buys the ~14px needed to keep labels
-       like "Read the case study" on a single line at 331px. */
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-    min-height: 40px;
-    font-size: 11px !important;
+    padding: 12px 18px !important;
+    min-height: 46px;
+    font-size: var(--motta-m-body, 15px) !important;
     letter-spacing: 0 !important;
     text-align: center;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    gap: 3px !important;
+    gap: 8px !important;
   }
   /* Keep the arrow tucked right against the label */
   .slider__content .slider__btn-row .btn::after {
     flex: 0 0 auto !important;
     margin-left: 0 !important;
-    width: 13px !important;
-    background-size: 13px auto !important;
+    width: 15px !important;
+    background-size: 15px auto !important;
   }
   /* Service cards — tighter on mobile */
   .motta-service-card {
@@ -4138,5 +4135,195 @@ body.motta-intake-open {
 }
 .tgmobile__menu .close-btn:hover {
   color: var(--motta-sage, #6b745d) !important;
+}
+
+/* ==========================================================
+   14. UNIFIED MOBILE TYPE SCALE
+   The mobile build had accumulated 30+ font sizes (8px-22px,
+   including 11.5/12.5/13.5/14.5px) with line-heights as tight
+   as 1.0, which is what made scrolling feel busy and cramped.
+   Everything below collapses that to ONE body size with a
+   restrained heading ramp and a consistent reading rhythm.
+
+   Must stay last in the file so it wins over the earlier
+   per-component overrides.
+   ========================================================== */
+@media (max-width: 767.98px) {
+  :root {
+    --motta-m-body: 15px; /* the single body size */
+    --motta-m-h6: 16px;
+    --motta-m-h5: 16px;
+    --motta-m-h4: 18px;
+    --motta-m-h3: 18px;
+    --motta-m-h2: 22px;
+    --motta-m-h1: 26px;
+    --motta-m-lh: 1.6; /* generous leading = easy scrolling */
+    --motta-m-lh-tight: 1.3; /* for headings */
+  }
+
+  html {
+    /* stop iOS from auto-inflating text on rotate */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    font-size: var(--motta-m-body) !important;
+    line-height: var(--motta-m-lh) !important;
+  }
+
+  /* ---- One body size across every text element ----
+     The theme sets sizes with two-class selectors like
+     `.slider__content .sub-title` (specificity 0,2,0), which
+     outrank plain element rules even with !important. The
+     `html body` prefix plus the :not() guards below raise this
+     rule's specificity high enough to win everywhere.
+
+     The icon guards are essential: Font Awesome and flaticon
+     glyphs are sized BY font-size, so sweeping them into the
+     reset would visibly shrink or break every icon. Headings
+     are excluded here and handled by the ramp below. */
+  html body *:not(i):not(svg):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(.h1):not(.h2):not(.h3):not(.h4):not(.h5):not(.h6):not([class*="flaticon"]):not([class*="fa-"]):not([class*="icon"]):not(.plus-line):not(.close-btn):not(.counter__count):not(.odometer) {
+    font-size: var(--motta-m-body) !important;
+    line-height: var(--motta-m-lh) !important;
+    letter-spacing: normal !important;
+  }
+
+  /* ---- Restrained heading ramp ----
+     The extra :not() guards are specificity ballast. The theme
+     has three-class rules such as
+     `.call-back-area .section-title .title` (0,3,0); four class-
+     level guards put these at (0,4,3) so the ramp always wins. */
+  html body h1:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow),
+  html body .h1:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow) {
+    font-size: var(--motta-m-h1) !important;
+  }
+  html body h2:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow),
+  html body .h2:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow) {
+    font-size: var(--motta-m-h2) !important;
+  }
+  html body h3:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow),
+  html body .h3:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow) {
+    font-size: var(--motta-m-h3) !important;
+  }
+  html body h4:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow),
+  html body .h4:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow) {
+    font-size: var(--motta-m-h4) !important;
+  }
+  html body h5:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow),
+  html body .h5:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow) {
+    font-size: var(--motta-m-h5) !important;
+  }
+  html body h6:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow),
+  html body .h6:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow) {
+    font-size: var(--motta-m-h6) !important;
+  }
+  html body h1,
+  html body h2,
+  html body h3,
+  html body h4,
+  html body h5,
+  html body h6 {
+    line-height: var(--motta-m-lh-tight) !important;
+    letter-spacing: -0.01em !important;
+    text-wrap: pretty;
+  }
+
+  /* The hero headline is the page's primary title, so it takes the
+     top of the ramp even though it's marked up as an h2. Needs one
+     more guard than the ramp above to outrank it. */
+  html body .slider__content .title:not(.plus-line):not(.odometer):not(.sr-only):not(.motta-eyebrow):not(.h6) {
+    font-size: var(--motta-m-h1) !important;
+    line-height: var(--motta-m-lh-tight) !important;
+  }
+
+  /* Social + close icons are tap targets, so keep them comfortably
+     larger than body copy rather than inheriting 15px */
+  html body .social-links ul li a i,
+  html body .tgmobile__menu .social-links ul li a i,
+  html body footer .social-links a i {
+    font-size: 18px !important;
+  }
+
+  /* ---- High-specificity component overrides that would
+          otherwise escape the reset above ---- */
+  .slider__title,
+  .slider__content .slider__title {
+    font-size: var(--motta-m-h1) !important;
+    line-height: var(--motta-m-lh-tight) !important;
+  }
+  .slider__sub-title,
+  .slider__content .slider__sub-title,
+  .section__title,
+  .section__title-two {
+    font-size: var(--motta-m-h2) !important;
+    line-height: var(--motta-m-lh-tight) !important;
+  }
+  .sub-title,
+  .section__sub-title,
+  .slider__desc,
+  .slider__content p,
+  .section__desc,
+  .motta-service-card__title,
+  .motta-service-card__desc,
+  .motta-service-card p,
+  .about__content p,
+  .counter__content p,
+  .team__content p,
+  .blog__content p,
+  .faq__content p,
+  .testimonial__content p,
+  .footer__widget p,
+  .footer__widget li,
+  .footer__widget a,
+  .breadcrumb__content p,
+  .contact__content p {
+    font-size: var(--motta-m-body) !important;
+    line-height: var(--motta-m-lh) !important;
+  }
+
+  /* Eyebrow / label text: same size, differentiated by weight
+     and letter-spacing rather than by being tiny */
+  .motta-eyebrow,
+  .sub-title-two,
+  .motta-topbanner__badge {
+    font-size: var(--motta-m-body) !important;
+    line-height: var(--motta-m-lh) !important;
+  }
+
+  /* Mobile drawer inherits the same scale */
+  .tgmobile__menu-outer .navigation > li > a {
+    font-size: var(--motta-m-body) !important;
+    line-height: var(--motta-m-lh) !important;
+  }
+  .tgmobile__menu-outer .navigation li .sub-menu > li > a {
+    font-size: var(--motta-m-body) !important;
+    line-height: var(--motta-m-lh) !important;
+  }
+  .tgmobile__menu-outer .navigation > li > .motta-intake-link,
+  .tgmobile__menu .contact-info ul li,
+  .tgmobile__menu .contact-info ul li a,
+  .tgmobile__search p {
+    font-size: var(--motta-m-body) !important;
+    line-height: var(--motta-m-lh) !important;
+  }
+
+  /* Numeric counters stay larger — they're a graphic element,
+     not reading copy */
+  .counter__count,
+  .odometer,
+  .counter__content .count {
+    font-size: var(--motta-m-h1) !important;
+    line-height: var(--motta-m-lh-tight) !important;
+  }
+
+  /* Comfortable paragraph rhythm while scrolling */
+  p {
+    margin-bottom: 14px;
+    text-wrap: pretty;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
 
