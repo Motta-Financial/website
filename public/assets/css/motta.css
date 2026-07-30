@@ -488,13 +488,27 @@
   flex: 1 1 0 !important;
   width: auto !important;
   min-width: 0;
-  white-space: nowrap;
-  overflow: visible !important;
+  /* Let long labels break onto a second line instead of spilling out */
+  white-space: normal !important;
+  overflow: hidden !important;
   text-align: center;
   justify-content: center;
+  align-items: center;
   display: inline-flex !important;
+  gap: 6px;
   padding-left: 10px !important;
   padding-right: 10px !important;
+  /* Grow vertically to fit wrapped text */
+  height: auto !important;
+  min-height: 44px;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  line-height: 1.25 !important;
+}
+/* Arrow glyph must never shrink or get pushed outside the capsule */
+.slider__btn-row .btn::after,
+.slider__btn-row button.btn::after {
+  flex: 0 0 auto !important;
 }
 
 /* CTA button row — side-by-side on all screen sizes */
@@ -3024,13 +3038,23 @@ button.btn {
   box-shadow: none !important;
 }
 
-/* Pill button text — never let it overflow the capsule */
+/* The theme's hover "ripple" is a 50%-radius #333 ellipse on .btn::before,
+   parked below the button. Any ancestor with overflow:visible let it escape
+   and render as a large gray blob over the page. Remove it outright. */
+.btn::before,
+.border-btn::before,
+button.btn::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Pill button text — wrap to a second line rather than spilling out */
 .btn,
 .border-btn {
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
-  text-overflow: ellipsis;
   max-width: 100%;
+  text-wrap: balance;
 }
 
 /* Slider blob — the ::after pseudo on .slider__single bleeds on mobile */
@@ -3043,13 +3067,21 @@ button.btn {
   }
 }
 
-/* Pill font-size on very small screens so text stays inside */
+/* Pill sizing on very small screens so wrapped text stays inside */
 @media (max-width: 400px) {
-  .btn,
-  .border-btn {
+  .slider__btn-row .btn,
+  .slider__btn-row button.btn {
     font-size: 11px !important;
-    padding-left: 14px !important;
-    padding-right: 14px !important;
+    line-height: 1.2 !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    gap: 4px;
+  }
+  /* Shrink the arrow so the label gets the space it needs */
+  .slider__btn-row .btn::after,
+  .slider__btn-row button.btn::after {
+    width: 14px !important;
+    background-size: 14px auto !important;
   }
 }
 
