@@ -24,7 +24,7 @@ export default function Callback2() {
             <div className="col-xl-6 col-lg-7">
               <div className="slider__btn-row">
                 <IntakeButton className="btn" source="callback">
-                  Boot up an engagement
+                  Get Started
                 </IntakeButton>
                 <Link href="/contact" className="btn border-btn">
                   Send Us a Message

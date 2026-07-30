@@ -24,7 +24,7 @@ export default function Callback1() {
           <div className="col-lg-5" style={{ paddingLeft: 20, paddingRight: 20 }}>
             <div className="slider__btn-row" style={{ flexWrap: 'wrap', rowGap: 8 }}>
               <IntakeButton className="btn" source="callback">
-                Boot up an engagement
+                Get Started
               </IntakeButton>
               <Link href="/contact" className="btn border-btn">
                 Send Us a Message

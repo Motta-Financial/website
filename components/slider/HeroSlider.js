@@ -45,7 +45,7 @@ export default function HeroSlider() {
                   </p>
                   <div className="slider__btn-row">
                     <IntakeButton className="btn" source="hero">
-                      Boot up an engagement
+                      Get Started
                     </IntakeButton>
                     <Link href="/services" className="btn border-btn">
                       Explore Services
