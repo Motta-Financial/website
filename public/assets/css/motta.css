@@ -3435,9 +3435,11 @@ body.motta-intake-open {
   color: var(--motta-warm, #eae6e1);
   border-bottom-color: var(--motta-warm, #eae6e1);
 }
-/* Make sure the nav search sub-heading in drawer matches */
+/* Make sure the nav search sub-heading in drawer matches.
+   Sage-on-cream was too low contrast, so use a deeper sage. */
 .tgmobile__search p {
   font-size: 13px !important;
+  color: var(--motta-sage-deep, #4f573f) !important;
 }
 
 /* Top banner mobile handled in the banner block above */
@@ -3976,5 +3978,165 @@ body.motta-intake-open {
   outline: 2px solid var(--motta-sage-light, #8e9b79);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+/* ----------------------------------------------------------
+   13. Mobile nav drawer — match the desktop Motta palette
+       (cream bar, charcoal labels, sage accents). The theme
+       shipped a light-blue #ECF6FA "+" chip and an unstyled
+       sub-menu, neither of which is on brand.
+   ---------------------------------------------------------- */
+
+/* Drawer surface: same cream as the desktop nav bar.
+   The transparent site header sits over the dark hero and was painting
+   on top of the drawer's top strip, so lift the drawer above it. */
+.tgmobile__menu {
+  z-index: 1002 !important;
+}
+.tgmobile__menu-backdrop {
+  z-index: 1001 !important;
+}
+.tgmobile__menu .tgmobile__menu-box,
+.tgmobile__menu-outer {
+  background-color: var(--motta-cream, #f7f5f1);
+}
+
+/* Top-level items */
+.tgmobile__menu-outer .navigation > li {
+  border-top: 1px solid rgba(107, 116, 93, 0.14);
+  position: relative;
+}
+.tgmobile__menu-outer .navigation > li:last-child {
+  border-bottom: 1px solid rgba(107, 116, 93, 0.14);
+}
+.tgmobile__menu-outer .navigation > li > a {
+  color: var(--motta-charcoal, #333) !important;
+  font-size: 16px !important;
+  font-weight: 600;
+  /* keep the label clear of the +/- chip */
+  padding: 13px 60px 13px 20px !important;
+  line-height: 1.35 !important;
+}
+.tgmobile__menu-outer .navigation > li > a:hover,
+.tgmobile__menu-outer .navigation > li.active > a {
+  color: var(--motta-sage, #6b745d) !important;
+  background-color: rgba(107, 116, 93, 0.06);
+}
+
+/* The +/- chip: sage instead of the theme's light blue */
+.tgmobile__menu-outer .navigation li .dropdown-btn {
+  top: 6px !important;
+  right: 14px !important;
+  width: 30px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+  border-radius: 6px !important;
+  background-color: var(--motta-sage, #6b745d) !important;
+  border: none !important;
+  transition: background-color 0.2s ease;
+}
+.tgmobile__menu-outer .navigation li .dropdown-btn:hover {
+  background-color: var(--motta-sage-deep, #4f573f) !important;
+}
+/* .plus-line is the horizontal bar, its ::after the vertical bar */
+.tgmobile__menu-outer .navigation li .dropdown-btn .plus-line,
+.tgmobile__menu-outer .navigation li .dropdown-btn .plus-line::after {
+  background-color: var(--motta-white, #fff) !important;
+}
+/* Open state reads as a minus */
+.tgmobile__menu-outer .navigation li .dropdown-btn.open {
+  background-color: var(--motta-sage-deep, #4f573f) !important;
+}
+.tgmobile__menu-outer .navigation li .dropdown-btn.open .plus-line::after {
+  opacity: 0;
+}
+
+/* Expanded category list — indented, tinted, clearly secondary */
+.tgmobile__menu-outer .navigation li .sub-menu {
+  background-color: rgba(107, 116, 93, 0.06) !important;
+  border-left: 2px solid var(--motta-sage-light, #8e9b79);
+  margin: 0 0 6px 20px !important;
+  padding: 4px 0 !important;
+}
+.tgmobile__menu-outer .navigation li .sub-menu > li {
+  border: none !important;
+}
+.tgmobile__menu-outer .navigation li .sub-menu > li > a {
+  color: rgba(51, 51, 51, 0.82) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  padding: 9px 16px 9px 16px !important;
+  line-height: 1.35 !important;
+  text-transform: none !important;
+}
+.tgmobile__menu-outer .navigation li .sub-menu > li > a:hover {
+  color: var(--motta-sage, #6b745d) !important;
+  background-color: rgba(107, 116, 93, 0.09);
+}
+
+/* "Become a Client" was a bare button flush to the drawer edge —
+   give it the same inset as the nav labels and make it a sage CTA */
+.tgmobile__menu-outer .navigation > li > .motta-intake-link {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 14px 20px;
+  padding: 12px 16px;
+  background-color: var(--motta-sage, #6b745d);
+  color: var(--motta-white, #fff);
+  border: none;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.tgmobile__menu-outer .navigation > li > .motta-intake-link:hover {
+  background-color: var(--motta-sage-deep, #4f573f);
+  color: var(--motta-white, #fff);
+}
+
+/* Close the dead space between the logo and the first nav item */
+.tgmobile__menu .nav-logo,
+.tgmobile__menu-outer .nav-logo {
+  padding: 18px 20px 14px !important;
+  margin-bottom: 0 !important;
+}
+.tgmobile__menu .nav-logo img {
+  max-width: 150px;
+}
+
+/* Drawer contact block picks up brand colors too */
+.tgmobile__menu .contact-info ul li,
+.tgmobile__menu .contact-info ul li a {
+  color: var(--motta-charcoal, #333) !important;
+  font-size: 14px !important;
+}
+.tgmobile__menu .social-links ul li a {
+  color: var(--motta-sage, #6b745d) !important;
+}
+.tgmobile__menu .social-links ul li a:hover {
+  color: var(--motta-sage-deep, #4f573f) !important;
+}
+/* Login link is sage-on-cream in the drawer, so darken it for contrast */
+.tgmobile__menu-outer .motta-mobile-login-link,
+.tgmobile__menu .motta-mobile-login-link {
+  color: var(--motta-sage, #6b745d);
+  border-bottom-color: rgba(107, 116, 93, 0.4);
+}
+.tgmobile__menu-outer .motta-mobile-login-link:hover,
+.tgmobile__menu .motta-mobile-login-link:hover {
+  color: var(--motta-sage-deep, #4f573f);
+  border-bottom-color: var(--motta-sage-deep, #4f573f);
+}
+
+/* Close (X) button in brand charcoal/sage */
+.tgmobile__menu .close-btn {
+  color: var(--motta-charcoal, #333) !important;
+  transition: color 0.2s ease;
+}
+.tgmobile__menu .close-btn:hover {
+  color: var(--motta-sage, #6b745d) !important;
 }
 
