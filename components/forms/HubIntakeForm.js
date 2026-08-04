@@ -87,21 +87,8 @@ const STATES = [
   'VT','VA','WA','WV','WI','WY','PR',
 ];
 
-// Motta team members with their Calendly booking links. The `name`
-// is what gets stored in the Hub's `preferred_team_member` column,
-// so it should match how teammates are referred to elsewhere. After
-// a successful intake submit we redirect to `calendly` with the
-// prospect's name + email prefilled.
-const TEAM_MEMBERS = [
-  { name: 'Dat Le', calendly: 'https://calendly.com/dat-le-motta' },
-  { name: 'Julian Jacobson', calendly: 'https://calendly.com/julian-jacobson-mottafinancial' },
-  { name: 'Caleb Long', calendly: 'https://calendly.com/caleb-long-mottafinancial' },
-  { name: 'Amy Sparaco', calendly: 'https://calendly.com/amy-sparaco-mottafinancial' },
-  { name: 'Andrew Gianares', calendly: 'https://calendly.com/andrew-gianares-mottafinancial' },
-  { name: 'Terry Song', calendly: 'https://calendly.com/terry-song-mottafinancial' },
-];
-
-const NO_PREFERENCE = 'No preference — match me with a teammate';
+// All intake bookings go to Caleb Long's Calendly link.
+const CALEB_CALENDLY = 'https://calendly.com/caleb-long-mottafinancial';
 
 function buildCalendlyUrl(baseUrl, { name, email, trackingId } = {}) {
   if (!baseUrl) return null;
@@ -285,7 +272,6 @@ export default function HubIntakeForm() {
   const [servicesOther, setServicesOther] = useState('');
   const [entityTypes, setEntityTypes] = useState([]);
   const [entityTypesOther, setEntityTypesOther] = useState('');
-  const [preferredTeamMember, setPreferredTeamMember] = useState('');
   // Where we redirect after a successful intake. Captured at submit
   // time so we don't lose it if the form re-renders.
   const [redirectUrl, setRedirectUrl] = useState(null);
@@ -360,7 +346,6 @@ export default function HubIntakeForm() {
       questions_or_concerns: get('questions_or_concerns') || undefined,
       additional_notes: get('additional_notes') || undefined,
       referral_source: get('referral_source') || undefined,
-      preferred_team_member: preferredTeamMember || undefined,
 
       behind_on_filings: get('behind_on_filings') || undefined,
       pending_tax_notices: get('pending_tax_notices') || undefined,
@@ -386,22 +371,17 @@ export default function HubIntakeForm() {
         hubResponse?.data?.id ||
         null;
 
-      // Resolve a Calendly redirect: use the chosen teammate's link,
-      // or fall back to Caleb (general intake) when "no preference"
-      // is selected, so every prospect lands on a booking page.
-      const chosen = TEAM_MEMBERS.find((t) => t.name === preferredTeamMember);
-      const fallback = TEAM_MEMBERS.find((t) => t.name === 'Caleb Long');
-      const target = chosen || fallback;
+      // All intake bookings go to Caleb Long's Calendly link.
       const fullName = [payload.first_name, payload.last_name]
         .filter(Boolean)
         .join(' ');
-      const url = buildCalendlyUrl(target?.calendly, {
+      const url = buildCalendlyUrl(CALEB_CALENDLY, {
         name: fullName,
         email: payload.email,
         trackingId,
       });
 
-      setRedirectName(target?.name || '');
+      setRedirectName('Caleb Long');
       setRedirectUrl(url);
       setSubmittedEmail(payload.email || '');
       setSubmittedFirstName(payload.first_name || '');
@@ -563,37 +543,37 @@ export default function HubIntakeForm() {
           <div className="col-md-6">
             <div className="form-grp">
               <label htmlFor="intake-first-name">First name <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
-              <input id="intake-first-name" type="text" name="first_name" autoComplete="given-name" required />
+              <input id="intake-first-name" type="text" name="first_name" autoComplete="given-name" placeholder="e.g. Jane" required />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-grp">
               <label htmlFor="intake-last-name">Last name <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
-              <input id="intake-last-name" type="text" name="last_name" autoComplete="family-name" required />
+              <input id="intake-last-name" type="text" name="last_name" autoComplete="family-name" placeholder="e.g. Smith" required />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-grp">
               <label htmlFor="intake-email">Email <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
-              <input id="intake-email" type="email" name="email" autoComplete="email" required />
+              <input id="intake-email" type="email" name="email" autoComplete="email" placeholder="you@example.com" required />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-grp">
               <label htmlFor="intake-phone">Phone</label>
-              <input id="intake-phone" type="tel" name="phone" autoComplete="tel" />
+              <input id="intake-phone" type="tel" name="phone" autoComplete="tel" placeholder="(555) 000-0000" />
             </div>
           </div>
           <div className="col-md-12">
             <div className="form-grp">
               <label htmlFor="intake-street">Street address</label>
-              <input id="intake-street" type="text" name="street_address" autoComplete="street-address" />
+              <input id="intake-street" type="text" name="street_address" autoComplete="street-address" placeholder="123 Main St" />
             </div>
           </div>
           <div className="col-md-5">
             <div className="form-grp">
               <label htmlFor="intake-city">City</label>
-              <input id="intake-city" type="text" name="city" autoComplete="address-level2" />
+              <input id="intake-city" type="text" name="city" autoComplete="address-level2" placeholder="e.g. Austin" />
             </div>
           </div>
           <div className="col-md-4">
@@ -610,7 +590,7 @@ export default function HubIntakeForm() {
           <div className="col-md-3">
             <div className="form-grp">
               <label htmlFor="intake-zip">ZIP</label>
-              <input id="intake-zip" type="text" name="zip" inputMode="numeric" autoComplete="postal-code" />
+              <input id="intake-zip" type="text" name="zip" inputMode="numeric" autoComplete="postal-code" placeholder="78701" />
             </div>
           </div>
         </div>
@@ -641,7 +621,7 @@ export default function HubIntakeForm() {
           </select>
         </div>
 
-        {(wantsPersonal || wantsBusiness) && (
+        {!!serviceFocus && (
           <div className="motta-intake-pillgroup">
             <p className="motta-intake-pillgroup__label">
               Specific services (select any)
@@ -747,7 +727,7 @@ export default function HubIntakeForm() {
             <div className="col-md-6">
               <div className="form-grp">
                 <label htmlFor="biz-email">Business email</label>
-                <input id="biz-email" type="email" name="business_email" />
+                <input id="biz-email" type="email" name="business_email" placeholder="billing@yourcompany.com" />
               </div>
             </div>
             <div className="col-md-4">
@@ -809,7 +789,7 @@ export default function HubIntakeForm() {
             <div className="col-md-12">
               <div className="form-grp">
                 <label htmlFor="biz-summary">A brief overview of the business</label>
-                <textarea id="biz-summary" name="business_summary" rows={3} />
+                <textarea id="biz-summary" name="business_summary" rows={3} placeholder="e.g. We run a 3-person e-commerce brand selling custom goods online. Looking for help with monthly bookkeeping and year-end taxes." />
               </div>
             </div>
           </div>
@@ -836,7 +816,7 @@ export default function HubIntakeForm() {
           <div className="col-md-6">
             <div className="form-grp">
               <label htmlFor="intake-behind">Are you currently behind on any tax filings? <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
-              <select id="intake-behind" name="behind_on_filings" defaultValue="">
+              <select id="intake-behind" name="behind_on_filings" defaultValue="" required>
                 <option value="" disabled>Select…</option>
                 {BEHIND_ON_FILINGS_OPTIONS.map((o) => (
                   <option key={o} value={o}>{o}</option>
@@ -847,7 +827,7 @@ export default function HubIntakeForm() {
           <div className="col-md-6">
             <div className="form-grp">
               <label htmlFor="intake-notices">Any pending IRS or state notices? <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
-              <select id="intake-notices" name="pending_tax_notices" defaultValue="">
+              <select id="intake-notices" name="pending_tax_notices" defaultValue="" required>
                 <option value="" disabled>Select…</option>
                 {PENDING_NOTICES_OPTIONS.map((o) => (
                   <option key={o} value={o}>{o}</option>
@@ -858,7 +838,7 @@ export default function HubIntakeForm() {
           <div className="col-md-6">
             <div className="form-grp">
               <label htmlFor="intake-cpa">Do you currently work with a CPA or bookkeeper? <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
-              <select id="intake-cpa" name="current_cpa_status" defaultValue="">
+              <select id="intake-cpa" name="current_cpa_status" defaultValue="" required>
                 <option value="" disabled>Select…</option>
                 {CURRENT_CPA_OPTIONS.map((o) => (
                   <option key={o} value={o}>{o}</option>
@@ -877,7 +857,7 @@ export default function HubIntakeForm() {
           <div className="col-md-6">
             <div className="form-grp">
               <label htmlFor="intake-referral">Who referred you?</label>
-              <input id="intake-referral" type="text" name="referral_source" placeholder="Optional" />
+              <input id="intake-referral" type="text" name="referral_source" placeholder="e.g. Google, a friend, LinkedIn" />
             </div>
           </div>
           <div className="col-md-6" />
