@@ -88,7 +88,10 @@ const STATES = [
 ];
 
 // All intake bookings go to Caleb Long's Calendly link.
-const CALEB_CALENDLY = 'https://calendly.com/caleb-long-mottafinancial';
+// Set to null to suppress the inline embed (e.g. while the account
+// is being configured) — the success screen will show a "we'll reach
+// out" message instead and the Hub still receives the submission.
+const CALEB_CALENDLY = null; // TODO: restore to 'https://calendly.com/caleb-long-mottafinancial' once Caleb's event types are live
 
 function buildCalendlyUrl(baseUrl, { name, email, trackingId } = {}) {
   if (!baseUrl) return null;
@@ -481,7 +484,7 @@ export default function HubIntakeForm() {
           Your intake has been received and ALFRED is already preparing a
           research brief.{redirectUrl
             ? <> Pick a 30‑minute discovery call{bookingWith} below — your name and email are already filled in.</>
-            : <> We&apos;ll be in touch within one business day to schedule a 30‑minute discovery call.</>}
+            : <> Someone from the Motta team will reach out within one business day to get a discovery call on the calendar.</>}
         </p>
 
         {redirectUrl ? (
@@ -497,7 +500,7 @@ export default function HubIntakeForm() {
             <strong>Right now.</strong>{' '}
             {redirectUrl
               ? <>Choose a time on the calendar above — confirmation lands in your inbox.</>
-              : <>ALFRED routes your intake to the right teammate.</>}
+              : <>ALFRED is routing your intake to the right teammate and they&apos;ll be in touch shortly.</>}
           </li>
           <li>
             <strong>Within one business day.</strong> We&apos;ll confirm by
