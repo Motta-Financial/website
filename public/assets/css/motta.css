@@ -1661,6 +1661,10 @@ main select:focus {
   color: var(--motta-charcoal, #1F1F1F);
   transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
+/* Give native select chevron breathing room on the right */
+.motta-intake-form .form-grp select {
+  padding-right: 44px;
+}
 .motta-intake-form .form-grp input:hover,
 .motta-intake-form .form-grp select:hover,
 .motta-intake-form .form-grp textarea:hover {
