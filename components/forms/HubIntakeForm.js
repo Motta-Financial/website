@@ -88,10 +88,7 @@ const STATES = [
 ];
 
 // All intake bookings go to Caleb Long's Calendly link.
-// Set to null to suppress the inline embed (e.g. while the account
-// is being configured) — the success screen will show a "we'll reach
-// out" message instead and the Hub still receives the submission.
-const CALEB_CALENDLY = null; // TODO: restore to 'https://calendly.com/caleb-long-mottafinancial' once Caleb's event types are live
+const CALEB_CALENDLY = 'https://calendly.com/caleb-long-mottafinancial';
 
 function buildCalendlyUrl(baseUrl, { name, email, trackingId } = {}) {
   if (!baseUrl) return null;
