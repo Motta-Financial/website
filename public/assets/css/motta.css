@@ -3537,14 +3537,14 @@ body.motta-intake-open {
     object-fit: cover;
     border-radius: 10px;
   }
-  /* Darken the hero overlay a little more so text pops */
-  .slider__single::before {
-    background: linear-gradient(
-      160deg,
-      rgba(10, 14, 8, 0.92) 0%,
-      rgba(15, 20, 10, 0.82) 55%,
-      rgba(20, 28, 14, 0.65) 100%
-    ) !important;
+  /* Keep the hero free of the decorative charcoal overlay. */
+  .slider__single::before,
+  .slider__single::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    opacity: 0 !important;
+    filter: none !important;
   }
 }
 
