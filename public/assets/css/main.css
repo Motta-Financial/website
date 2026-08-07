@@ -427,17 +427,9 @@ textarea {
   z-index: 1;
 }
 .btn::before {
-  content: '';
-  position: absolute;
-  transition-duration: 800ms;
-  width: 200%;
-  height: 200%;
-  top: 110%;
-  left: 50%;
-  background: var(--tg-theme-secondary);
-  transform: translateX(-50%);
-  border-radius: 50%;
-  z-index: -1;
+  content: none !important;
+  display: none !important;
+  background: none !important;
 }
 .btn::after {
   content: '\f10a';
