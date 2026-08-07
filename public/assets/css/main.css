@@ -2574,10 +2574,15 @@ textarea {
   }
 }
 .slider__single::before {
-  content: none !important;
-  display: none !important;
-  background: none !important;
-  opacity: 0 !important;
+  content: '' !important;
+  position: absolute;
+  inset: 0;
+  display: block !important;
+  background: linear-gradient(90deg, rgba(22, 27, 20, 0.82) 0%, rgba(22, 27, 20, 0.62) 52%, rgba(22, 27, 20, 0.42) 100%) !important;
+  opacity: 1 !important;
+  filter: none !important;
+  z-index: 2;
+  pointer-events: none;
 }
 .slider__single::after {
   content: none !important;

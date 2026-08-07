@@ -12,6 +12,7 @@
      ALFRED Halo   = warm cream    #C9CDB8 — soft outer glow
    ============================================================ */
 
+
 :root {
   --motta-sage:        #6B745D;
   --motta-sage-light:  #8E9B79;
@@ -23,8 +24,6 @@
   --motta-alfred:      #6B745D;
   --motta-alfred-glow: #8E9B79;
   --motta-alfred-halo: #C9CDB8;
-
-  /* Re-align template tokens to Motta palette */
   --tg-theme-primary:   #6B745D;
   --tg-theme-secondary: #333333;
   --tg-color-dark:      #4F573F;
@@ -4297,3 +4296,23 @@ body.motta-intake-open {
   }
 }
 
+/* Homepage dark hero: use a flat full-frame veil, never a decorative blob. */
+.slider__area .slider__single::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  background: linear-gradient(90deg, rgba(22, 27, 20, 0.84) 0%, rgba(22, 27, 20, 0.64) 54%, rgba(22, 27, 20, 0.44) 100%) !important;
+  opacity: 1 !important;
+  filter: none !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+.slider__area .slider__single::after,
+.slider__area .slider__single .btn::before,
+.slider__area .slider__single button.btn::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  filter: none !important;
+}
