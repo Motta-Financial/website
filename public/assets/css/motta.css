@@ -582,10 +582,11 @@
   .slider__single .slider__content .slider__btn-row .btn,
   .slider__single .slider__content .slider__btn-row button.btn {
     flex: 0 0 auto !important;
-    width: auto !important;
-    min-height: 46px;
-    padding: 0 24px !important;
-    font-size: 16px !important;
+    width: max-content !important;
+    min-width: 0 !important;
+    min-height: 42px;
+    padding: 0 18px !important;
+    font-size: 14px !important;
     line-height: 1.2 !important;
     white-space: nowrap;
   }
@@ -3029,8 +3030,16 @@ button.motta-cta.btn:hover {
 
 /* The theme's decorative charcoal ellipse overwhelms the hero content.
    Keep the hero clean at every breakpoint. */
+.slider__single::before,
 .slider__single::after {
+  content: none !important;
   display: none !important;
+  background: none !important;
+  filter: none !important;
+}
+
+.slider__single {
+  overflow: hidden;
 }
 
 /* Book a Demo form sat on a dark section but its placeholder text rendered

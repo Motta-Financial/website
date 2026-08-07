@@ -2593,7 +2593,10 @@ textarea {
   z-index: 2;
 }
 .slider__single::after {
-  display: none;
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  filter: none !important;
 }
 .slider__bg {
   background-size: cover;
