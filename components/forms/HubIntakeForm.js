@@ -87,30 +87,84 @@ const STATES = [
   'VT','VA','WA','WV','WI','WY','PR',
 ];
 
-// All intake bookings go to Caleb Long's Calendly link.
-const CALEB_CALENDLY = 'https://calendly.com/caleb-long-mottafinancial';
+// Booking URLs come from the Hub, never from here.
+//
+// This used to be `const CALEB_CALENDLY = 'https://calendly.com/caleb-long-mottafinancial'`
+// with every intake pointed at it. Two problems that caused:
+//
+//   1. A person-level Calendly URL renders that person's ENTIRE event
+//      menu — Coffee Chat, Client Conference, Client Touch Base, Client
+//      Check-In, Kickoff Meeting. A brand-new prospect was one click from
+//      booking an existing-client check-in. The Hub's URLs are scoped to
+//      the 30-minute discovery event type, so the embed opens on that and
+//      nothing else.
+//   2. Nobody was asked who they wanted to speak to, and the intake form
+//      asks exactly that question.
+//
+// `POST /api/public/intake` returns `booking_url` (the default — the
+// teammate they requested, else the firm round-robin) and `booking_hosts`
+// (everyone bookable, each with their own URL). Both already carry the
+// prospect's name/email as prefill and a `salesforce_uuid` stamped with
+// the intake row id.
+//
+// That `salesforce_uuid` matters: the Hub's Calendly webhook attributes a
+// booking back to its intake by reading `invitee.tracking.salesforce_uuid`.
+// The old code put the row id in `utm_content` instead, which nothing on
+// the Hub side reads — so website bookings were arriving unattributed.
+// Passing the Hub's URL through unmodified is what fixes that.
 
-function buildCalendlyUrl(baseUrl, { name, email, trackingId } = {}) {
-  if (!baseUrl) return null;
-  const params = new URLSearchParams();
-  if (name) params.set('name', name);
-  if (email) params.set('email', email);
-  // Hide the Calendly nav chrome inside the embed so it feels native.
-  params.set('hide_gdpr_banner', '1');
-  params.set('hide_landing_page_details', '1');
-  params.set('primary_color', '6B745D');
-  // Tracking — the Hub's Calendly webhook handler reads
-  // `payload.tracking.utm_*` from the invitee.created event to
-  // deterministically join a booking back to the originating
-  // prospect_submissions row. utm_content carries the row id;
-  // utm_source/medium/campaign tag the surface so Hub analytics can
-  // split website intake bookings out from other Calendly traffic.
-  params.set('utm_source', 'motta-website');
-  params.set('utm_medium', 'intake-form');
-  params.set('utm_campaign', 'website-intake');
-  if (trackingId) params.set('utm_content', trackingId);
-  const qs = params.toString();
-  return qs ? `${baseUrl}?${qs}` : baseUrl;
+// Presentation-only params. Appended to the Hub's URL rather than used to
+// build a new query string, so the prefill and attribution params it
+// already carries survive.
+function decorateHubBookingUrl(hubUrl) {
+  if (!hubUrl) return null;
+  try {
+    const url = new URL(hubUrl);
+    // Hide the Calendly nav chrome inside the embed so it feels native.
+    url.searchParams.set('hide_gdpr_banner', '1');
+    url.searchParams.set('hide_landing_page_details', '1');
+    url.searchParams.set('primary_color', '6B745D');
+    return url.toString();
+  } catch {
+    // A malformed URL from the Hub shouldn't blank the booking step —
+    // hand it back and let the embed's own fallback link show.
+    return hubUrl;
+  }
+}
+
+// One selectable host in the "who would you like to speak with?" list.
+// A button rather than a radio input so the whole card is the hit target
+// on mobile; `aria-pressed` carries the state for assistive tech.
+function HostOption({ label, sub, avatarUrl, selected, onSelect }) {
+  const initials = (label || '')
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase();
+
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      aria-pressed={selected}
+      className={`motta-host-option${selected ? ' is-selected' : ''}`}
+    >
+      <span className="motta-host-option__radio" aria-hidden="true" />
+      {avatarUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img className="motta-host-option__avatar" src={avatarUrl} alt="" aria-hidden="true" />
+      ) : (
+        <span className="motta-host-option__avatar motta-host-option__avatar--initials" aria-hidden="true">
+          {initials}
+        </span>
+      )}
+      <span className="motta-host-option__text">
+        <span className="motta-host-option__name">{label}</span>
+        {sub ? <span className="motta-host-option__sub">{sub}</span> : null}
+      </span>
+    </button>
+  );
 }
 
 // Inline Calendly embed. Lazily loads Calendly's widget.js once per
@@ -272,10 +326,15 @@ export default function HubIntakeForm() {
   const [servicesOther, setServicesOther] = useState('');
   const [entityTypes, setEntityTypes] = useState([]);
   const [entityTypesOther, setEntityTypesOther] = useState('');
-  // Where we redirect after a successful intake. Captured at submit
-  // time so we don't lose it if the form re-renders.
-  const [redirectUrl, setRedirectUrl] = useState(null);
-  const [redirectName, setRedirectName] = useState('');
+  // Booking targets returned by the Hub at submit time. Captured in
+  // state so they survive re-renders of the success screen.
+  //
+  // `defaultBookingUrl` is the firm round-robin / requested teammate;
+  // `bookingHosts` is everyone bookable, so the prospect can choose.
+  // `selectedHost === null` means "no preference" and uses the default.
+  const [defaultBookingUrl, setDefaultBookingUrl] = useState(null);
+  const [bookingHosts, setBookingHosts] = useState([]);
+  const [selectedHost, setSelectedHost] = useState(null);
   const [submittedEmail, setSubmittedEmail] = useState('');
   const [submittedFirstName, setSubmittedFirstName] = useState('');
   // Set once Calendly fires `calendly.event_scheduled`. When this
@@ -357,32 +416,28 @@ export default function HubIntakeForm() {
     };
 
     try {
-      // The Hub returns the created row so we can use its id as a
-      // deterministic correlation key for the eventual Calendly
-      // booking. The shape is intentionally tolerant — fall back
-      // through a few likely field names so a small Hub response
-      // rename doesn't break this. If none match we still book; the
-      // Hub-side webhook just falls back to email matching.
+      // The Hub returns the booking URLs already prefilled and stamped
+      // with the intake row id, so we never construct one ourselves.
       const hubResponse = await postToHub('/api/public/intake', payload);
-      const trackingId =
-        hubResponse?.prospect_submission_id ||
-        hubResponse?.submission_id ||
-        hubResponse?.id ||
-        hubResponse?.data?.id ||
-        null;
 
-      // All intake bookings go to Caleb Long's Calendly link.
-      const fullName = [payload.first_name, payload.last_name]
-        .filter(Boolean)
-        .join(' ');
-      const url = buildCalendlyUrl(CALEB_CALENDLY, {
-        name: fullName,
-        email: payload.email,
-        trackingId,
-      });
+      const hosts = Array.isArray(hubResponse?.booking_hosts)
+        ? hubResponse.booking_hosts
+        : [];
+      setBookingHosts(hosts);
 
-      setRedirectName('Caleb Long');
-      setRedirectUrl(url);
+      // `booking_url` is the default: the teammate they named in
+      // `preferred_team_member` when that person takes discovery calls,
+      // otherwise the firm round-robin (which books soonest).
+      setDefaultBookingUrl(hubResponse?.booking_url || null);
+
+      // Open on "no preference" — the round-robin, which books soonest.
+      //
+      // The Hub's own intake form has a free-text "a specific teammate
+      // you'd like to meet with?" field and pre-selects from it. This
+      // form has no such field, and now doesn't need one: the picker
+      // below IS the selection, and choosing from a real list beats
+      // typing a name we then have to fuzzy-match.
+      setSelectedHost(null);
       setSubmittedEmail(payload.email || '');
       setSubmittedFirstName(payload.first_name || '');
       setStatus('ok');
@@ -394,7 +449,7 @@ export default function HubIntakeForm() {
 
   if (status === 'ok' && bookingConfirmed) {
     const greeting = submittedFirstName ? `${submittedFirstName}, ` : '';
-    const meetingWith = redirectName ? ` with ${redirectName}` : '';
+    const meetingWith = selectedHost?.name ? ` with ${selectedHost.name}` : '';
     return (
       <div className="motta-intake-confirm" role="status" aria-live="polite">
         <header className="motta-intake-confirm__header">
@@ -468,7 +523,12 @@ export default function HubIntakeForm() {
   }
 
   if (status === 'ok') {
-    const bookingWith = redirectName ? ` with ${redirectName}` : '';
+    // The chosen host's calendar, falling back to the firm round-robin
+    // when they haven't expressed a preference.
+    const activeBookingUrl = decorateHubBookingUrl(
+      selectedHost?.url || defaultBookingUrl
+    );
+    const bookingWith = selectedHost?.name ? ` with ${selectedHost.name}` : '';
     return (
       <div className="motta-intake-success" role="status" aria-live="polite">
         <div className="motta-intake-success__badge" aria-hidden="true">
@@ -479,15 +539,49 @@ export default function HubIntakeForm() {
         <h3 className="motta-intake-success__title">Welcome to Motta.</h3>
         <p className="motta-intake-success__lede">
           Your intake has been received and ALFRED is already preparing a
-          research brief.{redirectUrl
+          research brief.{activeBookingUrl
             ? <> Pick a 30‑minute discovery call{bookingWith} below — your name and email are already filled in.</>
             : <> We&apos;ll be in touch within one business day to schedule a 30‑minute discovery call.</>}
         </p>
 
-        {redirectUrl ? (
+        {/* Ask WHO before showing a calendar. The intake form asks for a
+            preferred teammate, so honouring it visibly — and letting
+            them change their mind here — is the point. Every host URL is
+            scoped to the 30-minute discovery event type. */}
+        {activeBookingUrl && bookingHosts.length > 0 ? (
+          <div className="motta-intake-hosts">
+            <p className="motta-intake-hosts__label">
+              Who would you like to speak with?
+            </p>
+            <div className="motta-intake-hosts__options">
+              <HostOption
+                label="No preference"
+                sub="We'll match you with whoever can see you soonest"
+                selected={!selectedHost}
+                onSelect={() => setSelectedHost(null)}
+              />
+              {bookingHosts.map((host) => (
+                <HostOption
+                  key={host.name}
+                  label={host.name}
+                  sub={host.title || host.role || null}
+                  avatarUrl={host.avatarUrl}
+                  selected={selectedHost?.name === host.name}
+                  onSelect={() => setSelectedHost(host)}
+                />
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        {activeBookingUrl ? (
           <CalendlyInline
-            url={redirectUrl}
-            name={redirectName}
+            // Remounts the widget when the host changes so Calendly
+            // re-initialises against the new calendar rather than
+            // keeping the previous one mounted.
+            key={activeBookingUrl}
+            url={activeBookingUrl}
+            name={selectedHost?.name || ''}
             onScheduled={() => setBookingConfirmed(true)}
           />
         ) : null}
@@ -495,7 +589,7 @@ export default function HubIntakeForm() {
         <ol className="motta-intake-success__list" style={{ marginTop: 24 }}>
           <li>
             <strong>Right now.</strong>{' '}
-            {redirectUrl
+            {activeBookingUrl
               ? <>Choose a time on the calendar above — confirmation lands in your inbox.</>
               : <>ALFRED routes your intake to the right teammate.</>}
           </li>
