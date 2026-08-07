@@ -3989,9 +3989,18 @@ body.motta-intake-open {
        sub-menu, neither of which is on brand.
    ---------------------------------------------------------- */
 
+/* Never let a drawer opened in the mobile preview carry into desktop. */
+@media (min-width: 992px) {
+  .tgmobile__menu,
+  .tgmobile__menu-backdrop {
+    display: none !important;
+  }
+}
+
 /* Drawer surface: same cream as the desktop nav bar.
    The transparent site header sits over the dark hero and was painting
    on top of the drawer's top strip, so lift the drawer above it. */
+@media (max-width: 991.98px) {
 .tgmobile__menu {
   z-index: 1002 !important;
 }
@@ -4140,6 +4149,7 @@ body.motta-intake-open {
 }
 .tgmobile__menu .close-btn:hover {
   color: var(--motta-sage, #6b745d) !important;
+}
 }
 
 /* ==========================================================
