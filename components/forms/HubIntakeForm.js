@@ -549,7 +549,7 @@ export default function HubIntakeForm() {
           Your intake has been received and ALFRED is already preparing a
           research brief.{activeBookingUrl
             ? <> Pick a 30‑minute discovery call{bookingWith} below — your name and email are already filled in.</>
-            : <> We&apos;ll be in touch within one business day to schedule a 30‑minute discovery call.</>}
+            : <> Someone from the Motta team will reach out within one business day to get a discovery call on the calendar.</>}
         </p>
 
         {/* Ask WHO before showing a calendar. The intake form asks for a
@@ -599,7 +599,7 @@ export default function HubIntakeForm() {
             <strong>Right now.</strong>{' '}
             {activeBookingUrl
               ? <>Choose a time on the calendar above — confirmation lands in your inbox.</>
-              : <>ALFRED routes your intake to the right teammate.</>}
+              : <>ALFRED is routing your intake to the right teammate and they&apos;ll be in touch shortly.</>}
           </li>
           <li>
             <strong>Within one business day.</strong> We&apos;ll confirm by
