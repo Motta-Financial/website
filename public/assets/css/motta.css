@@ -488,30 +488,13 @@
   flex: 1 1 0 !important;
   width: auto !important;
   min-width: 0;
-  /* Let long labels break onto a second line instead of spilling out */
-  white-space: normal !important;
-  overflow: hidden !important;
+  white-space: nowrap;
+  overflow: visible !important;
   text-align: center;
   justify-content: center;
-  align-items: center;
   display: inline-flex !important;
-  gap: 6px;
-  padding-left: 12px !important;
-  padding-right: 12px !important;
-  /* Grow vertically to fit wrapped text, but stay compact */
-  height: auto !important;
-  min-height: 38px;
-  padding-top: 6px !important;
-  padding-bottom: 6px !important;
-  line-height: 1.2 !important;
-}
-/* Arrow glyph must never shrink or get pushed outside the capsule.
-   Kill the theme's margin-left so the arrow sits close to the label,
-   which matters most when the label wraps onto two lines. */
-.slider__btn-row .btn::after,
-.slider__btn-row button.btn::after {
-  flex: 0 0 auto !important;
-  margin-left: 0 !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
 }
 
 /* CTA button row — side-by-side on all screen sizes */
@@ -3024,68 +3007,11 @@ button.motta-cta.btn:hover {
   color: #fff;
 }
 
-/* Pill-shaped buttons — consistent capsule style site-wide */
-.btn,
-button.btn {
-  border-radius: 999px !important;
-}
-.border-btn {
-  border-radius: 999px !important;
-}
-
-/* Remove click/press animation on all buttons — no translateY dip */
-.btn:active,
-.btn:focus:active,
-.border-btn:active {
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-/* The theme's hover "ripple" is a 50%-radius #333 ellipse on .btn::before,
-   parked below the button. Any ancestor with overflow:visible let it escape
-   and render as a large gray blob over the page. Remove it outright. */
-.btn::before,
-.border-btn::before,
-button.btn::before {
-  display: none !important;
-  content: none !important;
-}
-
-/* Pill button text — wrap to a second line rather than spilling out */
-.btn,
-.border-btn {
-  white-space: normal;
-  overflow: hidden;
-  max-width: 100%;
-  text-wrap: balance;
-}
-
-/* Slider blob — the ::after pseudo on .slider__single bleeds on mobile */
-.slider__single {
-  overflow: hidden;
-}
+/* Slider blob is hidden only on small screens where it can overflow the
+   compact viewport; desktop keeps the original theme presentation. */
 @media (max-width: 767px) {
   .slider__single::after {
     display: none !important;
-  }
-}
-
-/* Pill sizing on very small screens so wrapped text stays inside */
-@media (max-width: 400px) {
-  .slider__btn-row .btn,
-  .slider__btn-row button.btn {
-    font-size: 11px !important;
-    line-height: 1.15 !important;
-    padding: 5px 10px !important;
-    min-height: 34px;
-    gap: 5px;
-  }
-  /* Shrink the arrow and pull it in tight against the label */
-  .slider__btn-row .btn::after,
-  .slider__btn-row button.btn::after {
-    width: 13px !important;
-    background-size: 13px auto !important;
-    margin-left: 0 !important;
   }
 }
 
