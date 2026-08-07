@@ -549,9 +549,16 @@
   position: relative;
   z-index: 3;
 }
-/* Shift the hero text block toward the left edge of the viewport */
+/* Keep the hero text inset from the viewport edge on desktop while leaving
+   the mobile layout unchanged. */
 .slider__single .container {
   padding-left: 0;
+}
+
+@media (min-width: 768px) {
+  .slider__single .container {
+    padding-left: 32px;
+  }
 }
 
 /* The two hero CTAs used different box models: the filled .btn had no
@@ -573,9 +580,10 @@
 /* Desktop hero pills should size to their labels rather than stretch across
    half the content column. Keep the text compact and the capsules balanced. */
 @media (min-width: 768px) {
-  /* Nudge the complete hero group left while preserving its vertical rhythm. */
+  /* Keep the original container inset so the hero text has breathing room
+     before the first word. */
   .slider__single .slider__content {
-    transform: translateX(-24px);
+    transform: none;
   }
 
   .slider__single .slider__content .slider__btn-row {
