@@ -2033,6 +2033,49 @@ main select:focus {
   line-height: 1.5;
 }
 
+/* ===== Consent block (intake form footer) ==================== */
+.motta-intake-consent {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(107, 116, 93, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.motta-intake-consent__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--motta-charcoal, #1F1F1F);
+}
+.motta-intake-consent__row input[type='checkbox'] {
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  /* Nudge down so the box aligns with the first line of a wrapping label. */
+  margin-top: 2px;
+  accent-color: var(--motta-sage-deep, #4F573F);
+  cursor: pointer;
+}
+.motta-intake-consent__row a {
+  color: var(--motta-sage-deep, #4F573F);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.motta-intake-consent__note {
+  margin: 2px 0 0 27px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(31, 31, 31, 0.6);
+}
+@media (max-width: 640px) {
+  .motta-intake-consent__note { margin-left: 0; }
+}
+
 /* ===== Host picker (intake success state) ==================== */
 /* Sits above the Calendly embed: the prospect chooses WHO first, then
    sees that person's calendar. Matches the embed card's border radius

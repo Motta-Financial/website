@@ -10,7 +10,7 @@
 // values regardless of which surface a prospect filled out.
 
 import { useEffect, useRef, useState } from 'react';
-import { postToHub, hubErrorMessage } from '@/lib/hub';
+import { postToHub, hubErrorMessage, HUB_BASE_URL } from '@/lib/hub';
 
 const honeypotStyle = {
   position: 'absolute',
@@ -410,6 +410,14 @@ export default function HubIntakeForm() {
       pending_tax_notices: get('pending_tax_notices') || undefined,
       current_cpa_status: get('current_cpa_status') || undefined,
       cpa_switch_reason: get('cpa_switch_reason') || undefined,
+
+      // Consent. An unchecked checkbox is ABSENT from FormData, so a
+      // decline must be sent explicitly — leaving it undefined would be
+      // indistinguishable from "never asked" on the Hub side, which is
+      // exactly the distinction these fields exist to record.
+      terms_accepted: get('terms_accepted') || undefined,
+      consent_store_data: get('consent_store_data') || "I don't accept",
+      consent_marketing_contact: get('consent_marketing_contact') || "I don't accept",
 
       page_url: typeof window !== 'undefined' ? window.location.href : undefined,
       website: get('website'), // honeypot — bots fill, real users leave empty
@@ -964,6 +972,52 @@ export default function HubIntakeForm() {
             rows={3}
             placeholder="Timeline, deadlines, or anything else worth flagging"
           />
+        </div>
+        {/* ── Consent ────────────────────────────────────────────────
+            Carried over from the Jotform this form replaced, where all
+            three were required and two had real variance: of 230
+            historical submissions, 47 people declined data storage and
+            38 declined marketing contact. Dropping the questions would
+            have silently started treating every new prospect as opted
+            in, and lost a documented consent record.
+
+            The Hub stores all three verbatim, using the Jotform's own
+            "I accept" / "I don't accept" vocabulary so historical and
+            new rows stay comparable.
+
+            Terms is `required` because acceptance must be an
+            affirmative act. The other two default to checked — matching
+            the Jotform, where the overwhelming majority accepted —
+            while leaving the decline one click away. */}
+        <div className="motta-intake-consent">
+          <label className="motta-intake-consent__row">
+            <input type="checkbox" name="terms_accepted" value="Accepted" required />
+            <span>
+              I accept the{' '}
+              {/* The legal pages live on the Hub, not this site — there
+                  is no /terms route here, so a relative link would 404. */}
+              <a
+                href={`${HUB_BASE_URL}/legal/terms`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                terms and conditions
+              </a>{' '}
+              <span style={{ color: '#c0392b' }} aria-label="required">*</span>
+            </span>
+          </label>
+          <label className="motta-intake-consent__row">
+            <input type="checkbox" name="consent_store_data" value="I accept" defaultChecked />
+            <span>Motta may store the information I&apos;ve provided</span>
+          </label>
+          <label className="motta-intake-consent__row">
+            <input type="checkbox" name="consent_marketing_contact" value="I accept" defaultChecked />
+            <span>Motta may contact me about products and services</span>
+          </label>
+          <p className="motta-intake-consent__note">
+            Declining the last two won&apos;t stop us helping you — we just
+            won&apos;t add you to anything beyond the conversation you asked for.
+          </p>
         </div>
       </SectionCard>
 
