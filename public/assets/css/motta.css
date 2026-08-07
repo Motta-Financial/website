@@ -573,6 +573,11 @@
 /* Desktop hero pills should size to their labels rather than stretch across
    half the content column. Keep the text compact and the capsules balanced. */
 @media (min-width: 768px) {
+  /* Nudge the complete hero group left while preserving its vertical rhythm. */
+  .slider__single .slider__content {
+    transform: translateX(-24px);
+  }
+
   .slider__single .slider__content .slider__btn-row {
     width: auto;
     justify-content: flex-start;
