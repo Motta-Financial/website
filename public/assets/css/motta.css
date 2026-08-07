@@ -571,6 +571,26 @@
   padding-right: 1.75rem;
 }
 
+/* Desktop hero pills should size to their labels rather than stretch across
+   half the content column. Keep the text compact and the capsules balanced. */
+@media (min-width: 768px) {
+  .slider__single .slider__content .slider__btn-row {
+    width: auto;
+    justify-content: flex-start;
+    gap: 18px;
+  }
+  .slider__single .slider__content .slider__btn-row .btn,
+  .slider__single .slider__content .slider__btn-row button.btn {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-height: 46px;
+    padding: 0 24px !important;
+    font-size: 16px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap;
+  }
+}
+
 .motta-topbanner__pill-logo {
   margin-right: -2px;
 }
@@ -3007,12 +3027,10 @@ button.motta-cta.btn:hover {
   color: #fff;
 }
 
-/* Slider blob is hidden only on small screens where it can overflow the
-   compact viewport; desktop keeps the original theme presentation. */
-@media (max-width: 767px) {
-  .slider__single::after {
-    display: none !important;
-  }
+/* The theme's decorative charcoal ellipse overwhelms the hero content.
+   Keep the hero clean at every breakpoint. */
+.slider__single::after {
+  display: none !important;
 }
 
 /* Book a Demo form sat on a dark section but its placeholder text rendered

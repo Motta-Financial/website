@@ -2593,16 +2593,7 @@ textarea {
   z-index: 2;
 }
 .slider__single::after {
-  content: '';
-  position: absolute;
-  left: -10%;
-  top: 0;
-  width: 70%;
-  height: 100%;
-  opacity: 0.82;
-  background: #1a1f14;
-  filter: blur(200px);
-  z-index: 2;
+  display: none;
 }
 .slider__bg {
   background-size: cover;
