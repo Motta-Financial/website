@@ -11,7 +11,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { postToHub, hubErrorMessage, HUB_BASE_URL } from '@/lib/hub';
-import { getTeamPhoto } from '@/lib/teamPhotos';
+import { getTeamPhoto, getTeamTitle } from '@/lib/teamPhotos';
 
 // Calendly's widget.js is ~100KB and the booking screen only appears
 // after the prospect finishes the whole form and submits, so there's
@@ -216,10 +216,17 @@ function CalendlyInline({ url, name, onScheduled }) {
   // tells us, so the frame can collapse to fit instead of showing a
   // fixed-height beige placeholder below the calendar.
   const [frameHeight, setFrameHeight] = useState(null);
+  // 'loading' | 'ready' | 'error'. The "open in a new tab" fallback link
+  // used to render unconditionally below every embed, which is confusing
+  // when the calendar is loading (or already loaded) fine — it only
+  // means something, and should only show, when the embed actually
+  // failed to mount.
+  const [status, setStatus] = useState('loading');
 
   // Listen for Calendly postMessage events: `event_scheduled` confirms a
   // booking, and `page_height` reports the iframe's real content height
-  // so we can size the frame to fit (no dead space underneath).
+  // so we can size the frame to fit (no dead space underneath). Getting
+  // a `page_height` event is also proof the widget mounted successfully.
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
     function isCalendlyEvent(e) {
@@ -237,7 +244,16 @@ function CalendlyInline({ url, name, onScheduled }) {
       } else if (e.data.event === 'calendly.page_height') {
         const raw = e.data?.payload?.height;
         const px = typeof raw === 'string' ? parseInt(raw, 10) : raw;
-        if (Number.isFinite(px) && px > 0) setFrameHeight(px);
+        // Calendly posts a couple of tiny `page_height` pings (as small
+        // as 1-2px) while its own loading spinner is showing, before the
+        // real calendar has rendered. Locking the frame to one of those
+        // used to permanently collapse the whole embed to a sliver —
+        // invisible, with no visible failure either. Only trust heights
+        // large enough to be actual calendar content.
+        if (Number.isFinite(px) && px > 100) {
+          setFrameHeight(px);
+          setStatus('ready');
+        }
       }
     }
     window.addEventListener('message', onMessage);
@@ -247,21 +263,40 @@ function CalendlyInline({ url, name, onScheduled }) {
   useEffect(() => {
     if (!url || typeof window === 'undefined') return undefined;
 
+    setStatus('loading');
+    setFrameHeight(null);
     let cancelled = false;
+    // Fallback proof-of-life: Calendly's own `calendly.page_height`
+    // message (above, filtered to real content sizes) is the only signal
+    // that the calendar actually rendered — an iframe tag can exist in
+    // the DOM while the widget is stuck on its own spinner forever (e.g.
+    // a blocked request). If we don't hear a real page_height within a
+    // few seconds of mounting, treat it as failed and show the "open in
+    // a new tab" link instead of leaving a permanently blank box.
+    let failTimer = null;
+
     ensureCalendlyScript()
       .then(() => {
-        if (cancelled || !containerRef.current || !window.Calendly) return;
+        if (cancelled || !containerRef.current || !window.Calendly) {
+          throw new Error('Calendly unavailable');
+        }
         // Clear any prior render then mount a fresh widget.
         containerRef.current.innerHTML = '';
         window.Calendly.initInlineWidget({
           url,
           parentElement: containerRef.current,
         });
+        failTimer = setTimeout(() => {
+          if (!cancelled) setStatus((prev) => (prev === 'ready' ? prev : 'error'));
+        }, 8000);
       })
-      .catch(() => { /* swallow — manual link is shown as fallback */ });
+      .catch(() => {
+        if (!cancelled) setStatus('error');
+      });
 
     return () => {
       cancelled = true;
+      if (failTimer) clearTimeout(failTimer);
     };
   }, [url]);
 
@@ -282,13 +317,15 @@ function CalendlyInline({ url, name, onScheduled }) {
         style={frameHeight ? { height: `${frameHeight}px` } : undefined}
         aria-label={name ? `Schedule a call with ${name}` : 'Schedule a call'}
       />
-      <p className="motta-calendly-embed__fallback">
-        Trouble seeing the calendar?{' '}
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          Open it in a new tab
-        </a>
-        .
-      </p>
+      {status === 'error' ? (
+        <p className="motta-calendly-embed__fallback">
+          Trouble seeing the calendar?{' '}
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            Open it in a new tab
+          </a>
+          .
+        </p>
+      ) : null}
     </div>
   );
 }
@@ -602,7 +639,13 @@ export default function HubIntakeForm() {
                 <HostOption
                   key={host.name}
                   label={host.name}
-                  sub={host.title || host.role || null}
+                  // Prefer the /team page's title over whatever the Hub
+                  // sends (e.g. a plain "Intern"), since the team page is
+                  // the canonical, most specific title for each person.
+                  // Only fall back to the Hub's own title/role (or
+                  // nothing) for hosts not in our team-page data, e.g.
+                  // Micaela Palacios.
+                  sub={getTeamTitle(host.name) || host.title || host.role || null}
                   // Prefer the team-page headshot when we have one for
                   // this host, since it's the canonical photo used across
                   // /team and /about/team. Only fall back to whatever the
