@@ -105,18 +105,6 @@ const teamMembers = [
     linkedin: 'https://www.linkedin.com/in/andrew-gianares-33967b172/',
     calendly: 'https://calendly.com/andrew-gianares-mottafinancial',
   },
-  {
-    slug: 'samprina-zekio',
-    name: 'Samprina Zekio',
-    title: 'Team Member',
-    department: 'Client Operations',
-    credentials: 'Full profile coming soon',
-    image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Samprina%20Zekio-GTqi19ZdKp1732WGzF5s5YFygrWUz9.jpg',
-    blurb:
-      "A fuller profile is on the way. In the meantime, connect with Samprina directly using the links below.",
-    email: 'Samprina.Zekio@MottaFinancial.com',
-  },
 ];
 
 export default function Team() {
