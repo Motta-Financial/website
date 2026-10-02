@@ -2,6 +2,7 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ReactDOM from 'react-dom';
 import { A11y, Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import AlfredLogo from '@/components/elements/AlfredLogo';
@@ -9,7 +10,8 @@ import IntakeButton from '@/components/intake/IntakeButton';
 
 // Applied inline (not via the data-background hook) so every slide is
 // painted as soon as it renders, with no dependency on a mount effect.
-const SLIDE_BG = { backgroundImage: 'url(/assets/img/slider/slider_bg01.jpg)' };
+const SLIDE_BG_URL = '/assets/img/slider/slider_bg01.jpg';
+const SLIDE_BG = { backgroundImage: `url(${SLIDE_BG_URL})` };
 
 // The slogan is the first thing visitors see, so it holds a little longer
 // than the story slides that follow it (ms).
@@ -27,7 +29,7 @@ const STORIES = [
     body: 'Intuit profiled Motta Financial in an official ProConnect Tax case study — the story of a firm built from day one on automation, a Books-to-Tax workflow, and ALFRED Ai, with a relentless focus on putting client dollars toward value, not paperwork.',
     cta: { href: '/news/press/proconnect-case-study', label: 'Read the case study' },
     secondary: { href: '/alfred', label: 'Meet ALFRED Ai' },
-    image: '/assets/img/news/proconnect-case-study.png',
+    image: '/assets/img/news/proconnect-case-study.jpg',
     imagePosition: 'center 45%',
     caption: 'Case study · July 2026',
   },
@@ -175,6 +177,12 @@ function PlayIcon() {
 }
 
 export default function HeroSlider() {
+  // Same reasoning as the inner-page banner: a CSS background is invisible to
+  // the preload scanner, and this photo is the home page's largest paint.
+  if (typeof ReactDOM.preload === 'function') {
+    ReactDOM.preload(SLIDE_BG_URL, { as: 'image', fetchPriority: 'high' });
+  }
+
   const swiperRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
 

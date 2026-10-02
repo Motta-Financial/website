@@ -62,8 +62,8 @@ export default function CommunityOverview() {
                 <img
                   src={item.image}
                   alt={item.org}
-                  loading="eager"
-                  fetchPriority="high"
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={i === 0 ? 'high' : undefined}
                   decoding="async"
                   style={
                     item.imageBg
