@@ -1,10 +1,9 @@
 'use client';
-import Aos from 'aos';
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import BackToTop from '../elements/BackToTop';
 import DataBg from '../elements/DataBg';
 import Breadcrumb from './Breadcrumb';
-import PageHead from './PageHead';
 import Footer1 from './footer/Footer1';
 import Footer2 from './footer/Footer2';
 import Footer3 from './footer/Footer3';
@@ -19,9 +18,9 @@ import TopBanner from '../elements/TopBanner';
 import AlfredCompanion from '../elements/AlfredCompanion';
 import IntakeProvider from '../intake/IntakeProvider';
 
-export const metadata = {
-  title: 'Motta Financial',
-};
+// aos / wow.js and the stylesheets they need, for the leftover template sections
+// only. Loaded on demand so they don't weigh down every real page.
+const LegacyMotion = dynamic(() => import('../utils/LegacyMotion'), { ssr: false });
 
 export default function Layout({
   headerStyle,
@@ -37,7 +36,8 @@ export default function Layout({
   children,
   transparent,
 }) {
-  const [scroll, setScroll] = useState(0);
+  const [scroll, setScroll] = useState(false);
+  const [needsLegacyMotion, setNeedsLegacyMotion] = useState(false);
   const [isMobileMenu, setMobileMenu] = useState(false);
   const handleMobileMenu = () => {
     setMobileMenu(!isMobileMenu);
@@ -52,24 +52,31 @@ export default function Layout({
   const [isOffcanvus, setOffcanvus] = useState(false);
   const handleOffcanvus = () => setOffcanvus(!isOffcanvus);
 
+  // Escape closes the mobile menu (it has no other keyboard exit).
   useEffect(() => {
-    const WOW = require('wowjs');
-    window.wow = new WOW.WOW({
-      live: false,
-    });
-    window.wow.init();
-    Aos.init();
+    if (!isMobileMenu) return undefined;
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') handleMobileMenu();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isMobileMenu]);
 
-    document.addEventListener('scroll', () => {
-      const scrollCheck = window.scrollY > 100;
-      if (scrollCheck !== scroll) {
-        setScroll(scrollCheck);
-      }
-    });
+  useEffect(() => {
+    // The scroll-reveal libraries are only needed by template sections that opt
+    // in with `data-aos` / `.wow`. None of the live pages do, so load them on
+    // demand instead of shipping them (and their global observers) everywhere.
+    setNeedsLegacyMotion(Boolean(document.querySelector('[data-aos], .wow')));
+
+    // Sticky-header flag. Layout remounts on every client navigation, so the
+    // listener must be removed or they pile up (one per page visited).
+    const onScroll = () => setScroll(window.scrollY > 100);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
   return (
     <IntakeProvider>
-      <PageHead headTitle={headTitle} />
       <DataBg />
       <TopBanner />
 
@@ -165,6 +172,7 @@ export default function Layout({
       {footerStyle == 4 ? <Footer4 /> : null}
       {footerStyle == 5 ? <Footer5 /> : null}
 
+      {needsLegacyMotion && <LegacyMotion />}
       <BackToTop />
       <AlfredCompanion />
     </IntakeProvider>

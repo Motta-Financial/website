@@ -3516,3 +3516,108 @@ button.motta-cta.btn:hover {
   }
 }
 
+
+/* ===== Accessibility ===== */
+
+/* The Apexa theme strips every focus outline (`a:focus, button:focus {outline:
+   none}`), which leaves keyboard users with no indicator at all. This ring
+   (dark sage + white halo) reads on both the light page and the dark hero. */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--motta-sage-deep, #4F573F);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.85);
+}
+
+/* Desktop dropdowns only opened on :hover, so keyboard users could never reach
+   About -> Founder / Team / ALFRED or the service sub-pages. */
+.tgmenu__navbar-wrap > ul > li:focus-within > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* The closed off-canvas menu is only slid off-screen, so its ~10 links stayed in
+   the tab order before the visible nav on every page. The menu's `transition:
+   all` makes visibility switch at the right end of the slide. */
+.tgmobile__menu {
+  visibility: hidden;
+}
+.mobile-menu-visible .tgmobile__menu {
+  visibility: visible;
+}
+
+/* Top announcement banner: pause / play control. */
+.motta-topbanner__dots {
+  align-items: center;
+}
+.motta-topbanner__pause {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--motta-warm, #EAE6E1);
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.motta-topbanner__pause:hover,
+.motta-topbanner__pause:focus-visible {
+  opacity: 1;
+}
+.motta-topbanner__pause svg {
+  width: 9px;
+  height: 9px;
+  fill: currentColor;
+}
+.motta-topbanner a:focus-visible,
+.motta-topbanner button:focus-visible {
+  outline-color: var(--motta-alfred-halo, #C9CDB8);
+  box-shadow: none;
+}
+
+/* The sticky header (main.css .sticky-menu) slides in with `fadeInDown`, which
+   used to come from animate.css. That 67 KB file is no longer loaded on every
+   page, so the one keyframe still in use lives here. */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Visitors who ask their OS to reduce motion: stop the site's decorative
+   animations and smooth scrolling everywhere (previously only the hero honoured
+   this). Durations are shortened rather than set to `none` so anything waiting
+   on an `animationend`/`transitionend` event still gets it. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}

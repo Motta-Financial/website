@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Counter from './Counter';
+import '/public/assets/css/odometer.css';
 
 export default function CounterUp({ count }) {
   const [inViewport, setInViewport] = useState(false);

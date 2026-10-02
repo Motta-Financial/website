@@ -4,7 +4,7 @@ import Link from "next/link"
 export default function NotFound() {
     return (
         <>
-            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Error page">
+            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Page not found">
                 <section className="error-area">
                     <div className="container">
                         <div className="row">
@@ -23,8 +23,11 @@ export default function NotFound() {
                                         <path d="M319.414 84.4042C318.096 84.4042 316.831 83.6391 316.277 82.3462C316.198 82.1615 308.265 64.3519 295.244 61.4496C288.945 60.0512 282.197 62.4258 275.212 68.5735C273.789 69.8135 271.628 69.6816 270.389 68.2568C269.15 66.8321 269.282 64.6685 270.705 63.4285C279.43 55.7769 288.207 52.8746 296.773 54.8007C313.194 58.4945 322.208 78.7843 322.577 79.6286C323.341 81.37 322.551 83.3752 320.811 84.1404C320.337 84.2987 319.862 84.4042 319.414 84.4042Z" fill="#684500" />
                                     </svg>
                                     <h2 className="title">OOPS! Nothing Was Found</h2>
-                                    <p>Oops! it could be you or us, there is no page here. It might have <br /> been moved or deleted.Back To Home</p>
+                                    <p>Oops! it could be you or us, there is no page here. It might have <br /> been moved or deleted.</p>
                                     <Link href="/" className="btn btn-two">Go Back To Home Page</Link>
+                                    <p style={{ marginTop: 24 }}>
+                                        Or try our <Link href="/services">services</Link> or <Link href="/contact">contact us</Link>.
+                                    </p>
                                 </div>
                             </div>
                         </div>

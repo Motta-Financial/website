@@ -5,7 +5,7 @@ import NewsArticle from '@/components/news/NewsArticle';
 export default function CpaRetirementBlogPost() {
   return (
     <NewsArticle
-      eyebrow="Blog \u00b7 Client Advisory"
+      eyebrow="Blog · Client Advisory"
       date="March 5, 2024"
       title="Preparing For Your CPA&rsquo;s Retirement"
       subtitle="Five essential steps to ensure a smooth transition when your trusted CPA decides it&rsquo;s time to hang up the calculator."
