@@ -431,16 +431,45 @@
   padding-right: 1.75rem;
 }
 
-/* ===== Home hero: slogan slide, story cards, rotation bullets ===== */
+/* ===== Home hero: slogan slide, story cards, rotation controls ===== */
+
+/* --- Fade carousel plumbing --------------------------------------------
+   swiper-bundle.css is Swiper 6 while the JS is v11. v6 keys its fade rules
+   to .swiper-container-fade; v11 sets .swiper-fade, so none of them match.
+   Fill the gaps here:
+   - opacity has to transition, otherwise no `transitionend` ever fires and
+     autoplay stays paused for good after the first advance;
+   - slides stretch to the tallest slide (v6's `height:100%` resolves to
+     auto in a content-sized wrapper), otherwise a band shows beneath the
+     shorter slides and the bullets can land on the page background;
+   - hidden slides must not catch clicks (HeroSlider also marks them inert;
+     this covers browsers that lack `inert`). */
+.slider__active .swiper-wrapper {
+  align-items: stretch;
+}
+.slider__active .swiper-slide {
+  height: auto;
+  transition-property: opacity, transform;
+  pointer-events: none;
+}
+.slider__active .swiper-slide-active {
+  pointer-events: auto;
+}
+
+/* Hero headlines: balanced wrapping avoids single-word last lines. */
+.slider__content .title {
+  text-wrap: balance;
+}
 
 /* Slogan headline. The theme's .title rule force-capitalizes every word;
-   the slogan keeps the casing it was written in. */
+   the slogan keeps the casing it was written in. The min() keeps
+   "accountant" on screen on a narrow phone even when the root font size is
+   scaled up. */
 .slider__content .title.slider__slogan {
   text-transform: none;
-  font-size: clamp(2.4rem, 5.6vw, 4.75rem);
+  font-size: clamp(min(2.4rem, 11vw), 5.6vw, 4.75rem);
   line-height: 1.08;
   letter-spacing: -0.02em;
-  text-wrap: balance;
   margin-bottom: 22px;
 }
 
@@ -457,13 +486,15 @@
 }
 .slider__slogan-underline {
   position: absolute;
-  left: -2%;
+  left: 0;
   bottom: -0.2em;
-  width: 104%;
+  width: 100%;
   height: 0.32em;
   overflow: visible;
   pointer-events: none;
 }
+/* Hidden until the draw-in starts: with a round cap, a fully "undrawn" dash
+   still leaves a dot at the start of the path. */
 .slider__slogan-underline path {
   fill: none;
   stroke: var(--motta-alfred-glow, #8E9B79);
@@ -471,13 +502,15 @@
   stroke-linecap: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
+  opacity: 0;
 }
 .slider__single.swiper-slide-active .slider__slogan-underline path {
   animation: slider-underline-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) 1.25s both;
 }
 @keyframes slider-underline-draw {
-  from { stroke-dashoffset: 1; }
-  to   { stroke-dashoffset: 0; }
+  from { stroke-dashoffset: 1; opacity: 0; }
+  2%   { opacity: 1; }
+  to   { stroke-dashoffset: 0; opacity: 1; }
 }
 
 /* Story slides — a framed photo card to the right of the copy (lg and up). */
@@ -515,9 +548,8 @@
 }
 
 /* Rotation bullets — brand-tinted, with the current slide as an elongated
-   pill. 10px dots on a 24px pitch keep each target clickable on touch. */
-/* Positioned explicitly: the bundled swiper-bundle.css is Swiper 6, which
-   doesn't centre a v11 pagination element on its own. */
+   pill. Positioned explicitly: the bundled swiper-bundle.css is Swiper 6,
+   which doesn't centre a v11 pagination element on its own. */
 .slider__active .swiper-pagination {
   left: 0;
   right: 0;
@@ -527,13 +559,25 @@
   z-index: 5;
 }
 .slider__active .swiper-pagination-bullet {
+  position: relative;
   width: 10px;
   height: 10px;
   margin: 0 7px;
   border-radius: 999px;
   background: #fff;
-  opacity: 0.4;
+  opacity: 0.65;
+  box-shadow: 0 0 0 1px rgba(20, 25, 15, 0.45);
   transition: width 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+/* The dots are small; an invisible 24px square around each one is the real
+   click/touch target (7px dot-to-dot gap on each side = a 24px pitch). */
+.slider__active .swiper-pagination-bullet::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  bottom: -7px;
+  left: -7px;
 }
 .slider__active .swiper-pagination-bullet-active {
   width: 28px;
@@ -545,16 +589,85 @@
   outline-offset: 3px;
 }
 
+/* Pause / play — the visible control for the auto-rotation (WCAG 2.2.2). */
+.slider__toggle {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(142, 155, 121, 0.65);
+  background: rgba(79, 87, 63, 0.72);
+  color: var(--motta-warm, #EAE6E1);
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background-color 0.2s ease;
+}
+.slider__toggle:hover {
+  background: rgba(79, 87, 63, 0.95);
+}
+.slider__toggle:focus-visible {
+  outline: 2px solid var(--motta-alfred-halo, #C9CDB8);
+  outline-offset: 3px;
+}
+.slider__toggle svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+@media (max-width: 575px) {
+  .slider__toggle {
+    right: 16px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .slider__slogan-underline path {
     animation: none !important;
     stroke-dashoffset: 0;
+    opacity: 1;
   }
-  .slider__single.swiper-slide-active .slider__story {
-    animation: none;
+  /* The theme's staggered fadeInUp entrance + the pulsing dot are motion too. */
+  .slider__single.swiper-slide-active .slider__story,
+  .slider__single.swiper-slide-active .slider__content .sub-title,
+  .slider__single.swiper-slide-active .slider__content .title,
+  .slider__single.swiper-slide-active .slider__content p,
+  .slider__single.swiper-slide-active .slider__content .btn,
+  .slider__single.swiper-slide-active .slider__shape img,
+  .slider__content .alfred-mark::before {
+    animation: none !important;
   }
-  .slider__active .swiper-pagination-bullet {
+  .slider__active .swiper-pagination-bullet,
+  .slider__toggle {
     transition: none;
+  }
+}
+
+/* Windows high-contrast / forced-colors: the dots and toggle would otherwise
+   take on the page's near-invisible custom colours. */
+@media (forced-colors: active) {
+  .slider__active .swiper-pagination-bullet {
+    forced-color-adjust: none;
+    background: ButtonText;
+    border: 1px solid ButtonText;
+    box-shadow: none;
+    opacity: 1;
+  }
+  .slider__active .swiper-pagination-bullet-active {
+    background: Highlight;
+  }
+  .slider__toggle {
+    forced-color-adjust: none;
+    background: ButtonFace;
+    border-color: ButtonText;
+    color: ButtonText;
   }
 }
 
