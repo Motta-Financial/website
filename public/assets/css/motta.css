@@ -431,6 +431,133 @@
   padding-right: 1.75rem;
 }
 
+/* ===== Home hero: slogan slide, story cards, rotation bullets ===== */
+
+/* Slogan headline. The theme's .title rule force-capitalizes every word;
+   the slogan keeps the casing it was written in. */
+.slider__content .title.slider__slogan {
+  text-transform: none;
+  font-size: clamp(2.4rem, 5.6vw, 4.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin-bottom: 22px;
+}
+
+/* "accountant" — lifted out of the line with the brand's light sage, a soft
+   glow, and a hand-drawn underline that draws itself in once the slide is
+   active. nowrap keeps the underline attached to the whole word. */
+.slider__slogan-em {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--motta-alfred-halo, #C9CDB8);
+  text-shadow: 0 0 36px rgba(142, 155, 121, 0.55);
+}
+.slider__slogan-underline {
+  position: absolute;
+  left: -2%;
+  bottom: -0.2em;
+  width: 104%;
+  height: 0.32em;
+  overflow: visible;
+  pointer-events: none;
+}
+.slider__slogan-underline path {
+  fill: none;
+  stroke: var(--motta-alfred-glow, #8E9B79);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.slider__single.swiper-slide-active .slider__slogan-underline path {
+  animation: slider-underline-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) 1.25s both;
+}
+@keyframes slider-underline-draw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Story slides — a framed photo card to the right of the copy (lg and up). */
+.slider__story {
+  position: relative;
+  z-index: 3;
+  margin: 0 auto;
+  max-width: 480px;
+}
+.slider__story--square {
+  max-width: 320px;
+}
+.slider__story-frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(201, 205, 184, 0.35);
+  background: var(--motta-sage-deep, #4F573F);
+  box-shadow: 0 30px 60px -22px rgba(0, 0, 0, 0.6);
+}
+.slider__story--square .slider__story-frame {
+  aspect-ratio: 1 / 1;
+}
+.slider__story-caption {
+  margin-top: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--motta-alfred-halo, #C9CDB8);
+}
+.slider__single.swiper-slide-active .slider__story {
+  animation: fadeInUp2 0.8s ease 0.6s both;
+}
+
+/* Rotation bullets — brand-tinted, with the current slide as an elongated
+   pill. 10px dots on a 24px pitch keep each target clickable on touch. */
+/* Positioned explicitly: the bundled swiper-bundle.css is Swiper 6, which
+   doesn't centre a v11 pagination element on its own. */
+.slider__active .swiper-pagination {
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  z-index: 5;
+}
+.slider__active .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  margin: 0 7px;
+  border-radius: 999px;
+  background: #fff;
+  opacity: 0.4;
+  transition: width 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+.slider__active .swiper-pagination-bullet-active {
+  width: 28px;
+  opacity: 1;
+  background: var(--motta-alfred-halo, #C9CDB8);
+}
+.slider__active .swiper-pagination-bullet:focus-visible {
+  outline: 2px solid var(--motta-alfred-halo, #C9CDB8);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slider__slogan-underline path {
+    animation: none !important;
+    stroke-dashoffset: 0;
+  }
+  .slider__single.swiper-slide-active .slider__story {
+    animation: none;
+  }
+  .slider__active .swiper-pagination-bullet {
+    transition: none;
+  }
+}
+
 .motta-topbanner__pill-logo {
   margin-right: -2px;
 }
