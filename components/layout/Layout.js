@@ -56,7 +56,9 @@ export default function Layout({
   useEffect(() => {
     if (!isMobileMenu) return undefined;
     const onKeyDown = (event) => {
-      if (event.key === 'Escape') handleMobileMenu();
+      if (event.key !== 'Escape') return;
+      setMobileMenu(false);
+      document.body.classList.remove('mobile-menu-visible');
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);

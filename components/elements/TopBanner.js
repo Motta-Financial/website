@@ -55,7 +55,11 @@ export default function TopBanner() {
       className="motta-topbanner"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onFocus={() => setFocused(true)}
+      onFocus={(e) => {
+        // Focus on the pause button itself must not hold the rotation, or
+        // pressing "resume" would appear to do nothing until focus moved away.
+        if (!e.target.closest('.motta-topbanner__pause')) setFocused(true);
+      }}
       onBlur={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false);
       }}
