@@ -5,7 +5,7 @@ import NewsArticle from '@/components/news/NewsArticle';
 export default function RealEstateProsBlogPost() {
   return (
     <NewsArticle
-      eyebrow="Blog \u00b7 Real Estate"
+      eyebrow="Blog · Real Estate"
       date="March 1, 2024"
       title="Taxes For Real Estate Professionals"
       subtitle="Smart tax strategies to save money, grow your assets, and protect them from unnecessary losses."

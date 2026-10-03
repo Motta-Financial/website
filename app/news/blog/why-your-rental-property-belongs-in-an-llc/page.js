@@ -5,7 +5,7 @@ import NewsArticle from '@/components/news/NewsArticle';
 export default function LlcRentalBlogPost() {
   return (
     <NewsArticle
-      eyebrow="Blog \u00b7 Real Estate"
+      eyebrow="Blog · Real Estate"
       date="April 2, 2024"
       title="Why Your Rental Property Belongs in an LLC"
       subtitle="Five compelling reasons why forming an LLC for your rental property could be a prudent decision."

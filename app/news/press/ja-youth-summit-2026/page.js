@@ -5,10 +5,10 @@ import NewsArticle from '@/components/news/NewsArticle';
 export default function JAYouthSummitPressRelease() {
   return (
     <NewsArticle
-      eyebrow="Press Release \u00b7 For Immediate Release"
-      date="May 24, 2026 \u00b7 New Bedford, Mass."
+      eyebrow="Press Release · For Immediate Release"
+      date="May 24, 2026 · New Bedford, Mass."
       title="Motta Financial Sponsors Inaugural JA Southern Massachusetts Youth Summit, Investing in the Next Generation of AI-Era Leaders"
-      subtitle="Local CPA and advisory firm joins Milestone Mortgage Solutions, UMass Dartmouth, and dozens of community partners in supporting Junior Achievement\u2019s first regional Youth Summit on AI, opportunity, and leadership."
+      subtitle="Local CPA and advisory firm joins Milestone Mortgage Solutions, UMass Dartmouth, and dozens of community partners in supporting Junior Achievement’s first regional Youth Summit on AI, opportunity, and leadership."
       heroImage="/assets/img/news/ja-youth-summit-2026.jpg"
       heroAlt="Motta Financial team member Caleb Long with attendees at the inaugural JA Southern Massachusetts Youth Summit"
       heroCaption="Motta Financial team member Caleb Long (center) at the inaugural JA Southern Massachusetts Youth Summit, May 7, 2026, UMass Dartmouth."

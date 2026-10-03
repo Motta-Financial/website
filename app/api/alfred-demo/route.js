@@ -1,10 +1,16 @@
 import { NextResponse } from 'next/server';
+import { readJsonBody } from '@/lib/readJsonBody';
 
 const HUB_URL = process.env.HUB_URL || 'https://hub.motta.cpa';
 
 export async function POST(request) {
+  const parsed = await readJsonBody(request);
+  if (parsed.error) {
+    return NextResponse.json({ error: parsed.error }, { status: parsed.status });
+  }
+
   try {
-    const body = await request.json();
+    const body = parsed.payload;
 
     // Basic validation
     const { firstName, lastName, email, firmName, firmType } = body;

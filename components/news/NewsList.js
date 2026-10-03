@@ -30,8 +30,8 @@ export default function NewsList({ eyebrow, title, lead, items }) {
                   <img
                     src={item.image}
                     alt={item.title || ''}
-                    loading="eager"
-                    fetchPriority="high"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    fetchPriority={i === 0 ? 'high' : undefined}
                     decoding="async"
                     style={
                       item.imageBg

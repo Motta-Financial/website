@@ -5,7 +5,7 @@ import NewsArticle from '@/components/news/NewsArticle';
 export default function BusinessValueBlogPost() {
   return (
     <NewsArticle
-      eyebrow="Blog \u00b7 Business Insights"
+      eyebrow="Blog · Business Insights"
       date="November 5, 2024"
       title="Business Owners: There&rsquo;s No Better Time Than Now"
       subtitle="Why understanding the value of your business is one of the most important moves you can make as an owner."

@@ -2,7 +2,7 @@ import Layout from '@/components/layout/Layout';
 import AlfredProductPage from '@/components/sections/AlfredProductPage';
 
 export const metadata = {
-  title: 'ALFRED Ai | Practice Management Platform for Professional Services',
+  title: 'ALFRED Ai | Practice Management Platform for Professional Services | Motta Financial',
   description:
     'ALFRED Ai connects your firm\'s existing tools into one intelligent workspace — centralized client data, live dashboards, and an AI assistant that knows your clients.',
   openGraph: {

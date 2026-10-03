@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ReactDOM from 'react-dom';
 
 /**
  * Breadcrumb — page header with the same look as the homepage hero:
@@ -17,6 +18,13 @@ export default function Breadcrumb({
   backLabel = 'Home',
 }) {
   const bg = backgroundImage || '/assets/img/slider/slider_bg01.jpg';
+
+  // The banner photo is a CSS background, so the browser's preload scanner can't
+  // see it and it only starts downloading after the stylesheet has been parsed.
+  // It is the largest paint on most inner pages, so ask for it up front.
+  if (typeof ReactDOM.preload === 'function') {
+    ReactDOM.preload(bg, { as: 'image', fetchPriority: 'high' });
+  }
 
   return (
     <section

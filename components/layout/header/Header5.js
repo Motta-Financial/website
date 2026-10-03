@@ -13,6 +13,13 @@ export default function Header5({
   handleOffcanvus,
   handleSearch,
 }) {
+  // The toggler and close control are <div>s; make them operable from the keyboard.
+  const onToggleKey = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleMobileMenu();
+    }
+  };
   return (
     <>
       <header className="tg-header__style-five">
@@ -56,11 +63,18 @@ export default function Header5({
                     <div
                       className="mobile-nav-toggler mobile-nav-toggler-two"
                       onClick={handleMobileMenu}
+                      onKeyDown={onToggleKey}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={isMobileMenu ? 'Close menu' : 'Open menu'}
+                      aria-expanded={!!isMobileMenu}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 18 18"
                         fill="none"
+                        aria-hidden="true"
+                        focusable="false"
                       >
                         <path
                           d="M0 2C0 0.895431 0.895431 0 2 0C3.10457 0 4 0.895431 4 2C4 3.10457 3.10457 4 2 4C0.895431 4 0 3.10457 0 2Z"
@@ -105,8 +119,15 @@ export default function Header5({
                 {/* Mobile Menu  */}
                 <div className="tgmobile__menu">
                   <nav className="tgmobile__menu-box">
-                    <div className="close-btn" onClick={handleMobileMenu}>
-                      <i className="fas fa-times" />
+                    <div
+                      className="close-btn"
+                      onClick={handleMobileMenu}
+                      onKeyDown={onToggleKey}
+                      role="button"
+                      tabIndex={0}
+                      aria-label="Close menu"
+                    >
+                      <i className="fas fa-times" aria-hidden="true" />
                     </div>
                     <div className="nav-logo">
                       <Link href="/">

@@ -31,7 +31,7 @@ const teamMembers = [
     department: 'Tax Advisory',
     credentials: 'CPA · 10+ Years Experience · Boston',
     image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Terry%20Song.png-IEMyP44Vgb8Idx1fPdxCC2qbVjiPpW.jpeg',
+      '/assets/img/team/terry-song.jpg',
     blurb:
       "Terry leads Motta's tax advisory practice as the senior point of contact for complex engagements with high-net-worth individuals, family offices, and closely-held businesses. He is known for translating intricate tax positions into clear client guidance and for a research-first standard that ensures every position is supported by authoritative tax law.",
     email: 'Terry.Song@MottaFinancial.com',
@@ -114,7 +114,7 @@ const teamMembers = [
     department: 'Accounting Advisory',
     credentials: 'Controller-Level · Fractional CFO · Multi-Client · 19 Years Experience',
     image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/7CB62C0D-75E8-4D6A-B324-3EB9D7590D6C%20%281%29-AwUjJh6BnFVF5y4tdVS5bUiQ34gLng.png',
+      '/assets/img/team/shinika-shelley.jpg',
     blurb:
       "Shinika is a senior accounting professional with nineteen years of experience delivering full-cycle accounting, financial reporting, and advisory services across healthcare, SaaS, B2B, entertainment, and real estate. She has served in Controller and Fractional CFO capacities — leading month-end close, cash flow strategy, multi-entity reporting, and client advisory for businesses ranging from dental investment portfolios to entertainment industry clients.",
     email: 'Shinika.Shelley@MottaFinancial.com',
@@ -152,13 +152,15 @@ export default function Team() {
             </div>
 
             <div className="row justify-content-center gutter-24">
-              {teamMembers.map((member) => {
+              {teamMembers.map((member, idx) => {
                 const cardBody = (
                   <>
                     <div className="team__thumb-two shine-animate">
                       <img
                         src={member.image || '/placeholder.svg'}
                         alt={member.name}
+                        loading={idx < 3 ? undefined : 'lazy'}
+                        decoding="async"
                         style={{
                           width: '100%',
                           height: '360px',
