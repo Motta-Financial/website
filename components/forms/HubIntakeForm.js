@@ -607,7 +607,7 @@ export default function HubIntakeForm() {
                   // this host, since it's the canonical photo used across
                   // /team and /about/team. Only fall back to whatever the
                   // Hub sends (or nothing, for initials) when we don't
-                  // have a match, e.g. Micaela Palacios.
+                  // have a match.
                   avatarUrl={getTeamPhoto(host.name) || host.avatarUrl}
                   selected={selectedHost?.name === host.name}
                   onSelect={() => setSelectedHost(host)}
