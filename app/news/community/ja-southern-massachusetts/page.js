@@ -7,13 +7,13 @@ export default function JASouthernMassachusettsCommunityPage() {
   return (
     <>
       <NewsArticle
-        eyebrow="In the Community \u00b7 Sponsorship"
+        eyebrow="In the Community · Sponsorship"
         date="May 2026"
         title="Junior Achievement of Southern Massachusetts"
-        subtitle="Motta Financial is a Connection Sponsor of JA Southern Massachusetts, supporting the inaugural 2026 Youth Summit and JA\u2019s year-round programs in financial literacy, entrepreneurship, and career readiness."
+        subtitle="Motta Financial is a Connection Sponsor of JA Southern Massachusetts, supporting the inaugural 2026 Youth Summit and JA’s year-round programs in financial literacy, entrepreneurship, and career readiness."
         heroImage="/assets/img/news/ja-youth-summit-2026.jpg"
         heroAlt="Motta Financial team member at the JA Southern Massachusetts Youth Summit"
-        heroCaption="The inaugural JA Southern Massachusetts Youth Summit, May 7, 2026 \u2014 UMass Dartmouth."
+        heroCaption="The inaugural JA Southern Massachusetts Youth Summit, May 7, 2026 — UMass Dartmouth."
         backHref="/news/community"
         backLabel="In the Community"
       >

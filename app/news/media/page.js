@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 
 const APPEARANCES = [
@@ -59,6 +60,14 @@ const APPEARANCES = [
 ];
 
 export default function MediaPage() {
+  // Deep links like /news/media#madison-advisory-ai-buys-time (used by the home
+  // hero) don't scroll on a client-side navigation here — the route renders
+  // behind app/loading.js, so Next looks for the target before it exists.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (id) document.getElementById(id)?.scrollIntoView({ block: 'start' });
+  }, []);
+
   return (
       <article className="motta-media motta-news-section-bg">
       <header className="motta-media__head">
@@ -75,7 +84,7 @@ export default function MediaPage() {
 
       <ul className="motta-media__list">
         {APPEARANCES.map((item) => (
-          <li key={item.id} className="motta-media__card">
+          <li key={item.id} id={item.id} className="motta-media__card">
             <div
               className="motta-media__art"
               style={
@@ -196,6 +205,9 @@ export default function MediaPage() {
           background: var(--motta-cream-50, #fbf8f2);
           border: 1px solid rgba(107, 116, 93, 0.16);
           border-radius: 14px;
+          /* Lets /news/media#<id> links (e.g. from the home hero) land with
+             the card clear of the fixed header. */
+          scroll-margin-top: 220px;
         }
         @media (max-width: 640px) {
           .motta-media__card {

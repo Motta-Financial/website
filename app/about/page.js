@@ -2,6 +2,12 @@ import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
 import IntakeButton from '@/components/intake/IntakeButton';
 
+export const metadata = {
+  title: 'About Motta Financial | Modern CPA Firm in Boston & Las Vegas',
+  description:
+    'A modern CPA firm built for individuals, families, and small business owners who want a team that actually thinks ahead for them.',
+};
+
 /**
  * /about — the long-form story page for Motta Financial.
  *
@@ -317,7 +323,7 @@ const SERVICES = [
     icon: 'flaticon-investment',
     title: 'Tax Planning & Preparation',
     desc: 'Year-round strategy and stress-free filing — drafted by ALFRED Ai, reviewed by your CPA.',
-    href: '/services/tax-planning',
+    href: '/services/tax',
   },
   {
     icon: 'flaticon-financial-profit',

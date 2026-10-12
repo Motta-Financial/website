@@ -431,6 +431,246 @@
   padding-right: 1.75rem;
 }
 
+/* ===== Home hero: slogan slide, story cards, rotation controls ===== */
+
+/* --- Fade carousel plumbing --------------------------------------------
+   swiper-bundle.css is Swiper 6 while the JS is v11. v6 keys its fade rules
+   to .swiper-container-fade; v11 sets .swiper-fade, so none of them match.
+   Fill the gaps here:
+   - opacity has to transition, otherwise no `transitionend` ever fires and
+     autoplay stays paused for good after the first advance;
+   - slides stretch to the tallest slide (v6's `height:100%` resolves to
+     auto in a content-sized wrapper), otherwise a band shows beneath the
+     shorter slides and the bullets can land on the page background;
+   - hidden slides must not catch clicks (HeroSlider also marks them inert;
+     this covers browsers that lack `inert`). */
+.slider__active .swiper-wrapper {
+  align-items: stretch;
+}
+.slider__active .swiper-slide {
+  height: auto;
+  transition-property: opacity, transform;
+  pointer-events: none;
+}
+.slider__active .swiper-slide-active {
+  pointer-events: auto;
+}
+
+/* Hero headlines: balanced wrapping avoids single-word last lines. */
+.slider__content .title {
+  text-wrap: balance;
+}
+
+/* Slogan headline. The theme's .title rule force-capitalizes every word;
+   the slogan keeps the casing it was written in. The min() keeps
+   "accountant" on screen on a narrow phone even when the root font size is
+   scaled up. */
+.slider__content .title.slider__slogan {
+  text-transform: none;
+  font-size: clamp(min(2.4rem, 11vw), 5.6vw, 4.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+}
+
+/* "accountant" — lifted out of the line with the brand's light sage, a soft
+   glow, and a hand-drawn underline that draws itself in once the slide is
+   active. nowrap keeps the underline attached to the whole word. */
+.slider__slogan-em {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--motta-alfred-halo, #C9CDB8);
+  text-shadow: 0 0 36px rgba(142, 155, 121, 0.55);
+}
+.slider__slogan-underline {
+  position: absolute;
+  left: 0;
+  bottom: -0.2em;
+  width: 100%;
+  height: 0.32em;
+  overflow: visible;
+  pointer-events: none;
+}
+/* Hidden until the draw-in starts: with a round cap, a fully "undrawn" dash
+   still leaves a dot at the start of the path. */
+.slider__slogan-underline path {
+  fill: none;
+  stroke: var(--motta-alfred-glow, #8E9B79);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+}
+.slider__single.swiper-slide-active .slider__slogan-underline path {
+  animation: slider-underline-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) 1.25s both;
+}
+@keyframes slider-underline-draw {
+  from { stroke-dashoffset: 1; opacity: 0; }
+  2%   { opacity: 1; }
+  to   { stroke-dashoffset: 0; opacity: 1; }
+}
+
+/* Story slides — a framed photo card to the right of the copy (lg and up). */
+.slider__story {
+  position: relative;
+  z-index: 3;
+  margin: 0 auto;
+  max-width: 480px;
+}
+.slider__story--square {
+  max-width: 320px;
+}
+.slider__story-frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(201, 205, 184, 0.35);
+  background: var(--motta-sage-deep, #4F573F);
+  box-shadow: 0 30px 60px -22px rgba(0, 0, 0, 0.6);
+}
+.slider__story--square .slider__story-frame {
+  aspect-ratio: 1 / 1;
+}
+.slider__story-caption {
+  margin-top: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--motta-alfred-halo, #C9CDB8);
+}
+.slider__single.swiper-slide-active .slider__story {
+  animation: fadeInUp2 0.8s ease 0.6s both;
+}
+
+/* Rotation bullets — brand-tinted, with the current slide as an elongated
+   pill. Positioned explicitly: the bundled swiper-bundle.css is Swiper 6,
+   which doesn't centre a v11 pagination element on its own. */
+.slider__active .swiper-pagination {
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  z-index: 5;
+}
+.slider__active .swiper-pagination-bullet {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin: 0 7px;
+  border-radius: 999px;
+  background: #fff;
+  opacity: 0.65;
+  box-shadow: 0 0 0 1px rgba(20, 25, 15, 0.45);
+  transition: width 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+/* The dots are small; an invisible 24px square around each one is the real
+   click/touch target (7px dot-to-dot gap on each side = a 24px pitch). */
+.slider__active .swiper-pagination-bullet::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  bottom: -7px;
+  left: -7px;
+}
+.slider__active .swiper-pagination-bullet-active {
+  width: 28px;
+  opacity: 1;
+  background: var(--motta-alfred-halo, #C9CDB8);
+}
+.slider__active .swiper-pagination-bullet:focus-visible {
+  outline: 2px solid var(--motta-alfred-halo, #C9CDB8);
+  outline-offset: 3px;
+}
+
+/* Pause / play — the visible control for the auto-rotation (WCAG 2.2.2). */
+.slider__toggle {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(142, 155, 121, 0.65);
+  background: rgba(79, 87, 63, 0.72);
+  color: var(--motta-warm, #EAE6E1);
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background-color 0.2s ease;
+}
+.slider__toggle:hover {
+  background: rgba(79, 87, 63, 0.95);
+}
+.slider__toggle:focus-visible {
+  outline: 2px solid var(--motta-alfred-halo, #C9CDB8);
+  outline-offset: 3px;
+}
+.slider__toggle svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+@media (max-width: 575px) {
+  .slider__toggle {
+    right: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slider__slogan-underline path {
+    animation: none !important;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  /* The theme's staggered fadeInUp entrance + the pulsing dot are motion too. */
+  .slider__single.swiper-slide-active .slider__story,
+  .slider__single.swiper-slide-active .slider__content .sub-title,
+  .slider__single.swiper-slide-active .slider__content .title,
+  .slider__single.swiper-slide-active .slider__content p,
+  .slider__single.swiper-slide-active .slider__content .btn,
+  .slider__single.swiper-slide-active .slider__shape img,
+  .slider__content .alfred-mark::before {
+    animation: none !important;
+  }
+  .slider__active .swiper-pagination-bullet,
+  .slider__toggle {
+    transition: none;
+  }
+}
+
+/* Windows high-contrast / forced-colors: the dots and toggle would otherwise
+   take on the page's near-invisible custom colours. */
+@media (forced-colors: active) {
+  .slider__active .swiper-pagination-bullet {
+    forced-color-adjust: none;
+    background: ButtonText;
+    border: 1px solid ButtonText;
+    box-shadow: none;
+    opacity: 1;
+  }
+  .slider__active .swiper-pagination-bullet-active {
+    background: Highlight;
+  }
+  .slider__toggle {
+    forced-color-adjust: none;
+    background: ButtonFace;
+    border-color: ButtonText;
+    color: ButtonText;
+  }
+}
+
 .motta-topbanner__pill-logo {
   margin-right: -2px;
 }
@@ -3276,3 +3516,108 @@ button.motta-cta.btn:hover {
   }
 }
 
+
+/* ===== Accessibility ===== */
+
+/* The Apexa theme strips every focus outline (`a:focus, button:focus {outline:
+   none}`), which leaves keyboard users with no indicator at all. This ring
+   (dark sage + white halo) reads on both the light page and the dark hero. */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--motta-sage-deep, #4F573F);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.85);
+}
+
+/* Desktop dropdowns only opened on :hover, so keyboard users could never reach
+   About -> Founder / Team / ALFRED or the service sub-pages. */
+.tgmenu__navbar-wrap > ul > li:focus-within > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* The closed off-canvas menu is only slid off-screen, so its ~10 links stayed in
+   the tab order before the visible nav on every page. The menu's `transition:
+   all` makes visibility switch at the right end of the slide. */
+.tgmobile__menu {
+  visibility: hidden;
+}
+.mobile-menu-visible .tgmobile__menu {
+  visibility: visible;
+}
+
+/* Top announcement banner: pause / play control. */
+.motta-topbanner__dots {
+  align-items: center;
+}
+.motta-topbanner__pause {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--motta-warm, #EAE6E1);
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.motta-topbanner__pause:hover,
+.motta-topbanner__pause:focus-visible {
+  opacity: 1;
+}
+.motta-topbanner__pause svg {
+  width: 9px;
+  height: 9px;
+  fill: currentColor;
+}
+.motta-topbanner a:focus-visible,
+.motta-topbanner button:focus-visible {
+  outline-color: var(--motta-alfred-halo, #C9CDB8);
+  box-shadow: none;
+}
+
+/* The sticky header (main.css .sticky-menu) slides in with `fadeInDown`, which
+   used to come from animate.css. That 67 KB file is no longer loaded on every
+   page, so the one keyframe still in use lives here. */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Visitors who ask their OS to reduce motion: stop the site's decorative
+   animations and smooth scrolling everywhere (previously only the hero honoured
+   this). Durations are shortened rather than set to `none` so anything waiting
+   on an `animationend`/`transitionend` event still gets it. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}

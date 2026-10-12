@@ -5,7 +5,7 @@ import NewsArticle from '@/components/news/NewsArticle';
 export default function StudentAidBlogPost() {
   return (
     <NewsArticle
-      eyebrow="Blog \u00b7 Tax Planning"
+      eyebrow="Blog · Tax Planning"
       date="September 4, 2024"
       title="Understanding the Tax Impact of Federal Student Aid"
       subtitle="What students, parents, and grandparents should know to maximize tax benefits when paying for college."

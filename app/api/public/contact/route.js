@@ -1,16 +1,16 @@
 import { NextResponse } from 'next/server';
 import { HUB_BASE_URL, HUB_TRUSTED_ORIGIN } from '@/lib/hub';
+import { readJsonBody } from '@/lib/readJsonBody';
 
 // Same-origin proxy for the Motta Hub contact endpoint. See the intake
 // proxy (app/api/public/intake/route.js) for the rationale — this keeps
 // the browser request same-origin and forwards to the Hub server-side.
 export async function POST(request) {
-  let payload;
-  try {
-    payload = await request.json();
-  } catch {
-    return NextResponse.json({ error: 'Invalid request body.' }, { status: 400 });
+  const parsed = await readJsonBody(request);
+  if (parsed.error) {
+    return NextResponse.json({ error: parsed.error }, { status: parsed.status });
   }
+  const { payload } = parsed;
 
   try {
     const hubRes = await fetch(`${HUB_BASE_URL}/api/public/contact`, {
