@@ -5,10 +5,10 @@ import NewsArticle from '@/components/news/NewsArticle';
 export default function SuffolkScholarshipPost() {
   return (
     <NewsArticle
-      eyebrow="Blog \u00b7 Community"
+      eyebrow="Blog · Community"
       date="January 30, 2025"
       title="Paying It Forward: A Scholarship in Honor of the Professors Who Started It All"
-      subtitle="How a surprise night at Suffolk University turned into a $225,000 gift \u2014 and why Dat Le will tell anyone who asks that he owes 100% of his career to the people who taught him."
+      subtitle="How a surprise night at Suffolk University turned into a $225,000 gift — and why Dat Le will tell anyone who asks that he owes 100% of his career to the people who taught him."
       heroImage="/assets/img/news/suffolk-scholarship/hug.jpg"
       heroAlt="Suffolk Associate Dean Tracey Riley hugs Dat Le at the January 2025 accounting scholarship event"
       heroCaption="Suffolk Associate Dean Tracey Riley hugs Dat Le moments after the surprise announcement of two new funds in her honor. Photo: Suffolk University, January 22, 2025."

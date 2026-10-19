@@ -4,8 +4,16 @@ import MobileMenu from "../MobileMenu"
 import OffcanvusMenu from "../OffcanvusMenu"
 import SearchPopup from "../SearchPopup"
 import IntakeButton from "@/components/intake/IntakeButton"
+import { SOCIAL_LIST } from "@/lib/socials"
 
 export default function Header1({ scroll, isMobileMenu, handleMobileMenu, transparent, isSearch, isOffcanvus, handleOffcanvus, handleSearch }) {
+    // The toggler and close control are <div>s; make them operable from the keyboard.
+    const onToggleKey = (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault()
+            handleMobileMenu()
+        }
+    }
     return (
         <>
             <header className={`${transparent ? "transparent-header" : ""}`}>
@@ -34,8 +42,8 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, transp
                                                 <li className="header-btn"><IntakeButton className="btn" source="header">Become a Client</IntakeButton></li>
                                             </ul>
                                         </div>
-                                        <div className="mobile-nav-toggler" onClick={handleMobileMenu}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none">
+                                        <div className="mobile-nav-toggler" onClick={handleMobileMenu} onKeyDown={onToggleKey} role="button" tabIndex={0} aria-label={isMobileMenu ? "Close menu" : "Open menu"} aria-expanded={!!isMobileMenu}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
                                                 <path d="M0 2C0 0.895431 0.895431 0 2 0C3.10457 0 4 0.895431 4 2C4 3.10457 3.10457 4 2 4C0.895431 4 0 3.10457 0 2Z" fill="currentcolor" />
                                                 <path d="M0 9C0 7.89543 0.895431 7 2 7C3.10457 7 4 7.89543 4 9C4 10.1046 3.10457 11 2 11C0.895431 11 0 10.1046 0 9Z" fill="currentcolor" />
                                                 <path d="M0 16C0 14.8954 0.895431 14 2 14C3.10457 14 4 14.8954 4 16C4 17.1046 3.10457 18 2 18C0.895431 18 0 17.1046 0 16Z" fill="currentcolor" />
@@ -52,7 +60,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, transp
                                 {/* Mobile Menu  */}
                                 <div className="tgmobile__menu">
                                     <nav className="tgmobile__menu-box">
-                                        <div className="close-btn" onClick={handleMobileMenu}><i className="fas fa-times" /></div>
+                                        <div className="close-btn" onClick={handleMobileMenu} onKeyDown={onToggleKey} role="button" tabIndex={0} aria-label="Close menu"><i className="fas fa-times" aria-hidden="true" /></div>
                                         <div className="nav-logo">
                                             <Link href="/"><img src="/assets/img/logo/logo.png" alt="Logo" /></Link>
                                         </div>
@@ -74,11 +82,11 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, transp
                                             </div>
                                             <div className="social-links">
                                                 <ul className="list-wrap">
-                                                    <li><Link href="/javascript:void(0)"><i className="fab fa-facebook-f" /></Link></li>
-                                                    <li><Link href="/javascript:void(0)"><i className="fab fa-twitter" /></Link></li>
-                                                    <li><Link href="/javascript:void(0)"><i className="fab fa-instagram" /></Link></li>
-                                                    <li><Link href="/javascript:void(0)"><i className="fab fa-linkedin-in" /></Link></li>
-                                                    <li><Link href="/javascript:void(0)"><i className="fab fa-youtube" /></Link></li>
+                                                    {SOCIAL_LIST.map((social) => (
+                                                        <li key={social.label}>
+                                                            <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={`Motta Financial on ${social.label}`}><i className={social.icon} /></a>
+                                                        </li>
+                                                    ))}
                                                 </ul>
                                             </div>
                                         </div>

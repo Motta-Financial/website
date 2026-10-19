@@ -5,7 +5,7 @@ import NewsArticle from '@/components/news/NewsArticle';
 export default function TeamUpBlogPost() {
   return (
     <NewsArticle
-      eyebrow="Blog \u00b7 Client Advisory"
+      eyebrow="Blog · Client Advisory"
       date="July 7, 2024"
       title="Are Your Accountant, Attorney, and Financial Advisor Teaming Up for Your Success?"
       subtitle="How the trifecta of professionals &mdash; accountants, attorneys, and financial advisors &mdash; can deliver holistic advice and protection."

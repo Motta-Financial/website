@@ -28,10 +28,20 @@ const MESSAGES = [
 
 export default function TopBanner() {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  // Rotation pauses while the pointer is over the banner or keyboard focus is
+  // inside it, and stays stopped once a visitor presses pause (or asks their
+  // OS for reduced motion).
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [stopped, setStopped] = useState(false);
+  const paused = hovered || focused || stopped;
 
   useEffect(() => {
-    if (paused) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) setStopped(true);
+  }, []);
+
+  useEffect(() => {
+    if (paused) return undefined;
     const id = setInterval(() => {
       setIndex((i) => (i + 1) % MESSAGES.length);
     }, 6000);
@@ -43,8 +53,16 @@ export default function TopBanner() {
   return (
     <div
       className="motta-topbanner"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={(e) => {
+        // Focus on the pause button itself must not hold the rotation, or
+        // pressing "resume" would appear to do nothing until focus moved away.
+        if (!e.target.closest('.motta-topbanner__pause')) setFocused(true);
+      }}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false);
+      }}
       role="region"
       aria-label="Site announcements"
     >
@@ -83,7 +101,21 @@ export default function TopBanner() {
             </Link>
           )}
         </div>
-        <div className="motta-topbanner__dots" role="tablist" aria-label="Announcement selector">
+        <div className="motta-topbanner__dots" role="group" aria-label="Announcements">
+          <button
+            type="button"
+            className="motta-topbanner__pause"
+            onClick={() => setStopped((value) => !value)}
+            aria-label={stopped ? 'Resume announcement rotation' : 'Pause announcement rotation'}
+          >
+            <svg viewBox="0 0 10 10" aria-hidden="true" focusable="false">
+              {stopped ? (
+                <path d="M2 1v8l7-4z" />
+              ) : (
+                <path d="M2 1h2.2v8H2zM5.8 1H8v8H5.8z" />
+              )}
+            </svg>
+          </button>
           {MESSAGES.map((_, i) => (
             <button
               key={i}
@@ -91,7 +123,7 @@ export default function TopBanner() {
               className="motta-topbanner__dot"
               data-active={i === index}
               aria-label={`Show announcement ${i + 1}`}
-              aria-selected={i === index}
+              aria-current={i === index ? 'true' : undefined}
               onClick={() => setIndex(i)}
             />
           ))}

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { HUB_BASE_URL, HUB_TRUSTED_ORIGIN } from '@/lib/hub';
+import { readJsonBody } from '@/lib/readJsonBody';
 
 // Same-origin proxy for the Motta Hub intake endpoint.
 // The browser POSTs here (same-origin, no CORS), and we forward the
@@ -17,12 +18,11 @@ import { HUB_BASE_URL, HUB_TRUSTED_ORIGIN } from '@/lib/hub';
 export const runtime = 'edge';
 
 export async function POST(request) {
-  let payload;
-  try {
-    payload = await request.json();
-  } catch {
-    return NextResponse.json({ error: 'Invalid request body.' }, { status: 400 });
+  const parsed = await readJsonBody(request);
+  if (parsed.error) {
+    return NextResponse.json({ error: parsed.error }, { status: parsed.status });
   }
+  const { payload } = parsed;
 
   try {
     const hubRes = await fetch(`${HUB_BASE_URL}/api/public/intake`, {

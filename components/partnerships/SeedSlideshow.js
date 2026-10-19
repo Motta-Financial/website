@@ -4,10 +4,23 @@ import { useEffect, useState } from 'react';
 
 export default function SeedSlideshow({ slides }) {
   const [index, setIndex] = useState(0);
+  // Only slides that are showing (or about to) get an <img>. Rendering all of
+  // them up front made /partnerships/suffolk-seed download every full-size
+  // photo (~9 MB) before the visitor had seen the first one.
+  const [mounted, setMounted] = useState(() => new Set([0]));
   const total = slides.length;
 
   useEffect(() => {
+    setMounted((prev) => {
+      const next = new Set(prev).add(index).add((index + 1) % total);
+      return next.size === prev.size ? prev : next;
+    });
+  }, [index, total]);
+
+  useEffect(() => {
     if (total <= 1) return undefined;
+    // Visitors who ask for reduced motion step through the slides themselves.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
     const id = setInterval(() => {
       setIndex((i) => (i + 1) % total);
     }, 6000);
@@ -29,7 +42,14 @@ export default function SeedSlideshow({ slides }) {
             }
             aria-hidden={i === index ? 'false' : 'true'}
           >
-            <img src={s.src} alt={s.alt} />
+            {mounted.has(i) ? (
+              <img
+                src={s.src}
+                alt={s.alt}
+                decoding="async"
+                loading={i === 0 ? undefined : 'lazy'}
+              />
+            ) : null}
             {s.caption ? (
               <figcaption className="seed-slideshow__caption">
                 {s.caption}

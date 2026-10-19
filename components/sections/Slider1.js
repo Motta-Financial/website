@@ -1,4 +1,4 @@
-import HeroSlider from '../slider/HeroSlider'
+import HeroSlider from '../slider/HeroSliderLazy'
 
 export default function Slider1() {
     return (

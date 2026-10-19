@@ -5,13 +5,13 @@ import NewsArticle from '@/components/news/NewsArticle';
 export default function JAYouthSummitBlogPost() {
   return (
     <NewsArticle
-      eyebrow="Blog \u00b7 Community"
+      eyebrow="Blog · Community"
       date="May 24, 2026"
       title="Why We Showed Up at the JA Youth Summit"
       subtitle="Notes from a day spent with the people who will run everything in ten years."
       heroImage="/assets/img/news/ja-youth-summit-2026.jpg"
       heroAlt="Caleb Long (center), Motta Financial, at the JA Southern Massachusetts Youth Summit"
-      heroCaption="Caleb Long (center), Motta Financial, at the JA Southern Massachusetts Youth Summit, May 7, 2026 \u2014 UMass Dartmouth."
+      heroCaption="Caleb Long (center), Motta Financial, at the JA Southern Massachusetts Youth Summit, May 7, 2026 — UMass Dartmouth."
       backHref="/news/blog"
       backLabel="All Posts"
     >

@@ -5,7 +5,7 @@ import NewsArticle from '@/components/news/NewsArticle';
 export default function TaxPolicyCrossroadsBlogPost() {
   return (
     <NewsArticle
-      eyebrow="Blog \u00b7 Tax Planning"
+      eyebrow="Blog · Tax Planning"
       date="October 4, 2024"
       title="Tax Policy Crossroads: What the 2024 Election and Expiring TCJA Provisions Could Mean for You"
       subtitle="A breakdown of the most significant TCJA provisions set to expire in 2025 and how they could affect individuals and small businesses."

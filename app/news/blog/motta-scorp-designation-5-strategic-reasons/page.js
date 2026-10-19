@@ -5,7 +5,7 @@ import NewsArticle from '@/components/news/NewsArticle';
 export default function ScorpDesignationBlogPost() {
   return (
     <NewsArticle
-      eyebrow="Blog \u00b7 Tax Planning"
+      eyebrow="Blog · Tax Planning"
       date="May 13, 2024"
       title="Why Should Your LLC Consider an S-Corp Designation? 5 Strategic Reasons"
       subtitle="A concise look at why converting your LLC&rsquo;s tax status to an S Corp could be a strategic move."

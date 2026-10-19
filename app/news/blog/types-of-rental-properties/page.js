@@ -5,7 +5,7 @@ import NewsArticle from '@/components/news/NewsArticle';
 export default function RentalTypesBlogPost() {
   return (
     <NewsArticle
-      eyebrow="Blog \u00b7 Real Estate"
+      eyebrow="Blog · Real Estate"
       date="August 7, 2024"
       title="Exploring Different Types of Rental Properties: Long-Term, Short-Term, and Vacation Rentals"
       subtitle="Benefits, challenges, tax implications, and ideal situations for each rental type."

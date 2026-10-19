@@ -51,7 +51,7 @@ export default function MobileMenu() {
             style={{ display: isActive.key === 3 ? 'block' : 'none' }}
           >
             <li>
-              <Link href="/services/tax-planning">
+              <Link href="/services/tax">
                 Tax Planning &amp; Preparation
               </Link>
             </li>
