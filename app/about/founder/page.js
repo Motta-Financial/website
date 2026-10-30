@@ -1,4 +1,5 @@
 import Layout from '@/components/layout/Layout';
+import IntuitCouncilCredit from '@/components/elements/IntuitCouncilCredit';
 import Link from 'next/link';
 
 export const metadata = {
@@ -90,6 +91,7 @@ export default function FounderPage() {
               <div className="motta-founder-story__content">
                 <span className="motta-eyebrow">Founder &amp; Managing Partner</span>
                 <h1 className="motta-founder-story__name">Dat Le, CPA</h1>
+                <IntuitCouncilCredit placement="founder" who="Motta Financial" className="motta-council--founder" />
 
                 {/* Career */}
                 <div className="motta-founder-story__section">
