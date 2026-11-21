@@ -993,8 +993,8 @@ export default function HubIntakeForm() {
         <div className="row g-3">
           <div className="col-md-6">
             <div className="form-grp">
-              <label htmlFor="intake-referral">Who referred you?</label>
-              <input id="intake-referral" type="text" name="referral_source" placeholder="e.g. Google, a friend, LinkedIn" />
+              <label htmlFor="intake-referral">Who referred you? <span style={{ color: '#c0392b' }} aria-label="required">*</span></label>
+              <input id="intake-referral" type="text" name="referral_source" placeholder="e.g. Google, a friend, LinkedIn" required />
             </div>
           </div>
           <div className="col-md-6" />
