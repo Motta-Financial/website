@@ -2958,6 +2958,20 @@ html.motta-intake-page-active body {
   box-shadow: 0 0 0 3px rgba(107, 116, 93, 0.18);
 }
 
+/* Use a consistent inset chevron across the full-page and modal intake forms. */
+.motta-intake-form .form-grp select,
+.motta-intake-page__form .form-grp select {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 50px;
+  background-color: #FFFFFF;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m3 6 5 5 5-5' stroke='%23333333' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 16px 16px;
+  cursor: pointer;
+}
+
 /* ----- Footer ----- */
 .motta-intake-page__foot {
   width: 100%;
