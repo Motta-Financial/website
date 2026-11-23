@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import IntakeButton from '@/components/intake/IntakeButton';
+import IntuitCouncilCredit from '@/components/elements/IntuitCouncilCredit';
 import { SOCIALS } from '@/lib/socials';
 
 export default function Footer1() {
@@ -133,6 +134,7 @@ export default function Footer1() {
                       <Link href="/">Motta Financial</Link> · All Rights Reserved.
                     </p>
                   </div>
+                  <IntuitCouncilCredit placement="footer" />
                 </div>
                 <div className="col-lg-6 text-lg-end">
                   <ul

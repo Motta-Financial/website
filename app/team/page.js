@@ -1,6 +1,7 @@
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
 import TeamContactLinks from '@/components/team/TeamContactLinks';
+import IntuitCouncilCredit from '@/components/elements/IntuitCouncilCredit';
 
 export const metadata = {
   title: 'Meet Our Professionals | Motta Financial',
@@ -209,6 +210,7 @@ export default function Team() {
                       >
                         {member.credentials}
                       </p>
+                      {member.slug === 'dat-le' && <IntuitCouncilCredit placement="team" variant="line" />}
                       <p style={{ fontSize: '14px', lineHeight: 1.6 }}>
                         {member.blurb}
                       </p>
